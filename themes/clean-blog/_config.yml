@@ -2,6 +2,7 @@
 menu:
   Home: /
   About: /about
+  Links: /links
   Github:
     url: https://github.com/BasedLukas    
     icon: github

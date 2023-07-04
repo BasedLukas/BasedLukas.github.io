@@ -82,6 +82,6 @@ They are really close together! Closer than the English – Dutch pair. Can you 
 ## Conclusion
 
 
-In this article we have learned what embeddings are, and seen how they can be used for various natural language processing tasks. If you found this interesting you can read more in depth [here](http://www.offconvex.org/2015/12/12/word-embeddings-1/) or [here](https://developers.google.com/machine-learning/crash-course/embeddings/video-lecture). 
+In this article we have learned what embeddings are, and seen how they can be used for various natural language processing tasks. If you found this interesting you can read more in depth [here](http://www.offconvex.org/2015/12/12/word-embeddings-1/) or [here](https://p.migdal.pl/2017/01/06/king-man-woman-queen-why.html/). 
 
 
