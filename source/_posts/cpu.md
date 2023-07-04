@@ -147,11 +147,18 @@ eval >=
 copy 3 6
 ```
 
-In the simple program above,the value 1 is continuously being fed into the CPU. At each iteration we add it to the value stored in register 2, so that we increment the value by 1. Eventually the value grows large enough that it overflows and becomes negative. This is because in binary the most significant bit (MSB) is used to represent negative numbers. Once this happens the program stops running.
+In the simple program above, the value 1 is continuously being fed into the CPU. At each iteration we add it to the value stored in register 2, so that we increment the value by 1. Eventually the value grows large enough that it overflows and becomes negative. This is because in binary the most significant bit (MSB) is used to represent negative numbers. Once this happens the program stops running.
 
 # Solve the Maze
 
 Now that we have a working CPU, we need something to do with it. So I designed a simple maze that a robot needs to navigate through. The robot can only see one square ahead, and is controlled by the CPU. In order to solve the maze, I implemented a simple algorithm - following the wall. Using this technique the robot is able to find its way through the maze.
+
+{% raw %}
+<center>
+<img src="maze.gif" alt="maze">
+<p><small>Robot solving maze</small></p>
+</center>
+{% endraw %}
 
 ```
 # robot recognizes these commands:
@@ -213,13 +220,8 @@ eval !=
 ahead
 eval always 
 ```
-{% raw %}
-<center>
-<img src="maze.gif" alt="maze">
-<p><small>Robot solving maze</small></p>
-</center>
-{% endraw %}
+
 
 ## Conclusion
 
-I thought this was quite a fun project, I certainly learnt a lot. While it may seem very complicated, the truth is that by playing Turing Complete, you learn in a very intuitive manner. I can highly recommend it. If you want to write your own program or take a look at the code, it is all available on my [github](https://github.com/BasedLukas/cpu_simulator).
+I thought this was quite a fun project, I certainly learnt a lot. While it may seem a little complicated, the truth is that by playing Turing Complete, you learn in a very intuitive manner. I can highly recommend it. If you want to write your own program or take a look at the code, it is all available on my [github](https://github.com/BasedLukas/cpu_simulator).
