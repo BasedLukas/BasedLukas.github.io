@@ -1,3 +1,14 @@
+to use tinybird:
+
+
+
+<script defer src="https://unpkg.com/@tinybirdco/flock.js" data-host="https://api.tinybird.co" data-token="p.eyJ1IjogImYxMGY0NmY5LWI2MTQtNGY3Mi1hNWRkLTJkZWMyZTYzOGU0ZCIsICJpZCI6ICJmM2Y3MDk5Ny03YTZiLTRlYzUtYTdkNC01ZTVkMmY1ZjZjMDcifQ.uBS7CItgVesD7IqUpKSyA_g6UNTH-YHuH3-XfpWy1o0"></script>
+
+
+
+
+
+
 # Clean Blog Hexo
 
 ![](http://www.codeblocq.com/img/hexo-theme-thumbnail/CleanBlog.png)
