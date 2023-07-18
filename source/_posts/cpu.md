@@ -224,4 +224,11 @@ eval always
 
 ## Conclusion
 
+{% raw %}
+<center>
+<img src="norway.jpeg" alt="NORway">
+<p><small>NOR-way</small></p>
+</center>
+{% endraw %}
+
 I thought this was quite a fun project, I certainly learnt a lot. While it may seem a little complicated, the truth is that by playing Turing Complete, you learn in a very intuitive manner. I can highly recommend it. If you want to write your own program or take a look at the code, it is all available on my [github](https://github.com/BasedLukas/cpu_simulator).
