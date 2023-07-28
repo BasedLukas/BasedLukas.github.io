@@ -2,8 +2,8 @@
 title: Waltzing with Chance
 date: 2023-07-01 
 tags: ["python", "probability"]
-cover: img/blackboard.jpg
-share_cover: img/blackboard.jpg
+cover: img/home-bg.jpg
+share_cover: img/home-bg.jpg
 author: Lukas
 subtitle: A brief introduction to Monte Carlo simulations in python.
 ---

@@ -2,8 +2,8 @@
 title: Text Vectorization
 date: 2023-03-22
 tags: ["python", "NLP"]
-cover: img/blackboard.jpg
-share_cover: img/blackboard.jpg
+cover: img/home-bg.jpg
+share_cover: img/home-bg.jpg
 author: Lukas
 subtitle: How text is represented inside a large language model.
 ---

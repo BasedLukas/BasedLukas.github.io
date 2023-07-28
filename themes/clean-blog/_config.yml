@@ -12,6 +12,8 @@ menu_title: Home
 # URL of the Home page image
 index_cover: img/home-bg.jpg
 
+
+
 # Default post title
 default_post_title: Untitled
 
@@ -32,7 +34,7 @@ default_post_title: Untitled
 # addthis:
 # 
 # # set your own favicon
-# favicon:
+favicon: img/favicon.ico
 # 
 # # Social Accounts
 # twitter_url:

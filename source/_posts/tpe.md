@@ -3,7 +3,9 @@ title: Therapeutic Plasma Exchange
 date: 2022-06-02
 tags: ["longevity"]
 author: Lukas
-subtitle: My attempt to summarize recent research into therapeutic plasma exchange, a promising attempt to improve longevity and health. 
+cover: img/home-bg.jpg
+share_cover: img/home-bg.jpg
+subtitle: A summary of the current research into therapeutic plasma exchange. 
 ---
 
 
