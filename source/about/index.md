@@ -1,6 +1,6 @@
 ---
 title: About
-date: 2023-07-01 
+date: 2024-01-17 
 ---
 
 # About me
@@ -15,4 +15,4 @@ In the past I have worked with advanced analytical instrumentation, and my backg
 
 #### Services
 
-I am normally available for consulting services. I can provide assistance with fine tuning and customizing LLMs (AI models) for your unique use case. I specialize in helping companies integrate these systems reliably and securely.
+I am normally available for consulting. I can provide assistance with fine tuning and customizing LLMs (AI models) for unique use cases. I specialize in helping companies integrate these systems reliably and securely.

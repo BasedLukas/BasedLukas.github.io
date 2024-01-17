@@ -23,6 +23,7 @@ author: Lukas
 * [Forecasting Principles and Practice](https://otexts.com/fpp3/)
 * [The Elements of Statistical Learning](https://hastie.su.domains/Papers/ESLII.pdf)
 * [Mathematics for Machine Learning](https://mml-book.github.io/book/mml-book.pdf)
+* [Reinforcement Learning: An Introduction](http://incompleteideas.net/book/the-book-2nd.html)
 
 <br>  
 
