@@ -6,7 +6,7 @@
 <header class="intro-header" style="background-image: url('<%- url_for(cover) %>')">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1">
                 <div class="post-heading">
                     <h1><%- item.title || theme.default_post_title || "Untitled" %></h1>
                     <% if (item.subtitle && item.subtitle.length) { %>
@@ -36,7 +36,7 @@
 
             <!-- Tags and categories -->
            <% if (item.categories && item.categories.length || item.tags && item.tags.length) { %>
-                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                <div class="col-lg-4 col-lg-offset-1 col-md-5 col-md-offset-1 post-tags">
                     <% if (item.tags && item.tags.length){ %>
                         <%- partial('article-tags', {item: item}) %>
                     <% } else { %>
@@ -56,7 +56,7 @@
             <% } %>
 
             <!-- Post Main Content -->
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
                 <%- item.content %>
 
                 <% if(theme.addthis) { %>
@@ -70,7 +70,7 @@
 
             <!-- Comments -->
             <% if (item.comment != false) { %>
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1">
                     <%- partial("_partial/comments.ejs") %>
                 </div>
             <% } %>
