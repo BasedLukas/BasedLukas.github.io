@@ -24,6 +24,7 @@ author: Lukas
 * [The Elements of Statistical Learning](https://hastie.su.domains/Papers/ESLII.pdf)
 * [Mathematics for Machine Learning](https://mml-book.github.io/book/mml-book.pdf)
 * [Reinforcement Learning: An Introduction](http://incompleteideas.net/book/the-book-2nd.html)
+* [Calculus made Easy](https://calculusmadeeasy.org/)
 
 <br>  
 
@@ -31,3 +32,4 @@ author: Lukas
 
 * [Karpathy](https://www.youtube.com/@AndrejKarpathy)
 * [Steve Brunton](https://www.youtube.com/@Eigensteve)
+* [Umar Jamil](https://www.youtube.com/@umarjamilai)
