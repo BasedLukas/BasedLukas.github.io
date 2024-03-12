@@ -2,8 +2,8 @@
 title: Designing a Simple 8 bit CPU Emulator in Python
 date: 2023-07-04 
 tags: ["python"]
-cover: img/home-bg.jpg
-share_cover: img/home-bg.jpg
+cover: img/bg.webp
+share_cover: img/bg.webp
 author: Lukas
 subtitle: How I made a CPU emulator based entirely on logic gate functions
 ---

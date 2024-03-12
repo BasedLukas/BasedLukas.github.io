@@ -2,8 +2,8 @@
 title: Will Gzip Replace Neural Networks for Text Classification? 
 date: 2023-07-19 
 tags: ["python","NLP"]
-cover: img/home-bg.jpg
-share_cover: img/home-bg.jpg
+cover: img/bg.webp
+share_cover: img/bg.webp
 author: Lukas
 subtitle: Probably no.
 ---

@@ -3,8 +3,8 @@ title: Therapeutic Plasma Exchange
 date: 2022-06-02
 tags: ["longevity"]
 author: Lukas
-cover: img/home-bg.jpg
-share_cover: img/home-bg.jpg
+cover: img/bg.webp
+share_cover: img/bg.webp
 subtitle: A summary of the current research into therapeutic plasma exchange. 
 ---
 
