@@ -63,7 +63,7 @@
         }
     %>
     <% if (image) { %>
-        <meta property="og:image" content="<%= config.url %><%= image %>"/>
+        <meta property="og:image" content="<%= config.url %>/<%= image %>"/>
     <% } %>
 
         <meta name="twitter:card" content="summary_large_image"/>
@@ -73,7 +73,7 @@
     <% } %>
 
     <% if(image) { %>
-        <meta name="twitter:image" content="<%= config.url %><%= image %>"/>
+        <meta name="twitter:image" content="<%= config.url %>/<%= image %>"/>
     <% } %>
 
     <!-- Title -->

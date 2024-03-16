@@ -2,7 +2,7 @@
 title: Double Q-learning Explained
 tags: ["python", "reinforcement learning", "probability"]
 cover: img/bg.webp
-share_cover: img/bg.webp
+share_cover: /2024-03-double_q/double_q.png
 author: Lukas
 subtitle: What is Maximization Bias and Double Q-learning?
 date: 2024-03-16 
