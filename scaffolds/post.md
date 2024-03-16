@@ -2,8 +2,8 @@
 title: {{ title }}
 date: {{ date }}
 tags: ["python"]
-cover: img/cover_image.jpg
-share_cover: img/share_image.jpg
+cover: img/bg.webp
+share_cover: img/bg.webp
 author: Lukas
 subtitle: Subtitle
 ---
