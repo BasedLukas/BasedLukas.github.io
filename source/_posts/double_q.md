@@ -291,3 +291,5 @@ I went into this deep dive because I had trouble understanding this myself. I’
 - [DeepMind x UCL | Reinforcement Learning Course](https://www.youtube.com/playlist?list=PLqYmG7hTraZBKeNJ-JE_eyJHZ7XgBoAyb)
 
 And of course, Andrej Karpathy’s [blog post](http://karpathy.github.io/2016/05/31/rl/).
+
+[Comments](https://news.ycombinator.com/item?id=39729731)
