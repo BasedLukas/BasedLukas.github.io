@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="My incoherent ramblings"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Lukas"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Text Vectorization"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="My incoherent ramblings"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Lukas&#39;s Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://loreley.one/img/bg.webp"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://loreley.one/img/bg.webp"/>
+    
+
+    <!-- Title -->
+    
+    <title>Text Vectorization - Lukas&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+        <link rel="icon" href="/img/favicon.ico"/>
+        
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Home</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/about">
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/links">
+                            
+                                Links
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/BasedLukas">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/bg.webp')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Text Vectorization</h1>
+                    
+                    <h2 class="post-subheading">
+                        How text is represented inside a large language model.
+                    </h2>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                            Posted by Lukas on
+                        
+                        
+                            2023-03-22
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-1 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/python/">#python</a> <a href="/tags/NLP/">#NLP</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+                <h2 id="Introduction-to-Embeddings"><a href="#Introduction-to-Embeddings" class="headerlink" title="Introduction to Embeddings"></a>Introduction to Embeddings</h2><p>Embeddings play a crucial role in natural language processing (NLP) and text analysis. Simply put, word embeddings represent words or phrases as vectors, which are lists of numbers. These vectors help encode the meaning of words so that similar words or phrases have closer vector representations. For example, the sentences “The cat quickly climbed the tree” and “The feline swiftly ascended the tree” have different words but similar meanings. Embeddings allow us to capture this similarity in meaning by placing these phrases close together in the embedding space. Embeddings make it more efficient to perform machine learning on large batches of text. By translating high-dimensional data (text) into a lower-dimensional space (vectors), embeddings efficiently capture the semantics&#x2F;meaning of inputs, which can be useful for tasks such as text search.</p>
+<h2 id="An-Example"><a href="#An-Example" class="headerlink" title="An Example"></a>An Example</h2><p>Let’s consider a simple example of using vectors to cluster movies based on their characteristics. Imagine arranging a set of movies on a one-dimensional number line, where movies that are more closely related are placed closer together. This arrangement might represent movies based on their appeal to different age groups, such as children versus adults. -1 would represent a children’s movie and 1 would represent an adult movie. Each movie could be given a score based on its audience’s age group.  </p>
+<p>However, there are other aspects, like genre, that can also contribute to the similarity between movies. To capture this, we can extend the arrangement to a two-dimensional space, where one dimension represents the age group and the other represents the genre. For instance, a movie could be represented as a vector (0.3, 0.2), where 0.3 corresponds to the age group, and 0.2 corresponds to the genre. This embedding helps us identify and group movies based on their appeal to different age groups and genres.</p>
+
+<center>
+<img src="embedding2d.jpg" alt="embedding2d">
+<p><small><a target="_blank" rel="noopener" href="https://developers.google.com/machine-learning/crash-course/embeddings/motivation-from-collaborative-filtering">source</a></small></p>
+</center>
+
+
+
+<h2 id="Generalising-to-Higher-Dimensions"><a href="#Generalising-to-Higher-Dimensions" class="headerlink" title="Generalising to Higher Dimensions"></a>Generalising to Higher Dimensions</h2><p>As we’ve seen with the simple movie clustering example, we can represent data points in multi-dimensional spaces to capture various characteristics. The same concept can be applied to more complex data, such as geographical locations or even natural language text.</p>
+
+<center>
+<img src="linear-relationships.jpg" alt="linear-relationships">
+<p><small><a target="_blank" rel="noopener" href="https://developers.google.com/machine-learning/crash-course/embeddings/translating-to-a-lower-dimensional-space">source</a></small></p>
+</center>
+
+
+<p>In the image above, capital cities are positioned close to their respective countries. In this space, not only are capital cities near their countries, but similar countries are also close to one another but along a different dimension. This arrangement effectively captures the relationships between countries and their capitals.</p>
+<p>Generalising this concept to even higher dimensions allows us to represent more complex information, such as text. In this case, each dimension represents a different concept or aspect of the text, which enables us to encode an entire paragraph or a block of text as a single vector. By representing text in this manner, we can capture the underlying semantic meaning and relationships between words, phrases, or even entire paragraphs.</p>
+<h2 id="Using-Vectors"><a href="#Using-Vectors" class="headerlink" title="Using Vectors"></a>Using Vectors</h2><p>To determine if two vectors are close to one another, we can use the cosine similarity. The cosine similarity measures the cosine of the angle between the two vectors, resulting in a value between -1 and 1. A value closer to 1 indicates a higher similarity, while a value closer to -1 indicates a lower similarity.</p>
+<p>One example of using vectors in text analysis is classifying reviews as positive or negative. In this case, we can represent each review as a vector and train a machine learning model to classify them based on their vector representations. The model could learn to classify reviews as positive or negative based on the similarity between the review vectors and vectors representing positive or negative sentiment.</p>
+<p>Another example is searching within a large body of text. In this scenario, we can break the text into smaller chunks or segments, each represented as a vector. When a user submits a search query, we convert the query into a vector in the same embedding space. To find the most relevant match, we measure the similarity between the search query vector and the vectors representing the chunks of text using cosine similarity. The chunk with the highest similarity to the search query vector is considered the best match for the user’s query.</p>
+<h2 id="Trying-it-out"><a href="#Trying-it-out" class="headerlink" title="Trying it out"></a>Trying it out</h2><p>Generating or computing word vectors involves training a machine learning model on a large corpus of text. The model learns to represent words or phrases as vectors based on the context in which they appear, capturing semantic meaning and relationships between words. Take a look at this example of 3 vectors constructed using the OpenAI Ada-2 model (input 2 says ”I really like running” in Dutch). </p>
+
+<center>
+<img src="python_embeddings.png" alt="python embeddings">
+</center>
+
+
+<p>When we compute the cosine similarity between them this is what we get;</p>
+
+<center>
+<img src="python_embeddings2.png" alt="python embeddings">
+</center>
+
+
+<p>The two sentences about running are very close together, even though the languages are different. The cat sentence is farther apart. Now look at what happens if we compare the sentence “I enjoy jogging” with “I do not enjoy jogging”.</p>
+
+<center>
+<img src="python_embeddings3.png" alt="python embeddings">
+</center>
+
+
+<p>They are really close together! Closer than the English – Dutch pair. Can you figure out why?</p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>In this article we have learned what embeddings are, and seen how they can be used for various natural language processing tasks. If you found this interesting you can read more in depth <a target="_blank" rel="noopener" href="http://www.offconvex.org/2015/12/12/word-embeddings-1/">here</a> or <a target="_blank" rel="noopener" href="https://p.migdal.pl/2017/01/06/king-man-woman-queen-why.html/">here</a>. </p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:info@loreley.one" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2024 Lukas<br></p>
+
+
+
+                
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
