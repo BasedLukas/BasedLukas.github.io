@@ -6,10 +6,10 @@
 title: "Lukas's Blog"
 subtitle: ''
 description: 'My incoherent ramblings'
-keywords:
+keywords: ['statistics', 'probability', 'machine learning', 'programming']
 author: Lukas
 language: en
-timezone: ''
+timezone: 'Europe/Amsterdam'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
@@ -41,13 +41,16 @@ external_link:
 filename_case: 0
 render_drafts: false
 post_asset_folder: true
+marked:
+  prependRoot: true
+  postAsset: true
 relative_link: false
 future: true
 highlight:
-  enable: false
+  enable: true
   line_number: false
   auto_detect: false
-  tab_replace: ''
+  tab_replace: '  '
   wrap: true
   hljs: false
 prismjs:
