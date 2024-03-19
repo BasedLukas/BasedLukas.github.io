@@ -1,24 +1,14 @@
 
+<!--Tiny bird analytics-->
+<script defer src="js/analytics.js" data-host="https://api.tinybird.co" data-token="p.eyJ1IjogImYxMGY0NmY5LWI2MTQtNGY3Mi1hNWRkLTJkZWMyZTYzOGU0ZCIsICJpZCI6ICJmM2Y3MDk5Ny03YTZiLTRlYzUtYTdkNC01ZTVkMmY1ZjZjMDcifQ.uBS7CItgVesD7IqUpKSyA_g6UNTH-YHuH3-XfpWy1o0"></script>
+
+
 <!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<!-- <script defer src="//code.jquery.com/jquery-2.1.4.min.js"></script> -->
 
 <!-- Bootstrap -->
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!-- <script defer src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
 
 <!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+<!-- <script defer src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script> -->
 
-<!-- Disqus Comments -->
-<% if (theme.comments && theme.comments.disqus_shortname){ %>
-<script type="text/javascript">
-    var disqus_shortname = '<%= theme.comments.disqus_shortname %>';
-
-    (function(){
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/<% if (page.comments){ %>embed.js<% } else { %>count.js<% } %>';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
-<% } %>
