@@ -8,12 +8,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <!--Description-->
+    <!-- background image -->
+    <link rel="preload" href="/img/bg.webp" as="image" fetchpriority="high">
 
+    <!-- Bootstrap Core CSS -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/> 
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- Gallery -->
+    <!-- <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/> -->
+
+
+    <!--Description-->
     
 
     
         <meta name="description" content="My incoherent ramblings"/>
+        <meta property="og:description" content="My incoherent ramblings"/>
+        <meta name="twitter:description" content="My incoherent ramblings">
     
 
     <!--Author-->
@@ -24,15 +45,11 @@
     <!--Open Graph Title-->
     
         <meta property="og:title" content="Will Gzip Replace Neural Networks for Text Classification?"/>
-    
-
-    <!--Open Graph Description-->
-    
-        <meta property="og:description" content="My incoherent ramblings"/>
+        <meta name="twitter:title" content="Will Gzip Replace Neural Networks for Text Classification?">
     
 
     <!--Open Graph Site Name-->
-        <meta property="og:site_name" content="Lukas&#39;s Blog"/>
+    <meta property="og:site_name" content="Lukas&#39;s Blog"/>
 
     <!--Type page-->
     
@@ -43,10 +60,13 @@
     
     
         <meta property="og:image" content="http://loreley.one/img/bg.webp"/>
+        <meta name="twitter:image" content="http://loreley.one/img/bg.webp">
     
 
         <meta name="twitter:card" content="summary_large_image"/>
 
+    
+        <meta name="twitter:site" content="@LukasBogacz"/>
     
 
     
@@ -57,39 +77,12 @@
     
     <title>Will Gzip Replace Neural Networks for Text Classification? - Lukas&#39;s Blog</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-
-    <!-- Custom CSS -->
-    
-<link rel="stylesheet" href="/css/style.css">
-
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
-
-    <!-- Google Analytics -->
-    
-
-
     <!-- favicon -->
     
         <link rel="icon" href="/img/favicon.ico"/>
         
     
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 7.1.1"></head>
 
 
 <body>
@@ -220,63 +213,34 @@
 <p>The algorithm analyzes a ‘window’ of characters, retrospectively scanning for matches. When a match is found, it is replaced by a reference pointing to the initial occurrence of that string. This simple replacement procedure effectively compacts data, especially in instances of high repetition.</p>
 <p>Consider a text filled with recurring phrases or words - LZ77 transforms this repetitiveness into a compression advantage. The same piece of data doesn’t need to be stored twice; a reference to its first occurrence will suffice. Thus, texts exhibiting more patterns are subject to more effective compression than random text. </p>
 <p>Here is a simple example:</p>
-<pre class="line-numbers language-none"><code class="language-none">Never gonna give you up
-Never gonna let you down
-Never gonna run around and desert you
-Never gonna make you cry
-Never gonna say goodbye
-Never gonna tell a lie and hurt you
-We&#39;ve known each other for so long
-Your heart&#39;s been aching, but you&#39;re too shy to say it (say it)
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Never gonna give you up</span><br><span class="line">Never gonna let you down</span><br><span class="line">Never gonna run around and desert you</span><br><span class="line">Never gonna make you cry</span><br><span class="line">Never gonna say goodbye</span><br><span class="line">Never gonna tell a lie and hurt you</span><br><span class="line">We&#x27;ve known each other for so long</span><br><span class="line">Your heart&#x27;s been aching, but you&#x27;re too shy to say it (say it)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>Post LZ77 compression, the lyrics transform into:</p>
-<pre class="line-numbers language-none"><code class="language-none">Never gonna(6, 2)i(12, 2) you up(24, 13)let(23, 5)down(49, 13)run ar(49, 2)nd(7, 2)n(4, 2)des(27, 2)t(43, 4)
-(38, 12)make(21, 4) cry(25, 13)say(35, 3)odbye(49, 13)tell (31, 2)lie(6, 2)nd hurt you
-We&#39;(37, 2) known each other fo(4, 2)so(47, 2)ong
-Y(39, 2)r(49, 2)ea(50, 2)&#39;s bee(41, 2)a(40, 2)i(25, 2),(13, 2)ut y(30, 2)&#39;re to(46, 2)shy(8, 3) sa(7, 2)i(25, 2)((8, 6))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Never gonna(6, 2)i(12, 2) you up(24, 13)let(23, 5)down(49, 13)run ar(49, 2)nd(7, 2)n(4, 2)des(27, 2)t(43, 4)</span><br><span class="line">(38, 12)make(21, 4) cry(25, 13)say(35, 3)odbye(49, 13)tell (31, 2)lie(6, 2)nd hurt you</span><br><span class="line">We&#x27;(37, 2) known each other fo(4, 2)so(47, 2)ong</span><br><span class="line">Y(39, 2)r(49, 2)ea(50, 2)&#x27;s bee(41, 2)a(40, 2)i(25, 2),(13, 2)ut y(30, 2)&#x27;re to(46, 2)shy(8, 3) sa(7, 2)i(25, 2)((8, 6))</span><br></pre></td></tr></table></figure>
 
 <p>Here, each backreference is denoted as <code>(number of places to go backwards, number of characters to replace)</code>. As the compression progresses, more words are replaced by these backreferences, significantly reducing the data footprint.</p>
 <p>However, this process isn’t without its challenges. One potential issue is distinguishing between actual text (literals) and backreferences. Currently, each backreference is enclosed in braces, which becomes problematic when the original text also contains braces. This could be addressed by escaping them, but it introduces redundancy. Huffman encoding, the other key technique utilized by gzip, helps overcome this issue and further compresses the text, which we will explore in the following section.</p>
 <h4 id="Huffman-Encoding-Shorter-Codes-for-Frequent-Characters"><a href="#Huffman-Encoding-Shorter-Codes-for-Frequent-Characters" class="headerlink" title="Huffman Encoding: Shorter Codes for Frequent Characters"></a>Huffman Encoding: Shorter Codes for Frequent Characters</h4><p>After the compression achieved by LZ77, gzip employs Huffman encoding to maximize the compression. Huffman encoding uses variable-length codes to represent each character in the text, where the code’s length is inversely related to the frequency of the character’s occurrence. This method allows us to save additional space by giving shorter codes to characters that appear more frequently.</p>
 <p>Let’s demonstrate this process with an example, using the text <code>AAABBCDDDDEEEEE</code>. Our first task is to tally the frequency of each character. The order is irrelevant at this stage:</p>
-<pre class="line-numbers language-none"><code class="language-none">A:3
-B:2
-C:1
-D:4
-E:5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">A:3</span><br><span class="line">B:2</span><br><span class="line">C:1</span><br><span class="line">D:4</span><br><span class="line">E:5</span><br></pre></td></tr></table></figure>
 
 <p>Next, we group the two least frequent characters (C and B) into a tree and keep it aside for future use:</p>
-<pre class="line-numbers language-none"><code class="language-none">  BC:3
-  &#x2F;  \
-B:2  C:1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">  BC:3</span><br><span class="line">  /  \</span><br><span class="line">B:2  C:1</span><br></pre></td></tr></table></figure>
 
 <p>We then add the total frequency of B and C, and reintroduce the newly created tree into our frequency table:</p>
-<pre class="line-numbers language-none"><code class="language-none">A:3
-D:4
-E:5
-BC:3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">A:3</span><br><span class="line">D:4</span><br><span class="line">E:5</span><br><span class="line">BC:3</span><br></pre></td></tr></table></figure>
 
 <p>We repeat this process, this time selecting the two lowest frequencies (A and BC):</p>
-<pre class="line-numbers language-none"><code class="language-none">ABC:6
-  &#x2F;  \
-A:3  BC:3
-     	&#x2F;  \
-     B:2  C:1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ABC:6</span><br><span class="line">  /  \</span><br><span class="line">A:3  BC:3</span><br><span class="line">       /  \</span><br><span class="line">     B:2  C:1</span><br></pre></td></tr></table></figure>
 
 <p>The frequency table updates to:</p>
-<pre class="line-numbers language-none"><code class="language-none">D:4
-E:5
-ABC:6<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">D:4</span><br><span class="line">E:5</span><br><span class="line">ABC:6</span><br></pre></td></tr></table></figure>
 
 <p>Next, we select D and E to form:</p>
-<pre class="line-numbers language-none"><code class="language-none">  DE: 9
-  &#x2F;  \
-D:4  E:5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">  DE: 9</span><br><span class="line">  /  \</span><br><span class="line">D:4  E:5</span><br></pre></td></tr></table></figure>
 
 <p>This leads to an updated frequency table:</p>
-<pre class="line-numbers language-none"><code class="language-none">ABC:6
-DE:9<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ABC:6</span><br><span class="line">DE:9</span><br></pre></td></tr></table></figure>
 
 <p>With just two elements left, we can construct our final tree using all the mini trees generated so far:</p>
 
@@ -287,11 +251,7 @@ DE:9<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
 
 
 <p>Finally, we assign unique codes for each letter: 0 for left and 1 for right. For instance, the code for D is 10. To reach D from the root, we move first to the right, then to the left. This system is efficient since we don’t need to denote when one code ends and the next begins — we simply stop whenever we reach a leaf. As a result, the most frequently appearing characters have the shortest codes:</p>
-<pre class="line-numbers language-none"><code class="language-none">A &#x3D; 00
-E &#x3D; 11
-D &#x3D; 10
-B &#x3D; 010
-C &#x3D; 011<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">A = 00</span><br><span class="line">E = 11</span><br><span class="line">D = 10</span><br><span class="line">B = 010</span><br><span class="line">C = 011</span><br></pre></td></tr></table></figure>
 <p>With this method, we can compress text quite effectively. Recall our earlier problem of distinguishing between backreferences and literals. Given the frequent recurrence of backreferences in the text, they would receive their own short, unique codes, thereby enhancing the compression efficiency. It’s important to note that while we’ve simplified the process here, the complete gzip algorithm is more complex.</p>
 <h3 id="Classification-Through-Compression"><a href="#Classification-Through-Compression" class="headerlink" title="Classification Through Compression"></a>Classification Through Compression</h3><p>Now that we understand how compression works, we can go back to text classification. Consider three examples, <code>x1</code>, <code>x2</code>, and <code>x3</code>. <code>x1</code> and <code>x2</code> belong to the same category, while <code>x3</code> falls into a different category. Let’s define <code>C(·)</code> as the compressed length of an object. The assumption we make is that <code>C(x1x2) - C(x1) &lt; C(x1x3) - C(x1)</code>. Here, <code>C(x1x2)</code> represents the compressed length of the concatenated <code>x1</code> and <code>x2</code>. Essentially, <code>C(x1x2) - C(x1)</code> is the additional byte count required to encode <code>x2</code> given the prior information of <code>x1</code>.</p>
 <p>This idea forms the basis of a distance metric inspired by the Kolmogorov complexity — a theoretical measure defined as the length of the shortest binary program that can generate a string <code>x</code>. Due to the inherent uncomputability of the Kolmogorov complexity, a normalized, and computable alternative, the Normalized Compression Distance (NCD), is used instead. NCD uses the compressed length <code>C(x)</code> as an approximation for the Kolmogorov complexity <code>K(x)</code>. Formally:</p>
@@ -304,16 +264,7 @@ C &#x3D; 011<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
 <script src="https://gist.github.com/BasedLukas/42022b382660a27a7044770893572b18.js"></script>
 
 
-<pre class="line-numbers language-none"><code class="language-none">CompA:  110
-CompB:  102
-CompA_Unknown:  153
-CompB_Unknown:  163
-A_Diff:  43
-B_Diff:  61
-
-NCD_A:  0.42727272727272725
-NCD_B:  0.5754716981132075
-StringUnknown is in GroupA<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CompA:  110</span><br><span class="line">CompB:  102</span><br><span class="line">CompA_Unknown:  153</span><br><span class="line">CompB_Unknown:  163</span><br><span class="line">A_Diff:  43</span><br><span class="line">B_Diff:  61</span><br><span class="line"></span><br><span class="line">NCD_A:  0.42727272727272725</span><br><span class="line">NCD_B:  0.5754716981132075</span><br><span class="line">StringUnknown is in GroupA</span><br></pre></td></tr></table></figure>
 
 
 <p>This approach, using the NCD offers is just one method for computing the distance. However, other distance metrics can be employed. </p>
@@ -336,14 +287,6 @@ StringUnknown is in GroupA<span aria-hidden="true" class="line-numbers-rows"><sp
                 
             </div>
 
-            <!-- Comments -->
-            
-                <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1">
-                    
-
-
-                </div>
-            
         </div>
     </div>
 </article>
@@ -391,16 +334,9 @@ StringUnknown is in GroupA<span aria-hidden="true" class="line-numbers-rows"><sp
 
     <!-- After footer scripts -->
     
-<!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<!--Tiny bird analytics-->
+<script defer src="/js/analytics.js" data-host="https://api.tinybird.co" data-token="p.eyJ1IjogImYxMGY0NmY5LWI2MTQtNGY3Mi1hNWRkLTJkZWMyZTYzOGU0ZCIsICJpZCI6ICJmM2Y3MDk5Ny03YTZiLTRlYzUtYTdkNC01ZTVkMmY1ZjZjMDcifQ.uBS7CItgVesD7IqUpKSyA_g6UNTH-YHuH3-XfpWy1o0"></script>
 
-<!-- Bootstrap -->
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-
-<!-- Disqus Comments -->
 
 
 

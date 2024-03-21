@@ -8,12 +8,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <!--Description-->
+    <!-- background image -->
+    <link rel="preload" href="/img/bg.webp" as="image" fetchpriority="high">
 
+    <!-- Bootstrap Core CSS -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/> 
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- Gallery -->
+    <!-- <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/> -->
+
+
+    <!--Description-->
     
 
     
         <meta name="description" content="My incoherent ramblings"/>
+        <meta property="og:description" content="My incoherent ramblings"/>
+        <meta name="twitter:description" content="My incoherent ramblings">
     
 
     <!--Author-->
@@ -24,15 +45,11 @@
     <!--Open Graph Title-->
     
         <meta property="og:title" content="Designing a Simple 8 Bit CPU Emulator in Python"/>
-    
-
-    <!--Open Graph Description-->
-    
-        <meta property="og:description" content="My incoherent ramblings"/>
+        <meta name="twitter:title" content="Designing a Simple 8 Bit CPU Emulator in Python">
     
 
     <!--Open Graph Site Name-->
-        <meta property="og:site_name" content="Lukas&#39;s Blog"/>
+    <meta property="og:site_name" content="Lukas&#39;s Blog"/>
 
     <!--Type page-->
     
@@ -43,10 +60,13 @@
     
     
         <meta property="og:image" content="http://loreley.one/img/bg.webp"/>
+        <meta name="twitter:image" content="http://loreley.one/img/bg.webp">
     
 
         <meta name="twitter:card" content="summary_large_image"/>
 
+    
+        <meta name="twitter:site" content="@LukasBogacz"/>
     
 
     
@@ -57,39 +77,12 @@
     
     <title>Designing a Simple 8 Bit CPU Emulator in Python - Lukas&#39;s Blog</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-
-    <!-- Custom CSS -->
-    
-<link rel="stylesheet" href="/css/style.css">
-
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
-
-    <!-- Google Analytics -->
-    
-
-
     <!-- favicon -->
     
         <link rel="icon" href="/img/favicon.ico"/>
         
     
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 7.1.1"></head>
 
 
 <body>
@@ -219,15 +212,7 @@
 
 <p>After completing the game, I decided it would be fun to create a Python emulator for a similar CPU. While it’s relatively easy to make a basic emulator in Python due to its high-level nature, I chose a different approach. I wanted to build the CPU entirely from scratch, deriving the logic from the fundamental functionality of logic gates. This means that the CPU’s performance is determined solely by simple true&#x2F;false comparisons, without relying on if statements or other control flows. It does make the code a bit harder to read at times, but by merely changing the function of a single logic gate, you can witness how the entire CPU’s behavior is affected (spoiler alert: it stops working).</p>
 <h2 id="Logic-Gates"><a href="#Logic-Gates" class="headerlink" title="Logic Gates"></a>Logic Gates</h2><p>The design starts with the logic gates. Here is an excerpt of the code</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">
-<span class="token keyword">def</span> <span class="token function">and_</span><span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">:</span><span class="token builtin">bool</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token builtin">int</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">all</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-<span class="token keyword">def</span> <span class="token function">or_</span><span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">:</span><span class="token builtin">bool</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token builtin">int</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">any</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-<span class="token keyword">def</span> <span class="token function">not_</span><span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">:</span><span class="token builtin">bool</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token builtin">int</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token keyword">not</span> <span class="token builtin">all</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">and_</span>(<span class="params">*args:<span class="built_in">bool</span></span>)-&gt;<span class="built_in">int</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">int</span>(<span class="built_in">all</span>(args))</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">or_</span>(<span class="params">*args:<span class="built_in">bool</span></span>)-&gt;<span class="built_in">int</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">int</span>(<span class="built_in">any</span>(args))</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">not_</span>(<span class="params">*args:<span class="built_in">bool</span></span>)-&gt;<span class="built_in">int</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">int</span>(<span class="keyword">not</span> <span class="built_in">all</span>(args))</span><br></pre></td></tr></table></figure>
 <p>The logic gates perform simple comparisons and return true or false values. For example the AND gate returns true only if both of its inputs are true. The OR gate returns true if either (or both) of its inputs are true.</p>
 
 <center>
@@ -255,32 +240,7 @@
 
 
 <p>The above design can now be implemented in code, using the logic gates we have created previously. In this case I first made a half adder (which doesn’t have a carry in) and used two of them to construct a full adder. Notice how all the logic is dependent on the operation of the logic gates.</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">
-<span class="token keyword">class</span> <span class="token class-name">HalfAdder</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> input1<span class="token punctuation">:</span><span class="token builtin">bool</span><span class="token punctuation">,</span> input2<span class="token punctuation">:</span><span class="token builtin">bool</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>input1 <span class="token operator">=</span> input1
-        self<span class="token punctuation">.</span>input2 <span class="token operator">=</span> input2
-    
-    <span class="token keyword">def</span> <span class="token function">sum</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">bool</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> xor<span class="token punctuation">(</span>self<span class="token punctuation">.</span>input1<span class="token punctuation">,</span> self<span class="token punctuation">.</span>input2<span class="token punctuation">)</span>
- 
-    <span class="token keyword">def</span> <span class="token function">carry</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token builtin">bool</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> and_<span class="token punctuation">(</span>self<span class="token punctuation">.</span>input1<span class="token punctuation">,</span> self<span class="token punctuation">.</span>input2<span class="token punctuation">)</span>
-    
-
-<span class="token keyword">class</span> <span class="token class-name">FullAdder</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> input1<span class="token punctuation">:</span><span class="token builtin">bool</span><span class="token punctuation">,</span> input2<span class="token punctuation">:</span><span class="token builtin">bool</span><span class="token punctuation">,</span> carry_in<span class="token punctuation">:</span><span class="token builtin">bool</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>input1 <span class="token operator">=</span> input1
-        self<span class="token punctuation">.</span>input2 <span class="token operator">=</span> input2
-        self<span class="token punctuation">.</span>carry_in <span class="token operator">=</span> carry_in
-        self<span class="token punctuation">.</span>half_adder1 <span class="token operator">=</span> HalfAdder<span class="token punctuation">(</span>input1<span class="token punctuation">,</span> input2<span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>half_adder2 <span class="token operator">=</span> HalfAdder<span class="token punctuation">(</span>self<span class="token punctuation">.</span>half_adder1<span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> carry_in<span class="token punctuation">)</span>
-
-    <span class="token keyword">def</span> <span class="token function">sum</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>half_adder2<span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    
-    <span class="token keyword">def</span> <span class="token function">carry</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> or_<span class="token punctuation">(</span>self<span class="token punctuation">.</span>half_adder1<span class="token punctuation">.</span>carry<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>half_adder2<span class="token punctuation">.</span>carry<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">HalfAdder</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, input1:<span class="built_in">bool</span>, input2:<span class="built_in">bool</span></span>):</span><br><span class="line">        self.input1 = input1</span><br><span class="line">        self.input2 = input2</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">sum</span>(<span class="params">self</span>) -&gt; <span class="built_in">bool</span>:</span><br><span class="line">        <span class="keyword">return</span> xor(self.input1, self.input2)</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">carry</span>(<span class="params">self</span>)-&gt;<span class="built_in">bool</span>:</span><br><span class="line">        <span class="keyword">return</span> and_(self.input1, self.input2)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">FullAdder</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, input1:<span class="built_in">bool</span>, input2:<span class="built_in">bool</span>, carry_in:<span class="built_in">bool</span></span>):</span><br><span class="line">        self.input1 = input1</span><br><span class="line">        self.input2 = input2</span><br><span class="line">        self.carry_in = carry_in</span><br><span class="line">        self.half_adder1 = HalfAdder(input1, input2)</span><br><span class="line">        self.half_adder2 = HalfAdder(self.half_adder1.<span class="built_in">sum</span>(), carry_in)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">sum</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self.half_adder2.<span class="built_in">sum</span>()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">carry</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> or_(self.half_adder1.carry(), self.half_adder2.carry())</span><br></pre></td></tr></table></figure>
 
 <p>After creating a number of basic components such as these, we create more complex components such as an ALU (Arithmetic Logic Unit). The task of the ALU is to perform simple mathematical operations, such as adding 2 numbers together. In this case the ALU can only perform 4 simple operations; Addition, Subtraction, and two logical operations AND and OR. I took inspiration from this 32 bit ALU design, although mine only has 8 bits.</p>
 
@@ -309,24 +269,7 @@
 
 
 <p>Using just these operations we have already created a turing complete CPU! However writing code for it would be challenging as we would have to write everything in binary. To solve this I made a simple assembler that converts assembly code to binary. It also adds a number of useful features such as labels. Labels allow you to mark a point in your program to jump to, making it much easier to create loops in your code. Let’s take a look at a simple program. </p>
-<pre class="line-numbers language-none"><code class="language-none"># create a marker at the beginning of the program where we can jump to
-label start 
-
-# read from input (reg6) into reg1
-copy 6 1
-
-# add reg 1 and 2, store the result in reg3
-add
-
-#copy result from reg3 into reg2
-copy 3 2
-
-# loop back to start if the value is not negative
-start
-eval &gt;&#x3D;
-
-# Once the value overflows and becomes negative send the result to the output
-copy 3 6<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># create a marker at the beginning of the program where we can jump to</span><br><span class="line">label start </span><br><span class="line"></span><br><span class="line"># read from input (reg6) into reg1</span><br><span class="line">copy 6 1</span><br><span class="line"></span><br><span class="line"># add reg 1 and 2, store the result in reg3</span><br><span class="line">add</span><br><span class="line"></span><br><span class="line">#copy result from reg3 into reg2</span><br><span class="line">copy 3 2</span><br><span class="line"></span><br><span class="line"># loop back to start if the value is not negative</span><br><span class="line">start</span><br><span class="line">eval &gt;=</span><br><span class="line"></span><br><span class="line"># Once the value overflows and becomes negative send the result to the output</span><br><span class="line">copy 3 6</span><br></pre></td></tr></table></figure>
 
 <p>In the simple program above, the value 1 is continuously being fed into the CPU. At each iteration we add it to the value stored in register 2, so that we increment the value by 1. Eventually the value grows large enough that it overflows and becomes negative. This is because in binary the most significant bit (MSB) is used to represent negative numbers. Once this happens the program stops running.</p>
 <h1 id="Solve-the-Maze"><a href="#Solve-the-Maze" class="headerlink" title="Solve the Maze"></a>Solve the Maze</h1><p>Now that we have a working CPU, we need something to do with it. So I designed a simple maze that a robot needs to navigate through. The robot can only see one square ahead, and is controlled by the CPU. In order to solve the maze, I implemented a simple algorithm - following the wall. Using this technique the robot is able to find its way through the maze.</p>
@@ -337,64 +280,7 @@ copy 3 6<span aria-hidden="true" class="line-numbers-rows"><span></span><span></
 </center>
 
 
-<pre class="line-numbers language-none"><code class="language-none"># robot recognizes these commands:
-# 1 &#x3D; turn left, 
-# 2&#x3D;  turn right, 
-# 3&#x3D;  step forward
-# To execute a command send the corresponding value to the output (reg 6)
-
-label uturn
-2
-copy 0 6
-
-label right # twice to compensate for turning left
-2
-copy 0 6
-copy 0 6
-
-label left
-1
-copy 0 6
-
-label ahead
-3
-copy 0 6
-
-# start
-# check if wall to the left store in reg3
-# 1. turn left
-1
-copy 0 6
-# 2. read the input into reg3
-copy 6 3
-# 3. turn back to original direction
-2           
-copy 0 6
-
-# if no wall left, turn left until there is a wall. We follow the wall on our left side
-left 
-eval &#x3D;
-
-# there is a wall left, check ahead
-copy 6 1
-# check right
-2
-copy 0 6
-copy 6 2
-1 
-copy 0 6
-# if wall ahead and to the right then do a uturn
-and
-uturn
-eval !&#x3D;
-
-# if wall ahead but no wall right turn right
-copy 1 3
-right
-eval !&#x3D;
-
-ahead
-eval always <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># robot recognizes these commands:</span><br><span class="line"># 1 = turn left, </span><br><span class="line"># 2=  turn right, </span><br><span class="line"># 3=  step forward</span><br><span class="line"># To execute a command send the corresponding value to the output (reg 6)</span><br><span class="line"></span><br><span class="line">label uturn</span><br><span class="line">2</span><br><span class="line">copy 0 6</span><br><span class="line"></span><br><span class="line">label right # twice to compensate for turning left</span><br><span class="line">2</span><br><span class="line">copy 0 6</span><br><span class="line">copy 0 6</span><br><span class="line"></span><br><span class="line">label left</span><br><span class="line">1</span><br><span class="line">copy 0 6</span><br><span class="line"></span><br><span class="line">label ahead</span><br><span class="line">3</span><br><span class="line">copy 0 6</span><br><span class="line"></span><br><span class="line"># start</span><br><span class="line"># check if wall to the left store in reg3</span><br><span class="line"># 1. turn left</span><br><span class="line">1</span><br><span class="line">copy 0 6</span><br><span class="line"># 2. read the input into reg3</span><br><span class="line">copy 6 3</span><br><span class="line"># 3. turn back to original direction</span><br><span class="line">2           </span><br><span class="line">copy 0 6</span><br><span class="line"></span><br><span class="line"># if no wall left, turn left until there is a wall. We follow the wall on our left side</span><br><span class="line">left </span><br><span class="line">eval =</span><br><span class="line"></span><br><span class="line"># there is a wall left, check ahead</span><br><span class="line">copy 6 1</span><br><span class="line"># check right</span><br><span class="line">2</span><br><span class="line">copy 0 6</span><br><span class="line">copy 6 2</span><br><span class="line">1 </span><br><span class="line">copy 0 6</span><br><span class="line"># if wall ahead and to the right then do a uturn</span><br><span class="line">and</span><br><span class="line">uturn</span><br><span class="line">eval !=</span><br><span class="line"></span><br><span class="line"># if wall ahead but no wall right turn right</span><br><span class="line">copy 1 3</span><br><span class="line">right</span><br><span class="line">eval !=</span><br><span class="line"></span><br><span class="line">ahead</span><br><span class="line">eval always </span><br></pre></td></tr></table></figure>
 
 
 <h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2>
@@ -410,14 +296,6 @@ eval always <span aria-hidden="true" class="line-numbers-rows"><span></span><spa
                 
             </div>
 
-            <!-- Comments -->
-            
-                <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1">
-                    
-
-
-                </div>
-            
         </div>
     </div>
 </article>
@@ -465,16 +343,9 @@ eval always <span aria-hidden="true" class="line-numbers-rows"><span></span><spa
 
     <!-- After footer scripts -->
     
-<!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<!--Tiny bird analytics-->
+<script defer src="/js/analytics.js" data-host="https://api.tinybird.co" data-token="p.eyJ1IjogImYxMGY0NmY5LWI2MTQtNGY3Mi1hNWRkLTJkZWMyZTYzOGU0ZCIsICJpZCI6ICJmM2Y3MDk5Ny03YTZiLTRlYzUtYTdkNC01ZTVkMmY1ZjZjMDcifQ.uBS7CItgVesD7IqUpKSyA_g6UNTH-YHuH3-XfpWy1o0"></script>
 
-<!-- Bootstrap -->
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-
-<!-- Disqus Comments -->
 
 
 
