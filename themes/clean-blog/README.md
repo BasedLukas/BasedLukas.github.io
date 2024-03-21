@@ -1,13 +1,3 @@
-to use tinybird:
-
-
-
-<script defer src="https://unpkg.com/@tinybirdco/flock.js" data-host="https://api.tinybird.co" data-token="p.eyJ1IjogImYxMGY0NmY5LWI2MTQtNGY3Mi1hNWRkLTJkZWMyZTYzOGU0ZCIsICJpZCI6ICJmM2Y3MDk5Ny03YTZiLTRlYzUtYTdkNC01ZTVkMmY1ZjZjMDcifQ.uBS7CItgVesD7IqUpKSyA_g6UNTH-YHuH3-XfpWy1o0"></script>
-
-
-
-
-
 
 # Clean Blog Hexo
 
@@ -94,46 +84,7 @@ The default post title (used when no title is specified) is configured in the th
 default_post_title: Untitled
 ```
 
-### Comments
 
-The comments provider is specified in the theme's `_config.yml`. If you specify both a `disqus_shortname` and a `facebook.appid` there will be 2 sets of comment per post. So choose one.
-
-```
-# Comments. Choose one by filling up the information
-comments:
-  # Disqus comments
-  disqus_shortname: klugjotest
-  # Facebook comments
-  facebook:
-    appid: 123456789012345
-    comment_count: 5
-    comment_colorscheme: light
-```
-
-You can too hide the comment in the posts front-matter:
-
-```
-comment: false
----
-```
-
-### Google Analytics
-
-The Google Analytics Tracking ID is configured in the theme's `_config.yml`.
-
-```
-# Google Analytics Tracking ID
-google_analytics:
-```
-
-### Addthis
-
-The Addthis ID is configured in the theme's `_config.yml`.
-
-```
-# Addthis ID
-addthis:
-```
 
 ### Social Account
 
