@@ -41,6 +41,12 @@
     }
     
     async function u(a, i) {
+
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            console.log('Skipping analytics in development environment.');
+            return; // Exit the function early
+        }
+
         let n;
         s();
         
