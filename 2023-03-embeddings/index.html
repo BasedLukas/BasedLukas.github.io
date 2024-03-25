@@ -1,16 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en"><!-- Head tag --><head><meta charset="utf-8"><style>:where(img){height:auto}</style>
 
-<!-- Head tag -->
-<head>
-
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
 
 
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <!-- jQuery -->
     <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
     <!-- Bootstrap -->
@@ -26,9 +22,9 @@
 
 
     <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/> 
-    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"> 
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
 
     <!-- Gallery -->
     <!-- <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/> -->
@@ -38,54 +34,54 @@
     
 
     
-        <meta name="description" content="My incoherent ramblings"/>
-        <meta property="og:description" content="My incoherent ramblings"/>
+        <meta name="description" content="My incoherent ramblings">
+        <meta property="og:description" content="My incoherent ramblings">
         <meta name="twitter:description" content="My incoherent ramblings">
     
 
     <!--Author-->
     
-        <meta name="author" content="Lukas"/>
+        <meta name="author" content="Lukas">
     
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Text Vectorization"/>
+        <meta property="og:title" content="Text Vectorization">
         <meta name="twitter:title" content="Text Vectorization">
     
 
     <!--Open Graph Site Name-->
-    <meta property="og:site_name" content="Lukas&#39;s Blog"/>
+    <meta property="og:site_name" content="Lukas's Blog">
 
     <!--Type page-->
     
-        <meta property="og:type" content="article"/>
+        <meta property="og:type" content="article">
     
 
     <!--Page Cover-->
     
     
-        <meta property="og:image" content="http://loreley.one/img/bg.webp"/>
+        <meta property="og:image" content="http://loreley.one/img/bg.webp">
         <meta name="twitter:image" content="http://loreley.one/img/bg.webp">
     
 
-        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:card" content="summary_large_image">
 
     
-        <meta name="twitter:site" content="@LukasBogacz"/>
+        <meta name="twitter:site" content="@LukasBogacz">
     
 
     
-        <meta name="twitter:image" content="http://loreley.one/img/bg.webp"/>
+        <meta name="twitter:image" content="http://loreley.one/img/bg.webp">
     
 
     <!-- Title -->
     
-    <title>Text Vectorization - Lukas&#39;s Blog</title>
+    <title>Text Vectorization - Lukas's Blog</title>
 
     <!-- favicon -->
     
-        <link rel="icon" href="/img/favicon.ico"/>
+        <link rel="icon" href="/img/favicon.ico">
         
     
 <meta name="generator" content="Hexo 7.1.1"></head>
@@ -95,7 +91,7 @@
 
     <!-- Menu -->
     <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+<nav class="navbar navbar-custom navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
@@ -139,7 +135,7 @@
                     <li>
                         <a target="_blank" rel="noopener" href="https://github.com/BasedLukas">
                             
-                                <i class="fa fa-github fa-stack-2x"></i>
+                                <i class="fa fa-stack-2x fa-github"></i>
                             
                         </a>
                     </li>
@@ -155,10 +151,10 @@
     <!-- Page Header -->
 <!-- Set your background image for this header in your post front-matter: cover -->
 
-<header class="intro-header" style="background-image: url('/img/bg.webp')">
+<header class="intro-header" style="background-image:url(/img/bg.webp)">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1">
+            <div class="col-md-offset-1 col-lg-offset-1 col-md-10 col-lg-8">
                 <div class="post-heading">
                     <h1>Text Vectorization</h1>
                     
@@ -188,7 +184,7 @@
 
             <!-- Tags and categories -->
            
-                <div class="col-lg-4 col-lg-offset-1 col-md-5 col-md-offset-1 post-tags">
+                <div class="col-md-offset-1 col-lg-offset-1 col-lg-4 col-md-5 post-tags">
                     
                         
 
@@ -207,13 +203,13 @@
             
 
             <!-- Post Main Content -->
-            <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
-                <h2 id="Introduction-to-Embeddings"><a href="#Introduction-to-Embeddings" class="headerlink" title="Introduction to Embeddings"></a>Introduction to Embeddings</h2><p>Embeddings play a crucial role in natural language processing (NLP) and text analysis. Simply put, word embeddings represent words or phrases as vectors, which are lists of numbers. These vectors help encode the meaning of words so that similar words or phrases have closer vector representations. For example, the sentences “The cat quickly climbed the tree” and “The feline swiftly ascended the tree” have different words but similar meanings. Embeddings allow us to capture this similarity in meaning by placing these phrases close together in the embedding space. Embeddings make it more efficient to perform machine learning on large batches of text. By translating high-dimensional data (text) into a lower-dimensional space (vectors), embeddings efficiently capture the semantics&#x2F;meaning of inputs, which can be useful for tasks such as text search.</p>
+            <div class="col-md-offset-1 col-lg-offset-1 col-md-10 col-lg-10">
+                <h2 id="Introduction-to-Embeddings"><a href="#Introduction-to-Embeddings" class="headerlink" title="Introduction to Embeddings"></a>Introduction to Embeddings</h2><p>Embeddings play a crucial role in natural language processing (NLP) and text analysis. Simply put, word embeddings represent words or phrases as vectors, which are lists of numbers. These vectors help encode the meaning of words so that similar words or phrases have closer vector representations. For example, the sentences “The cat quickly climbed the tree” and “The feline swiftly ascended the tree” have different words but similar meanings. Embeddings allow us to capture this similarity in meaning by placing these phrases close together in the embedding space. Embeddings make it more efficient to perform machine learning on large batches of text. By translating high-dimensional data (text) into a lower-dimensional space (vectors), embeddings efficiently capture the semantics/meaning of inputs, which can be useful for tasks such as text search.</p>
 <h2 id="An-Example"><a href="#An-Example" class="headerlink" title="An Example"></a>An Example</h2><p>Let’s consider a simple example of using vectors to cluster movies based on their characteristics. Imagine arranging a set of movies on a one-dimensional number line, where movies that are more closely related are placed closer together. This arrangement might represent movies based on their appeal to different age groups, such as children versus adults. -1 would represent a children’s movie and 1 would represent an adult movie. Each movie could be given a score based on its audience’s age group.  </p>
 <p>However, there are other aspects, like genre, that can also contribute to the similarity between movies. To capture this, we can extend the arrangement to a two-dimensional space, where one dimension represents the age group and the other represents the genre. For instance, a movie could be represented as a vector (0.3, 0.2), where 0.3 corresponds to the age group, and 0.2 corresponds to the genre. This embedding helps us identify and group movies based on their appeal to different age groups and genres.</p>
 
 <center>
-<img src="embedding2d.jpg" alt="embedding2d">
+<img src="embedding2d.jpg.jpg" alt="embedding2d" fetchpriority="high" decoding="async" width="705" height="469">
 <p><small><a target="_blank" rel="noopener" href="https://developers.google.com/machine-learning/crash-course/embeddings/motivation-from-collaborative-filtering">source</a></small></p>
 </center>
 
@@ -222,7 +218,7 @@
 <h2 id="Generalising-to-Higher-Dimensions"><a href="#Generalising-to-Higher-Dimensions" class="headerlink" title="Generalising to Higher Dimensions"></a>Generalising to Higher Dimensions</h2><p>As we’ve seen with the simple movie clustering example, we can represent data points in multi-dimensional spaces to capture various characteristics. The same concept can be applied to more complex data, such as geographical locations or even natural language text.</p>
 
 <center>
-<img src="linear-relationships.jpg" alt="linear-relationships">
+<img src="linear-relationships.jpg.jpg" alt="linear-relationships" fetchpriority="high" decoding="async" width="705" height="269">
 <p><small><a target="_blank" rel="noopener" href="https://developers.google.com/machine-learning/crash-course/embeddings/translating-to-a-lower-dimensional-space">source</a></small></p>
 </center>
 
@@ -235,21 +231,21 @@
 <h2 id="Trying-it-out"><a href="#Trying-it-out" class="headerlink" title="Trying it out"></a>Trying it out</h2><p>Generating or computing word vectors involves training a machine learning model on a large corpus of text. The model learns to represent words or phrases as vectors based on the context in which they appear, capturing semantic meaning and relationships between words. Take a look at this example of 3 vectors constructed using the OpenAI Ada-2 model (input 2 says ”I really like running” in Dutch). </p>
 
 <center>
-<img src="python_embeddings.png" alt="python embeddings">
+<img src="python_embeddings.png.jpg" alt="python embeddings" fetchpriority="high" decoding="async" width="705" height="595">
 </center>
 
 
 <p>When we compute the cosine similarity between them this is what we get;</p>
 
 <center>
-<img src="python_embeddings2.png" alt="python embeddings">
+<img src="python_embeddings2.png.jpg" alt="python embeddings" fetchpriority="high" decoding="async" width="705" height="220">
 </center>
 
 
 <p>The two sentences about running are very close together, even though the languages are different. The cat sentence is farther apart. Now look at what happens if we compare the sentence “I enjoy jogging” with “I do not enjoy jogging”.</p>
 
 <center>
-<img src="python_embeddings3.png" alt="python embeddings">
+<img src="python_embeddings3.png.webp" alt="python embeddings" loading="lazy" decoding="async" width="705" height="567">
 </center>
 
 
@@ -265,13 +261,13 @@
 </article>
 
     <!-- Footer -->
-    <hr />
+    <hr>
 
 <!-- Footer -->
 <footer>
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="col-md-offset-1 col-md-10 col-lg-8 col-lg-offset-2">
                 <ul class="list-inline text-center">
                     
 
@@ -284,9 +280,9 @@
                     
                         <li>
                             <a href="mailto:info@loreley.one" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                <span class="fa-lg fa-stack">
+                                    <i class="fa fa-stack-2x fa-circle"></i>
+                                    <i class="fa fa-envelope-o fa-inverse fa-stack-1x"></i>
                                 </span>
                             </a>
                         </li>
@@ -294,7 +290,7 @@
 
                     
                 </ul>
-                <p class="copyright text-muted">&copy; 2024 Lukas<br></p>
+                <p class="copyright text-muted">© 2024 Lukas<br></p>
 
 
 
@@ -308,11 +304,11 @@
     <!-- After footer scripts -->
     
 
-<script defer src="/js/analytics.js" data-host="https://api.tinybird.co" data-token="p.eyJ1IjogImYxMGY0NmY5LWI2MTQtNGY3Mi1hNWRkLTJkZWMyZTYzOGU0ZCIsICJpZCI6ICJmM2Y3MDk5Ny03YTZiLTRlYzUtYTdkNC01ZTVkMmY1ZjZjMDcifQ.uBS7CItgVesD7IqUpKSyA_g6UNTH-YHuH3-XfpWy1o0"></script>
+<script defer="" src="/js/analytics.js" data-host="https://api.tinybird.co" data-token="p.eyJ1IjogImYxMGY0NmY5LWI2MTQtNGY3Mi1hNWRkLTJkZWMyZTYzOGU0ZCIsICJpZCI6ICJmM2Y3MDk5Ny03YTZiLTRlYzUtYTdkNC01ZTVkMmY1ZjZjMDcifQ.uBS7CItgVesD7IqUpKSyA_g6UNTH-YHuH3-XfpWy1o0"></script>
 
 
 
 
-</body>
 
-</html>
+
+</body></html>
