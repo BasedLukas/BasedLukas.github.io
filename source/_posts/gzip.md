@@ -10,7 +10,7 @@ subtitle: Probably no.
 
 ## Introduction
 
-Large language models are currently all the rage when it comes to text classification. However, a recent [research paper] (https://aclanthology.org/2023.findings-acl.426/) offers an interesting non-parametric alternative. The proposed method is elegant in its simplicity: it combines a text compressor, gzip, with a k-nearest-neighbour classifier. This approach requires no training parameters, making it a lightweight and universally adaptable solution.
+Large language models are currently all the rage when it comes to text classification. However, a recent [research paper](https://aclanthology.org/2023.findings-acl.426/) offers an interesting non-parametric alternative. The proposed method is elegant in its simplicity: it combines a text compressor, gzip, with a k-nearest-neighbour classifier. This approach requires no training parameters, making it a lightweight and universally adaptable solution.
 
 The cornerstone of this method lies in two key ideas: first, compressors are good at capturing regularities in data, and second, data points from the same category share more regularity than those from different categories. 
 
