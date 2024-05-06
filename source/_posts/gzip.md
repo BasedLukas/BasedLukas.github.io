@@ -10,11 +10,11 @@ subtitle: Probably no.
 
 ## Introduction
 
-It's common in the world of machine learning and AI to be dazzled by the sophistication and complexity of deep neural networks (DNNs). However, a recent [research paper](https://aclanthology.org/2023.findings-acl.426/) offers an interesting, non-parametric alternative for text classification. The proposed method is elegant in its simplicity: it combines a straightforward text compressor, gzip, with a k-nearest-neighbor classifier. This approach requires no training parameters, making it a lightweight and universally adaptable solution.
+Large language models are currently all the rage when it comes to text classification. However, a recent [research paper] (https://aclanthology.org/2023.findings-acl.426/) offers an interesting non-parametric alternative. The proposed method is elegant in its simplicity: it combines a text compressor, gzip, with a k-nearest-neighbour classifier. This approach requires no training parameters, making it a lightweight and universally adaptable solution.
 
-The cornerstone of this method lies in two key ideas: firstly, compressors are proficient in capturing regularities in data, and secondly, data points from the same category share more regularity than those from different ones. 
+The cornerstone of this method lies in two key ideas: first, compressors are good at capturing regularities in data, and second, data points from the same category share more regularity than those from different categories. 
 
-In this post, we delve into this approach to text classification, discussing its rationale, working and practical implementation in Python.
+In this article, we explore this approach to text classification, discussing its rationale, how it works, and its practical implementation in Python.
 
 
 ## The Mechanics of Compression and Classification
