@@ -46,8 +46,8 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Lukas's Blog">
-        <meta name="twitter:title" content="Lukas's Blog">
+        <meta property="og:title" content="ACDL 2024">
+        <meta name="twitter:title" content="ACDL 2024">
     
 
     <!--Open Graph Site Name-->
@@ -55,7 +55,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website">
+        <meta property="og:type" content="article">
     
 
     <!--Page Cover-->
@@ -77,7 +77,7 @@
 
     <!-- Title -->
     
-    <title>Archives: 2024 - Lukas's Blog</title>
+    <title>ACDL 2024 - Lukas's Blog</title>
 
     <!-- favicon -->
     
@@ -148,66 +148,75 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image:url(/img/bg.webp)">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>2024</h1>
+            <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-1">
+                <div class="post-heading">
+                    <h1>ACDL 2024</h1>
+                    
+                    <h2 class="post-subheading">
+                        Review of the Advanced Course on Data Science &amp; Machine Learning
+                    </h2>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                            Posted by Lukas on
+                        
+                        
+                            2024-06-14
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/2024-06-acdl/">
-        <h1 class="archive post-title">
-            ACDL 2024
-        </h1>
-    </a>
-    <p class="archive post-meta">
-        <!-- Date and Author -->
-        
-            Posted by Lukas on
-        
-        2024-06-14
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2024-03-double_q/">
-        <h1 class="archive post-title">
-            Double Q-Learning Explained
-        </h1>
-    </a>
-    <p class="archive post-meta">
-        <!-- Date and Author -->
-        
-            Posted by Lukas on
-        
-        2024-03-15
-    </p>
-</div>
-            
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
-</ul>
+
+            <!-- Post Main Content -->
+            <div class="col-md-10 col-md-offset-1 col-lg-offset-1 col-lg-10">
+                <p>The <a target="_blank" rel="noopener" href="https://acdl2024.icas.events/">ACDL</a> is a summer school, which, as the name implies, focuses on data science and to a larger extent machine learning. I recently had the pleasure of attending for the first time. This year it was held on the Tuscan coast, and attracted a mostly European audience with many participants from Italy.</p>
+
+<center>
+<img src="beach.webp" width="900" alt="beach" fetchpriority="high" decoding="async" height="599" srcset="beach.webp 1440w, beach@1140w.webp 1140w, beach@840w.webp 840w" sizes="100vw">
+<p><small>The beach at Hotel Riva del Sole, where the event was held</small></p>
+</center>
+
+
+
+<p>The course revolves around the talks, with subjects ranging from clustering and network analysis to large language models. LLM hype seems to be everywhere, and took up roughly half of the lecture time. The talks were mostly technical, and given on a phd student (the majority of the attendees) level. Here follows a list of some of my favorite talks from the event.</p>
+<h4 id="Multimodal-Foundation-Models"><a href="#Multimodal-Foundation-Models" class="headerlink" title="Multimodal Foundation Models"></a>Multimodal Foundation Models</h4><p>by <a target="_blank" rel="noopener" href="https://gabrielbm.com/">Gabriel Barth-Maron</a></p>
+<p>This series of lectures was the highlight of the entire course for me, due to its relevance to my work. Gabriel discussed the architecture of multimodal models, as well as techniques for combining and using pretrained backbones in multimodal models. In particular, the <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2402.11530">bunny series of models</a> is something I plan to look into more in the future.</p>
+<h4 id="Machine-Learning-for-Modeling-and-Control-of-Complex-Systems"><a href="#Machine-Learning-for-Modeling-and-Control-of-Complex-Systems" class="headerlink" title="Machine Learning for Modeling and Control of Complex Systems"></a>Machine Learning for Modeling and Control of Complex Systems</h4><p>by <a target="_blank" rel="noopener" href="https://seas.harvard.edu/person/petros-koumoutsakos">Petros Koumoutsakos</a></p>
+<p>This series was very wide-ranging, but often touched on Koumoutsakos’s work with fluid mechanics. I wasn’t able to follow it in its entirety but still found it very interesting. His work on <a target="_blank" rel="noopener" href="https://cse-lab.seas.harvard.edu/research-artificial_intelligence-reinforcement_learning">experience replay</a> is something I will have to come back to.</p>
+<h4 id="Diffusion-Models"><a href="#Diffusion-Models" class="headerlink" title="Diffusion Models"></a>Diffusion Models</h4><p>by <a target="_blank" rel="noopener" href="https://chinweihuang.com/">Chin-Wei Huang</a></p>
+<p>I like diffusion models and have played around with them quite a bit. But the math behind them is a little more complex than what I am used to, so I was happy to attend this introductory talk. On a side note <a target="_blank" rel="noopener" href="https://www.chenyang.co/diffusion.html">this blog post</a> is still the best introduction to diffusion models that I’m aware of.</p>
+<h4 id="Fusing-Machine-Learning-and-Optimization-for-Engineering"><a href="#Fusing-Machine-Learning-and-Optimization-for-Engineering" class="headerlink" title="Fusing Machine Learning and Optimization for Engineering"></a>Fusing Machine Learning and Optimization for Engineering</h4><p>by <a target="_blank" rel="noopener" href="https://sites.gatech.edu/pascal-van-hentenryck/">Pascal van Hentenryck</a></p>
+<p>Optimization is not something I understand very well (yet), but this series of talks was nonetheless great. Pascal spoke about the challenges of optimizing an energy grid, and the unique methods that have been developed to do this.</p>
+<h2 id="Overall"><a href="#Overall" class="headerlink" title="Overall"></a>Overall</h2><p>In my opinion, one of the best parts of attending these events are the people you meet. It’s quite special to meet so many other people who share the same interests as you and are happy to discuss their research (where else can you discuss optimization algorithms on the beach?). I would certainly recommend that you seek out a similar event if you’ve never done so before. <a target="_blank" rel="noopener" href="https://acdl2025.icas.events/">Here</a> is the website for next years event. <a target="_blank" rel="noopener" href="https://www.summerschoolsineurope.eu/search">This search engine</a> was how I found the ACDL and might also be of use to you.</p>
+
+
+                
+            </div>
+
         </div>
     </div>
-</div>
-
+</article>
 
     <!-- Footer -->
     <hr>
@@ -216,7 +225,7 @@
 <footer>
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
                 <ul class="list-inline text-center">
                     
 
