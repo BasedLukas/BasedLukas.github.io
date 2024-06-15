@@ -2,7 +2,7 @@
 title: ACDL 2024
 date: 2024-06-15
 cover: img/bg.webp
-share_cover: img/bg.webp
+share_cover: 2024-06-acdl/beach.jpg
 author: Lukas
 subtitle: Review of the Advanced Course on Data Science & Machine Learning
 ---
