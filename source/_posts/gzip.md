@@ -1,7 +1,7 @@
 ---
 title: Will Gzip Replace Neural Networks for Text Classification? 
 date: 2023-07-19 
-tags: ["python","NLP"]
+tags: ["python","NLP", "models"]
 cover: img/bg.webp
 share_cover: img/bg.webp
 author: Lukas
@@ -206,4 +206,4 @@ This is a really interesting approach, and while it may not be perfect, it provi
 
 To get hands-on with the concepts discussed in this blog, you can check out [this repository that I made](https://github.com/BasedLukas/zip_classification). It provides a simple implementation of LZ77 and Huffman encoding, allowing you to experiment with these algorithms and see how they work in practice.
 
-For a more in-depth understanding of gzip, consider reading [this blog post](https://www.infinitepartitions.com/art001.html). [This article](https://www.zlib.net/feldspar.html) offers an excellent explanation of the LZ77 algorithm. Of course, it's highly recommended that you delve into the original paper, available [here](https://aclanthology.org/2023.findings-acl.426/), which is very well written and understandable.
+For a more in-depth understanding of gzip, consider reading [this blog post](https://www.infinitepartitions.com/art001.html). [This article](https://www.zlib.net/feldspar.html) offers an excellent explanation of the LZ77 algorithm. Of course, you should read the original paper, available [here](https://aclanthology.org/2023.findings-acl.426/), which is very well written and understandable.

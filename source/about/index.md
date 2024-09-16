@@ -1,13 +1,13 @@
 ---
 title: About
-date: 2024-01-17 
+date: 2024-09-09 
 ---
 
 # About me
-I work as a software developer based in Amsterdam. My interests include statistical and machine learning. I am currently working on NLP and OCR systems. In the past I have worked with advanced analytical instrumentation and analysis of experimental results. My background is in biochemistry.
+I work as a machine learning focused software developer. I am currently working on NLP and OCR systems but also have experience with reinforcement learning. In the past I have worked with advanced analytical instrumentation and analysis of experimental results. My original training is in biochemistry.
 
 
-[Emergent Ventures](https://marginalrevolution.com/marginalrevolution/2023/09/emergent-ventures-winners-29th-cohort.html) grant recipient 2023.
+I was awarded the [Emergent Ventures](https://marginalrevolution.com/marginalrevolution/2023/09/emergent-ventures-winners-29th-cohort.html) grant (2023) to further my work on LLMs.
 
 
-I am a competitive amateur athlete and have competed on a [national level](https://worldathletics.org/athletes/netherlands/lukas-bogacz-15091779) in the 800m.
+In my personal life I enjoy surfing, ballroom dancing and running. I am a competitive amateur athlete and have competed on a [national level](https://worldathletics.org/athletes/netherlands/lukas-bogacz-15091779) in the 800m. I participated in the opening of the 55th [Wienerball](https://wienerball.nl/) and have a soft spot for espresso.

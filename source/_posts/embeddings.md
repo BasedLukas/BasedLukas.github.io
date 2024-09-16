@@ -1,7 +1,7 @@
 ---
 title: Text Vectorization
 date: 2023-03-22
-tags: ["python", "NLP"]
+tags: ["python", "NLP", "models"]
 cover: img/bg.webp
 share_cover: img/bg.webp
 author: Lukas

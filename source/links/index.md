@@ -25,6 +25,7 @@ author: Lukas
 * [Mathematics for Machine Learning](https://mml-book.github.io/book/mml-book.pdf)
 * [Reinforcement Learning: An Introduction](http://incompleteideas.net/book/the-book-2nd.html)
 * [Calculus made Easy](https://calculusmadeeasy.org/)
+* [Unraveling Principal Component Analysis](https://peterbloem.nl/publications/unraveling-pca)
 
 <br>  
 
