@@ -1,0 +1,378 @@
+<!DOCTYPE html><html lang="en"><!-- Head tag --><head><meta charset="utf-8"><style>:where(img){height:auto}</style>
+
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!--Tiny bird analytics-->
+
+    <!-- background image -->
+    <link rel="preload" href="/img/bg.webp" as="image" fetchpriority="high">
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"> 
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- Gallery -->
+    <!-- <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/> -->
+
+
+    <!--Description-->
+    
+
+    
+        <meta name="description" content="My incoherent ramblings">
+        <meta property="og:description" content="My incoherent ramblings">
+        <meta name="twitter:description" content="My incoherent ramblings">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Lukas">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Book Review: Unraveling Principal Component Analysis">
+        <meta name="twitter:title" content="Book Review: Unraveling Principal Component Analysis">
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Lukas's Blog">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://loreley.one/2024-09-pca/share_cover.png">
+        <meta name="twitter:image" content="http://loreley.one/2024-09-pca/share_cover.png">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+        <meta name="twitter:site" content="@LukasBogacz">
+    
+
+    
+        <meta name="twitter:image" content="http://loreley.one/2024-09-pca/share_cover.png">
+    
+
+    <!-- Title -->
+    
+    <title>Book Review: Unraveling Principal Component Analysis - Lukas's Blog</title>
+
+    <!-- favicon -->
+    
+        <link rel="icon" href="/img/favicon.ico">
+        
+    
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-custom navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Home</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/about">
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/links">
+                            
+                                Links
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/BasedLukas">
+                            
+                                <i class="fa fa-stack-2x fa-github"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image:url(/img/bg.webp)">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-1 col-lg-offset-1 col-md-10 col-lg-8">
+                <div class="post-heading">
+                    <h1>Book Review: Unraveling Principal Component Analysis</h1>
+                    
+                    <h2 class="post-subheading">
+                        A proof should be an epiphany from the Gods, not a coded message from the Pentagon
+                    </h2>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                            Posted by Lukas on
+                        
+                        
+                            2024-09-08
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-md-offset-1 col-lg-offset-1 col-lg-4 col-md-5 post-tags">
+                    
+                        
+
+
+<a href="/tags/models/">#models</a> <a href="/tags/math/">#math</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-md-offset-1 col-lg-offset-1 col-md-10 col-lg-10">
+                <h2 id="Intuition-and-Motivation"><a href="#Intuition-and-Motivation" class="headerlink" title="Intuition and Motivation"></a>Intuition and Motivation</h2><p>Out of everything I’ve read, one of the pieces that resonated most with me was Lockhart’s Lament. Lockhart, a mathematician, published this work around 20 years ago, critiquing the way mathematics is typically taught to students. The gist of his argument is that too much emphasis is placed on memorization, notation, formulae and dry proofs. Instead he argues we should teach students to appreciate mathematics first and foremost - which can later be followed by formalism. A brilliant example:</p>
+<blockquote style="text-align:left">
+Lets take the case of a triangle inside a semicircle
+<br><br>
+<center>
+<img src="angle1.webp" alt="" fetchpriority="high" decoding="async" width="240" height="128">
+</center>
+<br><br>
+Now the beautiful truth about this pattern is that no matter where on the circle you place the
+tip of the triangle, it always forms a nice right angle. (…)
+<br><br>
+<center>
+<img src="angle2.webp" alt="" fetchpriority="high" decoding="async" width="237" height="126">
+</center>
+<br><br>
+Here is a case where our intuition is somewhat in doubt. It’s not at all clear that this should
+be true; it even seems unlikely— shouldn’t the angle change if I move the tip? What we have
+here is a fantastic math problem! Is it true? If so, why is it true? What a great project! What a
+terrific opportunity to exercise one’s ingenuity and imagination! Of course no such opportunity is given to the students, whose curiosity and interest is immediately deflated by:
+<br><br>
+<center>
+<img src="angle3.webp" alt="" fetchpriority="high" decoding="async" width="760" height="457">
+</center>
+<br><br>
+Could anything be more unattractive and inelegant? Could any argument be more
+obfuscatory and unreadable? This isn’t mathematics! <strong>A proof should be an epiphany from the Gods, not a coded message from the Pentagon</strong> (emphahsis added). This is what comes from a misplaced sense of logical rigor: ugliness. The spirit of the argument has been buried under a heap of confusing formalism.
+No mathematician works this way. No mathematician has ever worked this way. This is a
+complete and utter misunderstanding of the mathematical enterprise. Mathematics is not about erecting barriers between ourselves and our intuition, and making simple things complicated. Mathematics is about removing obstacles to our intuition, and keeping simple things simple. Compare this unappetizing mess of a proof with the following argument devised by one of my seventh-graders:
+<br><br>
+“Take the triangle and rotate it around so it makes a four-
+sided box inside the circle. Since the triangle got turned
+completely around, the sides of the box must be parallel,
+so it makes a parallelogram. But it can’t be a slanted box
+because both of its diagonals are diameters of the circle, so
+they’re equal, which means it must be an actual rectangle.
+That’s why the corner is always a right angle.”
+<br><br>
+<center>
+<img src="angle4.webp" alt="" fetchpriority="high" decoding="async" width="251" height="259">
+</center>
+<br><br>
+(…) I was able to point out several stylistic and logical
+problems, and the student was then able to improve the argument. For instance, I wasn’t
+completely happy with the bit about both diagonals being diameters— I didn’t think that was
+entirely obvious— but that only meant there was more to think about and more understanding to
+be gained from the situation. And in fact the student was able to fill in this gap quite nicely:
+
+<p>“Since the triangle got rotated halfway around the circle, the tip<br>must end up exactly opposite from where it started. That’s why<br>the diagonal of the box is a diameter.”</p>
+</blockquote>
+I felt his argument deeply. As a highschool student I was completely uninterested in “math”. University only reinforced this in me - studying for exams was an exercise in memorization combined with very basic stepwise logical reasoning. There was never any reason to do the math - it was just a constant that existed.
+
+<p>Fast forward a few years and I became interested in statistical learning. The ideas involved invite you to think intuitively. You can visualize what happens when you overfit a data set. You can intuit why your residuals should be normally distributed. You can think of gradient descent as traversing a 3D surface with local and global minima. Suddenly there was a reason to “do math”. Excited by this discovery, I decided to revisit everything I had learnt (and forgotten) at university. Armed with heaps of motivation, I bought the acclaimed “Linear Algebra Done Right”. A bulwark. A classic. Used by students all over the world. I slogged through the early chapters. It was rather dull, one definition after another. It is not difficult to follow the logic, and to see how one theorem follows from another. But the entire enterprise was draining and unfulfilling. It felt random. “Follow these steps and you get the result you are looking for. I can prove that it works because of the following …”. But <strong>why</strong> does it work? What possessed you to follow this path as opposed to any other? How might I have come up with this myself? The book provided no answers and I was left feeling deeply unsatisfied.</p>
+<p>Fortunately, I stumbled across Unravelling Principal Component Analysis by Peter Bloem. Right from the get go it’s clear that this isn’t a textbook. This book is for:</p>
+<blockquote style="text-align:left">
+People who have learned linear algebra and then forgotten it. Who feel a measure of regret that they didn’t pay full attention the first time around. If you’ve ever marveled at the magical results that PCA produces, and you’d like to really understand it, all the way down to the fundament, then this book will provide you with a guide. But perhaps it’s best to think of this as a guided tour of the forests of linear algebra.
+</blockquote>
+
+<p>This book is an opportunity to start afresh. At no point does it feel like reading an encyclopedia. Instead it is one big intuition building exercise. We learn why each step is necessary and are left feeling we could have come up with it ourselves.</p>
+<h2 id="Understanding-First"><a href="#Understanding-First" class="headerlink" title="Understanding First"></a>Understanding First</h2><p>Another gripe I have with math education is the order in which the material is presented. The typical textbook seems designed to confuse - leading with notation, discussing edge cases, and rarely pausing to explain. This book is structured differently. First each definition is patiently motivated, explained, then expanded upon, and finally followed by notation and formalization. The explanation of eigenvectors is a case in point:</p>
+<blockquote style="text-align:left">
+The most common, and probably the most intuitive way to think about matrices is as transformations of points in space. If we have some vector x and we multiply it by a matrix A, we get a new point y = Ax. If A is square, then x and y are in the same space. A good way to visualize this is by domain coloring. We take a large number of points, arranged in a grid, and we color them by some image. This could be a simple color gradient, but we can also choose a photograph or some other image. Following Wikipedia’s example, we’ll use a picture of the Mona Lisa.
+<br><br>
+<center>
+<img src="lisa1.webp" alt="An increasingly fine-grained domain coloring using the Mona Lisa." loading="lazy" decoding="async" width="596" height="243">
+<p><small>An increasingly fine-grained domain coloring using the Mona Lisa.</small></p>
+</center>
+<br><br>
+If we apply the transformation A to each of these points, we can tell what effect the matrix has on this space.
+<br><br>
+<center>
+<img src="lisa2.webp" alt="" loading="lazy" decoding="async" width="1488" height="778" srcset="lisa2.webp 1488w, lisa2@1188w.webp 1188w, lisa2@888w.webp 888w" sizes="100vw">
+</center>
+<br><br>
+All the points are mapped to a new position by A and poor Lisa ends up squished and stretched in various directions. Transformations expressible in a matrix are linear transformations. These are the transformations for which a line in the original image is still a line in the transformed image. This means that we can rotate, stretch, squish and flip the image in any direction we like, but we can’t warp, bend or tear it.
+In this language of transformation, we can very naturally define what eigenvectors are. The eigenvectors of a square matrix A are defined as those vectors (i.e. points in the image) for which the direction doesn’t change under transformation by A.
+It’s simplest to see what this looks like for a diagonal matrix. For instance in the transformation
+<br><br>
+ <div style="text-align:center">
+   <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">y</mi><mo>=</mo><mrow><mo fence="true">(</mo><mtable rowspacing="0.16em" columnalign="center center" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>2</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>0</mn></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>0</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mfrac><mn>1</mn><mn>2</mn></mfrac></mstyle></mtd></mtr></mtable><mo fence="true">)</mo></mrow><mi mathvariant="bold">x</mi></mrow><annotation encoding="application/x-tex">\mathbf{y} = \begin{pmatrix} 2 &amp; 0 \\ 0 &amp; \frac{1}{2} \end{pmatrix} \mathbf{x}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="vertical-align:-.1944em;height:.6389em"></span><span class="mord mathbf" style="margin-right:.01597em">y</span><span class="mspace" style="margin-right:.2778em"></span><span class="mrel">=</span><span class="mspace" style="margin-right:.2778em"></span></span><span class="base"><span class="strut" style="vertical-align:-.9526em;height:2.4051em"></span><span class="minner"><span class="delimcenter mopen" style="top:0"><span class="size3 delimsizing">(</span></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.4526em"><span style="top:-3.6126em"><span class="pstrut" style="height:3em"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-2.4074em"><span class="pstrut" style="height:3em"></span><span class="mord"><span class="mord">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.9526em"><span></span></span></span></span></span><span class="arraycolsep" style="width:.5em"></span><span class="arraycolsep" style="width:.5em"></span><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.4526em"><span style="top:-3.6126em"><span class="pstrut" style="height:3em"></span><span class="mord"><span class="mord">0</span></span></span><span style="top:-2.4074em"><span class="pstrut" style="height:3em"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.8451em"><span style="top:-2.655em"><span class="pstrut" style="height:3em"></span><span class="mtight reset-size6 size3 sizing"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em"><span class="pstrut" style="height:3em"></span><span class="frac-line" style="border-bottom-width:.04em"></span></span><span style="top:-3.394em"><span class="pstrut" style="height:3em"></span><span class="mtight reset-size6 size3 sizing"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.345em"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.9526em"><span></span></span></span></span></span></span></span><span class="delimcenter mclose" style="top:0"><span class="size3 delimsizing">)</span></span></span><span class="mspace" style="margin-right:.1667em"></span><span class="mord mathbf">x</span></span></span></span>
+ </div>
+<br><br>
+the matrix acts independently on the first and second dimensions, squishing one, and stretching the other.
+<br><br>
+<center>
+<img src="lisa3.webp" alt="" loading="lazy" decoding="async" width="1176" height="590" srcset="lisa3.webp 1176w, lisa3@876w.webp 876w" sizes="100vw">
+</center>
+<br><br>
+In this image we’ve also drawn two vectors: one to the middle of Mona Lisa’s left eye, and one to middle of the right. Since Leonardo put the right eye dead center in the painting (not by accident, I imagine), the red vector shrinks, but doesn’t change direction. The green vector is affected by both the squishing and the stretching, so its direction and magnitude both change. Hence, the red vector is an eigenvector, and the green vector isn’t. In a diagonal matrix, the eigenvectors are always the vectors that point in the same directions as the axes, so they’re easy to identify. In general square matrices, finding the eigenvectors is more tricky.
+</blockquote>
+After first giving us this intuitive, geometric (and color coded) explanation Peter takes us to the definition.
+<br><br>
+<blockquote style="text-align:left">
+Formally, a vector v is an eigenvector of A if the following holds for some scalar λ:
+
+<p>Av = λv</p>
+<p>This is just a symbolic version of what we said in words above: if v is an eigenvector of A, then transforming it changes its magnitude but not its direction, which is the same as saying we can multiply it by a scalar instead of by a matrix. The scalar corresponding to the eigenvector, in this case λ is called an eigenvalue of the matrix.</p>
+</blockquote>
+and assures us:
+<br><br>
+<blockquote style="text-align:left">
+It’s not at all clear from the definition why these vectors should be meaningful or special. For now, just trust me that eigenvectors are worth knowing about.
+</blockquote>
+This is what I love about his style. Commonly we would start by reading a list of rules, likely irrelevant to understanding the core of the concept. Mathematicians can’t refrain from interjecting. ”This only applies to finite fields and real numbers”. But why lead with that? The reader is still struggling to grasp the new concept. You are overloading their poor brain before they even have a chance to get started.
+
+<p>I believe this is partially what makes learning new math difficult - having to actively refresh what each definition in a statement means in order to understand the full statement. It takes time to build automaticity - instant, effortless understanding of a concept. When an author provides a number of definitions and rules and then immediately proceeds to build upon them he does the reader a disservice. It takes working with an idea, until the definitions and concepts become second nature. An author should strive to reduce the cognitive load on the reader. We know you are smart, you don’t have to prove it. Gently introduce the idea, keeping it to the bare minimum. Later you can write all the notation you want. Knock yourself out! Yes, I would like to know how we can prove it. Maybe I even care about the case where a vector is a zero vector, or where we are dealing with imaginary numbers. But not right now! Start with the explanation.</p>
+<h2 id="Review"><a href="#Review" class="headerlink" title="Review"></a>Review</h2><p>Only the first 2 chapters actually deal with PCA. We start by examining the problem. Why do we need to reduce the dimensionality of our data? What is a principal component and why is it useful? Then we move on to understanding the basic process. How do we arrive at the solution, where do the principal components come from?<br>At this point you could stop and use the PCA implementation from your library in ignorant bliss. But that’s not actually what this book is about. It is a tour of linear algebra, hiding under the guise of PCA. If you stick with it you’ll be taken deeper. The spectral theorem, determinants and the singular value decomposition are all given the same treatment.<br>It isn’t perfect, and mathematicians will probably complain about rigor. I get it. In my opinion the dynamic runs as follows: Math is hard and requires a modicum of intelligence. This leads to a search for shortcuts to avoid the most difficult parts. So mathematicians are rightly suspect when someone comes along claiming to teach “subjective” or “intuitive” math without the rigor. In fact, any time you come across math without rigor and notation you would do well to ask why. But this book is not an attempt to avoid hard work. It’s here to satisfy your curiosity and that unease you feel when you don’t quite understand why something works as well as it does.<br>A feature of this style is that at times it can be a little hard to follow. It’s easy to follow a logical proof step by step and verify its validity. Due to the narrative style of this book it can sometimes be a little unclear exactly what is happening. But Peter acquits himself remarkably well in this regard. For the most part rereading a paragraph will be sufficient. There were however a number of times where despite rereading a section I still couldn’t make sense of it and was forced to find some other source to help me understand.</p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>I’m pleased to have found this book, it’s been a game changer for me. A friend recommended his <a target="_blank" rel="noopener" href="https://peterbloem.nl/blog/">blog</a> to me when I was looking for explanations of the transformer architecture, which is how I found it. The full book is available on his blog as a free PDF, or you can buy it on amazon. Lockhart’s Lament is also a fun read and only around 25 pages. It is available <a href="lockharts_lament.pdf">here (PDF)</a>.</p>
+
+
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10 col-lg-8 col-lg-offset-2">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:info@loreley.one" target="_blank">
+                                <span class="fa-lg fa-stack">
+                                    <i class="fa fa-stack-2x fa-circle"></i>
+                                    <i class="fa fa-envelope-o fa-inverse fa-stack-1x"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">© 2024 Lukas<br></p>
+
+
+
+                
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+
+<script defer="" src="/js/analytics.js" data-host="https://api.tinybird.co" data-token="p.eyJ1IjogImYxMGY0NmY5LWI2MTQtNGY3Mi1hNWRkLTJkZWMyZTYzOGU0ZCIsICJpZCI6ICJmM2Y3MDk5Ny03YTZiLTRlYzUtYTdkNC01ZTVkMmY1ZjZjMDcifQ.uBS7CItgVesD7IqUpKSyA_g6UNTH-YHuH3-XfpWy1o0"></script>
+
+
+
+
+
+
+</body></html>
