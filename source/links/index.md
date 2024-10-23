@@ -1,6 +1,6 @@
 ---
 title: Links
-date: 2023-07-01 
+date: 2024-10-23 
 author: Lukas
 ---
 
@@ -10,6 +10,7 @@ author: Lukas
 
 * [Ryxcommar](https://ryxcommar.com/)
 * [Peter Bloem](https://peterbloem.nl/blog/)
+* [Gestalt](https://gestalt.ink/)
 * [Offconvex](https://offconvex.org)
 * [Distill](https://distill.pub/)
 * [Christopher Olah](https://colah.github.io/)
@@ -26,7 +27,7 @@ author: Lukas
 * [Reinforcement Learning: An Introduction](http://incompleteideas.net/book/the-book-2nd.html)
 * [Calculus made Easy](https://calculusmadeeasy.org/)
 * [Unraveling Principal Component Analysis](https://peterbloem.nl/publications/unraveling-pca)
-
+* Proofs and Refutations: The Logic of Mathematical Discovery
 <br>  
 
 ## YouTube
