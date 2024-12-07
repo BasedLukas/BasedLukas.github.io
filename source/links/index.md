@@ -28,6 +28,8 @@ author: Lukas
 * [Count Baysie](https://www.countbayesie.com/)
 * [Chenyang, diffusion models from scratch](https://www.chenyang.co/diffusion.html)
 * [Not a Number](https://www.nan.fyi/)
+* [lcamtuf](https://lcamtuf.substack.com/)
+* [Ivan Akulov](https://iamakulov.com/notes/)
 
 <br>   
 
