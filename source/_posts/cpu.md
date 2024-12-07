@@ -7,6 +7,9 @@ share_cover: img/bg.webp
 author: Lukas
 subtitle: How I made a CPU emulator based entirely on logic gate functions
 ---
+
+*(2024-12-07) Note: See [this blogpost](https://loreley.one/2024-12-wasm/) of mine to interact with the CPU and solve the maze.*
+
 ## Introduction
 A while back, I came across an interesting game on Steam called [Turing Complete](https://turingcomplete.game/). The objective of the game is to design a Turing complete CPU from scratch, and it guides players through each step of the process. Starting with the basics of logic gates, the building blocks of a CPU, players tackle progressively more complex challenges until they reach the point of designing their own CPU capable of performing simple tasks. I found the game captivating and spent an unhealthy amount of time in it.
 
@@ -68,32 +71,21 @@ A truth table is a structured table that presents the outputs corresponding to a
 The above design can now be implemented in code, using the logic gates we have created previously. In this case I first made a half adder (which doesn't have a carry in) and used two of them to construct a full adder. Notice how all the logic is dependent on the operation of the logic gates.
 
 ```python
+def half_adder(input1:bool, input2:bool):
+    return sn(
+        sum=xor(input1, input2),
+        carry=and_(input1, input2)
+        )
 
-class HalfAdder:
-    def __init__(self, input1:bool, input2:bool):
-        self.input1 = input1
-        self.input2 = input2
     
-    def sum(self) -> bool:
-        return xor(self.input1, self.input2)
- 
-    def carry(self)->bool:
-        return and_(self.input1, self.input2)
-    
-
-class FullAdder:
-    def __init__(self, input1:bool, input2:bool, carry_in:bool):
-        self.input1 = input1
-        self.input2 = input2
-        self.carry_in = carry_in
-        self.half_adder1 = HalfAdder(input1, input2)
-        self.half_adder2 = HalfAdder(self.half_adder1.sum(), carry_in)
-
-    def sum(self):
-        return self.half_adder2.sum()
-    
-    def carry(self):
-        return or_(self.half_adder1.carry(), self.half_adder2.carry())
+def full_adder(input1:bool, input2:bool, carry_in:bool):
+    half_adder1 = half_adder(input1, input2)
+    half_adder2 = half_adder(half_adder1.sum, carry_in)
+    out = sn(
+        sum=half_adder2.sum,
+        carry=or_(half_adder1.carry, half_adder2.carry)
+    )
+    return out
 ```
 
 After creating a number of basic components such as these, we create more complex components such as an ALU (Arithmetic Logic Unit). The task of the ALU is to perform simple mathematical operations, such as adding 2 numbers together. In this case the ALU can only perform 4 simple operations; Addition, Subtraction, and two logical operations AND and OR. I took inspiration from this 32 bit ALU design, although mine only has 8 bits.
@@ -162,40 +154,54 @@ Now that we have a working CPU, we need something to do with it. So I designed a
 
 ```
 # robot recognizes these commands:
-# 1 = turn left, 
-# 2=  turn right, 
-# 3=  step forward
+# 1 = turn left 
+# 2 = turn right 
+# 3 = step forward
 # To execute a command send the corresponding value to the output (reg 6)
+# robot inputs (reg 6) to CPU:
+# 1 = wall
+# 0 = clear
+
+start
+eval always
+
+### routines ###
 
 label uturn
 2
 copy 0 6
+copy 0 6
+start
+eval always
 
-label right # twice to compensate for turning left
+label right 
 2
 copy 0 6
-copy 0 6
+start
+eval always
 
 label left
 1
 copy 0 6
+start
+eval always
 
-label ahead
+
+### start main loop ###
+
+# take a step forwards
+label start
 3
 copy 0 6
 
-# start
-# check if wall to the left store in reg3
-# 1. turn left
+# check if wall to the left store in 3
 1
 copy 0 6
-# 2. read the input into reg3
 copy 6 3
-# 3. turn back to original direction
-2           
+2           # turn back to original direction
 copy 0 6
 
-# if no wall left, turn left until there is a wall. We follow the wall on our left side
+# if no wall left, turn left until there is a wall. We follow wall on our left side
 left 
 eval =
 
@@ -207,7 +213,7 @@ copy 0 6
 copy 6 2
 1 
 copy 0 6
-# if wall ahead and to the right then do a uturn
+# if wall ahead and right do a uturn
 and
 uturn
 eval !=
@@ -217,8 +223,9 @@ copy 1 3
 right
 eval !=
 
-ahead
+start
 eval always 
+
 ```
 
 
