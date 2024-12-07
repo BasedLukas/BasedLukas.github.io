@@ -86,6 +86,7 @@ date: 2024-12-07
 
 *Note: This puzzle is based on a [previous blog post ](https://loreley.one/2023-07-cpu/) of mine. I've reprinted it below (with slight modifications) to provide the context of how this CPU works and why I made it. The functionality of the CPU is derived entirely from simulated logic gates. All the operations and control flow are based on the underlying properties of the logic gates, and changing their operation leads to corresponding changes in function.* 
 *I've been playing around with WASM (Web Assembly) and decided to resuscitate my old python code from that blogpost in order to run it in the browser. The entire python interpreter is bundled with the game code using WASM in the browser. I thought this was pretty cool.*
+*Thanks to Ivan for reviewing an earlier version of this post.*
 
 <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#tutorial" aria-expanded="false" aria-controls="collapse">
 Tutorial
@@ -144,7 +145,7 @@ copy 1 1   # NOP
 
 ### Arithmetic and Logical Operations
 
-Arithmetic and logical operations use `reg1` and `reg2` as operands and store the result in `reg3`. Supported operations:
+Arithmetic and logical operations use `reg1` and `reg2` as operands and store the result in `reg3`. 
 Arithmetic uses 2's complliment. Values overflow if they exceed 255. 
 
 **Addition** (`add`): Adds `reg1` and `reg2`.
