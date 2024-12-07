@@ -42,7 +42,7 @@ Load a constant value into `reg0`. Only values up to 63 are allowed because the 
 
 ### Copying Data
 
-The `copy` instruction copies data between registers or between a register and the input/output. The syntax is:
+The `copy` instruction copies data between registers or between a register and the input/output.
 **Input and Output**: `reg6` serves as both the input and output register.
 
 ```
