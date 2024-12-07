@@ -9,7 +9,79 @@ date: 2024-12-07
 ---
 
 {%raw%}
-<iframe src="robot.html" style="width: 100%; height:850px; border: none;"></iframe>
+
+ <style>
+     /* Default: hide the iframe and show the message for mobile portrait mode */
+     #robot-frame {
+         display: none;
+     }
+
+     #mobile-message {
+         display: none;
+         font-size: 1.5em;
+         text-align: center;
+         color: red;
+         font-weight: bold;
+         margin-top: 50px;
+     }
+
+     /* Show the iframe on landscape mode */
+     @media screen and (orientation: landscape) and (max-width: 768px) {
+         #robot-frame {
+             display: block;
+         }
+         #mobile-message {
+             display: none;
+         }
+     }
+
+     /* Show the iframe for desktops */
+     @media screen and (min-width: 769px) {
+         #robot-frame {
+             display: block;
+         }
+         #mobile-message {
+             display: none;
+         }
+     }
+ </style>
+ 
+ <!-- The iframe -->
+ <iframe id="robot-frame" src="robot.html" style="width: 100%; height: 850px; border: none;"></iframe>
+
+ <!-- Message for mobile portrait mode -->
+ <div id="mobile-message">
+     The game cannot load in portrait mode. <br> 
+     Please turn your phone sideways or visit on a desktop device.
+ </div>
+
+<script>
+    // JavaScript to handle dynamic behavior
+    function handleOrientationChange() {
+        const iframe = document.getElementById('robot-frame');
+        const message = document.getElementById('mobile-message');
+
+        if (window.innerWidth < 769) {
+            if (window.matchMedia("(orientation: landscape)").matches) {
+                iframe.style.display = "block";
+                message.style.display = "none";
+            } else {
+                iframe.style.display = "none";
+                message.style.display = "block";
+            }
+        } else {
+            iframe.style.display = "block"; // Desktop always shows
+            message.style.display = "none";
+        }
+    }
+
+    // Initial check
+    handleOrientationChange();
+
+    // Listen for orientation changes
+    window.addEventListener('resize', handleOrientationChange);
+</script>
+
 {%endraw%}
 
 *Note: This game is based on a [previous blog post ](https://loreley.one/2023-07-cpu/) of mine. I've been playing around with WASM (Web Assembly) and decided to resuscitate my old python code. The way it works is that the entire python interpreter is bundled with the game in the browser (using pyodide). See [my github](https://github.com/BasedLukas/cpu_simulator) for the implementation.*
