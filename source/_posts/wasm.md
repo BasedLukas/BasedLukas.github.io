@@ -12,7 +12,7 @@ date: 2024-12-07
 <iframe src="robot.html" style="width: 100%; height:850px; border: none;"></iframe>
 {%endraw%}
 
-*Note: This game is based on a [previous blog post ](https://loreley.one/2023-07-cpu/) of mine. I've been playing around with WASM (Web Assembly) and decided to resuscitate my old python code. The way it works is that the entire python interpreter is bundled with the game in the browser (using pyodide). See my github for the implementation.*
+*Note: This game is based on a [previous blog post ](https://loreley.one/2023-07-cpu/) of mine. I've been playing around with WASM (Web Assembly) and decided to resuscitate my old python code. The way it works is that the entire python interpreter is bundled with the game in the browser (using pyodide). See [my github](https://github.com/BasedLukas/cpu_simulator) for the implementation.*
 
 ### Introduction
 
