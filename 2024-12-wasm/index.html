@@ -212,7 +212,7 @@
 <figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">0       # Load 0 into reg0 (min allowed immediate)</span><br><span class="line">36      # Load 36 into reg0</span><br><span class="line">63      # Load 63 into reg0 (max allowed immediate)</span><br></pre></td></tr></tbody></table></figure>
 
 <hr>
-<h3 id="Copying-Data"><a href="#Copying-Data" class="headerlink" title="Copying Data"></a>Copying Data</h3><p>The <code>copy</code> instruction copies data between registers or between a register and the input/output. The syntax is:<br><strong>Input and Output</strong>: <code>reg6</code> serves as both the input and output register.</p>
+<h3 id="Copying-Data"><a href="#Copying-Data" class="headerlink" title="Copying Data"></a>Copying Data</h3><p>The <code>copy</code> instruction copies data between registers or between a register and the input/output.<br><strong>Input and Output</strong>: <code>reg6</code> serves as both the input and output register.</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">copy &lt;source_register&gt; &lt;destination_register&gt;</span><br></pre></td></tr></tbody></table></figure>
 <figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">copy 6 1   # Copy value from input (reg6) to reg1</span><br><span class="line">copy 3 6   # Copy value from reg3 to output (reg6)</span><br><span class="line">copy 5 3   # Copy value from reg5 into reg3</span><br><span class="line">copy 6 6   # Copy from input directly to output</span><br><span class="line">copy 1 1   # NOP</span><br></pre></td></tr></tbody></table></figure>
 
