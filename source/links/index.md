@@ -16,6 +16,18 @@ author: Lukas
 * [Christopher Olah](https://colah.github.io/)
 * [Max Halford Linkpage](https://maxhalford.github.io/links/)
 * [Explained.ai](https://explained.ai/)
+* [Gwern](https://gwern.net/)
+* [Alexey Guzey](https://guzey.com/)
+* [AustinVernon](https://austinvernon.site/index.html)
+* [Terry Tao](https://terrytao.wordpress.com/)
+* [The 100% CI](https://www.the100.ci/)
+* [MacKinlay linkpage](https://danmackinlay.name/notebook/blogroll.html)
+* [Lei Mao](https://leimao.github.io/blog/)
+* [Vicki Boykis](https://vickiboykis.com/)
+* [Near Cyan](https://near.blog/)
+* [Count Baysie](https://www.countbayesie.com/)
+* [Chenyang, diffusion models from scratch](https://www.chenyang.co/diffusion.html)
+* [Not a Number](https://www.nan.fyi/)
 
 <br>   
 
@@ -28,6 +40,7 @@ author: Lukas
 * [Calculus made Easy](https://calculusmadeeasy.org/)
 * [Unraveling Principal Component Analysis](https://peterbloem.nl/publications/unraveling-pca)
 * Proofs and Refutations: The Logic of Mathematical Discovery
+* [The Scientist and Engineer's Guide to Digital Signal Processing](https://www.dspguide.com/ch1/1.htm)
 <br>  
 
 ## YouTube
