@@ -195,7 +195,21 @@
             <!-- Post Main Content -->
             <div class="col-md-10 col-md-offset-1 col-lg-offset-1 col-lg-10">
                 
-<iframe src="robot.html" style="border:none;width:100%;height:850px"></iframe>
+
+ <style>#robot-frame{display:none}#mobile-message{text-align:center;color:red;margin-top:50px;font-size:1.5em;font-weight:700;display:none}@media screen and (orientation:landscape) and (max-width:768px){#robot-frame{display:block}#mobile-message{display:none}}@media screen and (min-width:769px){#robot-frame{display:block}#mobile-message{display:none}}</style>
+ 
+ <!-- The iframe -->
+ <iframe id="robot-frame" src="robot.html" style="border:none;width:100%;height:850px"></iframe>
+
+ <!-- Message for mobile portrait mode -->
+ <div id="mobile-message">
+     The game cannot load in portrait mode. <br> 
+     Please turn your phone sideways or visit on a desktop device.
+ </div>
+
+<script>function handleOrientationChange(){const e=document.getElementById("robot-frame"),n=document.getElementById("mobile-message");window.innerWidth<769?window.matchMedia("(orientation: landscape)").matches?(e.style.display="block",n.style.display="none"):(e.style.display="none",n.style.display="block"):(e.style.display="block",n.style.display="none")}handleOrientationChange(),window.addEventListener("resize",handleOrientationChange);
+</script>
+
 
 
 <p><em>Note: This game is based on a <a href="https://loreley.one/2023-07-cpu/">previous blog post </a> of mine. I’ve been playing around with WASM (Web Assembly) and decided to resuscitate my old python code. The way it works is that the entire python interpreter is bundled with the game in the browser (using pyodide). See <a target="_blank" rel="noopener" href="https://github.com/BasedLukas/cpu_simulator">my github</a> for the implementation.</em></p>
