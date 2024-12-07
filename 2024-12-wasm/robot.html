@@ -1,0 +1,50 @@
+<div class="robot-maze">
+<script rel="preload" src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
+<script>async function fetchDocumentAsString(e){try{const t=await fetch(e);if(!t.ok)throw new Error(`HTTP error! Status: ${t.status}`);return await t.text()}catch(t){throw console.error("Error fetching document:",t),t}}async function main(){let e=await loadPyodide();await e.loadPackage("micropip"),document.getElementById("output").innerText="Pyodide loaded. Installing package...",e.runPythonAsync(await fetchDocumentAsString("main.py")),document.getElementById("solutionButton").addEventListener("click",()=>{document.getElementById("assemblyCode").value=e.globals.get("solution_code")}),document.getElementById("output").innerText="Loaded",document.getElementById("loadingIndicator").style.display="none",document.getElementById("mazeCanvas").style.display="block"}main();
+</script>
+<style>.maze-wrapper{display:inline-block;position:relative}#canvasContainer{width:600px;height:400px;margin:0 auto;position:relative}#loadingIndicator{z-index:10;background:#f0f0f0;justify-content:center;align-items:center;width:100%;height:100%;display:flex;position:absolute;top:0;left:0}#mazeCanvas{width:100%;height:100%;display:block}#assemblyContainer{width:600px;margin:20px auto}#assemblyCode{box-sizing:border-box;resize:both;width:100%;min-height:250px}.controls-row{justify-content:center;align-items:center;width:600px;margin:20px auto;display:flex}.controls-row>*{margin:0 5px}.controls-row button{flex:1;min-width:80px}.delay-group{align-items:center;display:flex}.delay-group label{margin-right:5px}.delay-group input[type=number]{text-align:center;width:80px}body{text-align:center;margin:0;padding:20px}#output{margin-top:20px}</style>
+<div class="maze-wrapper">
+    <div id="canvasContainer">
+        <div id="loadingIndicator"><span>Loading...</span></div>
+        <canvas id="mazeCanvas"></canvas>
+    </div>
+</div>
+<div id="assemblyContainer">
+    <textarea id="assemblyCode" class="form-control">
+# output controls:
+# 1 == turn left | 2 == turn right | 3 == step forward
+
+# input observations:
+# 1 == wall | 0 == clear
+
+# this will rotate you left
+1
+copy 0 6
+
+# rotate right 3 times
+2
+copy 0 6
+copy 0 6
+copy 0 6
+
+# walk in a line until blocked
+label start_loop
+3
+copy 0 6
+copy 6 3
+start_loop
+eval = 
+    </textarea>
+</div>
+<div class="controls-row">
+    <button id="runButton" class="btn btn-primary">Run</button>
+    <button id="stopButton" class="btn btn-secondary">Reset</button>
+    <button id="solutionButton" class="btn btn-info">Solution</button>
+    <div class="delay-group">
+        <label for="delay">Delay:</label>
+        <input id="delay" type="number" value="0.1" class="form-control delay-input">
+    </div>
+</div>
+<p id="errorOutput" style="color:red"></p>
+<p id="output"></p>
+</div>
