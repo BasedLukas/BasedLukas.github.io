@@ -1,16 +1,16 @@
 # Header
 menu:
-  Home: /
+  # Home: /
   About: /about
   Links: /links
-  Github:
-    url: https://github.com/BasedLukas    
-    icon: github
+  # Github:
+  #   url: https://github.com/BasedLukas    
+  #   icon: github
 
 # Title on top left of menu. Leave empty to use main blog title
 menu_title: Home
 # URL of the Home page image
-index_cover: img/bg.webp
+index_cover: 
 
 
 
@@ -37,10 +37,10 @@ default_post_title: Untitled
 favicon: img/favicon.ico
 # 
 # # Social Accounts
-# twitter_url:
-twitter_handle: "LukasBogacz"
+twitter_url: "https://x.com/LukasBogacz"
+github_url: https://github.com/BasedLukas
+mailto: info@loreley.one
+# twitter_handle: 
 # facebook_url:
-# github_url: https://github.com/klugjo/hexo-theme-clean-blog
 # gitlab_url:
 # linkedin_url:
-mailto: info@loreley.one
