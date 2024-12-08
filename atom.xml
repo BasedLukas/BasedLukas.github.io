@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Lukas&#39;s Blog</title>
+  
+  
+  <link href="http://loreley.one/atom.xml" rel="self"/>
+  
+  <link href="http://loreley.one/"/>
+  <updated>2024-12-08T22:28:17.566Z</updated>
+  <id>http://loreley.one/</id>
+  
+  <author>
+    <name>Lukas</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>WASM</title>
+    <link href="http://loreley.one/2024-12-wasm/"/>
+    <id>http://loreley.one/2024-12-wasm/</id>
+    <published>2024-12-06T23:00:00.000Z</published>
+    <updated>2024-12-08T22:28:17.566Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">
+
+ &lt;style&gt;
+     /* Default: hide the iframe and show the message for mobile portrait mode */
+     #robot-frame {
+         display: none;
+  </summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Book Review: Unraveling Principal Component Analysis</title>
+    <link href="http://loreley.one/2024-09-pca/"/>
+    <id>http://loreley.one/2024-09-pca/</id>
+    <published>2024-09-08T22:00:00.000Z</published>
+    <updated>2024-12-08T22:28:17.533Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Intuition-and-Motivation&quot;&gt;&lt;a href=&quot;#Intuition-and-Motivation&quot; class=&quot;headerlink&quot; title=&quot;Intuition and Motivation&quot;&gt;&lt;/a&gt;Intuition and</summary>
+        
+      
+    
+    
+    
+    
+    <category term="models" scheme="http://loreley.one/tags/models/"/>
+    
+    <category term="math" scheme="http://loreley.one/tags/math/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ACDL 2024</title>
+    <link href="http://loreley.one/2024-06-acdl/"/>
+    <id>http://loreley.one/2024-06-acdl/</id>
+    <published>2024-06-14T22:00:00.000Z</published>
+    <updated>2024-12-08T22:28:17.520Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;The &lt;a href=&quot;https://acdl2024.icas.events/&quot;&gt;ACDL&lt;/a&gt; is a summer school, which, as the name implies, focuses on data science and to a</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Double Q-Learning Explained</title>
+    <link href="http://loreley.one/2024-03-double_q/"/>
+    <id>http://loreley.one/2024-03-double_q/</id>
+    <published>2024-03-15T23:00:00.000Z</published>
+    <updated>2024-12-08T22:28:17.526Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;p&gt;Q-learning is a popular</summary>
+        
+      
+    
+    
+    
+    
+    <category term="python" scheme="http://loreley.one/tags/python/"/>
+    
+    <category term="models" scheme="http://loreley.one/tags/models/"/>
+    
+    <category term="reinforcement learning" scheme="http://loreley.one/tags/reinforcement-learning/"/>
+    
+    <category term="probability" scheme="http://loreley.one/tags/probability/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Will Gzip Replace Neural Networks for Text Classification?</title>
+    <link href="http://loreley.one/2023-07-gzip/"/>
+    <id>http://loreley.one/2023-07-gzip/</id>
+    <published>2023-07-18T22:00:00.000Z</published>
+    <updated>2024-12-08T22:28:17.531Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;p&gt;Large language models are</summary>
+        
+      
+    
+    
+    
+    
+    <category term="python" scheme="http://loreley.one/tags/python/"/>
+    
+    <category term="models" scheme="http://loreley.one/tags/models/"/>
+    
+    <category term="NLP" scheme="http://loreley.one/tags/NLP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Designing a Simple 8 Bit CPU Emulator in Python</title>
+    <link href="http://loreley.one/2023-07-cpu/"/>
+    <id>http://loreley.one/2023-07-cpu/</id>
+    <published>2023-07-03T22:00:00.000Z</published>
+    <updated>2024-12-08T22:28:17.520Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;em&gt;(2024-12-07) Note: See &lt;a href=&quot;https://loreley.one/2024-12-wasm/&quot;&gt;this blogpost&lt;/a&gt; of mine to interact with the CPU and solve the</summary>
+        
+      
+    
+    
+    
+    
+    <category term="python" scheme="http://loreley.one/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Waltzing With Chance</title>
+    <link href="http://loreley.one/2023-06-monte_carlo/"/>
+    <id>http://loreley.one/2023-06-monte_carlo/</id>
+    <published>2023-06-30T22:00:00.000Z</published>
+    <updated>2024-12-08T22:28:17.532Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;p&gt;Suppose you were flying over</summary>
+        
+      
+    
+    
+    
+    
+    <category term="python" scheme="http://loreley.one/tags/python/"/>
+    
+    <category term="probability" scheme="http://loreley.one/tags/probability/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Text Vectorization</title>
+    <link href="http://loreley.one/2023-03-embeddings/"/>
+    <id>http://loreley.one/2023-03-embeddings/</id>
+    <published>2023-03-21T23:00:00.000Z</published>
+    <updated>2024-12-08T22:28:17.529Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Introduction-to-Embeddings&quot;&gt;&lt;a href=&quot;#Introduction-to-Embeddings&quot; class=&quot;headerlink&quot; title=&quot;Introduction to</summary>
+        
+      
+    
+    
+    
+    
+    <category term="python" scheme="http://loreley.one/tags/python/"/>
+    
+    <category term="models" scheme="http://loreley.one/tags/models/"/>
+    
+    <category term="NLP" scheme="http://loreley.one/tags/NLP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Therapeutic Plasma Exchange</title>
+    <link href="http://loreley.one/2022-06-tpe/"/>
+    <id>http://loreley.one/2022-06-tpe/</id>
+    <published>2022-06-01T22:00:00.000Z</published>
+    <updated>2024-12-08T22:28:17.565Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1-Why-do-we-age&quot;&gt;&lt;a href=&quot;#1-Why-do-we-age&quot; class=&quot;headerlink&quot; title=&quot;1. Why do we age?&quot;&gt;&lt;/a&gt;1. Why do we age?&lt;/h2&gt;&lt;p&gt;When you are</summary>
+        
+      
+    
+    
+    
+    
+    <category term="longevity" scheme="http://loreley.one/tags/longevity/"/>
+    
+  </entry>
+  
+</feed>
