@@ -133,4 +133,4 @@ A feature of this style is that at times it can be a little hard to follow. It's
 
 ## Conclusion
 
-I’m pleased to have found this book, it’s been a game changer for me. A friend recommended his [blog](https://peterbloem.nl/blog/) to me when I was looking for explanations of the transformer architecture, which is how I found it. The full book is available on his blog as a free PDF, or you can buy it on amazon. Lockhart’s Lament is also a fun read and only around 25 pages. It is available [here (PDF)](lockharts_lament.pdf).
+I’m pleased to have found this book, it’s been a game changer for me. A friend recommended his [blog](https://peterbloem.nl/blog/) to me when I was looking for explanations of the transformer architecture, which is how I found it. The full book is available on his blog as a [free PDF](https://peterbloem.nl/publications/unraveling-pca), or you can buy it on amazon. Lockhart’s Lament is also a fun read and only around 25 pages. It is available [here (PDF)](lockharts_lament.pdf).
