@@ -3,9 +3,9 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: "Lukas's Blog"
+title: "Lukas's Writings"
 subtitle: ''
-description: 'My incoherent ramblings'
+description: 'A collection of projects, essays and thoughts'
 keywords: ['statistics', 'probability', 'machine learning', 'programming']
 author: Lukas
 language: en
