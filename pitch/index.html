@@ -46,8 +46,8 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Pitch">
-        <meta name="twitter:title" content="Pitch">
+        <meta property="og:title" content="Investor Pitch">
+        <meta name="twitter:title" content="Investor Pitch">
     
 
     <!--Open Graph Site Name-->
@@ -70,7 +70,7 @@
 
     <!-- Title -->
     
-    <title>Pitch - Lukas's Writings</title>
+    <title>Investor Pitch - Lukas's Writings</title>
 
     <!-- favicon -->
     
@@ -142,7 +142,7 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-1">
                 <div class="post-heading">
-                    <h1>Pitch</h1>
+                    <h1>Investor Pitch</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
@@ -150,7 +150,7 @@
                             Posted by Lukas on
                         
                         
-                            2025-01-04
+                            2025-01-27
                         
                     </span>
                 </div>
@@ -172,45 +172,81 @@
 
             <!-- Post Main Content -->
             <div class="col-md-10 col-md-offset-1 col-lg-offset-1 col-lg-10">
-                <h2 id="I-Am-Building-a-Search-Engine"><a href="#I-Am-Building-a-Search-Engine" class="headerlink" title="I Am Building a Search Engine"></a>I Am Building a Search Engine</h2><p>Exactly what it sounds like: I am building an engine to search the internet and find relevant content.  </p>
-<h2 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h2><ul>
-<li>LLM chatbots will always require search to fetch up-to-date information.  </li>
-<li>LLMs will soon become the primary method people use to find information.  </li>
-<li>AI labs and companies building UIs for chatbots don’t want to build their own search engines.  </li>
-<li>The types of queries an LLM makes are very different from those of a person. Current search engines aren’t suited for longer, more detailed queries.  </li>
-<li>It’s much easier to build a search engine now than it was a decade ago (thanks to improved software and cloud infrastructure).  </li>
-<li>The best way to rank pages is by using AI. Legacy search engine algorithms and research will soon be obsolete.  </li>
-<li>In the medium term, it will be possible to take on Google. They may face restrictions against making their engine the default. Their results are subpar, and their management is out of touch.  </li>
-<li>We can benefit from all the investment in AI without directly competing with AI labs (GPUs, AI training software).</li>
+                <h1 id="Search-Engine-Company-name-TBD"><a href="#Search-Engine-Company-name-TBD" class="headerlink" title="Search Engine Company (name TBD)"></a>Search Engine Company (name TBD)</h1><h2 id="Executive-Summary"><a href="#Executive-Summary" class="headerlink" title="Executive Summary"></a>Executive Summary</h2><p>We are building a search engine designed for use by language models, not people. Language models will always require a source of up-to-date information — we provide it.</p>
+<p>Our initial focus is on coding-related queries. Our API will give developers a factual programming knowledge base they can query, allowing them to use smaller models that excel in reasoning rather than memorizing large amounts of often outdated information. Once successful, we will expand into other fields, ultimately scaling into a full-featured search engine.</p>
+<p>We are in the very early stages of setting up the company and actively seeking seed funding.</p>
+<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><ul>
+<li>Language models “remember” facts they encounter during training, but information changes rapidly, and retraining models daily isn’t practical.</li>
+<li>Storing large amounts of information in model weights is expensive and slow, especially if you want the model to handle the entire accumulated knowledge of the internet.</li>
+<li>Information that appears only a handful of times during training isn’t always retained.</li>
+<li>Current search engines weren’t designed for LLM use; they expect short, keyword-heavy queries, not long detailed prompts.</li>
 </ul>
-<h2 id="How"><a href="#How" class="headerlink" title="How"></a>How</h2><ul>
-<li>Raise a seed round from reputable VCs, and/or apply to YC Spring 2025.  </li>
-<li>Initially focus on a niche (e.g., software development, medicine, law).  </li>
-<li>Make the engine available to developers to include in their AI chatbot projects.  </li>
-<li>This enables the development of AI UIs with smaller models that can fetch relevant information on demand.  </li>
-<li>After demonstrating the viability of this concept, scale to a full-blown search engine.</li>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>The solution is for language models to focus on general knowledge and reasoning, combined with a purpose-built search engine for information retrieval. It’s increasingly possible to isolate the reasoning capabilities during training (<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2501.12948">see the DeepSeek R1 paper</a>), allowing for smaller and faster models.</p>
+<p>We provide a search engine that:</p>
+<ul>
+<li>Can be updated rapidly with the latest information.</li>
+<li>Can return results for obscure queries that an LLM hasn’t memorized.</li>
+<li>Is more computationally efficient than LLMs.</li>
+<li>Is designed from the ground up for LLM integration.</li>
 </ul>
-<h2 id="Technical"><a href="#Technical" class="headerlink" title="Technical"></a>Technical</h2><h3 id="Work-in-Progress-Open-to-Ideas"><a href="#Work-in-Progress-Open-to-Ideas" class="headerlink" title="Work in Progress (Open to Ideas)"></a>Work in Progress (Open to Ideas)</h3><ul>
-<li>Start with Common Crawl (CC). No need to crawl the entire internet ourselves.  </li>
-<li>Filter it for our chosen domain, using &lt;1% of the total dataset.  </li>
-<li>Embed each page.  </li>
-<li>Classify each page into various subcategories (e.g., Python programming, maritime law, high blood pressure).  </li>
-<li>At search time, classify the query and search relevant categories using embeddings and possibly other ranking algorithms.  </li>
-<li>Provide access via an API.  </li>
-<li>As the project scales, start crawling important sites in our niche (since CC updates only monthly).</li>
+<p>Example use cases include asking an AI chatbot about today’s weather or how to integrate a specific SaaS tool with your webapp.</p>
+<h2 id="Market-Opportunity"><a href="#Market-Opportunity" class="headerlink" title="Market Opportunity"></a>Market Opportunity</h2><p>The <strong>challenge</strong> is identifying a business opportunity that benefits from AI growth without:</p>
+<ul>
+<li>Competing against big AI labs.</li>
+<li>Being a thin wrapper around a model.</li>
+<li>Being undermined by future advancements in AI.</li>
 </ul>
-<h2 id="Me"><a href="#Me" class="headerlink" title="Me"></a>Me</h2><ul>
-<li>I have been validating ideas for the last few months; this is the first idea I really want to pursue.  </li>
-<li>I just quit my job and am moving to SF to raise money and find cofounder(s).  </li>
-<li>I can code and have experience developing and deploying ML models (not just fine-tuning via a library).  </li>
-<li>I was awarded an Emergent Ventures grant by Tyler Cowen to work on LLMs.  </li>
-<li>Previous experience includes working as an ML engineer, biochemist, and active-duty military vet (paratroopers).</li>
+<p>A search engine is <strong>ideal</strong> because:</p>
+<ul>
+<li>Growth in LLM usage directly benefits us: each additional LLM query means more revenue.</li>
+<li>Hardware improvements (AWS, cheaper storage, faster GPUs) make it feasible to build a search engine with a shoestring budget.</li>
+<li>Software improvements (Spark, vector DBs, LLM assistants) make coding the search engine much easier than it used to be.</li>
+<li>Ongoing AI research into ranking and information retrieval directly benefits us.</li>
+<li>Building a robust search engine requires time and care, creating a moat against trivial competition.</li>
 </ul>
-<h2 id="You"><a href="#You" class="headerlink" title="You"></a>You</h2><ul>
-<li>Should be willing to relocate to SF in a few months, conditional on us receiving funding (at least temporarily).  </li>
-<li>Be willing and able to take on the role of CTO and lead the technical effort (I will help you).  </li>
-<li>Ideally have experience working with large datasets, ML, and distributed systems—or be willing to learn.</li>
+<h2 id="Competition"><a href="#Competition" class="headerlink" title="Competition"></a>Competition</h2><h3 id="Bing"><a href="#Bing" class="headerlink" title="Bing"></a>Bing</h3><ul>
+<li><strong>What they do:</strong> General-purpose search engine API, run by Microsoft.</li>
+<li><strong>Strengths:</strong> Highly scalable, used by OpenAI. Ability to crawl entire web daily. Can search video and images.</li>
+<li><strong>Weaknesses:</strong> Expensive, restrictive terms of use, and not designed for LLMs or code-specific queries.</li>
 </ul>
+<h3 id="Brave"><a href="#Brave" class="headerlink" title="Brave"></a>Brave</h3><ul>
+<li><strong>What they do:</strong> Offers a straightforward search API.</li>
+<li><strong>Strengths:</strong> Strong market position and widely used by companies like Mistral, Perplexity, Cohere, and You.com. Good distribution.</li>
+<li><strong>Weaknesses:</strong> High fixed costs due to crawling the entire web and maintaining a browser. Not optimized for LLMs or programming-specific searches.</li>
+</ul>
+<h3 id="Exa-ai"><a href="#Exa-ai" class="headerlink" title="Exa.ai"></a>Exa.ai</h3><ul>
+<li><strong>What they do:</strong> Customizable search API, focusing on curating datasets like company lists.</li>
+<li><strong>Strengths:</strong> Similar to our approach, with strong filtering options (date, domain, etc.) and LLM-specific design.</li>
+<li><strong>Weaknesses:</strong> They seem to have a wide focus, and interest in curating datasets, which limits their depth in code-related queries.</li>
+</ul>
+<h3 id="Perplexity"><a href="#Perplexity" class="headerlink" title="Perplexity"></a>Perplexity</h3><ul>
+<li><strong>What they do:</strong> Consumer-facing chat-based AI that combines search with LLMs. Doesn’t provide a traditional search API.</li>
+<li><strong>Strengths:</strong> Popular and well-suited for conversational interfaces.</li>
+<li><strong>Weaknesses:</strong> Relies on Brave for search and doesn’t offer direct internet search capabilities. Attention is split between their LLM and search functionality.</li>
+</ul>
+<h3 id="Sourcegraph"><a href="#Sourcegraph" class="headerlink" title="Sourcegraph"></a>Sourcegraph</h3><ul>
+<li><strong>What they do:</strong> Developer-focused tool for searching internal codebases, not the open web.</li>
+<li><strong>Strengths:</strong> A powerful solution for teams managing private code repositories.</li>
+<li><strong>Weaknesses:</strong> Limited to known codebases. It does not offer internet-wide search or integration for LLM queries.</li>
+</ul>
+<h3 id="Phind-You-com-and-others"><a href="#Phind-You-com-and-others" class="headerlink" title="Phind, You.com and others"></a>Phind, You.com and others</h3><ul>
+<li><strong>What they do:</strong> Consumer-focused search tools with some LLM integration.</li>
+<li><strong>Strengths:</strong> Both are user-friendly and designed to compete with traditional search engines in niche areas.</li>
+<li><strong>Weaknesses:</strong> Neither focuses on internet-wide coding queries or APIs optimized for developer tools. Their offerings are consumer-facing, making them less relevant for LLM-specific use cases.</li>
+</ul>
+<p>Competitor engines currently price requests between $5.00–$25.00 per thousand (CPM). Running a search engine has very low variable costs (well under $0.10 CPM), with most expenses being fixed infrastructure costs. Since our initial niche — coding — is less than 1% of all internet pages, our storage, bandwidth, and compute costs will likewise be low. This allows us to offer our API at a price point far lower than competitors.</p>
+<h2 id="Market-Size-and-Path-to-Profitability"><a href="#Market-Size-and-Path-to-Profitability" class="headerlink" title="Market Size and Path to Profitability"></a>Market Size and Path to Profitability</h2><p>For the coding-only API, the total addressable market is already large. Developer-focused tools and platforms collectively handle hundreds of millions of daily queries (ranging from Stack Overflow to various coding Q&amp;A sites). Conservatively, if we capture even a small fraction — say 5 million queries/day at a CPM of $2 — that’s $10,000/day or ~$3.65M/year in revenue potential. Expanding to general search can reach a far larger market, with billions of queries daily worldwide.</p>
+<p>We plan to raise a seed round and a later Series A to build a robust coding search API, aiming to sell access to UI providers, LLM agent companies, and enterprise developers. We anticipate first users at launch (start of Q3 2025) and our first revenue by the end of 2025. We will grow throughout 2026, targeting profitability by the end of that year. Our projected burn rate is $1M/year, with 2–4 employees ($750k) and ~$250k in compute costs. We need at least $1M in revenue by the end of 2026 to break even.</p>
+<h2 id="Vision-and-Gameplan"><a href="#Vision-and-Gameplan" class="headerlink" title="Vision and Gameplan"></a>Vision and Gameplan</h2><p>Our goal is to operate the default search engine that LLMs use to source information. We face two main challenges:</p>
+<ol>
+<li><p>Technical<br>It’s easy to build a search engine; it’s extremely difficult to index the entire internet while remaining fast and high-quality. We will start by focusing on a smaller segment (coding), which dramatically reduces complexity and allows us to build up our expertise.</p>
+</li>
+<li><p>Distribution<br>Developers ultimately choose which search engine APIs to integrate. We plan to win over developers by open sourcing our product (we will maintain up-to-date datasets) and offering free API access for low-volume usage. By focusing on coding first, we’ll grow recognition among developers, easing our path to broader market share later. We will spread the word through podcasts, blog articles, how-tos, and word of mouth.</p>
+</li>
+</ol>
+<h2 id="Progress"><a href="#Progress" class="headerlink" title="Progress"></a>Progress</h2><p>We are building our MVP and have most of the core infrastructure in place to search indexed pages. We still need to curate our dataset, and we expect to launch by Q3 2025.</p>
+<h2 id="Founder"><a href="#Founder" class="headerlink" title="Founder"></a>Founder</h2><p>I previously worked as an ML engineer, building data pipelines, training models, and deploying them to production. The company I worked for specializes in creating recommendation systems for books by analyzing their content using ML models. I received an Emergent Ventures grant from Tyler Cowen for my work on LLMs. My academic background is in biochemistry and microbiology, and I served in the military, passing paratrooper selection and serving on active duty. I’m a highly competitive amateur athlete, having won bronze at nationals.</p>
+<h2 id="Team"><a href="#Team" class="headerlink" title="Team"></a>Team</h2><p>I am in discussions with a number of potential founding engineers that are interested in joining the company. Since I’m looking to hire more established engineers, having already raised a seed round will make this a lot easier.</p>
 
 
                 
