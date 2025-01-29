@@ -48,57 +48,61 @@ A search engine is **ideal** because:
 
 ## Competition
 
-### Bing
-- **What they do:** General-purpose search engine API, run by Microsoft.
-- **Strengths:** Highly scalable, used by OpenAI. Ability to crawl entire web daily. Can search video and images.
-- **Weaknesses:** Expensive, restrictive terms of use, and not designed for LLMs or code-specific queries.
+### Bing API  
+• Strengths: Highly scalable, used by OpenAI. Crawls the web daily. Capable of video and image search.  
+• Weaknesses: Expensive, restrictive terms of use. Not designed for LLMs or code-specific queries.  
 
+### Brave Search API  
+• Strengths: Strong market presence. Used by Mistral, Perplexity, Cohere, and You.  
+• Weaknesses: High fixed costs due to web-wide crawling and maintaining a browser. Not optimized for LLMs or programming-specific searches.  
 
-### Brave
-- **What they do:** Offers a straightforward search API.
-- **Strengths:** Strong market position and widely used by companies like Mistral, Perplexity, Cohere, and You.com. Good distribution.
-- **Weaknesses:** High fixed costs due to crawling the entire web and maintaining a browser. Not optimized for LLMs or programming-specific searches.
+### Exa.ai  
+• Strengths: Modern NN-based search engine, built for LLM integration.  
+• Weaknesses: Wide focus on dataset curation, which limits depth in code-related queries.  
+(Exa is the company I admire/fear most. Their offering is very good.)
 
+### Perplexity API  
+• Strengths: Can provide factual information directly, rather than just links.  
+• Weaknesses: Relies on Brave for search and lacks its own internet-wide search. Divided attention between its LLM and search. Very expensive.  
 
-### Exa.ai
-- **What they do:** Customizable search API, focusing on curating datasets like company lists.
-- **Strengths:** Similar to our approach, with strong filtering options (date, domain, etc.) and LLM-specific design.
-- **Weaknesses:** They seem to have a wide focus, and interest in curating datasets, which limits their depth in code-related queries.
+### Sourcegraph  
+• Strengths: Excellent for searching codebases.  
+• Weaknesses: Limited to known codebases. Does not index coding blogs or the broader internet.
 
+Our biggest advantage is our exclusive focus on coding, which provides three main benefits:
 
-### Perplexity
-- **What they do:** Consumer-facing chat-based AI that combines search with LLMs. Doesn’t provide a traditional search API.
-- **Strengths:** Popular and well-suited for conversational interfaces.
-- **Weaknesses:** Relies on Brave for search and doesn’t offer direct internet search capabilities. Attention is split between their LLM and search functionality.
+- Cost: Competitors charge around $5–$25 per thousand requests (CPM). In contrast, a specialized coding search covers less than 1% of internet pages, so storage, bandwidth, and compute costs are much lower. We can therefore offer a far more affordable API.  
 
+- Performance: Because we index a smaller subset of the internet, we can use algorithms that would be impractical for full-scale search engines. This yields a much higher-quality result for coding queries.
 
-### Sourcegraph
-- **What they do:** Developer-focused tool for searching internal codebases, not the open web.
-- **Strengths:** A powerful solution for teams managing private code repositories.
-- **Weaknesses:** Limited to known codebases. It does not offer internet-wide search or integration for LLM queries.
-
-
-### Phind, You.com and others
-- **What they do:** Consumer-focused search tools with some LLM integration.
-- **Strengths:** Both are user-friendly and designed to compete with traditional search engines in niche areas.
-- **Weaknesses:** Neither focuses on internet-wide coding queries or APIs optimized for developer tools. Their offerings are consumer-facing, making them less relevant for LLM-specific use cases.
-
-Competitor engines currently price requests between $5.00–$25.00 per thousand (CPM). Running a search engine has very low variable costs (well under $0.10 CPM), with most expenses being fixed infrastructure costs. Since our initial niche — coding — is less than 1% of all internet pages, our storage, bandwidth, and compute costs will likewise be low. This allows us to offer our API at a price point far lower than competitors.
+- Niche market exposure: By focusing on coding, we gain direct access to developers—who are ultimately the ones deciding which search APIs to use once we expand to a broader scope.
 
 ## Market Size and Path to Profitability
 
-For the coding-only API, the total addressable market is already large. Developer-focused tools and platforms collectively handle hundreds of millions of daily queries (ranging from Stack Overflow to various coding Q&A sites). Conservatively, if we capture even a small fraction — say 5 million queries/day at a CPM of $2 — that’s $10,000/day or ~$3.65M/year in revenue potential. Expanding to general search can reach a far larger market, with billions of queries daily worldwide.
+We plan to generate revenue by charging for our API usage. Our variable costs for the coding-only MVP will be relatively low: one small EC2 instance can handle about 100 requests per second, or roughly 259 million requests per month. Even if we price our API as low as $2 CPM (cost per thousand queries), margins remain high.  
 
-We plan to raise a seed round and a later Series A to build a robust coding search API, aiming to sell access to UI providers, LLM agent companies, and enterprise developers. We anticipate first users at launch (start of Q3 2025) and our first revenue by the end of 2025. We will grow throughout 2026, targeting profitability by the end of that year. Our projected burn rate is $1M/year, with 2–4 employees ($750k) and ~$250k in compute costs. We need at least $1M in revenue by the end of 2026 to break even.
+Developer-focused tools like Cursor, with 40,000 users (2024), and GitHub Copilot, with over 1.3 million paying subscribers, demonstrate the growing demand for developer-centric AI tools. If we partner with a few devtool companies, it is realistic to aim for 100,000 end users within a year. At this scale, with each user making an average of 100 queries daily, our revenue potential would be:  
+
+Daily Queries: 100,000 users × 100 queries = 10 million queries  
+Monthly Queries: 10 million queries/day × 30 days = 300 million queries  
+Revenue at $2 CPM: 300 million queries ÷ 1,000 × $2 = $600,000 per month, or $7 million annually.  
+
+Scaling further, 1 million users—10 times our initial target—would generate $70 million annually under the same pricing model.  
+
+Looking even further ahead, as AI-assisted coding evolves to empower non-specialists to create software, the potential user base could grow into the hundreds of millions annually. Companies like Replit and others working on tools to enable laymen to build web apps could drive this, vastly expanding the market for coding-focused APIs like ours.  
+
+Our projected burn rate is about $1 million per year, including a team of 2–4 people ($750k) and compute costs (~$250k). 
+
+We aim to raise a seed round and later a Series A to cover these expenses, with the goal of breaking even by the end of 2026. When we expand into full-scale search, our costs will rise significantly, but so will our potential market, which encompasses billions of queries per day worldwide.
 
 ## Vision and Gameplan
 
 Our goal is to operate the default search engine that LLMs use to source information. We face two main challenges:
 
-1) Technical
+1) **Technical**
 It’s easy to build a search engine; it’s extremely difficult to index the entire internet while remaining fast and high-quality. We will start by focusing on a smaller segment (coding), which dramatically reduces complexity and allows us to build up our expertise.
 
-2) Distribution
+2) **Distribution**
 Developers ultimately choose which search engine APIs to integrate. We plan to win over developers by open sourcing our product (we will maintain up-to-date datasets) and offering free API access for low-volume usage. By focusing on coding first, we’ll grow recognition among developers, easing our path to broader market share later. We will spread the word through podcasts, blog articles, how-tos, and word of mouth.
 
 ## Progress
