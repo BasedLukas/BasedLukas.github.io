@@ -10,6 +10,10 @@ We are building a search engine designed for use by language models, not people.
 
 Our initial focus is on coding-related queries. Our API will give developers a factual programming knowledge base they can query, allowing them to use smaller models that excel in reasoning rather than memorizing large amounts of often outdated information. Once successful, we will expand into other fields, ultimately scaling into a full-featured search engine.
 
+Here is a technical demo showing how our search engine improves the results that GPT-4 provides when used for coding tasks;
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/7l-81Q1MrsM?si=N8kXnZgbEenXNYWJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 We are in the very early stages of setting up the company and actively seeking seed funding.
 
 ## Problem
@@ -75,7 +79,7 @@ Our biggest advantage is our exclusive focus on coding, which provides three mai
 
 - Performance: Because we index a smaller subset of the internet, we can use algorithms that would be impractical for full-scale search engines. This yields a much higher-quality result for coding queries.
 
-- Niche market exposure: By focusing on coding, we gain direct access to developers—who are ultimately the ones deciding which search APIs to use once we expand to a broader scope.
+- Niche market exposure: By focusing on coding, we gain direct access to developers—who are ultimately the ones deciding which search APIs to use once we expand to a broader scope. We can also consider open sourcing the product.
 
 ## Market Size and Path to Profitability
 
@@ -107,7 +111,7 @@ Developers ultimately choose which search engine APIs to integrate. We plan to w
 
 ## Progress
 
-We are building our MVP and have most of the core infrastructure in place to search indexed pages. We still need to curate our dataset, and we expect to launch by Q3 2025.
+We are building our MVP and have most of the core infrastructure in place to search indexed pages. We still need to curate our dataset, and we expect to launch by Q3 2025. 
 
 ## Founder
 I previously worked as an ML engineer, building data pipelines, training models, and deploying them to production. The company I worked for specializes in creating recommendation systems for books by analyzing their content using ML models. I received an Emergent Ventures grant from Tyler Cowen for my work on LLMs. My academic background is in biochemistry and microbiology, and I served in the military, passing paratrooper selection and serving on active duty. I’m a highly competitive amateur athlete, having won bronze at nationals.
