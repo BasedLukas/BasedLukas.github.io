@@ -3,7 +3,11 @@ title: Investor Pitch
 date: 2025-01-28 
 author: Lukas
 ---
-# Search Engine Company (name TBD)
+
+## [getDelv.com](https://getdelv.com) 
+
+[Website](https://getdelv.com)
+[email](mailto:lukas@getdelv.com)
 
 ## Executive Summary
 We are building a search engine designed for use by language models, not people. Language models will always require a source of up-to-date information — we provide it.
@@ -15,6 +19,7 @@ Here is a technical demo showing how our search engine improves the results that
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/7l-81Q1MrsM?vq=hd1080p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 We are in the very early stages of setting up the company and actively seeking seed funding.
+
 
 ## Problem
 - Language models “remember” facts they encounter during training, but information changes rapidly, and retraining models daily isn’t practical.
@@ -118,3 +123,7 @@ I previously worked as an ML engineer, building data pipelines, training models,
 
 ## Team
 I am in discussions with a number of potential founding engineers that are interested in joining the company. Since I'm looking to hire more established engineers, having already raised a seed round will make this a lot easier.
+
+## Contact
+[Website](https://getdelv.com)
+[email](mailto:lukas@getdelv.com)
