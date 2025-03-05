@@ -144,13 +144,17 @@
                 <div class="post-heading">
                     <h1>Investor Pitch</h1>
                     
+                    <h2 class="post-subheading">
+                        getdelv — Coding Docs for Machines
+                    </h2>
+                    
                     <span class="meta">
                         <!-- Date and Author -->
                         
                             Posted by Lukas on
                         
                         
-                            2025-01-27
+                            2025-03-04
                         
                     </span>
                 </div>
@@ -172,74 +176,88 @@
 
             <!-- Post Main Content -->
             <div class="col-md-10 col-md-offset-1 col-lg-offset-1 col-lg-10">
-                <h2 id="getDelv-com"><a href="#getDelv-com" class="headerlink" title="getDelv.com"></a><a target="_blank" rel="noopener" href="https://getdelv.com/">getDelv.com</a></h2><p><a target="_blank" rel="noopener" href="https://getdelv.com/">Website</a><br><a href="mailto:lukas@getdelv.com">email</a></p>
-<h2 id="Executive-Summary"><a href="#Executive-Summary" class="headerlink" title="Executive Summary"></a>Executive Summary</h2><p>We are building a search engine designed for use by language models, not people. Language models will always require a source of up-to-date information — we provide it.</p>
-<p>Our initial focus is on coding-related queries. Our API will give developers a factual programming knowledge base they can query, allowing them to use smaller models that excel in reasoning rather than memorizing large amounts of often outdated information. Once successful, we will expand into other fields, ultimately scaling into a full-featured search engine.</p>
-<p>Here is a technical demo showing how our search engine improves the results that claude provides when used for coding tasks;</p>
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/2E3lmYhaqb0?vq=hd1080p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+                <p><a target="_blank" rel="noopener" href="https://getdelv.com/">getdelv.com</a><br><a href="mailto:lukas@getdelv.com">lukas@getdelv.com</a></p>
+<h2 id="Executive-Summary"><a href="#Executive-Summary" class="headerlink" title="Executive Summary"></a>Executive Summary</h2><p>getdelv is a search engine designed for use by LLMs and AI agents. AIs require a source of up-to-date information and documentation — we provide it.</p>
+<p>Our initial focus is on coding-related queries. Our API gives AIs a programming knowledge base they can query, allowing them to use smaller models that excel in reasoning rather than memorizing large amounts of outdated information. Once successful, we will expand into other fields, ultimately scaling into a comprehensive search engine.</p>
+<p>Here is a demo showing how our product integrates with Claude desktop to improve coding performance:</p>
+<!-- Responsive video container -->
+<div style="width:100%;height:0;padding-bottom:56.25%;position:relative">
+  <!-- YouTube embed -->
+  <iframe src="https://www.youtube-nocookie.com/embed/2E3lmYhaqb0?vq=hd1080p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" style="width:100%;height:100%;position:absolute;top:0;left:0">
+  </iframe>
+</div>
 
-<p>We are in the very early stages of setting up the company and actively seeking seed funding.</p>
-<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><ul>
-<li>Language models “remember” facts they encounter during training, but information changes rapidly, and retraining models daily isn’t practical.</li>
-<li>Storing large amounts of information in model weights is expensive and slow, especially if you want the model to handle the entire accumulated knowledge of the internet.</li>
-<li>Information that appears only a handful of times during training isn’t always retained.</li>
-<li>Current search engines weren’t designed for LLM use; they expect short, keyword-heavy queries, not long detailed prompts.</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>The solution is for language models to focus on general knowledge and reasoning, combined with a purpose-built search engine for information retrieval. It’s increasingly possible to isolate the reasoning capabilities during training (<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2501.12948">see the DeepSeek R1 paper</a>), allowing for smaller and faster models.</p>
-<p>We provide a search engine that:</p>
+<p>We are currently in the very early stages of building the company and validating our idea in the market. Full time work commenced in March 2025.</p>
+<hr style="background-color:#000;border:none;height:4px">
+
+<h2 id="Market-Opportunity"><a href="#Market-Opportunity" class="headerlink" title="Market Opportunity"></a>Market Opportunity</h2><p>Current AI coding systems face the following limitations:</p>
 <ul>
-<li>Can be updated rapidly with the latest information.</li>
-<li>Can return results for obscure queries that an LLM hasn’t memorized.</li>
-<li>Is more computationally efficient than LLMs.</li>
-<li>Is designed from the ground up for LLM integration.</li>
+<li>Models are very large and expensive to run because they store data in their weights</li>
+<li>API references, bug reports, and documentation changes daily, making models quickly outdated</li>
+<li>Obscure information isn’t retained in training even by the biggest models</li>
 </ul>
-<p>Example use cases include asking an AI chatbot about today’s weather or how to integrate a specific SaaS tool with your webapp.</p>
-<h2 id="Market-Opportunity"><a href="#Market-Opportunity" class="headerlink" title="Market Opportunity"></a>Market Opportunity</h2><p>The <strong>challenge</strong> is identifying a business opportunity that benefits from AI growth without:</p>
+<p>As a result, generating logically simple code often fails due to lack of background information. Existing search engines don’t adequately address this problem because:</p>
 <ul>
-<li>Competing against big AI labs.</li>
-<li>Being a thin wrapper around a model.</li>
-<li>Being undermined by future advancements in AI.</li>
+<li>Additional tooling is required to make them integrate well with applications/agents such as MCP servers etc</li>
+<li>They don’t return information-dense results, instead prioritizing user-friendly websites with ads</li>
+<li>They return long lists of links rather than the concise paragraphs of text that models need</li>
+<li>They’re expensive and slow because they index the entire internet</li>
+</ul>
+<h3 id="Strategic-Timing"><a href="#Strategic-Timing" class="headerlink" title="Strategic Timing"></a>Strategic Timing</h3><p>The current <strong>challenge</strong> is identifying ideas that benefit from AI growth without:</p>
+<ul>
+<li>Competing against big AI labs</li>
+<li>Being a thin wrapper around a model</li>
+<li>Being undermined by future advancements in AI</li>
 </ul>
 <p>A search engine is <strong>ideal</strong> because:</p>
 <ul>
-<li>Growth in LLM usage directly benefits us: each additional LLM query means more revenue.</li>
-<li>Hardware improvements (AWS, cheaper storage, faster GPUs) make it feasible to build a search engine with a shoestring budget.</li>
-<li>Software improvements (Spark, vector DBs, LLM assistants) make coding the search engine much easier than it used to be.</li>
-<li>Ongoing AI research into ranking and information retrieval directly benefits us.</li>
-<li>Building a robust search engine requires time and care, creating a moat against trivial competition.</li>
+<li>Growth in LLM usage directly benefits us</li>
+<li>Hardware and software improvements make it feasible to build a search engine with a shoestring budget and small team</li>
+<li>AI tooling is taking off (MCP servers, Agents etc.)</li>
 </ul>
-<h2 id="Competition"><a href="#Competition" class="headerlink" title="Competition"></a>Competition</h2><h3 id="Bing-API"><a href="#Bing-API" class="headerlink" title="Bing API"></a>Bing API</h3><p>• Strengths: Highly scalable, used by OpenAI. Crawls the web daily. Capable of video and image search.<br>• Weaknesses: Expensive, restrictive terms of use. Not designed for LLMs or code-specific queries.  </p>
-<h3 id="Brave-Search-API"><a href="#Brave-Search-API" class="headerlink" title="Brave Search API"></a>Brave Search API</h3><p>• Strengths: Strong market presence. Used by Mistral, Perplexity, Cohere, and You.<br>• Weaknesses: High fixed costs due to web-wide crawling and maintaining a browser. Not optimized for LLMs or programming-specific searches.  </p>
-<h3 id="Exa-ai"><a href="#Exa-ai" class="headerlink" title="Exa.ai"></a>Exa.ai</h3><p>• Strengths: Modern NN-based search engine, built for LLM integration.<br>• Weaknesses: Wide focus on dataset curation, which limits depth in code-related queries.<br>(Exa is the company I admire/fear most. Their offering is very good.)</p>
-<h3 id="Perplexity-API"><a href="#Perplexity-API" class="headerlink" title="Perplexity API"></a>Perplexity API</h3><p>• Strengths: Can provide factual information directly, rather than just links.<br>• Weaknesses: Relies on Brave for search and lacks its own internet-wide search. Divided attention between its LLM and search. Very expensive.  </p>
-<h3 id="Sourcegraph"><a href="#Sourcegraph" class="headerlink" title="Sourcegraph"></a>Sourcegraph</h3><p>• Strengths: Excellent for searching codebases.<br>• Weaknesses: Limited to known codebases. Does not index coding blogs or the broader internet.</p>
-<p>Our biggest advantage is our exclusive focus on coding, which provides three main benefits:</p>
+<hr style="background-color:#000;border:none;height:4px">
+
+<h2 id="Our-Users-and-Revenue-Model"><a href="#Our-Users-and-Revenue-Model" class="headerlink" title="Our Users and Revenue Model"></a>Our Users and Revenue Model</h2><p>Our target customers are companies building AI agents and AI-powered software, including:</p>
 <ul>
-<li><p>Cost: Competitors charge around $5–$25 per thousand requests (CPM). In contrast, a specialized coding search covers less than 1% of internet pages, so storage, bandwidth, and compute costs are much lower. We can therefore offer a far more affordable API.  </p>
+<li>Code assistants (GitHub Copilot, Cursor, Tabnine, Codeium)</li>
+<li>AI-powered development platforms (Replit, Lovable)</li>
+<li>Internal developer tooling teams</li>
+</ul>
+<p>These companies collectively serve millions of users today, likely many more in the near future. Most charge approximately $20 per month to individual users, with enterprise plans costing significantly more. This represents hundreds of millions (if not more) in monthly revenue across the market.</p>
+<p>Any product that measurably improves the performance of these tools delivers substantial value, justifying integration costs. Competitors charge $5-$25 per thousand requests (CPM), at a competitive rate of $1 CPM, our engine could process tens of millions of users monthly, generating millions in MRR as we scale.</p>
+<p>The strategic value of our specialized search capability also positions us as a potential acquisition target for these same companies seeking to improve their AI assistants’ accuracy and capabilities.</p>
+<hr style="background-color:#000;border:none;height:4px">
+
+<h2 id="Competition"><a href="#Competition" class="headerlink" title="Competition"></a>Competition</h2><ul>
+<li><strong>Brave Search API</strong>: Provides general-purpose search and returns lists of links. Used by Mistral, Perplexity, Cohere, and others.</li>
+<li><strong>Exa.ai</strong>: Modern AI-first search platform focused on querying the internet like a database, used for generating datasets like sales prospects.</li>
+<li><strong>Perplexity</strong>: Returns text generated by an LLM on the fly, but is expensive and slow.</li>
+<li><strong>Tavily</strong>: Search API designed for use with LLMs. New entrant.</li>
+</ul>
+<h3 id="Our-Competitive-Advantage"><a href="#Our-Competitive-Advantage" class="headerlink" title="Our Competitive Advantage"></a>Our Competitive Advantage</h3><p>Our unique advantage stems from our specialized focus on coding:</p>
+<ul>
+<li><p><strong>Optimized Processing</strong>: Due to the smaller number of pages we index, we can pre-process and store cleaned, curated text results in our database. This allows us to return high-quality text very quickly, an approach that’s unfeasible for general search APIs.</p>
 </li>
-<li><p>Performance: Because we index a smaller subset of the internet, we can use algorithms that would be impractical for full-scale search engines. This yields a much higher-quality result for coding queries.</p>
+<li><p><strong>Cost Efficiency</strong>: Our specialized coding search covers less than 1% of internet pages, dramatically reducing storage, bandwidth, and compute costs.</p>
 </li>
-<li><p>Niche market exposure: By focusing on coding, we gain direct access to developers—who are ultimately the ones deciding which search APIs to use once we expand to a broader scope. We can also consider open sourcing the product.</p>
+<li><p><strong>Superior Performance</strong>: Our focused index enables us to use algorithms that would be impractical for full-scale search engines. We can afford to process every page through an LLM to generate high-quality metadata, yielding much better results for coding queries.</p>
 </li>
 </ul>
-<h2 id="Market-Size-and-Path-to-Profitability"><a href="#Market-Size-and-Path-to-Profitability" class="headerlink" title="Market Size and Path to Profitability"></a>Market Size and Path to Profitability</h2><p>We plan to generate revenue by charging for our API usage. Our variable costs for the coding-only MVP will be relatively low: one small EC2 instance can handle about 100 requests per second, or roughly 259 million requests per month. Even if we price our API as low as $2 CPM (cost per thousand queries), margins remain high.  </p>
-<p>Developer-focused tools like Cursor, with 40,000 users (2024), and GitHub Copilot, with over 1.3 million paying subscribers, demonstrate the growing demand for developer-centric AI tools. If we partner with a few devtool companies, it is realistic to aim for 100,000 end users within a year. At this scale, with each user making an average of 100 queries daily, our revenue potential would be:  </p>
-<p>Daily Queries: 100,000 users × 100 queries = 10 million queries<br>Monthly Queries: 10 million queries/day × 30 days = 300 million queries<br>Revenue at $2 CPM: 300 million queries ÷ 1,000 × $2 = $600,000 per month, or $7 million annually.  </p>
-<p>Scaling further, 1 million users—10 times our initial target—would generate $70 million annually under the same pricing model.  </p>
-<p>Looking even further ahead, as AI-assisted coding evolves to empower non-specialists to create software, the potential user base could grow into the hundreds of millions annually. Companies like Replit and others working on tools to enable laymen to build web apps could drive this, vastly expanding the market for coding-focused APIs like ours.  </p>
-<p>Our projected burn rate is about $1 million per year, including a team of 2–4 people ($750k) and compute costs (~$250k). </p>
-<p>We aim to raise a seed round and later a Series A to cover these expenses, with the goal of breaking even by the end of 2026. When we expand into full-scale search, our costs will rise significantly, but so will our potential market, which encompasses billions of queries per day worldwide.</p>
-<h2 id="Vision-and-Gameplan"><a href="#Vision-and-Gameplan" class="headerlink" title="Vision and Gameplan"></a>Vision and Gameplan</h2><p>Our goal is to operate the default search engine that LLMs use to source information. We face two main challenges:</p>
-<ol>
-<li><p><strong>Technical</strong><br>It’s easy to build a search engine; it’s extremely difficult to index the entire internet while remaining fast and high-quality. We will start by focusing on a smaller segment (coding), which dramatically reduces complexity and allows us to build up our expertise.</p>
+<h3 id="Marketing-Strategy"><a href="#Marketing-Strategy" class="headerlink" title="Marketing Strategy"></a>Marketing Strategy</h3><ul>
+<li><p><strong>Developer-First Approach</strong>: By focusing on coding, we gain direct access to developers—who will ultimately decide which search APIs to integrate as we expand.</p>
 </li>
-<li><p><strong>Distribution</strong><br>Developers ultimately choose which search engine APIs to integrate. We plan to win over developers by open sourcing our product (we will maintain up-to-date datasets) and offering free API access for low-volume usage. By focusing on coding first, we’ll grow recognition among developers, easing our path to broader market share later. We will spread the word through podcasts, blog articles, how-tos, and word of mouth.</p>
+<li><p><strong>Open Source Components</strong>: We’ll make subsets of our database open source. For specific tech stacks, developers can access our database and search engine for free, increasing adoption.</p>
 </li>
-</ol>
-<h2 id="Progress"><a href="#Progress" class="headerlink" title="Progress"></a>Progress</h2><p>We are building our MVP and have most of the core infrastructure in place to search indexed pages. We still need to curate our dataset, and we expect to launch by Q3 2025. </p>
+</ul>
+<hr style="background-color:#000;border:none;height:4px">
+
+<h2 id="Progress-and-Timelines"><a href="#Progress-and-Timelines" class="headerlink" title="Progress and Timelines"></a>Progress and Timelines</h2><p><strong>Jan and Feb 2025</strong>: Initial idea. Founder was still employed elsewhere.<br><strong>March 2025</strong>: Full time work commences.</p>
+<p>The coding work is already underway. This document will be updated with details shortly.</p>
+<p>We are currently focused on validating our product in the market. We are reaching out to potential customers to get feedback on our idea and iterate as necessary. We hope to have a (very limited) MVP out by April/May 2025 and a more widely useful product by end of Q2 2025.</p>
+<hr style="background-color:#000;border:none;height:4px">
+
 <h2 id="Founder"><a href="#Founder" class="headerlink" title="Founder"></a>Founder</h2><p>I previously worked as an ML engineer, building data pipelines, training models, and deploying them to production. The company I worked for specializes in creating recommendation systems for books by analyzing their content using ML models. I received an Emergent Ventures grant from Tyler Cowen for my work on LLMs. My academic background is in biochemistry and microbiology, and I served in the military, passing paratrooper selection and serving on active duty. I’m a highly competitive amateur athlete, having won bronze at nationals.</p>
-<h2 id="Team"><a href="#Team" class="headerlink" title="Team"></a>Team</h2><p>I am in discussions with a number of potential founding engineers that are interested in joining the company. Since I’m looking to hire more established engineers, having already raised a seed round will make this a lot easier.</p>
-<h2 id="Contact"><a href="#Contact" class="headerlink" title="Contact"></a>Contact</h2><p><a target="_blank" rel="noopener" href="https://getdelv.com/">Website</a><br><a href="mailto:lukas@getdelv.com">email</a></p>
+<h2 id="Contact"><a href="#Contact" class="headerlink" title="Contact"></a>Contact</h2><p><a target="_blank" rel="noopener" href="https://getdelv.com/">getdelv.com</a><br><a href="mailto:lukas@getdelv.com">lukas@getdelv.com</a><br><a target="_blank" rel="noopener" href="https://www.linkedin.com/in/lukas-bogacz/">My LinkedIn</a></p>
 
 
                 
