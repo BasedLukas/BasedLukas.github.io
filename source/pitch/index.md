@@ -14,9 +14,9 @@ We are building a search engine designed for use by language models, not people.
 
 Our initial focus is on coding-related queries. Our API will give developers a factual programming knowledge base they can query, allowing them to use smaller models that excel in reasoning rather than memorizing large amounts of often outdated information. Once successful, we will expand into other fields, ultimately scaling into a full-featured search engine.
 
-Here is a technical demo showing how our search engine improves the results that GPT-4 provides when used for coding tasks;
+Here is a technical demo showing how our search engine improves the results that claude provides when used for coding tasks;
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/7l-81Q1MrsM?vq=hd1080p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/2E3lmYhaqb0?vq=hd1080p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 We are in the very early stages of setting up the company and actively seeking seed funding.
 
