@@ -4,8 +4,10 @@ date: 2024-09-09
 ---
 
 # About me
-I work as a machine learning focused software developer. I am currently working on NLP and OCR systems but also have experience with reinforcement learning. In the past I have worked with advanced analytical instrumentation and analysis of experimental results. My original training is in biochemistry.
 
+Currently building search engines for AI at [getdelv.com](https://getdelv.com)
+
+I have experience working as a machine learning focused software developer. I worked on NLP and OCR systems but also with reinforcement learning. In the past I have worked with advanced analytical instrumentation and analysis of experimental results. My original training is in biochemistry.
 
 I was awarded the [Emergent Ventures](https://marginalrevolution.com/marginalrevolution/2023/09/emergent-ventures-winners-29th-cohort.html) grant (2023) to further my work on LLMs.
 
