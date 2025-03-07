@@ -10,12 +10,15 @@ author: Lukas
 [lukas@getdelv.com](mailto:lukas@getdelv.com)
 
 ## Executive Summary
-getdelv is a search engine designed for use by LLMs and AI agents. AIs require a source of up-to-date information and documentation — we provide it.
+getdelv is a queryable data source for LLMs that generate code. The LLM queries the delv database for documentation that may have changed recently or that is too obscure to be retained in its weights. Our aim is to be the link between disparate data sources and the LLM.
 
-Our initial focus is on coding-related queries. Our API gives AIs a programming knowledge base they can query, allowing them to use smaller models that excel in reasoning rather than memorizing large amounts of outdated information. Once successful, we will expand into other fields, ultimately scaling into a comprehensive search engine.
+getdelv is distinct from an internet search engine in that:
+-  We only index coding related webpages, so it's faster and cheaper to run, and more capable.
+- It returns a paragraph or two of text that can be directly inserted into the model context, as opposed to a list of links.
+- SaaS companies with complex APIs can upload documentation and code snippets to our database, making it easier to integrate their products.
+- It can be tuned to work with a specific tech stack or problem domain, which reduces noise and improves quality.
 
 Here is a demo showing how our product integrates with Claude desktop to improve coding performance:
-
 <!-- Responsive video container -->
 <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%;">
   <!-- YouTube embed -->
@@ -30,48 +33,52 @@ Here is a demo showing how our product integrates with Claude desktop to improve
   </iframe>
 </div>
 
-We are currently in the very early stages of building the company and validating our idea in the market. Full time work commenced in March 2025.
+A limited MVP will be out in mid March to a small group of testers, with a public launch planned for May 2025.
 
 <hr style="height: 4px; background-color: black; border: none;">
 
 ## Market Opportunity
 Current AI coding systems face the following limitations:
 - Models are very large and expensive to run because they store data in their weights
-- API references, bug reports, and documentation changes daily, making models quickly outdated
+- API references, bug reports, and documentation change daily, making models quickly outdated
 - Obscure information isn't retained in training even by the biggest models
 
 As a result, generating logically simple code often fails due to lack of background information. Existing search engines don't adequately address this problem because:
 - Additional tooling is required to make them integrate well with applications/agents such as MCP servers etc
-- They don't return information-dense results, instead prioritizing user-friendly websites with ads
+- They prioritize user-friendly websites with ads over information-dense results
 - They return long lists of links rather than the concise paragraphs of text that models need
 - They're expensive and slow because they index the entire internet
 
-### Strategic Timing
-
-The current **challenge** is identifying ideas that benefit from AI growth without:
+The current challenge is identifying ideas that benefit from AI growth without:
 - Competing against big AI labs
 - Being a thin wrapper around a model
 - Being undermined by future advancements in AI
 
-A search engine is **ideal** because:
+We are ideally positioned because:
 - Growth in LLM usage directly benefits us
-- Hardware and software improvements make it feasible to build a search engine with a shoestring budget and small team
+- Recent hardware and software improvements make it feasible to build a search engine with a shoestring budget and small team
 - AI tooling is taking off (MCP servers, Agents etc.)
 
 <hr style="height: 4px; background-color: black; border: none;">
 
 ## Our Users and Revenue Model
 
-Our target customers are companies building AI agents and AI-powered software, including:
+Our target customers fall into two groups. 
+1) Companies building AI agents and AI-powered software, including:
 - Code assistants (GitHub Copilot, Cursor, Tabnine, Codeium)
 - AI-powered development platforms (Replit, Lovable)
 - Internal developer tooling teams
 
-These companies collectively serve millions of users today, likely many more in the near future. Most charge approximately $20 per month to individual users, with enterprise plans costing significantly more. This represents hundreds of millions (if not more) in monthly revenue across the market.
+We will charge these companies a fee to access our database.
 
-Any product that measurably improves the performance of these tools delivers substantial value, justifying integration costs. Competitors charge $5-$25 per thousand requests (CPM), at a competitive rate of $1 CPM, our engine could process tens of millions of users monthly, generating millions in MRR as we scale.
+2) Saas providers.
+- Payments, hosted databases and other SaaS providers want their products to be easier to use.
+- We will work with them to include up to date versions of their documentation in our service.
 
-The strategic value of our specialized search capability also positions us as a potential acquisition target for these same companies seeking to improve their AI assistants' accuracy and capabilities.
+We will charge these companies a fee for creating custom integrations that work well with their products.
+
+We are actively validating these assumptions by reaching out to potential customers for feedback
+
 
 <hr style="height: 4px; background-color: black; border: none;">
 
@@ -90,26 +97,33 @@ Our unique advantage stems from our specialized focus on coding:
 
 - **Superior Performance**: Our focused index enables us to use algorithms that would be impractical for full-scale search engines. We can afford to process every page through an LLM to generate high-quality metadata, yielding much better results for coding queries.
 
-### Marketing Strategy
-- **Developer-First Approach**: By focusing on coding, we gain direct access to developers—who will ultimately decide which search APIs to integrate as we expand.
-
-- **Open Source Components**: We'll make subsets of our database open source. For specific tech stacks, developers can access our database and search engine for free, increasing adoption.
-
 <hr style="height: 4px; background-color: black; border: none;">
 
 ## Progress and Timelines
-**Jan and Feb 2025**: Initial idea. Founder was still employed elsewhere.
-**March 2025**: Full time work commences.
+**Jan and Feb 2025**: Initial idea, iteration. 
+**March 2025**: Full time work on MVP commences.
 
-The coding work is already underway. This document will be updated with details shortly.
+Coding is already underway, and we will release an early test version in mid-March. The public MVP is planned for May 2025. To test our hypothesis, we are building a bare-bones version of our product that doesn't yet have all the desired features mentioned above.
 
-We are currently focused on validating our product in the market. We are reaching out to potential customers to get feedback on our idea and iterate as necessary. We hope to have a (very limited) MVP out by April/May 2025 and a more widely useful product by end of Q2 2025.
+<hr style="height: 4px; background-color: black; border: none;">
+
+## Technical
+
+Indexing the entire internet is extremely challenging and expensive. Our approach is to incrementally add data to our index, and strictly curate the data sources we add. Our MVP will not rely on our own search index, but rather on one from a commercial provider. Over time, we will scale to building our own, as follows:
+
+The data will be sourced by scraping a curated list of sites, and slowly branching out from there. We will use a classifier to only follow links to new pages that are relevant to our initial focus. We can also add data directly from SaaS providers. Initially we will only index sites relevant to a particular tech stack. This keeps the amount of data we need to handle reasonable, and we wont need to rely on complex distributed systems.
+
+In order to be able to return text results we need to clean the raw html. This can be achieved with a mix of heuristics (discarding footers etc.) as well as with LLMs. This isn't feasible to do with an internet-wide search engine.
+
+The search itself will initially be done using open source search engine software. As we scale we can consider using a more modern approach, where we use LLMs to generate metadata and vector representations of each page.
+
+Modern servers can have hundreds of cores and TBs of RAM. We will do everything we can to make our software run on a single node, which removes a lot of the complexity that used to exist in creating these types of systems. Additionally many tasks that historically would have been run on CPU can now be run on GPU. For instance by parsing web pages with LLMs or ranking pages using a NN running on GPU. Due to all the focus on using GPUs for training LLMs, it's getting easier and easier to process large volumes of data with them using open source software.
 
 <hr style="height: 4px; background-color: black; border: none;">
 
 ## Founder
 
-I previously worked as an ML engineer, building data pipelines, training models, and deploying them to production. The company I worked for specializes in creating recommendation systems for books by analyzing their content using ML models. I received an Emergent Ventures grant from Tyler Cowen for my work on LLMs. My academic background is in biochemistry and microbiology, and I served in the military, passing paratrooper selection and serving on active duty. I’m a highly competitive amateur athlete, having won bronze at nationals.
+I previously worked as an ML engineer, building data pipelines, training models, and deploying them to production. The company I worked for specializes in creating recommendation systems for books by analyzing their content using ML models. I received an Emergent Ventures grant from Tyler Cowen for my work with LLMs. My academic background is in biochemistry and microbiology, and I served in the military, passing paratrooper selection and serving on active duty. I’m a competitive amateur athlete and won bronze at nationals.
 
 ## Contact
 [getdelv.com](https://getdelv.com)
