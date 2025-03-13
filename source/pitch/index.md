@@ -1,7 +1,7 @@
 ---
 title: Investor Pitch
 subtitle: getdelv — Coding Docs for Machines
-date: 2025-03-05 
+date: 2025-03-12 
 author: Lukas
 ---
 
@@ -13,10 +13,10 @@ author: Lukas
 getdelv is a queryable data source for LLMs that generate code. The LLM queries the delv database for documentation that may have changed recently or that is too obscure to be retained in its weights. Our aim is to be the link between disparate data sources and the LLM.
 
 getdelv is distinct from an internet search engine in that:
--  We only index coding related webpages, so it's faster and cheaper to run, and more capable.
+- It only indexes coding related webpages, so it's faster and cheaper to run, and more capable.
 - It returns a paragraph or two of text that can be directly inserted into the model context, as opposed to a list of links.
-- SaaS companies with complex APIs can upload documentation and code snippets to our database, making it easier to integrate their products.
 - It can be tuned to work with a specific tech stack or problem domain, which reduces noise and improves quality.
+- We index code pages extremely well, providing high-quality results that make integrating SaaS APIs much easier.
 
 Here is a demo showing how our product integrates with Claude desktop to improve coding performance:
 <!-- Responsive video container -->
@@ -33,17 +33,20 @@ Here is a demo showing how our product integrates with Claude desktop to improve
   </iframe>
 </div>
 
-A limited MVP will be out in mid March to a small group of testers, with a public launch planned for May 2025.
+We have launched a closed beta to a small group of early testers, with a public launch planned for May 2025.
 
 <hr style="height: 4px; background-color: black; border: none;">
 
 ## Market Opportunity
+
+Search was never practical until now because it required indexing the entire internet to make a general search engine. Since the advent of LLMs we now have a new use case for search engines - code specific search for LLMs working on code generation.
+
 Current AI coding systems face the following limitations:
 - Models are very large and expensive to run because they store data in their weights
 - API references, bug reports, and documentation change daily, making models quickly outdated
 - Obscure information isn't retained in training even by the biggest models
 
-As a result, generating logically simple code often fails due to lack of background information. Existing search engines don't adequately address this problem because:
+Existing search engines don't adequately address this problem because:
 - Additional tooling is required to make them integrate well with applications/agents such as MCP servers etc
 - They prioritize user-friendly websites with ads over information-dense results
 - They return long lists of links rather than the concise paragraphs of text that models need
@@ -63,22 +66,14 @@ We are ideally positioned because:
 
 ## Our Users and Revenue Model
 
-Our target customers fall into two groups. 
-1) Companies building AI agents and AI-powered software, including:
+Our target customers are companies building AI agents and AI-powered software, including:
 - Code assistants (GitHub Copilot, Cursor, Tabnine, Codeium)
 - AI-powered development platforms (Replit, Lovable)
 - Internal developer tooling teams
 
-We will charge these companies a fee to access our database.
+We will charge these companies a fee to access our database via API for enterprise usage, while making it free for individual developers to increase adoption.
 
-2) Saas providers.
-- Payments, hosted databases and other SaaS providers want their products to be easier to use.
-- We will work with them to include up to date versions of their documentation in our service.
-
-We will charge these companies a fee for creating custom integrations that work well with their products.
-
-We are actively validating these assumptions by reaching out to potential customers for feedback
-
+We are currently reaching out to these companies in order to validate our thesis.
 
 <hr style="height: 4px; background-color: black; border: none;">
 
@@ -102,18 +97,19 @@ Our unique advantage stems from our specialized focus on coding:
 ## Progress and Timelines
 **Jan and Feb 2025**: Initial idea, iteration. 
 **March 2025**: Full time work on MVP commences.
+**Mid March 2025**: We are reaching out to potential customers in order to validate our idea. 
 
-Coding is already underway, and we will release an early test version in mid-March. The public MVP is planned for May 2025. To test our hypothesis, we are building a bare-bones version of our product that doesn't yet have all the desired features mentioned above.
+The public MVP is tentatively planned for May 2025.
 
 <hr style="height: 4px; background-color: black; border: none;">
 
 ## Technical
 
-Indexing the entire internet is extremely challenging and expensive. Our approach is to incrementally add data to our index, and strictly curate the data sources we add. Our MVP will not rely on our own search index, but rather on one from a commercial provider. Over time, we will scale to building our own, as follows:
+Indexing the entire internet is extremely challenging and expensive. Our approach is to incrementally add data to our index, and strictly curate the data sources we add. Our MVP will not rely only on our own search index, but rather on one from a commercial provider. Over time, we will scale to building our own, as follows:
 
 The data will be sourced by scraping a curated list of sites, and slowly branching out from there. We will use a classifier to only follow links to new pages that are relevant to our initial focus. We can also add data directly from SaaS providers. Initially we will only index sites relevant to a particular tech stack. This keeps the amount of data we need to handle reasonable, and we wont need to rely on complex distributed systems.
 
-In order to be able to return text results we need to clean the raw html. This can be achieved with a mix of heuristics (discarding footers etc.) as well as with LLMs. This isn't feasible to do with an internet-wide search engine.
+In order to be able to return text results we need to clean the raw html. This can be achieved with a mix of heuristics (discarding footers etc.) as well as with LLMs. This isn't feasible to do with an internet-wide search engine. One key advantage we have over competitors is that we can create a suit of parsers designed for common code-related sites such as GitHub, which allows us to extract the relevant content of various pages at low cost. 
 
 The search itself will initially be done using open source search engine software. As we scale we can consider using a more modern approach, where we use LLMs to generate metadata and vector representations of each page.
 
@@ -123,9 +119,9 @@ Modern servers can have hundreds of cores and TBs of RAM. We will do everything 
 
 ## Founder
 
-I previously worked as an ML engineer, building data pipelines, training models, and deploying them to production. The company I worked for specializes in creating recommendation systems for books by analyzing their content using ML models. I received an Emergent Ventures grant from Tyler Cowen for my work with LLMs. My academic background is in biochemistry and microbiology, and I served in the military, passing paratrooper selection and serving on active duty. I’m a competitive amateur athlete and won bronze at nationals.
+I previously worked as an ML engineer, building data pipelines, training models, and deploying them to production. The company I worked for specializes in creating recommendation systems for books by analyzing their content using ML models. I received an Emergent Ventures grant from Tyler Cowen for my work with LLMs. My academic background is in biochemistry and microbiology, and I served in the military, passing paratrooper selection and serving on active duty. I'm a competitive amateur athlete and won bronze at nationals.
 
 ## Contact
 [getdelv.com](https://getdelv.com)
 [lukas@getdelv.com](mailto:lukas@getdelv.com)
-[My LinkedIn](https://www.linkedin.com/in/lukas-bogacz/)
+[LinkedIn](https://www.linkedin.com/in/lukas-bogacz/)
