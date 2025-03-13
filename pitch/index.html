@@ -154,7 +154,7 @@
                             Posted by Lukas on
                         
                         
-                            2025-03-04
+                            2025-03-11
                         
                     </span>
                 </div>
@@ -180,10 +180,10 @@
 <h2 id="Executive-Summary"><a href="#Executive-Summary" class="headerlink" title="Executive Summary"></a>Executive Summary</h2><p>getdelv is a queryable data source for LLMs that generate code. The LLM queries the delv database for documentation that may have changed recently or that is too obscure to be retained in its weights. Our aim is to be the link between disparate data sources and the LLM.</p>
 <p>getdelv is distinct from an internet search engine in that:</p>
 <ul>
-<li>We only index coding related webpages, so it’s faster and cheaper to run, and more capable.</li>
+<li>It only indexes coding related webpages, so it’s faster and cheaper to run, and more capable.</li>
 <li>It returns a paragraph or two of text that can be directly inserted into the model context, as opposed to a list of links.</li>
-<li>SaaS companies with complex APIs can upload documentation and code snippets to our database, making it easier to integrate their products.</li>
 <li>It can be tuned to work with a specific tech stack or problem domain, which reduces noise and improves quality.</li>
+<li>We index code pages extremely well, providing high-quality results that make integrating SaaS APIs much easier.</li>
 </ul>
 <p>Here is a demo showing how our product integrates with Claude desktop to improve coding performance:</p>
 <!-- Responsive video container -->
@@ -193,16 +193,17 @@
   </iframe>
 </div>
 
-<p>A limited MVP will be out in mid March to a small group of testers, with a public launch planned for May 2025.</p>
+<p>We have launched a closed beta to a small group of early testers, with a public launch planned for May 2025.</p>
 <hr style="background-color:#000;border:none;height:4px">
 
-<h2 id="Market-Opportunity"><a href="#Market-Opportunity" class="headerlink" title="Market Opportunity"></a>Market Opportunity</h2><p>Current AI coding systems face the following limitations:</p>
+<h2 id="Market-Opportunity"><a href="#Market-Opportunity" class="headerlink" title="Market Opportunity"></a>Market Opportunity</h2><p>Search was never practical until now because it required indexing the entire internet to make a general search engine. Since the advent of LLMs we now have a new use case for search engines - code specific search for LLMs working on code generation.</p>
+<p>Current AI coding systems face the following limitations:</p>
 <ul>
 <li>Models are very large and expensive to run because they store data in their weights</li>
 <li>API references, bug reports, and documentation change daily, making models quickly outdated</li>
 <li>Obscure information isn’t retained in training even by the biggest models</li>
 </ul>
-<p>As a result, generating logically simple code often fails due to lack of background information. Existing search engines don’t adequately address this problem because:</p>
+<p>Existing search engines don’t adequately address this problem because:</p>
 <ul>
 <li>Additional tooling is required to make them integrate well with applications/agents such as MCP servers etc</li>
 <li>They prioritize user-friendly websites with ads over information-dense results</li>
@@ -223,25 +224,14 @@
 </ul>
 <hr style="background-color:#000;border:none;height:4px">
 
-<h2 id="Our-Users-and-Revenue-Model"><a href="#Our-Users-and-Revenue-Model" class="headerlink" title="Our Users and Revenue Model"></a>Our Users and Revenue Model</h2><p>Our target customers fall into two groups. </p>
-<ol>
-<li>Companies building AI agents and AI-powered software, including:</li>
-</ol>
+<h2 id="Our-Users-and-Revenue-Model"><a href="#Our-Users-and-Revenue-Model" class="headerlink" title="Our Users and Revenue Model"></a>Our Users and Revenue Model</h2><p>Our target customers are companies building AI agents and AI-powered software, including:</p>
 <ul>
 <li>Code assistants (GitHub Copilot, Cursor, Tabnine, Codeium)</li>
 <li>AI-powered development platforms (Replit, Lovable)</li>
 <li>Internal developer tooling teams</li>
 </ul>
-<p>We will charge these companies a fee to access our database.</p>
-<ol start="2">
-<li>Saas providers.</li>
-</ol>
-<ul>
-<li>Payments, hosted databases and other SaaS providers want their products to be easier to use.</li>
-<li>We will work with them to include up to date versions of their documentation in our service.</li>
-</ul>
-<p>We will charge these companies a fee for creating custom integrations that work well with their products.</p>
-<p>We are actively validating these assumptions by reaching out to potential customers for feedback</p>
+<p>We will charge these companies a fee to access our database via API for enterprise usage, while making it free for individual developers to increase adoption.</p>
+<p>We are currently reaching out to these companies in order to validate our thesis.</p>
 <hr style="background-color:#000;border:none;height:4px">
 
 <h2 id="Competition"><a href="#Competition" class="headerlink" title="Competition"></a>Competition</h2><ul>
@@ -261,19 +251,19 @@
 </ul>
 <hr style="background-color:#000;border:none;height:4px">
 
-<h2 id="Progress-and-Timelines"><a href="#Progress-and-Timelines" class="headerlink" title="Progress and Timelines"></a>Progress and Timelines</h2><p><strong>Jan and Feb 2025</strong>: Initial idea, iteration.<br><strong>March 2025</strong>: Full time work on MVP commences.</p>
-<p>Coding is already underway, and we will release an early test version in mid-March. The public MVP is planned for May 2025. To test our hypothesis, we are building a bare-bones version of our product that doesn’t yet have all the desired features mentioned above.</p>
+<h2 id="Progress-and-Timelines"><a href="#Progress-and-Timelines" class="headerlink" title="Progress and Timelines"></a>Progress and Timelines</h2><p><strong>Jan and Feb 2025</strong>: Initial idea, iteration.<br><strong>March 2025</strong>: Full time work on MVP commences.<br><strong>Mid March 2025</strong>: We are reaching out to potential customers in order to validate our idea. </p>
+<p>The public MVP is tentatively planned for May 2025.</p>
 <hr style="background-color:#000;border:none;height:4px">
 
-<h2 id="Technical"><a href="#Technical" class="headerlink" title="Technical"></a>Technical</h2><p>Indexing the entire internet is extremely challenging and expensive. Our approach is to incrementally add data to our index, and strictly curate the data sources we add. Our MVP will not rely on our own search index, but rather on one from a commercial provider. Over time, we will scale to building our own, as follows:</p>
+<h2 id="Technical"><a href="#Technical" class="headerlink" title="Technical"></a>Technical</h2><p>Indexing the entire internet is extremely challenging and expensive. Our approach is to incrementally add data to our index, and strictly curate the data sources we add. Our MVP will not rely only on our own search index, but rather on one from a commercial provider. Over time, we will scale to building our own, as follows:</p>
 <p>The data will be sourced by scraping a curated list of sites, and slowly branching out from there. We will use a classifier to only follow links to new pages that are relevant to our initial focus. We can also add data directly from SaaS providers. Initially we will only index sites relevant to a particular tech stack. This keeps the amount of data we need to handle reasonable, and we wont need to rely on complex distributed systems.</p>
-<p>In order to be able to return text results we need to clean the raw html. This can be achieved with a mix of heuristics (discarding footers etc.) as well as with LLMs. This isn’t feasible to do with an internet-wide search engine.</p>
+<p>In order to be able to return text results we need to clean the raw html. This can be achieved with a mix of heuristics (discarding footers etc.) as well as with LLMs. This isn’t feasible to do with an internet-wide search engine. One key advantage we have over competitors is that we can create a suit of parsers designed for common code-related sites such as GitHub, which allows us to extract the relevant content of various pages at low cost. </p>
 <p>The search itself will initially be done using open source search engine software. As we scale we can consider using a more modern approach, where we use LLMs to generate metadata and vector representations of each page.</p>
 <p>Modern servers can have hundreds of cores and TBs of RAM. We will do everything we can to make our software run on a single node, which removes a lot of the complexity that used to exist in creating these types of systems. Additionally many tasks that historically would have been run on CPU can now be run on GPU. For instance by parsing web pages with LLMs or ranking pages using a NN running on GPU. Due to all the focus on using GPUs for training LLMs, it’s getting easier and easier to process large volumes of data with them using open source software.</p>
 <hr style="background-color:#000;border:none;height:4px">
 
 <h2 id="Founder"><a href="#Founder" class="headerlink" title="Founder"></a>Founder</h2><p>I previously worked as an ML engineer, building data pipelines, training models, and deploying them to production. The company I worked for specializes in creating recommendation systems for books by analyzing their content using ML models. I received an Emergent Ventures grant from Tyler Cowen for my work with LLMs. My academic background is in biochemistry and microbiology, and I served in the military, passing paratrooper selection and serving on active duty. I’m a competitive amateur athlete and won bronze at nationals.</p>
-<h2 id="Contact"><a href="#Contact" class="headerlink" title="Contact"></a>Contact</h2><p><a target="_blank" rel="noopener" href="https://getdelv.com/">getdelv.com</a><br><a href="mailto:lukas@getdelv.com">lukas@getdelv.com</a><br><a target="_blank" rel="noopener" href="https://www.linkedin.com/in/lukas-bogacz/">My LinkedIn</a></p>
+<h2 id="Contact"><a href="#Contact" class="headerlink" title="Contact"></a>Contact</h2><p><a target="_blank" rel="noopener" href="https://getdelv.com/">getdelv.com</a><br><a href="mailto:lukas@getdelv.com">lukas@getdelv.com</a><br><a target="_blank" rel="noopener" href="https://www.linkedin.com/in/lukas-bogacz/">LinkedIn</a></p>
 
 
                 
