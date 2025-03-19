@@ -30,6 +30,7 @@ author: Lukas
 * [Not a Number](https://www.nan.fyi/)
 * [lcamtuf](https://lcamtuf.substack.com/)
 * [Ivan Akulov](https://iamakulov.com/notes/)
+* [Ben Kuhn](https://www.benkuhn.net/)
 
 <br>   
 
