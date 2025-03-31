@@ -1,95 +1,70 @@
-<hr />
-
-<!-- Footer -->
-<footer>
-
+<footer aria-label="Site footer">
     <div class="ml-embedded" data-form="EHGAhY"></div>
-    <br>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <nav aria-label="Social media links">
+                    <ul class="list-inline text-center">
+                        <% if (theme.twitter_url) { %>
+                            <li>
+                                <a href="<%- theme.twitter_url%>" target="_blank" aria-label="Visit our Twitter page">
+                                    <span class="fa-stack fa-lg" aria-hidden="true">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                    <span class="sr-only">Twitter</span>
+                                </a>
+                            </li>
+                        <% } %>
+                        <% if (theme.github_url) { %>
+                            <li>
+                                <a href="<%- theme.github_url%>" target="_blank" aria-label="Visit our GitHub page">
+                                    <span class="fa-stack fa-lg" aria-hidden="true">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                    <span class="sr-only">GitHub</span>
+                                </a>
+                            </li>
+                        <% } %>
 
-                <ul class="list-inline text-center">
-                    <% if (theme.twitter_url) { %>
-                        <li>
-                            <a href="<%- theme.twitter_url%>" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    <% } %>
+                        <% if (theme.linkedin_url) { %>
+                            <li>
+                                <a href="<%- theme.linkedin_url%>" target="_blank" aria-label="Visit our LinkedIn page">
+                                    <span class="fa-stack fa-lg" aria-hidden="true">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                    <span class="sr-only">LinkedIn</span>
+                                </a>
+                            </li>
+                        <% } %>
 
-                    <% if (theme.facebook_url) { %>
+                        <% if (theme.mailto) { %>
+                            <li>
+                                <a href="mailto:<%- theme.mailto%>" target="_blank" aria-label="Send us an email">
+                                    <span class="fa-stack fa-lg" aria-hidden="true">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                    <span class="sr-only">Email</span>
+                                </a>
+                            </li>
+                        <% } %>
                         <li>
-                            <a href="<%- theme.facebook_url%>" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    <% } %>
-
-                    <% if (theme.github_url) { %>
-                        <li>
-                            <a href="<%- theme.github_url%>" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    <% } %>
-
-                    <% if (theme.linkedin_url) { %>
-                        <li>
-                            <a href="<%- theme.linkedin_url%>" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    <% } %>
-
-                    <% if (theme.mailto) { %>
-                        <li>
-                            <a href="mailto:<%- theme.mailto%>" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    <% } %>
-                        <li>
-                            <a href="<%- config.url %>/atom.xml" target="_blank">
-                                <span class="fa-stack fa-lg">
+                            <a href="<%- config.url %>/atom.xml" target="_blank" aria-label="Subscribe to our RSS feed">
+                                <span class="fa-stack fa-lg" aria-hidden="true">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
                                 </span>
+                                <span class="sr-only">RSS Feed</span>
                             </a>
                         </li>
                         
 
-                    <% if (theme.gitlab_url) { %>
-                        <li>
-                            <a href="<%- theme.gitlab_url%>" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-gitlab fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    <% } %>
-                </ul>
-                <p class="copyright text-muted">&copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %></p>
-
-
-
-                
+                    </ul>
+                </nav>
+                <p class="copyright text-muted" role="contentinfo">&copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %></p>
             </div>
         </div>
     </div>
