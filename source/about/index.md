@@ -5,18 +5,23 @@ date: 2024-09-09
 
 # About me
 
-Currently building search engines for AI at [getdelv.com](https://getdelv.com)
+Currently working on a startup to help industry adopt AI. Funded by [Entrepreneurs First](https://www.joinef.com/).
 
-I have experience working as a machine learning focused software developer. I worked on NLP and OCR systems but also with reinforcement learning. In the past I have worked with advanced analytical instrumentation and analysis of experimental results. My original training is in biochemistry.
+#### Previous experience:
+- Machine leaning and data engineering with experience in NLP and OCR software.
+- Helped academic and industrial research labs integrate advanced analytical instrumentation.
 
-I was awarded the [Emergent Ventures](https://marginalrevolution.com/marginalrevolution/2023/09/emergent-ventures-winners-29th-cohort.html) grant (2023) to further my work on LLMs.
+#### Other:
+- My original training is in biochemistry.
+- Awarded the [Emergent Ventures](https://marginalrevolution.com/marginalrevolution/2023/09/emergent-ventures-winners-29th-cohort.html) grant (2023) to further my work on LLMs.
+- I am a competitive amateur athlete and have competed on a [national level](https://worldathletics.org/athletes/netherlands/lukas-bogacz-15091779) in the 800m. 
+- I opened the 55th [Wienerball](https://wienerball.nl/) and sit in the committee of the [Amsterdamsch Galabal](https://amsterdamschgalabal.nl/organisatie/) . 
 
-
-In my personal life I am a competitive amateur athlete and have competed on a [national level](https://worldathletics.org/athletes/netherlands/lukas-bogacz-15091779) in the 800m. I enjoy ballroom dancing and participated in the opening of the 55th [Wienerball](https://wienerball.nl/). 
+---
 
 <figure style="text-align: center;">
   <img src="image.png" alt="The Loreley" style="display: block; margin: 0 auto;">
-  <figcaption>The Loreley <a href="https://unsplash.com/@joshuakettle" target="_blank" rel="noopener noreferrer">(by J Kettle)</a></figcaption>
+  <figcaption>The Loreley <a href="https://unsplash.com/@joshuakettle" target="_blank" rel="noopener noreferrer">(photo by J Kettle)</a></figcaption>
 </figure>
 
 <i style="text-align: center; display: block;">
