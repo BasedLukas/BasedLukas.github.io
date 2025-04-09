@@ -15,7 +15,7 @@ Currently working on a startup to help industry adopt AI. Funded by [Entrepreneu
 - My original training is in biochemistry.
 - Awarded the [Emergent Ventures](https://marginalrevolution.com/marginalrevolution/2023/09/emergent-ventures-winners-29th-cohort.html) grant (2023) to further my work on LLMs.
 - I am a competitive amateur athlete and have competed on a [national level](https://worldathletics.org/athletes/netherlands/lukas-bogacz-15091779) in the 800m. 
-- I opened the 55th [Wienerball](https://wienerball.nl/) and sit in the committee of the [Amsterdamsch Galabal](https://amsterdamschgalabal.nl/organisatie/) . 
+- I opened the 55th [Wienerball](https://wienerball.nl/) and sit on the committee of the [Amsterdamsch Galabal](https://amsterdamschgalabal.nl/organisatie/) . 
 
 ---
 
