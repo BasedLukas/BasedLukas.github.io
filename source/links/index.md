@@ -31,6 +31,7 @@ author: Lukas
 * [lcamtuf](https://lcamtuf.substack.com/)
 * [Ivan Akulov](https://iamakulov.com/notes/)
 * [Ben Kuhn](https://www.benkuhn.net/)
+* [Sean Goedecke](https://www.seangoedecke.com/)
 
 <br>   
 
