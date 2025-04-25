@@ -33,6 +33,7 @@ author: Lukas
 * [Ben Kuhn](https://www.benkuhn.net/)
 * [Sean Goedecke](https://www.seangoedecke.com/)
 * [Dynomight](https://dynomight.net/)
+* [Slime Mold](https://slimemoldtimemold.com/)
 
 <br>   
 
