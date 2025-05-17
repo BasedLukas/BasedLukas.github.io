@@ -1,10 +1,10 @@
 ---
 title: Links
-date: 2024-10-23 
+date: 2024-10-23
 author: Lukas
 ---
 
-<br> 
+<br>
 
 ## Blogs
 
@@ -34,8 +34,9 @@ author: Lukas
 * [Sean Goedecke](https://www.seangoedecke.com/)
 * [Dynomight](https://dynomight.net/)
 * [Slime Mold](https://slimemoldtimemold.com/)
+* [Alex Crompton](https://www.alexcrompton.com/)
 
-<br>   
+<br>
 
 ## Books
 
@@ -47,7 +48,7 @@ author: Lukas
 * [Unraveling Principal Component Analysis](https://peterbloem.nl/publications/unraveling-pca)
 * Proofs and Refutations: The Logic of Mathematical Discovery
 * [The Scientist and Engineer's Guide to Digital Signal Processing](https://www.dspguide.com/ch1/1.htm)
-<br>  
+<br>
 
 ## YouTube
 
