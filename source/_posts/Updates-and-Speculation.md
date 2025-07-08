@@ -68,10 +68,6 @@ The highlight of my trip was probably riding in the Waymo (self driving car). I 
 }
 </style>
 
-A lot of people asked me why I want to start a company and what exactly I want to achieve. Broadly I have 3 goals:
-- Live free or die. Live a beautiful life.
-- Find "the girl" and eventually have kids.
-- Work on something meaningful and big, and lead the next generation of the tech mafia.
 
 ## Speculation about the future:
 Thought dump, don't take this as gospel.
