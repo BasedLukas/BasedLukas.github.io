@@ -1,6 +1,6 @@
-<!DOCTYPE html><html lang="en"><!-- Head tag --><head>
+<!DOCTYPE html><html lang="en"><!-- Head tag --><head><meta charset="utf-8"><style>:where(img[jampack-sized]){max-width:100%;height:auto}</style>
 
-    <meta charset="utf-8">
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -196,14 +196,14 @@
 Lets take the case of a triangle inside a semicircle
 <br><br>
 <center>
-<img src="angle1.webp" alt="" fetchpriority="high" decoding="async" width="240" height="128">
+<img src="angle1.webp" alt="" fetchpriority="high" decoding="async" width="240" height="128" jampack-sized="true">
 </center>
 <br><br>
 Now the beautiful truth about this pattern is that no matter where on the circle you place the
 tip of the triangle, it always forms a nice right angle. (…)
 <br><br>
 <center>
-<img src="angle2.webp" alt="" fetchpriority="high" decoding="async" width="237" height="126">
+<img src="angle2.webp" alt="" fetchpriority="high" decoding="async" width="237" height="126" jampack-sized="true">
 </center>
 <br><br>
 Here is a case where our intuition is somewhat in doubt. It’s not at all clear that this should
@@ -212,7 +212,7 @@ here is a fantastic math problem! Is it true? If so, why is it true? What a grea
 terrific opportunity to exercise one’s ingenuity and imagination! Of course no such opportunity is given to the students, whose curiosity and interest is immediately deflated by:
 <br><br>
 <center>
-<img src="angle3.webp" alt="" fetchpriority="high" decoding="async" width="760" height="457">
+<img src="angle3.webp" alt="" fetchpriority="high" decoding="async" width="760" height="457" jampack-sized="true">
 </center>
 <br><br>
 Could anything be more unattractive and inelegant? Could any argument be more
@@ -229,7 +229,7 @@ they’re equal, which means it must be an actual rectangle.
 That’s why the corner is always a right angle.”
 <br><br>
 <center>
-<img src="angle4.webp" alt="" fetchpriority="high" decoding="async" width="251" height="259">
+<img src="angle4.webp" alt="" fetchpriority="high" decoding="async" width="251" height="259" jampack-sized="true">
 </center>
 <br><br>
 (…) I was able to point out several stylistic and logical
@@ -254,14 +254,14 @@ People who have learned linear algebra and then forgotten it. Who feel a measure
 The most common, and probably the most intuitive way to think about matrices is as transformations of points in space. If we have some vector x and we multiply it by a matrix A, we get a new point y = Ax. If A is square, then x and y are in the same space. A good way to visualize this is by domain coloring. We take a large number of points, arranged in a grid, and we color them by some image. This could be a simple color gradient, but we can also choose a photograph or some other image. Following Wikipedia’s example, we’ll use a picture of the Mona Lisa.
 <br><br>
 <center>
-<img src="lisa1.webp" alt="An increasingly fine-grained domain coloring using the Mona Lisa." loading="lazy" decoding="async" width="596" height="243">
+<img src="lisa1.webp" alt="An increasingly fine-grained domain coloring using the Mona Lisa." loading="lazy" decoding="async" width="596" height="243" jampack-sized="true">
 <p><small>An increasingly fine-grained domain coloring using the Mona Lisa.</small></p>
 </center>
 <br><br>
 If we apply the transformation A to each of these points, we can tell what effect the matrix has on this space.
 <br><br>
 <center>
-<img src="lisa2.webp" alt="" loading="lazy" decoding="async" width="1488" height="778" srcset="lisa2.webp 1488w, lisa2@1188w.webp 1188w, lisa2@888w.webp 888w" sizes="100vw">
+<img src="lisa2.webp" alt="" loading="lazy" decoding="async" width="1488" height="778" jampack-sized="true" srcset="lisa2.webp 1488w, lisa2@1188w.webp 1188w, lisa2@888w.webp 888w" sizes="100vw">
 </center>
 <br><br>
 All the points are mapped to a new position by A and poor Lisa ends up squished and stretched in various directions. Transformations expressible in a matrix are linear transformations. These are the transformations for which a line in the original image is still a line in the transformed image. This means that we can rotate, stretch, squish and flip the image in any direction we like, but we can’t warp, bend or tear it.
@@ -275,7 +275,7 @@ It’s simplest to see what this looks like for a diagonal matrix. For instance 
 the matrix acts independently on the first and second dimensions, squishing one, and stretching the other.
 <br><br>
 <center>
-<img src="lisa3.webp" alt="" loading="lazy" decoding="async" width="1176" height="590" srcset="lisa3.webp 1176w, lisa3@876w.webp 876w" sizes="100vw">
+<img src="lisa3.webp" alt="" loading="lazy" decoding="async" width="1176" height="590" jampack-sized="true" srcset="lisa3.webp 1176w, lisa3@876w.webp 876w" sizes="100vw">
 </center>
 <br><br>
 In this image we’ve also drawn two vectors: one to the middle of Mona Lisa’s left eye, and one to middle of the right. Since Leonardo put the right eye dead center in the painting (not by accident, I imagine), the red vector shrinks, but doesn’t change direction. The green vector is affected by both the squishing and the stretching, so its direction and magnitude both change. Hence, the red vector is an eigenvector, and the green vector isn’t. In a diagonal matrix, the eigenvectors are always the vectors that point in the same directions as the axes, so they’re easy to identify. In general square matrices, finding the eigenvectors is more tricky.

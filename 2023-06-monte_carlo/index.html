@@ -1,6 +1,6 @@
-<!DOCTYPE html><html lang="en"><!-- Head tag --><head>
+<!DOCTYPE html><html lang="en"><!-- Head tag --><head><meta charset="utf-8"><style>:where(img[jampack-sized]){max-width:100%;height:auto}</style>
 
-    <meta charset="utf-8">
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -201,7 +201,7 @@
 <p>All we have to do is calculate the area of the circle and the square and we can calculate pi. Unfortunately, that is quite difficult to do. Cue the Monte Carlo simulation.</p>
 <h2 id="The-Simulation"><a href="#The-Simulation" class="headerlink" title="The Simulation"></a>The Simulation</h2>
 <center>
-<img src="setup.webp" alt="setup" fetchpriority="high" decoding="async" width="300" height="300"> 
+<img src="setup.webp" alt="setup" fetchpriority="high" decoding="async" width="300" height="300" jampack-sized="true"> 
 </center> 
 
 
@@ -221,14 +221,14 @@
 <p>Here is a plot of the points. The points that landed in the circle are red and orange. Those that landed in the square are blue and orange, and those that landed in neither are green. (Note that it makes no difference if the circle overlaps with the square, we merely want to estimate the area of each shape.)</p>
 
 <center> 
-<img src="pi.webp" alt="pi" loading="lazy" decoding="async" width="300" height="300">
+<img src="pi.webp" alt="pi" loading="lazy" decoding="async" width="300" height="300" jampack-sized="true">
 </center>
 
 
 <p>And now for a graph of the estimated value of pi by iteration. This graph nicely illustrates the law of large numbers. In the beginning our estimate is wildly off. Over time it converges toward pi.</p>
 
 <center> 
-<img src="estimation.webp" alt="setup" loading="lazy" decoding="async" width="705" height="425">
+<img src="estimation.webp" alt="setup" loading="lazy" decoding="async" width="705" height="425" jampack-sized="true">
 </center>
 
 
@@ -245,7 +245,7 @@
 <h2 id="Simulation-in-Python-1"><a href="#Simulation-in-Python-1" class="headerlink" title="Simulation in Python"></a>Simulation in Python</h2><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment">#Number of iterations to simulate</span></span><br><span class="line">iterations = <span class="number">100000</span></span><br><span class="line"></span><br><span class="line">game = [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">51</span>)]</span><br><span class="line"><span class="comment">#ladders</span></span><br><span class="line">game[<span class="number">2</span>] = <span class="number">15</span></span><br><span class="line">game[<span class="number">5</span>] = <span class="number">17</span></span><br><span class="line">game[<span class="number">9</span>] = <span class="number">27</span></span><br><span class="line">game[<span class="number">17</span>] = <span class="number">41</span></span><br><span class="line">game[<span class="number">25</span>] = <span class="number">35</span></span><br><span class="line">game[<span class="number">34</span>] = <span class="number">48</span></span><br><span class="line"><span class="comment">#snakes</span></span><br><span class="line">game[<span class="number">33</span>] = <span class="number">20</span></span><br><span class="line">game[<span class="number">30</span>] = <span class="number">10</span></span><br><span class="line">game[<span class="number">20</span>] = <span class="number">1</span></span><br><span class="line">game[<span class="number">49</span>] = <span class="number">36</span></span><br><span class="line">game[<span class="number">18</span>] = <span class="number">8</span></span><br><span class="line">game[<span class="number">40</span>] = <span class="number">6</span></span><br><span class="line">game[<span class="number">26</span>] = <span class="number">19</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># the number of rolls it takes to win the game</span></span><br><span class="line">rolls = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="function_ title">simulate_game</span>():</span><br><span class="line">    <span class="comment"># start at square 0</span></span><br><span class="line">    player1 = <span class="number">0</span></span><br><span class="line">    number_of_rolls = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="comment"># simulate a roll of the die</span></span><br><span class="line">        roll = random.randint(<span class="number">1</span>,<span class="number">6</span>)</span><br><span class="line">        <span class="comment"># count how many rolls the player has taken</span></span><br><span class="line">        number_of_rolls += <span class="number">1</span></span><br><span class="line">        <span class="comment"># move forward by the number rolled</span></span><br><span class="line">        player1 += roll</span><br><span class="line">        <span class="comment"># Stop once the player reaches square 50</span></span><br><span class="line">        <span class="keyword">if</span> player1 &gt;= <span class="number">50</span>:</span><br><span class="line">            <span class="keyword">return</span> number_of_rolls</span><br><span class="line">        <span class="comment"># if the player lands on a snake or ladder, move accordingly</span></span><br><span class="line">        player1 = game[player1]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(iterations):</span><br><span class="line">    rolls.append(simulate_game())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#plot distribution of rolls</span></span><br><span class="line">plt.hist(rolls, bins=<span class="number">100</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></tbody></table></figure>
 
 <center> 
-<img src="results.webp" alt="results" loading="lazy" decoding="async" width="1024" height="383">
+<img src="results.webp" alt="results" loading="lazy" decoding="async" width="1024" height="383" jampack-sized="true">
 </center>
 
 
