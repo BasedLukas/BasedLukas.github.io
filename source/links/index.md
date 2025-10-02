@@ -36,6 +36,7 @@ author: Lukas
 * [Slime Mold](https://slimemoldtimemold.com/?ref=loreley.one)
 * [Alex Crompton](https://www.alexcrompton.com/?ref=loreley.one)
 * [Sebastian Raschka](https://magazine.sebastianraschka.com/?ref=loreley.one)
+* [Desmolysium](https://desmolysium.com/?ref=loreley.one)
 
 <br>
 
