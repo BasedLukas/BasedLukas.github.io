@@ -9,8 +9,11 @@
 %>
 
 <!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
-<header class="intro-header" style="background-image: url('<%- url_for(theme.index_cover) %>')">
+<% if (theme.index_cover) { %>
+<header class="intro-header intro-header-with-bg" style="background-image: url('<%- url_for(theme.index_cover) %>')">
+<% } else { %>
+<header class="intro-header">
+<% } %>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">

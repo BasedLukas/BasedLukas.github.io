@@ -58,3 +58,5 @@ author: Lukas
 * [Karpathy](https://www.youtube.com/@AndrejKarpathy?ref=loreley.one)
 * [Steve Brunton](https://www.youtube.com/@Eigensteve?ref=loreley.one)
 * [Umar Jamil](https://www.youtube.com/@umarjamilai?ref=loreley.one)
+* [GPU Mode](https://www.youtube.com/@GPUMODE?ref=loreley.one)
+

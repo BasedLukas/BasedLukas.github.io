@@ -3,7 +3,11 @@
 <%
     var cover = item.cover || theme.index_cover;
 %>
-<header class="intro-header" style="background-image: url('<%- url_for(theme.index_cover) %>')">
+<% if (cover) { %>
+<header class="intro-header intro-header-with-bg" style="background-image: url('<%- url_for(cover) %>')">
+<% } else { %>
+<header class="intro-header">
+<% } %>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1">
