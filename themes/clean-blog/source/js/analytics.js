@@ -40,46 +40,65 @@
         document.cookie = a;
     }
     
-    async function u(a, i) {
+async function u(a, i) {
 
-        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-            console.log('Skipping analytics in development environment.');
-            return; // Exit the function early
-        }
-
-        let n;
-        s();
-        
-        if (e) {
-            n = `${e}/api/tracking`;
-        } else if (A) {
-            A = A.replaceAll(/\/+$/gm, "");
-            n = `${A}/v0/events?name=${c}&token=${r}`;
-        } else {
-            n = `https://api.tinybird.co/v0/events?name=${c}&token=${r}`;
-        }
-        
-        i = (a => {
-            let i = JSON.stringify(a);
-            [
-                "username", "user", "user_id", "userid", "password", "pass",
-                "pin", "passcode", "token", "api_token", "email", "address",
-                "phone", "sex", "gender", "order", "order_id", "orderid",
-                "payment", "credit_card"
-            ].forEach(a => {
-                i = i.replaceAll(new RegExp(`("${a}"):(".+?"|\\d+)`, "mgi"), '$1:"********"');
-            });
-            return i;
-        })(i);
-        
-        i = Object.assign({}, JSON.parse(i), o);
-        i = JSON.stringify(i);
-        
-        const u = new XMLHttpRequest();
-        u.open("POST", n, true);
-        u.setRequestHeader("Content-Type", "application/json");
-        u.send(JSON.stringify({timestamp: (new Date).toISOString(), action: a, version: "1", session_id: t(), payload: i}));
+    // Do not track in development or on non-HTTPS pages
+    if (
+        window.location.hostname === 'localhost' ||
+        window.location.hostname === '127.0.0.1' ||
+        window.location.protocol !== 'https:'
+    ) {
+        // Optional: uncomment if you want to see when tracking is skipped:
+        // console.log('Skipping analytics on non-HTTPS or localhost.');
+        return;
     }
+
+    let n;
+    s();  // Set or refresh the session-id cookie (works on HTTPS)
+
+    if (e) {
+        n = `${e}/api/tracking`;
+    } else if (A) {
+        A = A.replaceAll(/\/+$/gm, "");
+        n = `${A}/v0/events?name=${c}&token=${r}`;
+    } else {
+        n = `https://api.tinybird.co/v0/events?name=${c}&token=${r}`;
+    }
+
+    // Redact sensitive fields from the payload
+    i = (a => {
+        let i = JSON.stringify(a);
+        [
+            "username", "user", "user_id", "userid", "password", "pass",
+            "pin", "passcode", "token", "api_token", "email", "address",
+            "phone", "sex", "gender", "order", "order_id", "orderid",
+            "payment", "credit_card"
+        ].forEach(a => {
+            i = i.replaceAll(
+                new RegExp(`("${a}"):(".+?"|\\d+)`, "mgi"),
+                '$1:"********"'
+            );
+        });
+        return i;
+    })(i);
+
+    // Merge payload with tb_* attributes from the script tag
+    i = Object.assign({}, JSON.parse(i), o);
+    i = JSON.stringify(i);
+
+    const x = new XMLHttpRequest();
+    x.open("POST", n, true);
+    x.setRequestHeader("Content-Type", "application/json");
+    x.send(
+        JSON.stringify({
+            timestamp: (new Date).toISOString(),
+            action: a,
+            version: "1",
+            session_id: t(),  // will be defined on HTTPS (cookie works there)
+            payload: i
+        })
+    );
+}
     
     function m() {
         if (window.__nightmare || window.navigator.webdriver || window.Cypress) return;
