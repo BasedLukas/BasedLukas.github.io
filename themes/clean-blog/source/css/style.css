@@ -48,17 +48,17 @@
   --font-mono: Monaco, Menlo, Consolas, 'Courier New', monospace;
 
   /* Font Sizes */
-  --font-size-base: 20px;
-  --font-size-base-desktop: 24px;
-  --font-size-xs: 16px;
-  --font-size-sm: 18px;
-  --font-size-md: 20px;
-  --font-size-lg: 26px;
-  --font-size-xl: 32px;
-  --font-size-2xl: 38px;
-  --font-size-3xl: 50px;
-  --font-size-4xl: 55px;
-  --font-size-5xl: 80px;
+  --font-size-base: 16px;
+  --font-size-base-desktop: 18px;
+  --font-size-xs: 13px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 20px;
+  --font-size-xl: 24px;
+  --font-size-2xl: 30px;
+  --font-size-3xl: 40px;
+  --font-size-4xl: 45px;
+  --font-size-5xl: 64px;
 
   /* Spacing */
   --spacing-xs: 10px;
