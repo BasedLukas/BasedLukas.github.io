@@ -1,90 +1,114 @@
-<!DOCTYPE html><html lang="en"><!-- Head tag --><head><meta charset="utf-8"><style>:where(img[jampack-sized]){max-width:100%;height:auto}</style>
-
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><style>:where(img[jampack-sized]){max-width:100%;height:auto}</style>
     
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#0b0b0c">
+    <meta name="robots" content="index, follow">
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
 
+    <!-- KaTeX CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tQ1jSoAo3Igd7+kP1JgE0HmOZRsuYBNJRiRk0tqLTbHpYuitqOg" crossorigin="anonymous">
 
-    <!-- Bootstrap CSS -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- jQuery -->
-    <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-
-    <!-- Bootstrap JS -->
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-    <!--Tiny bird analytics-->
-
-    <!-- Custom CSS -->
+    <!-- Theme CSS -->
     
 <link rel="stylesheet" href="/css/style.css">
 
-    
-<link rel="stylesheet" href="/css/highlight-theme.css">
-
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> 
-    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-
-    <!-- Gallery -->
-    <!-- <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/> -->
-
-
-    <!--Description-->
-    
 
     
-        <meta name="description" content="A collection of projects, essays and thoughts">
-        <meta property="og:description" content="A collection of projects, essays and thoughts">
-        <meta name="twitter:description" content="A collection of projects, essays and thoughts">
+
+    <!-- Description -->
+    
+    <meta name="description" content="A review of Peter Bloem's visual, intuition-first approach to PCA. Why most math education fails and how geometric thinking makes linear algebra click.">
     
 
-    <!--Author-->
+    <!-- Author -->
     
-        <meta name="author" content="Lukas">
-    
-
-    <!--Open Graph Title-->
-    
-        <meta property="og:title" content="Book Review: Unraveling Principal Component Analysis">
-        <meta name="twitter:title" content="Book Review: Unraveling Principal Component Analysis">
+    <meta name="author" content="Lukas">
     
 
-    <!--Open Graph Site Name-->
+    <!-- Keywords -->
+    
+    <meta name="keywords" content="statistics, probability, machine learning, programming, models, math">
+    
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Book Review: Unraveling Principal Component Analysis">
     <meta property="og:site_name" content="Lukas's Writings">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://loreley.one/2024-09-pca/">
+    
+    <meta property="og:description" content="A review of Peter Bloem's visual, intuition-first approach to PCA. Why most math education fails and how geometric thinking makes linear algebra click.">
+    
+    
+    <meta property="og:image" content="https://loreley.one/2024-09-pca/share_cover.png">
+    
+    
+    <meta property="article:published_time" content="2024-09-08T22:00:00.000Z">
+    
+    <meta property="article:modified_time" content="2026-02-10T13:34:40.899Z">
+    
+    <meta property="article:author" content="Lukas">
+    
+    
+    <meta property="article:tag" content="models">
+    
+    <meta property="article:tag" content="math">
+    
+    
+    
 
-    <!--Type page-->
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Book Review: Unraveling Principal Component Analysis">
     
-        <meta property="og:type" content="article">
-    
-
-    <!--Page Cover-->
+    <meta name="twitter:description" content="A review of Peter Bloem's visual, intuition-first approach to PCA. Why most math education fails and how geometric thinking makes linear algebra click.">
     
     
-        <meta property="og:image" content="http://loreley.one/2024-09-pca/share_cover.png">
-        <meta name="twitter:image" content="http://loreley.one/2024-09-pca/share_cover.png">
-    
-
-        <meta name="twitter:card" content="summary_large_image">
-
+    <meta name="twitter:image" content="https://loreley.one/2024-09-pca/share_cover.png">
+    <meta name="twitter:image:alt" content="Book Review: Unraveling Principal Component Analysis">
     
 
-    
-        <meta name="twitter:image" content="http://loreley.one/2024-09-pca/share_cover.png">
-    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://loreley.one/2024-09-pca/">
 
     <!-- Title -->
     
-    <title>Book Review: Unraveling Principal Component Analysis - Lukas's Writings</title>
+    <title>Book Review: Unraveling Principal Component Analysis — Lukas's Writings</title>
 
-    <!-- favicon -->
+    <!-- Favicon -->
     
-        <link rel="icon" href="/img/favicon.ico">
-        
+    <link rel="icon" href="/img/favicon.ico">
+    
+
+    <!-- JSON-LD Structured Data -->
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Book Review: Unraveling Principal Component Analysis",
+        "datePublished": "2024-09-08T22:00:00.000Z",
+        "dateModified": "2026-02-10T13:34:40.899Z",
+        "author": {
+            "@type": "Person",
+            "name": "Lukas"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Lukas&#39;s Writings",
+            "url": "https://loreley.one"
+        },
+        "description": "A review of Peter Bloem&#39;s visual, intuition-first approach to PCA. Why most math education fails and how geometric thinking makes linear algebra click.",
+        "image": "https://loreley.one/2024-09-pca/share_cover.png",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://loreley.one/2024-09-pca/"
+        }
+    }
+    </script>
     
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
@@ -96,115 +120,68 @@
 
 <body>
 
-    <!-- Menu -->
-    <!-- Navigation -->
-<nav class="navbar navbar-custom navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Home</a>
-        </div>
+    <a href="#main-content" class="skip-link">Skip to content</a>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                
-                    <li>
-                        <a href="/about">
-                            
-                                About
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/links">
-                            
-                                Links
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/services">
-                            
-                                Services
-                            
-                        </a>
-                    </li>
-                
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a class="nav-logo" href="/">Home</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <ul class="nav-links">
+        
+        <li>
+            <a href="/about">About</a>
+        </li>
+        
+        <li>
+            <a href="/links">Links</a>
+        </li>
+        
+        <li>
+            <a href="/services">Services</a>
+        </li>
+        
+    </ul>
 </nav>
 
-    <!-- Main Content -->
-    <!-- Page Header -->
-<!-- Set your background image for this header in your post front-matter: cover -->
 
+    <main id="main-content">
+        
 
-<header class="intro-header intro-header-with-bg" style="background-image:url(/img/bg.webp)">
+<article itemscope="" itemtype="https://schema.org/BlogPosting">
+    <div class="post-container">
+        <div class="post-main">
+            <header class="post-header">
+                
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-offset-1 col-lg-offset-1 col-md-10 col-lg-8">
-                <div class="post-heading">
-                    <h1>Book Review: Unraveling Principal Component Analysis</h1>
+                <h1 itemprop="headline">Book Review: Unraveling Principal Component Analysis</h1>
+
+                
+                <p class="post-subtitle" itemprop="alternativeHeadline">A proof should be an epiphany from the Gods, not a coded message from the Pentagon</p>
+                
+
+                <div class="post-meta">
                     
-                    <h2 class="post-subheading">
-                        A proof should be an epiphany from the Gods, not a coded message from the Pentagon
-                    </h2>
-                    
-                    <span class="meta">
-                        <!-- Date and Author -->
-                        
-                            Posted by Lukas on
-                        
-                        
-                            2024-09-08
-                        
+                    <span class="post-meta-date">
+                        <time datetime="2024-09-08T22:00:00.000Z" itemprop="datePublished">2024-09-08</time>
                     </span>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-
-            <!-- Tags and categories -->
-           
-                <div class="col-md-offset-1 col-lg-offset-1 col-lg-4 col-md-5 post-tags">
                     
+                    <span class="post-meta-reading-time">12 min read</span>
+                    
+                    <div class="post-meta-tags">
                         
-
-
-<a href="/tags/models/">#models</a> <a href="/tags/math/">#math</a>
-
-
+                        <a class="tag" href="/tags/models/">#models</a>
+                        
+                        <a class="tag" href="/tags/math/">#math</a>
+                        
+                    </div>
                     
                 </div>
-                <div class="col-lg-4 col-md-5 post-categories">
-                    
-                </div>
-            
+            </header>
 
-            <!-- Gallery -->
-            
-
-            <!-- Post Main Content -->
-            <div class="col-md-offset-1 col-lg-offset-1 col-md-10 col-lg-10">
+            <div class="js-post-body post-body" itemprop="articleBody">
                 <h2 id="Intuition-and-Motivation"><a href="#Intuition-and-Motivation" class="headerlink" title="Intuition and Motivation"></a>Intuition and Motivation</h2><p>Out of everything I’ve read, one of the pieces that resonated most with me was Lockhart’s Lament. Lockhart, a mathematician, published this work around 20 years ago, critiquing the way mathematics is typically taught to students. The gist of his argument is that too much emphasis is placed on memorization, notation, formulae and dry proofs. Instead he argues we should teach students to appreciate mathematics first and foremost - which can later be followed by formalism. A brilliant example:</p>
 <blockquote style="text-align:left">
 Lets take the case of a triangle inside a semicircle
@@ -313,82 +290,46 @@ This is what I love about his style. Commonly we would start by reading a list o
 <h2 id="Review"><a href="#Review" class="headerlink" title="Review"></a>Review</h2><p>Only the first 2 chapters actually deal with PCA. We start by examining the problem. Why do we need to reduce the dimensionality of our data? What is a principal component and why is it useful? Then we move on to understanding the basic process. How do we arrive at the solution, where do the principal components come from?<br>At this point you could stop and use the PCA implementation from your library in ignorant bliss. But that’s not actually what this book is about. It is a tour of linear algebra, hiding under the guise of PCA. If you stick with it you’ll be taken deeper. The spectral theorem, determinants and the singular value decomposition are all given the same treatment.<br>It isn’t perfect, and mathematicians will probably complain about rigor. I get it. In my opinion the dynamic runs as follows: Math is hard and requires a modicum of intelligence. This leads to a search for shortcuts to avoid the most difficult parts. So mathematicians are rightly suspect when someone comes along claiming to teach “subjective” or “intuitive” math without the rigor. In fact, any time you come across math without rigor and notation you would do well to ask why. But this book is not an attempt to avoid hard work. It’s here to satisfy your curiosity and that unease you feel when you don’t quite understand why something works as well as it does.<br>A feature of this style is that at times it can be a little hard to follow. It’s easy to follow a logical proof step by step and verify its validity. Due to the narrative style of this book it can sometimes be a little unclear exactly what is happening. But Peter acquits himself remarkably well in this regard. For the most part rereading a paragraph will be sufficient. There were however a number of times where despite rereading a section I still couldn’t make sense of it and was forced to find some other source to help me understand.</p>
 <h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>I’m pleased to have found this book, it’s been a game changer for me. A friend recommended his <a target="_blank" rel="noopener" href="https://peterbloem.nl/blog/?ref=loreley.one">blog</a> to me when I was looking for explanations of the transformer architecture, which is how I found it. The full book is available on his blog as a <a target="_blank" rel="noopener" href="https://peterbloem.nl/publications/unraveling-pca?ref=loreley.one">free PDF</a>, or you can buy it on amazon. Lockhart’s Lament is also a fun read and only around 25 pages. It is available <a href="lockharts_lament.pdf">here (PDF)</a>.</p>
 
-
-                
             </div>
-
         </div>
+
+        <aside class="toc-sidebar" aria-label="Table of contents">
+            <div class="toc-title">On this page</div>
+            <ul id="toc-list"></ul>
+        </aside>
     </div>
 </article>
 
-    <!-- Footer -->
-    <footer aria-label="Site footer">
-    <div class="ml-embedded" data-form="EHGAhY"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-offset-1 col-md-10 col-lg-8 col-lg-offset-2">
-                <nav aria-label="Social media links">
-                    <ul class="list-inline text-center">
-                        
-                            <li>
-                                <a href="https://x.com/LukasBogacz" target="_blank" aria-label="Visit our Twitter page">
-                                    <span class="fa-lg fa-stack" aria-hidden="true">
-                                        <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fa fa-inverse fa-stack-1x fa-twitter"></i>
-                                    </span>
-                                    <span class="sr-only">Twitter</span>
-                                </a>
-                            </li>
-                        
-                        
-                            <li>
-                                <a href="https://github.com/BasedLukas" target="_blank" aria-label="Visit our GitHub page">
-                                    <span class="fa-lg fa-stack" aria-hidden="true">
-                                        <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fa fa-inverse fa-stack-1x fa-github"></i>
-                                    </span>
-                                    <span class="sr-only">GitHub</span>
-                                </a>
-                            </li>
-                        
 
-                        
+    </main>
 
-                        
-                            <li>
-                                <a href="mailto:info@loreley.one" target="_blank" aria-label="Send us an email">
-                                    <span class="fa-lg fa-stack" aria-hidden="true">
-                                        <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fa fa-inverse fa-stack-1x fa-envelope-o"></i>
-                                    </span>
-                                    <span class="sr-only">Email</span>
-                                </a>
-                            </li>
-                        
-                        <li>
-                            <a href="http://loreley.one/atom.xml" target="_blank" aria-label="Subscribe to our RSS feed">
-                                <span class="fa-lg fa-stack" aria-hidden="true">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-inverse fa-stack-1x fa-rss"></i>
-                                </span>
-                                <span class="sr-only">RSS Feed</span>
-                            </a>
-                        </li>
-                        
-
-                    </ul>
-                </nav>
-                <p class="copyright text-muted" role="contentinfo">© 2026 Lukas</p>
-            </div>
-        </div>
+    <footer class="site-footer" role="contentinfo">
+    <span>© 2026 loreley · Amsterdam</span>
+    <div class="footer-links">
+        <a href="https://loreley.one/atom.xml">RSS</a>
+        <a href="https://github.com/BasedLukas" target="_blank" rel="noopener">GitHub</a>
+        
+        <a href="https://x.com/LukasBogacz" target="_blank" rel="noopener">Twitter</a>
     </div>
 </footer>
 
-    <!-- After footer scripts -->
-    
+
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-yaml.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-rust.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-c.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-cpp.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
 
 <script defer="" src="/js/analytics.js" data-host="https://api.tinybird.co" data-token="p.eyJ1IjogImYxMGY0NmY5LWI2MTQtNGY3Mi1hNWRkLTJkZWMyZTYzOGU0ZCIsICJpZCI6ICJmM2Y3MDk5Ny03YTZiLTRlYzUtYTdkNC01ZTVkMmY1ZjZjMDcifQ.uBS7CItgVesD7IqUpKSyA_g6UNTH-YHuH3-XfpWy1o0"></script>
-
 
 
 

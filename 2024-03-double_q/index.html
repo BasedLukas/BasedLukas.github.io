@@ -1,90 +1,118 @@
-<!DOCTYPE html><html lang="en"><!-- Head tag --><head><meta charset="utf-8"><style>:where(img[jampack-sized]){max-width:100%;height:auto}</style>
-
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><style>:where(img[jampack-sized]){max-width:100%;height:auto}</style>
     
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#0b0b0c">
+    <meta name="robots" content="index, follow">
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
 
+    <!-- KaTeX CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tQ1jSoAo3Igd7+kP1JgE0HmOZRsuYBNJRiRk0tqLTbHpYuitqOg" crossorigin="anonymous">
 
-    <!-- Bootstrap CSS -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- jQuery -->
-    <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-
-    <!-- Bootstrap JS -->
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-    <!--Tiny bird analytics-->
-
-    <!-- Custom CSS -->
+    <!-- Theme CSS -->
     
 <link rel="stylesheet" href="/css/style.css">
 
-    
-<link rel="stylesheet" href="/css/highlight-theme.css">
-
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> 
-    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-
-    <!-- Gallery -->
-    <!-- <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/> -->
-
-
-    <!--Description-->
-    
 
     
-        <meta name="description" content="A collection of projects, essays and thoughts">
-        <meta property="og:description" content="A collection of projects, essays and thoughts">
-        <meta name="twitter:description" content="A collection of projects, essays and thoughts">
+
+    <!-- Description -->
+    
+    <meta name="description" content="How maximization bias causes Q-learning to overestimate action values, and how Double Q-learning fixes it. Includes a Python walkthrough with a simple MDP.">
     
 
-    <!--Author-->
+    <!-- Author -->
     
-        <meta name="author" content="Lukas">
-    
-
-    <!--Open Graph Title-->
-    
-        <meta property="og:title" content="Double Q-Learning Explained">
-        <meta name="twitter:title" content="Double Q-Learning Explained">
+    <meta name="author" content="Lukas">
     
 
-    <!--Open Graph Site Name-->
+    <!-- Keywords -->
+    
+    <meta name="keywords" content="statistics, probability, machine learning, programming, python, models, reinforcement learning">
+    
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Double Q-Learning Explained">
     <meta property="og:site_name" content="Lukas's Writings">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://loreley.one/2024-03-double_q/">
+    
+    <meta property="og:description" content="How maximization bias causes Q-learning to overestimate action values, and how Double Q-learning fixes it. Includes a Python walkthrough with a simple MDP.">
+    
+    
+    <meta property="og:image" content="https://loreley.one/2024-03-double_q/double_q.png">
+    
+    
+    <meta property="article:published_time" content="2024-03-15T23:00:00.000Z">
+    
+    <meta property="article:modified_time" content="2026-02-10T13:34:40.892Z">
+    
+    <meta property="article:author" content="Lukas">
+    
+    
+    <meta property="article:tag" content="python">
+    
+    <meta property="article:tag" content="models">
+    
+    <meta property="article:tag" content="reinforcement learning">
+    
+    <meta property="article:tag" content="probability">
+    
+    
+    
 
-    <!--Type page-->
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Double Q-Learning Explained">
     
-        <meta property="og:type" content="article">
-    
-
-    <!--Page Cover-->
+    <meta name="twitter:description" content="How maximization bias causes Q-learning to overestimate action values, and how Double Q-learning fixes it. Includes a Python walkthrough with a simple MDP.">
     
     
-        <meta property="og:image" content="http://loreley.one/2024-03-double_q/double_q.png">
-        <meta name="twitter:image" content="http://loreley.one/2024-03-double_q/double_q.png">
-    
-
-        <meta name="twitter:card" content="summary_large_image">
-
+    <meta name="twitter:image" content="https://loreley.one/2024-03-double_q/double_q.png">
+    <meta name="twitter:image:alt" content="Double Q-Learning Explained">
     
 
-    
-        <meta name="twitter:image" content="http://loreley.one/2024-03-double_q/double_q.png">
-    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://loreley.one/2024-03-double_q/">
 
     <!-- Title -->
     
-    <title>Double Q-Learning Explained - Lukas's Writings</title>
+    <title>Double Q-Learning Explained — Lukas's Writings</title>
 
-    <!-- favicon -->
+    <!-- Favicon -->
     
-        <link rel="icon" href="/img/favicon.ico">
-        
+    <link rel="icon" href="/img/favicon.ico">
+    
+
+    <!-- JSON-LD Structured Data -->
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Double Q-Learning Explained",
+        "datePublished": "2024-03-15T23:00:00.000Z",
+        "dateModified": "2026-02-10T13:34:40.892Z",
+        "author": {
+            "@type": "Person",
+            "name": "Lukas"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Lukas&#39;s Writings",
+            "url": "https://loreley.one"
+        },
+        "description": "How maximization bias causes Q-learning to overestimate action values, and how Double Q-learning fixes it. Includes a Python walkthrough with a simple MDP.",
+        "image": "https://loreley.one/2024-03-double_q/double_q.png",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://loreley.one/2024-03-double_q/"
+        }
+    }
+    </script>
     
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
@@ -96,115 +124,72 @@
 
 <body>
 
-    <!-- Menu -->
-    <!-- Navigation -->
-<nav class="navbar navbar-custom navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Home</a>
-        </div>
+    <a href="#main-content" class="skip-link">Skip to content</a>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                
-                    <li>
-                        <a href="/about">
-                            
-                                About
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/links">
-                            
-                                Links
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/services">
-                            
-                                Services
-                            
-                        </a>
-                    </li>
-                
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a class="nav-logo" href="/">Home</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <ul class="nav-links">
+        
+        <li>
+            <a href="/about">About</a>
+        </li>
+        
+        <li>
+            <a href="/links">Links</a>
+        </li>
+        
+        <li>
+            <a href="/services">Services</a>
+        </li>
+        
+    </ul>
 </nav>
 
-    <!-- Main Content -->
-    <!-- Page Header -->
-<!-- Set your background image for this header in your post front-matter: cover -->
 
+    <main id="main-content">
+        
 
-<header class="intro-header intro-header-with-bg" style="background-image:url(/img/bg.webp)">
+<article itemscope="" itemtype="https://schema.org/BlogPosting">
+    <div class="post-container">
+        <div class="post-main">
+            <header class="post-header">
+                
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-offset-1 col-lg-offset-1 col-md-10 col-lg-8">
-                <div class="post-heading">
-                    <h1>Double Q-Learning Explained</h1>
+                <h1 itemprop="headline">Double Q-Learning Explained</h1>
+
+                
+                <p class="post-subtitle" itemprop="alternativeHeadline">What is Maximization Bias and Double Q-learning?</p>
+                
+
+                <div class="post-meta">
                     
-                    <h2 class="post-subheading">
-                        What is Maximization Bias and Double Q-learning?
-                    </h2>
-                    
-                    <span class="meta">
-                        <!-- Date and Author -->
-                        
-                            Posted by Lukas on
-                        
-                        
-                            2024-03-15
-                        
+                    <span class="post-meta-date">
+                        <time datetime="2024-03-15T23:00:00.000Z" itemprop="datePublished">2024-03-15</time>
                     </span>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-
-            <!-- Tags and categories -->
-           
-                <div class="col-md-offset-1 col-lg-offset-1 col-lg-4 col-md-5 post-tags">
                     
+                    <span class="post-meta-reading-time">12 min read</span>
+                    
+                    <div class="post-meta-tags">
                         
-
-
-<a href="/tags/python/">#python</a> <a href="/tags/models/">#models</a> <a href="/tags/reinforcement-learning/">#reinforcement learning</a> <a href="/tags/probability/">#probability</a>
-
-
+                        <a class="tag" href="/tags/python/">#python</a>
+                        
+                        <a class="tag" href="/tags/models/">#models</a>
+                        
+                        <a class="tag" href="/tags/reinforcement-learning/">#reinforcement learning</a>
+                        
+                        <a class="tag" href="/tags/probability/">#probability</a>
+                        
+                    </div>
                     
                 </div>
-                <div class="col-lg-4 col-md-5 post-categories">
-                    
-                </div>
-            
+            </header>
 
-            <!-- Gallery -->
-            
-
-            <!-- Post Main Content -->
-            <div class="col-md-offset-1 col-lg-offset-1 col-md-10 col-lg-10">
+            <div class="js-post-body post-body" itemprop="articleBody">
                 <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Q-learning is a popular reinforcement learning algorithm, used for solving Markov Decision Processes (MDP). In some cases, Q-learning doesn’t work well and takes a long time to converge, due to an issue known as the optimizer’s curse or maximization bias. In this post, we’ll take a look at the problem as well as a proposed solution. What follows is a brief recapitulation of MDP’s and Q-learning, followed by a deep dive into Double Q learning, the proposed solution to the problem.</p>
 <h2 id="Recap-of-Q-learning"><a href="#Recap-of-Q-learning" class="headerlink" title="Recap of Q learning"></a>Recap of Q learning</h2><p>A Markov chain consists of states connected through transition probabilities, which determine the likelihood of moving from one state to another. This probability depends only on the current state, not on the sequence of events that preceded it. Some states are accessible only from specific other states, forming a directed network.</p>
 <p>A Markov Decision Process (MDP) extends the concept of a Markov chain by incorporating decisions. It substitutes transition probabilities with actions that represent available choices. Each state in an MDP is linked with a reward, indicating the value of reaching that state. The distinct feature of MDPs is the decision-making aspect, where an agent selects actions to transition between states and accumulate rewards. The goal in an MDP is to find an optimal policy, which is a set of rules defining the best action to take in each state to maximize rewards.</p>
@@ -249,7 +234,7 @@
 
 
 <p>Since <code>Q1</code> is updated on different samples than <code>Q2</code>, they are not subject to the maximization bias. The algorithm does require more memory to store two Q functions. The computational cost stays the same.</p>
-<h2 id="Code-Walkthrough"><a href="#Code-Walkthrough" class="headerlink" title="Code Walkthrough"></a>Code Walkthrough</h2><p>The first time I went through this, it was a bit of a head-scratcher, so let’s walk through the code in python to make it more concrete. We will be using the exact same example MDP as above. We will run both Q-learning and Double Q-learning and compare their results. The full code is available <a target="_blank" rel="noopener" href="https://gist.github.com/BasedLukas/bda5cfed389e42108fc9f6a8daeb7cd7">here</a>.</p>
+<h2 id="Code-Walkthrough"><a href="#Code-Walkthrough" class="headerlink" title="Code Walkthrough"></a>Code Walkthrough</h2><p>The first time I went through this, it was a bit of a head-scratcher, so let’s walk through the code in python to make it more concrete. We will be using the exact same example MDP as above. We will run both Q-learning and Double Q-learning and compare their results. The full code is shown below.</p>
 <h5 id="Create-a-Markov-process-Note-that-the-values-of-states-C-are-drawn-from-N-0-1-1"><a href="#Create-a-Markov-process-Note-that-the-values-of-states-C-are-drawn-from-N-0-1-1" class="headerlink" title="Create a Markov process. Note that the values of states C are drawn from N(-0.1, 1)."></a>Create a Markov process. Note that the values of states <code>C</code> are drawn from <code>N(-0.1, 1)</code>.</h5><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="function_ title">get_reward</span>(<span class="params">state: <span class="built_in">str</span></span>) -&gt; <span class="built_in">float</span>:</span><br><span class="line">   <span class="string">"""</span></span><br><span class="line"><span class="string">   Returns the reward for transitioning into a given state.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">   Args:</span></span><br><span class="line"><span class="string">   - state: The state transitioned into.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">   Returns:</span></span><br><span class="line"><span class="string">   - A float representing the reward for that transition.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">   Raises:</span></span><br><span class="line"><span class="string">   - ValueError: If an invalid state is provided.</span></span><br><span class="line"><span class="string">   """</span></span><br><span class="line">   <span class="keyword">if</span> state == <span class="string">"a"</span>:</span><br><span class="line">       <span class="keyword">raise</span> ValueError(<span class="string">"a should not be passed as a param as it's the starting state"</span>)</span><br><span class="line">   <span class="keyword">if</span> state == <span class="string">'b'</span> <span class="keyword">or</span> state == <span class="string">'terminal'</span>:</span><br><span class="line">       <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">   <span class="keyword">if</span> <span class="string">'c'</span> <span class="keyword">in</span> state:</span><br><span class="line">       <span class="keyword">return</span> np.random.normal(-<span class="number">0.1</span>, <span class="number">1</span>)</span><br><span class="line">   <span class="keyword">raise</span> ValueError(<span class="string">f"state: <span class="subst">{state}</span> not recognized"</span>)</span><br><span class="line"></span><br><span class="line">transitions = {</span><br><span class="line">    <span class="string">"a"</span>: [<span class="string">"terminal"</span>, <span class="string">"b"</span>],</span><br><span class="line">    <span class="string">"b"</span>: [<span class="string">"c"</span>+<span class="built_in">str</span>(i) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(number_of_c_states)]</span><br><span class="line">}</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(number_of_c_states):</span><br><span class="line">    transitions[<span class="string">f"c<span class="subst">{i}</span>"</span>] = [<span class="string">"terminal"</span>]</span><br></pre></td></tr></tbody></table></figure>
 
 <h5 id="Our-Q-functions-are-simply-dictionaries"><a href="#Our-Q-functions-are-simply-dictionaries" class="headerlink" title="Our Q functions are simply dictionaries."></a>Our <code>Q</code> functions are simply dictionaries.</h5><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">q:  Dict[Tuple[str, int], float] = {}</span><br><span class="line">q1: Dict[Tuple[str, int], float] = {}</span><br><span class="line">q2: Dict[Tuple[str, int], float] = {}</span><br></pre></td></tr></tbody></table></figure>
@@ -285,82 +270,46 @@
 </ul>
 <p>And of course, Andrej Karpathy’s <a target="_blank" rel="noopener" href="http://karpathy.github.io/2016/05/31/rl/">blog post</a>.</p>
 
-
-                
             </div>
-
         </div>
+
+        <aside class="toc-sidebar" aria-label="Table of contents">
+            <div class="toc-title">On this page</div>
+            <ul id="toc-list"></ul>
+        </aside>
     </div>
 </article>
 
-    <!-- Footer -->
-    <footer aria-label="Site footer">
-    <div class="ml-embedded" data-form="EHGAhY"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-offset-1 col-md-10 col-lg-8 col-lg-offset-2">
-                <nav aria-label="Social media links">
-                    <ul class="list-inline text-center">
-                        
-                            <li>
-                                <a href="https://x.com/LukasBogacz" target="_blank" aria-label="Visit our Twitter page">
-                                    <span class="fa-lg fa-stack" aria-hidden="true">
-                                        <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fa fa-inverse fa-stack-1x fa-twitter"></i>
-                                    </span>
-                                    <span class="sr-only">Twitter</span>
-                                </a>
-                            </li>
-                        
-                        
-                            <li>
-                                <a href="https://github.com/BasedLukas" target="_blank" aria-label="Visit our GitHub page">
-                                    <span class="fa-lg fa-stack" aria-hidden="true">
-                                        <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fa fa-inverse fa-stack-1x fa-github"></i>
-                                    </span>
-                                    <span class="sr-only">GitHub</span>
-                                </a>
-                            </li>
-                        
 
-                        
+    </main>
 
-                        
-                            <li>
-                                <a href="mailto:info@loreley.one" target="_blank" aria-label="Send us an email">
-                                    <span class="fa-lg fa-stack" aria-hidden="true">
-                                        <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fa fa-inverse fa-stack-1x fa-envelope-o"></i>
-                                    </span>
-                                    <span class="sr-only">Email</span>
-                                </a>
-                            </li>
-                        
-                        <li>
-                            <a href="http://loreley.one/atom.xml" target="_blank" aria-label="Subscribe to our RSS feed">
-                                <span class="fa-lg fa-stack" aria-hidden="true">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-inverse fa-stack-1x fa-rss"></i>
-                                </span>
-                                <span class="sr-only">RSS Feed</span>
-                            </a>
-                        </li>
-                        
-
-                    </ul>
-                </nav>
-                <p class="copyright text-muted" role="contentinfo">© 2026 Lukas</p>
-            </div>
-        </div>
+    <footer class="site-footer" role="contentinfo">
+    <span>© 2026 loreley · Amsterdam</span>
+    <div class="footer-links">
+        <a href="https://loreley.one/atom.xml">RSS</a>
+        <a href="https://github.com/BasedLukas" target="_blank" rel="noopener">GitHub</a>
+        
+        <a href="https://x.com/LukasBogacz" target="_blank" rel="noopener">Twitter</a>
     </div>
 </footer>
 
-    <!-- After footer scripts -->
-    
+
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-yaml.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-rust.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-c.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-cpp.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
 
 <script defer="" src="/js/analytics.js" data-host="https://api.tinybird.co" data-token="p.eyJ1IjogImYxMGY0NmY5LWI2MTQtNGY3Mi1hNWRkLTJkZWMyZTYzOGU0ZCIsICJpZCI6ICJmM2Y3MDk5Ny03YTZiLTRlYzUtYTdkNC01ZTVkMmY1ZjZjMDcifQ.uBS7CItgVesD7IqUpKSyA_g6UNTH-YHuH3-XfpWy1o0"></script>
-
 
 
 

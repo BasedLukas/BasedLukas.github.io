@@ -1,3 +1,4 @@
-# Allow all search engines to crawl the entire site
 User-agent: *
-Allow: / 
+Allow: /
+
+Sitemap: https://loreley.one/sitemap.xml

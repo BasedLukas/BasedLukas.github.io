@@ -1,90 +1,111 @@
-<!DOCTYPE html><html lang="en"><!-- Head tag --><head><meta charset="utf-8"><style>:where(img[jampack-sized]){max-width:100%;height:auto}</style>
-
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><style>:where(img[jampack-sized]){max-width:100%;height:auto}</style>
     
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#0b0b0c">
+    <meta name="robots" content="index, follow">
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
 
+    <!-- KaTeX CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tQ1jSoAo3Igd7+kP1JgE0HmOZRsuYBNJRiRk0tqLTbHpYuitqOg" crossorigin="anonymous">
 
-    <!-- Bootstrap CSS -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- jQuery -->
-    <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-
-    <!-- Bootstrap JS -->
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-    <!--Tiny bird analytics-->
-
-    <!-- Custom CSS -->
+    <!-- Theme CSS -->
     
 <link rel="stylesheet" href="/css/style.css">
 
-    
-<link rel="stylesheet" href="/css/highlight-theme.css">
-
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> 
-    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-
-    <!-- Gallery -->
-    <!-- <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/> -->
-
-
-    <!--Description-->
-    
 
     
-        <meta name="description" content="A collection of projects, essays and thoughts">
-        <meta property="og:description" content="A collection of projects, essays and thoughts">
-        <meta name="twitter:description" content="A collection of projects, essays and thoughts">
+
+    <!-- Description -->
+    
+    <meta name="description" content="Exploring the viral claim that gzip can rival neural networks for text classification. How Normalized Compression Distance works and why it falls short.">
     
 
-    <!--Author-->
+    <!-- Author -->
     
-        <meta name="author" content="Lukas">
-    
-
-    <!--Open Graph Title-->
-    
-        <meta property="og:title" content="Will Gzip Replace Neural Networks for Text Classification?">
-        <meta name="twitter:title" content="Will Gzip Replace Neural Networks for Text Classification?">
+    <meta name="author" content="Lukas">
     
 
-    <!--Open Graph Site Name-->
+    <!-- Keywords -->
+    
+    <meta name="keywords" content="statistics, probability, machine learning, programming, python, models, NLP">
+    
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Will Gzip Replace Neural Networks for Text Classification?">
     <meta property="og:site_name" content="Lukas's Writings">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://loreley.one/2023-07-gzip/">
+    
+    <meta property="og:description" content="Exploring the viral claim that gzip can rival neural networks for text classification. How Normalized Compression Distance works and why it falls short.">
+    
+    
+    
+    <meta property="article:published_time" content="2023-07-18T22:00:00.000Z">
+    
+    <meta property="article:modified_time" content="2026-02-10T13:34:40.897Z">
+    
+    <meta property="article:author" content="Lukas">
+    
+    
+    <meta property="article:tag" content="python">
+    
+    <meta property="article:tag" content="models">
+    
+    <meta property="article:tag" content="NLP">
+    
+    
+    
 
-    <!--Type page-->
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Will Gzip Replace Neural Networks for Text Classification?">
     
-        <meta property="og:type" content="article">
+    <meta name="twitter:description" content="Exploring the viral claim that gzip can rival neural networks for text classification. How Normalized Compression Distance works and why it falls short.">
     
-
-    <!--Page Cover-->
-    
-    
-        <meta property="og:image" content="http://loreley.one/img/bg.webp">
-        <meta name="twitter:image" content="http://loreley.one/img/bg.webp">
     
 
-        <meta name="twitter:card" content="summary_large_image">
-
-    
-
-    
-        <meta name="twitter:image" content="http://loreley.one/img/bg.webp">
-    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://loreley.one/2023-07-gzip/">
 
     <!-- Title -->
     
-    <title>Will Gzip Replace Neural Networks for Text Classification? - Lukas's Writings</title>
+    <title>Will Gzip Replace Neural Networks for Text Classification? — Lukas's Writings</title>
 
-    <!-- favicon -->
+    <!-- Favicon -->
     
-        <link rel="icon" href="/img/favicon.ico">
+    <link rel="icon" href="/img/favicon.ico">
+    
+
+    <!-- JSON-LD Structured Data -->
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Will Gzip Replace Neural Networks for Text Classification?",
+        "datePublished": "2023-07-18T22:00:00.000Z",
+        "dateModified": "2026-02-10T13:34:40.897Z",
+        "author": {
+            "@type": "Person",
+            "name": "Lukas"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Lukas&#39;s Writings",
+            "url": "https://loreley.one"
+        },
+        "description": "Exploring the viral claim that gzip can rival neural networks for text classification. How Normalized Compression Distance works and why it falls short.",
         
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://loreley.one/2023-07-gzip/"
+        }
+    }
+    </script>
     
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
@@ -96,115 +117,70 @@
 
 <body>
 
-    <!-- Menu -->
-    <!-- Navigation -->
-<nav class="navbar navbar-custom navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Home</a>
-        </div>
+    <a href="#main-content" class="skip-link">Skip to content</a>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                
-                    <li>
-                        <a href="/about">
-                            
-                                About
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/links">
-                            
-                                Links
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/services">
-                            
-                                Services
-                            
-                        </a>
-                    </li>
-                
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a class="nav-logo" href="/">Home</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <ul class="nav-links">
+        
+        <li>
+            <a href="/about">About</a>
+        </li>
+        
+        <li>
+            <a href="/links">Links</a>
+        </li>
+        
+        <li>
+            <a href="/services">Services</a>
+        </li>
+        
+    </ul>
 </nav>
 
-    <!-- Main Content -->
-    <!-- Page Header -->
-<!-- Set your background image for this header in your post front-matter: cover -->
 
+    <main id="main-content">
+        
 
-<header class="intro-header intro-header-with-bg" style="background-image:url(/img/bg.webp)">
+<article itemscope="" itemtype="https://schema.org/BlogPosting">
+    <div class="post-container">
+        <div class="post-main">
+            <header class="post-header">
+                
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-offset-1 col-lg-offset-1 col-md-10 col-lg-8">
-                <div class="post-heading">
-                    <h1>Will Gzip Replace Neural Networks for Text Classification?</h1>
+                <h1 itemprop="headline">Will Gzip Replace Neural Networks for Text Classification?</h1>
+
+                
+                <p class="post-subtitle" itemprop="alternativeHeadline">Probably no.</p>
+                
+
+                <div class="post-meta">
                     
-                    <h2 class="post-subheading">
-                        Probably no.
-                    </h2>
-                    
-                    <span class="meta">
-                        <!-- Date and Author -->
-                        
-                            Posted by Lukas on
-                        
-                        
-                            2023-07-18
-                        
+                    <span class="post-meta-date">
+                        <time datetime="2023-07-18T22:00:00.000Z" itemprop="datePublished">2023-07-18</time>
                     </span>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-
-            <!-- Tags and categories -->
-           
-                <div class="col-md-offset-1 col-lg-offset-1 col-lg-4 col-md-5 post-tags">
                     
+                    <span class="post-meta-reading-time">13 min read</span>
+                    
+                    <div class="post-meta-tags">
                         
-
-
-<a href="/tags/python/">#python</a> <a href="/tags/models/">#models</a> <a href="/tags/NLP/">#NLP</a>
-
-
+                        <a class="tag" href="/tags/python/">#python</a>
+                        
+                        <a class="tag" href="/tags/models/">#models</a>
+                        
+                        <a class="tag" href="/tags/NLP/">#NLP</a>
+                        
+                    </div>
                     
                 </div>
-                <div class="col-lg-4 col-md-5 post-categories">
-                    
-                </div>
-            
+            </header>
 
-            <!-- Gallery -->
-            
-
-            <!-- Post Main Content -->
-            <div class="col-md-offset-1 col-lg-offset-1 col-md-10 col-lg-10">
+            <div class="js-post-body post-body" itemprop="articleBody">
                 <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Large language models are currently all the rage when it comes to text classification. However, a recent <a target="_blank" rel="noopener" href="https://aclanthology.org/2023.findings-acl.426/">research paper</a> offers an interesting non-parametric alternative. The proposed method is elegant in its simplicity: it combines a text compressor, gzip, with a k-nearest-neighbour classifier. This approach requires no training parameters, making it a lightweight and universally adaptable solution.</p>
 <p>The cornerstone of this method lies in two key ideas: first, compressors are good at capturing regularities in data, and second, data points from the same category share more regularity than those from different categories. </p>
 <p>In this article, we explore this approach to text classification, discussing its rationale, how it works, and its practical implementation in Python.</p>
@@ -263,9 +239,7 @@
 <p>Let’s delve into how this is implemented in practice using Python. We can start with two text strings representing different categories, GroupA and GroupB, and a third string, StringUnknown, which we wish to classify. We compress each of these strings using gzip and calculate their respective lengths. Then, we concatenate StringUnknown with each group, compress the result and calculate their lengths.</p>
 <p>Next, we compute the NCD for the unknown string and each group by subtracting the smallest compressed length of the group or the unknown string from the compressed length of the concatenated string, then dividing by the maximum compressed length of the group or the unknown string. This gives us a normalized measure of the “distance” of the unknown string from each group.</p>
 <p>The group with the smallest NCD to the unknown string is considered the most likely group that the unknown string belongs to. In essence, the smaller the NCD, the greater the similarity between the unknown string and the group.</p>
-
-<script src="https://gist.github.com/BasedLukas/42022b382660a27a7044770893572b18.js"></script>
-
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> gzip</span><br><span class="line"></span><br><span class="line">GroupA = <span class="string">"This group is part of the business category. In these sentences we speak about profit, EBITDA and taxes."</span></span><br><span class="line">GroupB = <span class="string">"Science category. In these sentences we speak about physics, chemistry, and other science related terms."</span></span><br><span class="line">StringUnknown = <span class="string">"This is a sentence that we want to classify. It is a business sentence, we mention EBITDA, profit and taxes."</span></span><br><span class="line"></span><br><span class="line">CompA = <span class="built_in">len</span>(gzip.compress(<span class="built_in">bytes</span>(GroupA, <span class="string">'utf-8'</span>)))</span><br><span class="line">CompB = <span class="built_in">len</span>(gzip.compress(<span class="built_in">bytes</span>(GroupB, <span class="string">'utf-8'</span>)))</span><br><span class="line">CompUnknown = <span class="built_in">len</span>(gzip.compress(<span class="built_in">bytes</span>(StringUnknown, <span class="string">'utf-8'</span>)))</span><br><span class="line">CompA_Unknown = <span class="built_in">len</span>(gzip.compress(<span class="built_in">bytes</span>(GroupA + StringUnknown, <span class="string">'utf-8'</span>)))</span><br><span class="line">CompB_Unknown = <span class="built_in">len</span>(gzip.compress(<span class="built_in">bytes</span>(GroupB + StringUnknown, <span class="string">'utf-8'</span>)))</span><br><span class="line"></span><br><span class="line">ncd_a = (CompA_Unknown - <span class="built_in">min</span>(CompA, CompUnknown)) / <span class="built_in">max</span>(CompA, CompUnknown)</span><br><span class="line">ncd_b = (CompB_Unknown - <span class="built_in">min</span>(CompB, CompUnknown)) / <span class="built_in">max</span>(CompB, CompUnknown)</span><br><span class="line"></span><br><span class="line">A_Diff = CompA_Unknown - CompA</span><br><span class="line">B_Diff = CompB_Unknown - CompB</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"CompA: "</span>, CompA)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"CompB: "</span>, CompB)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"CompA_Unknown: "</span>, CompA_Unknown)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"CompB_Unknown: "</span>, CompB_Unknown)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"A_Diff: "</span>, A_Diff)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"B_Diff: "</span>, B_Diff)</span><br><span class="line"><span class="built_in">print</span>()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"NCD_A: "</span>, ncd_a)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"NCD_B: "</span>, ncd_b)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ncd_a &lt; ncd_b:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"StringUnknown is in GroupA"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"StringUnknown is in GroupB"</span>)</span><br></pre></td></tr></tbody></table></figure>
 
 <figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">CompA:  110</span><br><span class="line">CompB:  102</span><br><span class="line">CompA_Unknown:  153</span><br><span class="line">CompB_Unknown:  163</span><br><span class="line">A_Diff:  43</span><br><span class="line">B_Diff:  61</span><br><span class="line"></span><br><span class="line">NCD_A:  0.42727272727272725</span><br><span class="line">NCD_B:  0.5754716981132075</span><br><span class="line">StringUnknown is in GroupA</span><br></pre></td></tr></tbody></table></figure>
 
@@ -286,82 +260,46 @@
 <p>To get hands-on with the concepts discussed in this blog, you can check out <a target="_blank" rel="noopener" href="https://github.com/BasedLukas/zip_classification">this repository that I made</a>. It provides a simple implementation of LZ77 and Huffman encoding, allowing you to experiment with these algorithms and see how they work in practice.</p>
 <p>For a more in-depth understanding of gzip, consider reading <a target="_blank" rel="noopener" href="https://www.infinitepartitions.com/art001.html">this blog post</a>. <a target="_blank" rel="noopener" href="https://www.zlib.net/feldspar.html">This article</a> offers an excellent explanation of the LZ77 algorithm. Of course, you should read the original paper, available <a target="_blank" rel="noopener" href="https://aclanthology.org/2023.findings-acl.426/">here</a>, which is very well written and understandable.</p>
 
-
-                
             </div>
-
         </div>
+
+        <aside class="toc-sidebar" aria-label="Table of contents">
+            <div class="toc-title">On this page</div>
+            <ul id="toc-list"></ul>
+        </aside>
     </div>
 </article>
 
-    <!-- Footer -->
-    <footer aria-label="Site footer">
-    <div class="ml-embedded" data-form="EHGAhY"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-offset-1 col-md-10 col-lg-8 col-lg-offset-2">
-                <nav aria-label="Social media links">
-                    <ul class="list-inline text-center">
-                        
-                            <li>
-                                <a href="https://x.com/LukasBogacz" target="_blank" aria-label="Visit our Twitter page">
-                                    <span class="fa-lg fa-stack" aria-hidden="true">
-                                        <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fa fa-inverse fa-stack-1x fa-twitter"></i>
-                                    </span>
-                                    <span class="sr-only">Twitter</span>
-                                </a>
-                            </li>
-                        
-                        
-                            <li>
-                                <a href="https://github.com/BasedLukas" target="_blank" aria-label="Visit our GitHub page">
-                                    <span class="fa-lg fa-stack" aria-hidden="true">
-                                        <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fa fa-inverse fa-stack-1x fa-github"></i>
-                                    </span>
-                                    <span class="sr-only">GitHub</span>
-                                </a>
-                            </li>
-                        
 
-                        
+    </main>
 
-                        
-                            <li>
-                                <a href="mailto:info@loreley.one" target="_blank" aria-label="Send us an email">
-                                    <span class="fa-lg fa-stack" aria-hidden="true">
-                                        <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fa fa-inverse fa-stack-1x fa-envelope-o"></i>
-                                    </span>
-                                    <span class="sr-only">Email</span>
-                                </a>
-                            </li>
-                        
-                        <li>
-                            <a href="http://loreley.one/atom.xml" target="_blank" aria-label="Subscribe to our RSS feed">
-                                <span class="fa-lg fa-stack" aria-hidden="true">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-inverse fa-stack-1x fa-rss"></i>
-                                </span>
-                                <span class="sr-only">RSS Feed</span>
-                            </a>
-                        </li>
-                        
-
-                    </ul>
-                </nav>
-                <p class="copyright text-muted" role="contentinfo">© 2026 Lukas</p>
-            </div>
-        </div>
+    <footer class="site-footer" role="contentinfo">
+    <span>© 2026 loreley · Amsterdam</span>
+    <div class="footer-links">
+        <a href="https://loreley.one/atom.xml">RSS</a>
+        <a href="https://github.com/BasedLukas" target="_blank" rel="noopener">GitHub</a>
+        
+        <a href="https://x.com/LukasBogacz" target="_blank" rel="noopener">Twitter</a>
     </div>
 </footer>
 
-    <!-- After footer scripts -->
-    
+
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-yaml.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-rust.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-c.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-cpp.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
 
 <script defer="" src="/js/analytics.js" data-host="https://api.tinybird.co" data-token="p.eyJ1IjogImYxMGY0NmY5LWI2MTQtNGY3Mi1hNWRkLTJkZWMyZTYzOGU0ZCIsICJpZCI6ICJmM2Y3MDk5Ny03YTZiLTRlYzUtYTdkNC01ZTVkMmY1ZjZjMDcifQ.uBS7CItgVesD7IqUpKSyA_g6UNTH-YHuH3-XfpWy1o0"></script>
-
 
 
 

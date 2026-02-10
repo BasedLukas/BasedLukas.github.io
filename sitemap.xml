@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://loreley.one/about/index.html</loc>
+    
+    <lastmod>2026-02-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://loreley.one/pitch/index.html</loc>
+    
+    <lastmod>2026-02-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://loreley.one/drafts/Updates-and-Speculation.html</loc>
+    
+    <lastmod>2026-02-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://loreley.one/links/index.html</loc>
+    
+    <lastmod>2026-02-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://loreley.one/services/index.html</loc>
+    
+    <lastmod>2026-02-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://loreley.one/2024-12-wasm/</loc>
+    
+    <lastmod>2026-02-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://loreley.one/2022-06-tpe/</loc>
+    
+    <lastmod>2026-02-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://loreley.one/2024-09-pca/</loc>
+    
+    <lastmod>2026-02-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://loreley.one/2023-06-monte_carlo/</loc>
+    
+    <lastmod>2026-02-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://loreley.one/2023-07-gzip/</loc>
+    
+    <lastmod>2026-02-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://loreley.one/2023-03-embeddings/</loc>
+    
+    <lastmod>2026-02-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://loreley.one/2024-03-double_q/</loc>
+    
+    <lastmod>2026-02-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://loreley.one/2023-07-cpu/</loc>
+    
+    <lastmod>2026-02-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://loreley.one/2024-06-acdl/</loc>
+    
+    <lastmod>2026-02-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+
+  <url>
+    <loc>https://loreley.one/</loc>
+    <lastmod>2026-02-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  
+  <url>
+    <loc>https://loreley.one/tags/python/</loc>
+    <lastmod>2026-02-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://loreley.one/tags/models/</loc>
+    <lastmod>2026-02-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://loreley.one/tags/reinforcement-learning/</loc>
+    <lastmod>2026-02-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://loreley.one/tags/probability/</loc>
+    <lastmod>2026-02-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://loreley.one/tags/NLP/</loc>
+    <lastmod>2026-02-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://loreley.one/tags/math/</loc>
+    <lastmod>2026-02-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://loreley.one/tags/longevity/</loc>
+    <lastmod>2026-02-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+
+  
+</urlset>
