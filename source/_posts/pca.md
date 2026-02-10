@@ -1,11 +1,11 @@
 ---
 title: "Book review: Unraveling Principal Component Analysis"
 tags: ["models", "math"]
-cover: img/bg.webp
 share_cover: 2024-09-pca/share_cover.png
 author: Lukas
 subtitle: 'A proof should be an epiphany from the Gods, not a coded message from the Pentagon'
-date: 2024-09-09 
+description: A review of Peter Bloem's visual, intuition-first approach to PCA. Why most math education fails and how geometric thinking makes linear algebra click.
+date: 2024-09-09
 ---
 ## Intuition and Motivation
 Out of everything I've read, one of the pieces that resonated most with me was Lockhart's Lament. Lockhart, a mathematician, published this work around 20 years ago, critiquing the way mathematics is typically taught to students. The gist of his argument is that too much emphasis is placed on memorization, notation, formulae and dry proofs. Instead he argues we should teach students to appreciate mathematics first and foremost - which can later be followed by formalism. A brilliant example:

@@ -3,9 +3,8 @@ title: Therapeutic Plasma Exchange
 date: 2022-06-02
 tags: ["longevity"]
 author: Lukas
-cover: img/bg.webp
-share_cover: img/bg.webp
-subtitle: A summary of the current research into therapeutic plasma exchange. 
+subtitle: A summary of the current research into therapeutic plasma exchange.
+description: A review of research on therapeutic plasma exchange for longevity. Examining parabiosis experiments, dilution studies, and the role of blood plasma in aging.
 ---
 
 

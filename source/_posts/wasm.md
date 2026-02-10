@@ -1,10 +1,9 @@
 ---
 title: WASM
-cover: img/bg.webp
 share_cover: 2024-12-wasm/wasm.jpg
 author: Lukas
 subtitle: It's so over for JavaScript
-mathjax: false
+description: Running a Python CPU emulator in the browser with WebAssembly. An interactive puzzle built with WASM that bundles a full Python interpreter.
 date: 2024-12-07
 ---
 

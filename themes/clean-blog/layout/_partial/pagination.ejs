@@ -1,8 +1,14 @@
-<ul class="pager">
-    <% if (page.prev){ %>
-        <li class="previous"><a href="<%- config.root %><%- page.prev_link %>">&larr;  <%- __('next')%></a></li>
+<% if (page.prev || page.next) { %>
+<nav class="pager" aria-label="Pagination">
+    <% if (page.prev) { %>
+    <a href="<%- config.root %><%- page.prev_link %>">&larr; <%- __('next') %></a>
+    <% } else { %>
+    <span></span>
     <% } %>
-    <% if (page.next){ %>
-        <li class="next"><a href="<%- config.root %><%- page.next_link %>"><%- __('prev')%>  &rarr;</a></li>
+    <% if (page.next) { %>
+    <a href="<%- config.root %><%- page.next_link %>"><%- __('prev') %> &rarr;</a>
+    <% } else { %>
+    <span></span>
     <% } %>
-</ul>
+</nav>
+<% } %>

@@ -1,10 +1,10 @@
 ---
 title: ACDL 2024
 date: 2024-06-15
-cover: img/bg.webp
 share_cover: 2024-06-acdl/beach.jpg
 author: Lukas
 subtitle: Review of the Advanced Course on Data Science & Machine Learning
+description: A review of ACDL 2024, the Advanced Course on Data Science and Machine Learning summer school held on the Tuscan coast. Lectures, networking, and key takeaways.
 ---
 The [ACDL](https://acdl2024.icas.events/) is a summer school, which, as the name implies, focuses on data science and to a larger extent machine learning. I recently had the pleasure of attending for the first time. This year it was held on the Tuscan coast, and attracted a mostly European audience with many participants from Italy.
 

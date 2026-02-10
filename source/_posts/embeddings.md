@@ -2,10 +2,9 @@
 title: Text Vectorization
 date: 2023-03-22
 tags: ["python", "NLP", "models"]
-cover: img/bg.webp
-share_cover: img/bg.webp
 author: Lukas
 subtitle: How text is represented inside a large language model.
+description: From one-hot encoding to word embeddings and transformers. A visual guide to how text becomes vectors that capture semantic meaning in language models.
 ---
 ## Introduction to Embeddings
 

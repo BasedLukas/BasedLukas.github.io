@@ -1,11 +1,11 @@
 ---
 title: Double Q-learning Explained
 tags: ["python", "models", "reinforcement learning", "probability"]
-cover: img/bg.webp
 share_cover: 2024-03-double_q/double_q.png
 author: Lukas
 subtitle: What is Maximization Bias and Double Q-learning?
-date: 2024-03-16 
+description: "How maximization bias causes Q-learning to overestimate action values, and how Double Q-learning fixes it. Includes a Python walkthrough with a simple MDP."
+date: 2024-03-16
 ---
 ## Introduction
 
@@ -109,7 +109,7 @@ Since `Q1` is updated on different samples than `Q2`, they are not subject to th
 
 ## Code Walkthrough
 
-The first time I went through this, it was a bit of a head-scratcher, so let’s walk through the code in python to make it more concrete. We will be using the exact same example MDP as above. We will run both Q-learning and Double Q-learning and compare their results. The full code is available [here](https://gist.github.com/BasedLukas/bda5cfed389e42108fc9f6a8daeb7cd7).
+The first time I went through this, it was a bit of a head-scratcher, so let’s walk through the code in python to make it more concrete. We will be using the exact same example MDP as above. We will run both Q-learning and Double Q-learning and compare their results. The full code is shown below.
 
 ##### Create a Markov process. Note that the values of states `C` are drawn from <code>N(-0.1, 1)</code>.
 

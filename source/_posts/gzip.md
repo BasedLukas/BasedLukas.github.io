@@ -1,11 +1,10 @@
 ---
-title: Will Gzip Replace Neural Networks for Text Classification? 
-date: 2023-07-19 
+title: Will Gzip Replace Neural Networks for Text Classification?
+date: 2023-07-19
 tags: ["python","NLP", "models"]
-cover: img/bg.webp
-share_cover: img/bg.webp
 author: Lukas
 subtitle: Probably no.
+description: Exploring the viral claim that gzip can rival neural networks for text classification. How Normalized Compression Distance works and why it falls short.
 ---
 
 ## Introduction
@@ -162,9 +161,40 @@ Next, we compute the NCD for the unknown string and each group by subtracting th
 
 The group with the smallest NCD to the unknown string is considered the most likely group that the unknown string belongs to. In essence, the smaller the NCD, the greater the similarity between the unknown string and the group.
 
-{% raw %}
-<script src="https://gist.github.com/BasedLukas/42022b382660a27a7044770893572b18.js"></script>
-{% endraw %}
+```python
+import gzip
+
+GroupA = "This group is part of the business category. In these sentences we speak about profit, EBITDA and taxes."
+GroupB = "Science category. In these sentences we speak about physics, chemistry, and other science related terms."
+StringUnknown = "This is a sentence that we want to classify. It is a business sentence, we mention EBITDA, profit and taxes."
+
+CompA = len(gzip.compress(bytes(GroupA, 'utf-8')))
+CompB = len(gzip.compress(bytes(GroupB, 'utf-8')))
+CompUnknown = len(gzip.compress(bytes(StringUnknown, 'utf-8')))
+CompA_Unknown = len(gzip.compress(bytes(GroupA + StringUnknown, 'utf-8')))
+CompB_Unknown = len(gzip.compress(bytes(GroupB + StringUnknown, 'utf-8')))
+
+ncd_a = (CompA_Unknown - min(CompA, CompUnknown)) / max(CompA, CompUnknown)
+ncd_b = (CompB_Unknown - min(CompB, CompUnknown)) / max(CompB, CompUnknown)
+
+A_Diff = CompA_Unknown - CompA
+B_Diff = CompB_Unknown - CompB
+
+print("CompA: ", CompA)
+print("CompB: ", CompB)
+print("CompA_Unknown: ", CompA_Unknown)
+print("CompB_Unknown: ", CompB_Unknown)
+print("A_Diff: ", A_Diff)
+print("B_Diff: ", B_Diff)
+print()
+print("NCD_A: ", ncd_a)
+print("NCD_B: ", ncd_b)
+
+if ncd_a < ncd_b:
+    print("StringUnknown is in GroupA")
+else:
+    print("StringUnknown is in GroupB")
+```
 
 ```
 CompA:  110

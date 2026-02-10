@@ -1,11 +1,10 @@
 ---
 title: Waltzing with Chance
-date: 2023-07-01 
+date: 2023-07-01
 tags: ["python", "probability"]
-cover: img/bg.webp
-share_cover: img/bg.webp
 author: Lukas
 subtitle: A brief introduction to Monte Carlo simulations in python.
+description: An introduction to Monte Carlo simulations with Python examples. Estimating pi, computing integrals, and understanding random sampling through hands-on code.
 ---
 ## Introduction
 Suppose you were flying over the Pacific and suffered a plane crash. Luckily you survived the crash and are now stranded on a deserted island. Unfortunately, you struck your head quite badly and can no longer recall the value for pi. All you have with you is a short stick, a stone and your wits to guide you. Naturally you are concerned with the most pressing problem, viz. calculating the value of pi, which you have forgotten. How can you go about doing so?

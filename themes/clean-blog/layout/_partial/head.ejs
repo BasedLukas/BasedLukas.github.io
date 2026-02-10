@@ -1,124 +1,177 @@
 <head>
-
     <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="theme-color" content="#0b0b0c"/>
+    <meta name="robots" content="index, follow"/>
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"/>
 
+    <!-- KaTeX CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tQ1jSoAo3Igd7+kP1JgE0HmOZRsuYBNJRiRk0tqLTbHpYuitqOg" crossorigin="anonymous"/>
 
-    <!-- Bootstrap CSS -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet"/>
-
-    <!-- jQuery -->
-    <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-
-    <!-- Bootstrap JS -->
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-    <!--Tiny bird analytics-->
-
-    <!-- Custom CSS -->
+    <!-- Theme CSS -->
     <%- css('css/style.css') %>
-    <%- css('css/highlight-theme.css') %>
 
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/> 
-    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
-
-    <!-- Gallery -->
-    <!-- <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/> -->
-
-
-    <!--Description-->
     <%
-    var description = '';
+    // --- Determine if this is a blog post (has layout=post) vs a page ---
+    var isPost = (page.layout === 'post');
 
+    // --- Description: post description > subtitle > excerpt > content snippet > site description ---
+    var description = '';
     if (page.description) {
         description = page.description;
-    } else if (config.description) {
-        description = config.description;
+    } else if (page.subtitle && page.subtitle.length) {
+        description = page.subtitle;
     } else if (page.excerpt) {
-        description = strip_html(page.excerpt).replace(/^\s*/, '').replace(/\s*$/, '');
+        description = strip_html(page.excerpt).replace(/^\s+|\s+$/g, '').substring(0, 160);
     } else if (page.content) {
-        description = strip_html(page.content).replace(/^\s*/, '').replace(/\s*$/, '').substring(0, 150);
+        description = strip_html(page.content).replace(/^\s+|\s+$/g, '').substring(0, 160);
+    }
+    if (!description && config.description) {
+        description = config.description;
+    }
+
+    // --- Canonical URL: strip trailing index.html ---
+    var canonicalPath = page.path || '';
+    canonicalPath = canonicalPath.replace(/index\.html$/, '');
+    var canonicalUrl = config.url + '/' + canonicalPath;
+
+    // --- OG image: share_cover > config.cover > default ---
+    var ogImage = '';
+    if (page.share_cover) {
+        ogImage = config.url + '/' + page.share_cover;
+    } else if (config.cover) {
+        ogImage = config.url + '/' + config.cover;
+    } else if (theme.default_cover) {
+        ogImage = config.url + '/' + theme.default_cover;
+    }
+
+    // --- OG type ---
+    var ogType = isPost ? 'article' : 'website';
+
+    // --- Page title ---
+    var pageTitle = page.title || '';
+
+    // --- Keywords: merge site keywords + post tags ---
+    var keywords = (config.keywords || []).slice();
+    if (page.tags && page.tags.length) {
+        page.tags.forEach(function(tag) {
+            if (keywords.indexOf(tag.name) === -1) keywords.push(tag.name);
+        });
     }
     %>
 
+    <!-- Description -->
     <% if (description) { %>
-        <meta name="description" content="<%= description %>"/>
-        <meta property="og:description" content="<%= description %>"/>
-        <meta name="twitter:description" content="<%= description %>">
+    <meta name="description" content="<%= description %>"/>
     <% } %>
 
-    <!--Author-->
+    <!-- Author -->
     <% if (config.author) { %>
-        <meta name="author" content="<%= config.author %>"/>
+    <meta name="author" content="<%= config.author %>"/>
     <% } %>
 
-    <!--Open Graph Title-->
-    <% if (page.title) { %>
-        <meta property="og:title" content="<%= page.title %>"/>
-        <meta name="twitter:title" content="<%= page.title %>">
-    <% } else { %>
-        <meta property="og:title" content="<%= config.title %>"/>
-        <meta name="twitter:title" content="<%= config.title %>">
+    <!-- Keywords -->
+    <% if (keywords.length) { %>
+    <meta name="keywords" content="<%= keywords.join(', ') %>"/>
     <% } %>
 
-    <!--Open Graph Site Name-->
+    <!-- Open Graph -->
+    <meta property="og:title" content="<%= pageTitle || config.title %>"/>
     <meta property="og:site_name" content="<%= config.title %>"/>
-
-    <!--Type page-->
-    <% if(page.title) { %>
-        <meta property="og:type" content="article"/>
-    <% } else { %>
-        <meta property="og:type" content="website"/>
+    <meta property="og:type" content="<%= ogType %>"/>
+    <meta property="og:url" content="<%= canonicalUrl %>"/>
+    <% if (description) { %>
+    <meta property="og:description" content="<%= description %>"/>
+    <% } %>
+    <% if (ogImage) { %>
+    <meta property="og:image" content="<%= ogImage %>"/>
+    <% } %>
+    <% if (isPost) { %>
+    <meta property="article:published_time" content="<%= page.date.toISOString() %>"/>
+    <% if (page.updated) { %>
+    <meta property="article:modified_time" content="<%= page.updated.toISOString() %>"/>
+    <% } %>
+    <meta property="article:author" content="<%= page.author || config.author %>"/>
+    <% if (page.tags && page.tags.length) { %>
+    <% page.tags.forEach(function(tag) { %>
+    <meta property="article:tag" content="<%= tag.name %>"/>
+    <% }); %>
+    <% } %>
     <% } %>
 
-    <!--Page Cover-->
-    <%
-        var image = '';
-        if (page.share_cover) {
-            image = page.share_cover;
-        } else if (config.cover) {
-            image = config.cover;
-        } else if (theme.index_cover) {
-            image = theme.index_cover;
-        }
-    %>
-    <% if (image) { %>
-        <meta property="og:image" content="<%= config.url %>/<%= image %>"/>
-        <meta name="twitter:image" content="<%= config.url %>/<%= image %>">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="<%= ogImage ? 'summary_large_image' : 'summary' %>"/>
+    <meta name="twitter:title" content="<%= pageTitle || config.title %>"/>
+    <% if (description) { %>
+    <meta name="twitter:description" content="<%= description %>"/>
+    <% } %>
+    <% if (ogImage) { %>
+    <meta name="twitter:image" content="<%= ogImage %>"/>
+    <meta name="twitter:image:alt" content="<%= pageTitle || config.title %>"/>
     <% } %>
 
-        <meta name="twitter:card" content="summary_large_image"/>
-
-    <% if(theme.twitter_handle) { %>
-        <meta name="twitter:site" content="@<%= theme.twitter_handle %>"/>
-    <% } %>
-
-    <% if(image) { %>
-        <meta name="twitter:image" content="<%= config.url %>/<%= image %>"/>
-    <% } %>
+    <!-- Canonical -->
+    <link rel="canonical" href="<%= canonicalUrl %>"/>
 
     <!-- Title -->
     <%
-    var title = [];
-    if (page.current > 1) title.push(__('page', page.current));
-    if (page.title) title.push(page.title);
-    if (page.category) title.push(page.category);
-    if (page.tag) title.push(page.tag);
+    var titleParts = [];
+    if (page.current > 1) titleParts.push(__('page', page.current));
+    if (pageTitle) titleParts.push(pageTitle);
+    if (page.category) titleParts.push(page.category);
+    if (page.tag) titleParts.push('#' + page.tag);
     if (page.archive) {
-        if (page.year) title.push(__('archive_b', page.year + (page.month ? '/' + page.month : '')));
-        else title.push(__('archive_a'));
+        if (page.year) titleParts.push(__('archive_b', page.year + (page.month ? '/' + page.month : '')));
+        else titleParts.push(__('archive_a'));
     }
-    title.push(config.title);
+    titleParts.push(config.title);
     %>
-    <title><%= title.join(' - ') %></title>
+    <title><%= titleParts.join(' — ') %></title>
 
-    <!-- favicon -->
+    <!-- Favicon -->
     <% if (theme.favicon) { %>
-        <link rel="icon" href="/img/favicon.ico"/>
-        <% } %>
-    
+    <link rel="icon" href="/img/favicon.ico"/>
+    <% } %>
+
+    <!-- JSON-LD Structured Data -->
+    <% if (isPost) { %>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "<%= page.title %>",
+        "datePublished": "<%= page.date.toISOString() %>",
+        <% if (page.updated) { %>"dateModified": "<%= page.updated.toISOString() %>",<% } %>
+        "author": {
+            "@type": "Person",
+            "name": "<%= page.author || config.author %>"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "<%= config.title %>",
+            "url": "<%= config.url %>"
+        },
+        "description": "<%= description ? description.replace(/"/g, '\\"') : '' %>",
+        <% if (ogImage) { %>"image": "<%= ogImage %>",<% } %>
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "<%= canonicalUrl %>"
+        }
+    }
+    </script>
+    <% } else { %>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "<%= config.title %>",
+        "url": "<%= config.url %>",
+        "description": "<%= description ? description.replace(/"/g, '\\"') : '' %>"
+    }
+    </script>
+    <% } %>
 </head>

@@ -1,11 +1,10 @@
 ---
 title: Designing a Simple 8 bit CPU Emulator in Python
-date: 2023-07-04 
+date: 2023-07-04
 tags: ["python"]
-cover: img/bg.webp
-share_cover: img/bg.webp
 author: Lukas
 subtitle: How I made a CPU emulator based entirely on logic gate functions
+description: Building an 8-bit CPU emulator from scratch in Python using only simulated logic gates. From NAND gates to a working ALU, registers, and control flow.
 ---
 
 *(2024-12-07) Note: See [this blogpost](https://loreley.one/2024-12-wasm/) of mine to interact with the CPU and solve the maze.*

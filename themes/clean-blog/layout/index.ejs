@@ -1,36 +1,24 @@
-<!-- Page Header -->
-<% if (theme.index_cover) { %>
-<header class="intro-header intro-header-with-bg" style="background-image: url('<%- url_for(theme.index_cover) %>')">
-<% } else { %>
-<header class="intro-header">
-<% } %>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1><%- config.title %></h1>
-                    <hr class="small">
-                    <span class="subheading"><%- config.subtitle %></span>
-                </div>
-            </div>
+<section class="showcase fade-in">
+    <h1><%- config.title %></h1>
+    <% if (config.description) { %>
+    <p class="subtitle"><%- config.description %></p>
+    <% } %>
+</section>
+
+<div class="post-list">
+    <% page.posts.each(function(item){ %>
+    <a class="post-list-item fade-in" href="<%- config.root %><%- item.path %>">
+        <div>
+            <div class="post-list-title"><%- item.title || theme.default_post_title || "Untitled" %></div>
+            <% if (item.subtitle && item.subtitle.length) { %>
+            <div class="post-list-subtitle"><%- item.subtitle %></div>
+            <% } %>
         </div>
-    </div>
-</header>
-
-
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <% page.posts.each(function(item){ %>
-                <%- partial('_partial/article-index', {item: item}) %>
-            <% }); %>
-
-            <%- partial('_partial/pagination') %>
-        </div>
-    </div>
+        <span class="post-list-date"><%= item.date.format('MMM YYYY') %></span>
+    </a>
+    <% }); %>
 </div>
 
-
-
-
+<div class="post-list">
+    <%- partial('_partial/pagination') %>
+</div>

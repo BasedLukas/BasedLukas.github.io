@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html <% if(config.language) { %>lang="<%= config.language %>"<% } else { %>lang="en"<% }%>>
 
-<!-- Head tag -->
 <%- partial('_partial/head') %>
 
 <body>
 
-    <!-- Menu -->
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
     <%- partial('_partial/menu') %>
 
-    <!-- Main Content -->
-    <%- body %>
+    <main id="main-content">
+        <%- body %>
+    </main>
 
-    <!-- Footer -->
     <%- partial('_partial/footer') %>
 
-    <!-- After footer scripts -->
     <%- partial('_partial/after-footer') %>
 
 </body>
