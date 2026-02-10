@@ -5,7 +5,7 @@ date: 2024-09-09
 
 # About me
 
-Currently working on a startup to help industry adopt AI. Funded by [Entrepreneurs First](https://www.joinef.com/).
+Currently working on [VibeArena](https://vibearena.io), a startup to help industry adopt AI. Funded by [Entrepreneurs First](https://www.joinef.com/).
 
 #### Previous experience:
 - Machine leaning and data engineering with experience in NLP and OCR software.
