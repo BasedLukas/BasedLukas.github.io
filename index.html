@@ -20,7 +20,8 @@
   <meta name="twitter:description" content="Lukas Bogacz — Software engineer & technical founder. I build and ship products end-to-end.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"></noscript>
   <script defer src="components.js"></script>
   <link rel="stylesheet" href="home.css">
   <link rel="preload" as="image" href="assets/hero.webp">
@@ -93,7 +94,7 @@
       </div>
 
       <div class="about-photo-wrap">
-        <img src="assets/me.jpeg" alt="Lukas Bogacz" width="320" height="213">
+        <img src="assets/me.jpeg" alt="Lukas Bogacz" width="320" height="213" loading="lazy">
       </div>
     </div>
   </section>
@@ -195,7 +196,7 @@
 
   <!-- Speaking photo -->
   <div class="photo-band">
-    <img src="assets/speaking.jpg" alt="Lukas Bogacz presenting at AWS Gen AI Loft, San Francisco">
+    <img src="assets/speaking.jpg" alt="Lukas Bogacz presenting at AWS Gen AI Loft, San Francisco" loading="lazy">
   </div>
 
 
@@ -233,9 +234,9 @@
           </div>
 
           <div class="modal-screenshots layout-trio">
-            <div class="screenshot-slot"><img src="assets/screenshots/vibearena/dashboard.webp" alt="Assessment dashboard with challenge list and candidate tracking"></div>
-            <div class="screenshot-slot"><img src="assets/screenshots/vibearena/briefing.webp" alt="Candidate briefing with AI Project Manager chat"></div>
-            <div class="screenshot-slot"><img src="assets/screenshots/vibearena/results.webp" alt="Results summary with score and assessment breakdown"></div>
+            <div class="screenshot-slot"><img src="assets/screenshots/vibearena/dashboard.webp" alt="Assessment dashboard with challenge list and candidate tracking" loading="lazy"></div>
+            <div class="screenshot-slot"><img src="assets/screenshots/vibearena/briefing.webp" alt="Candidate briefing with AI Project Manager chat" loading="lazy"></div>
+            <div class="screenshot-slot"><img src="assets/screenshots/vibearena/results.webp" alt="Results summary with score and assessment breakdown" loading="lazy"></div>
           </div>
 
           <div class="modal-description">
@@ -278,8 +279,8 @@
             </div>
           </div>
           <div class="modal-screenshots layout-duo">
-            <div class="screenshot-slot"><img src="https://loreley.one/2024-12-wasm/turing_complete.webp" alt="Turing Complete game that inspired the CPU emulator"></div>
-            <div class="screenshot-slot"><img src="https://loreley.one/2024-12-wasm/full_cpu.webp" alt="Diagram of the full CPU design"></div>
+            <div class="screenshot-slot"><img src="2023-07-cpu/turing_complete.webp" alt="Turing Complete game that inspired the CPU emulator" loading="lazy"></div>
+            <div class="screenshot-slot"><img src="2023-07-cpu/full_cpu.webp" alt="Diagram of the full CPU design" loading="lazy"></div>
           </div>
           <div class="modal-description">
             <h3>Overview</h3>
@@ -315,9 +316,9 @@
             <div class="project-role">Internal tools for enterprise ops</div>
           </div>
           <div class="modal-screenshots layout-trio">
-            <div class="screenshot-slot"><img src="assets/screenshots/bluesecretary/chatkit.jpeg" alt="Agent workflow orchestration"></div>
-            <div class="screenshot-slot"><img src="assets/screenshots/bluesecretary/auto-reply.webp" alt="Auto-reply rules with AI filtering"></div>
-            <div class="screenshot-slot"><img src="assets/screenshots/bluesecretary/tasks.webp" alt="Email automation tasks"></div>
+            <div class="screenshot-slot"><img src="assets/screenshots/bluesecretary/chatkit.jpeg" alt="Agent workflow orchestration" loading="lazy"></div>
+            <div class="screenshot-slot"><img src="assets/screenshots/bluesecretary/auto-reply.webp" alt="Auto-reply rules with AI filtering" loading="lazy"></div>
+            <div class="screenshot-slot"><img src="assets/screenshots/bluesecretary/tasks.webp" alt="Email automation tasks" loading="lazy"></div>
           </div>
           <div class="modal-description">
             <h3>Overview</h3>
