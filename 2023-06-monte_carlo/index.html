@@ -1,285 +1,243 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><style>:where(img[jampack-sized]){max-width:100%;height:auto}</style>
-    
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="theme-color" content="#0b0b0c">
-    <meta name="robots" content="index, follow">
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
-
-    <!-- KaTeX CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tQ1jSoAo3Igd7+kP1JgE0HmOZRsuYBNJRiRk0tqLTbHpYuitqOg" crossorigin="anonymous">
-
-    <!-- Theme CSS -->
-    
-<link rel="stylesheet" href="/css/style.css">
-
-
-    
-
-    <!-- Description -->
-    
-    <meta name="description" content="An introduction to Monte Carlo simulations with Python examples. Estimating pi, computing integrals, and understanding random sampling through hands-on code.">
-    
-
-    <!-- Author -->
-    
-    <meta name="author" content="Lukas">
-    
-
-    <!-- Keywords -->
-    
-    <meta name="keywords" content="statistics, probability, machine learning, programming, python">
-    
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="Waltzing With Chance">
-    <meta property="og:site_name" content="Lukas's Writings">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://loreley.one/2023-06-monte_carlo/">
-    
-    <meta property="og:description" content="An introduction to Monte Carlo simulations with Python examples. Estimating pi, computing integrals, and understanding random sampling through hands-on code.">
-    
-    
-    
-    <meta property="article:published_time" content="2023-06-30T22:00:00.000Z">
-    
-    <meta property="article:modified_time" content="2026-02-10T21:56:46.706Z">
-    
-    <meta property="article:author" content="Lukas">
-    
-    
-    <meta property="article:tag" content="python">
-    
-    <meta property="article:tag" content="probability">
-    
-    
-    
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Waltzing With Chance">
-    
-    <meta name="twitter:description" content="An introduction to Monte Carlo simulations with Python examples. Estimating pi, computing integrals, and understanding random sampling through hands-on code.">
-    
-    
-
-    <!-- Canonical -->
-    <link rel="canonical" href="https://loreley.one/2023-06-monte_carlo/">
-
-    <!-- Title -->
-    
-    <title>Waltzing With Chance — Lukas's Writings</title>
-
-    <!-- Favicon -->
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-
-    <!-- JSON-LD Structured Data -->
-    
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "headline": "Waltzing With Chance",
-        "datePublished": "2023-06-30T22:00:00.000Z",
-        "dateModified": "2026-02-10T21:56:46.706Z",
-        "author": {
-            "@type": "Person",
-            "name": "Lukas"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "Lukas&#39;s Writings",
-            "url": "https://loreley.one"
-        },
-        "description": "An introduction to Monte Carlo simulations with Python examples. Estimating pi, computing integrals, and understanding random sampling through hands-on code.",
-        
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://loreley.one/2023-06-monte_carlo/"
-        }
-    }
-    </script>
-    
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"><link rel="alternate" href="/atom.xml" title="Lukas's Writings" type="application/atom+xml">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Waltzing With Chance — Loreley</title>
+  <meta name="description" content="An introduction to Monte Carlo simulations with Python examples. Estimating pi, computing integrals, and understanding random sampling through hands-on code.">
+  <link rel="icon" href="../assets/favicon.ico">
+  <link rel="canonical" href="https://loreley.one/2023-06-monte_carlo/">
+  <meta property="og:title" content="Waltzing With Chance — Loreley">
+  <meta property="og:site_name" content="Loreley">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://loreley.one/2023-06-monte_carlo/">
+  <meta property="og:description" content="An introduction to Monte Carlo simulations with Python examples. Estimating pi, computing integrals, and understanding random sampling through hands-on code.">
+  <meta property="og:image" content="https://loreley.one/assets/og-image.png">
+  <meta name="twitter:image" content="https://loreley.one/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Waltzing With Chance — Loreley">
+  <meta name="twitter:description" content="An introduction to Monte Carlo simulations with Python examples. Estimating pi, computing integrals, and understanding random sampling through hands-on code.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="../article.css">
+  <script defer src="../components.js"></script>
 </head>
-
-
 <body>
 
-    <a href="#main-content" class="skip-link">Skip to content</a>
+  <nav></nav>
 
-    <nav class="nav" role="navigation" aria-label="Main navigation">
-    <a class="nav-logo" href="/">Home</a>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-    <ul class="nav-links">
-        
-        <li>
-            <a href="/about">About</a>
-        </li>
-        
-        <li>
-            <a href="/links">Links</a>
-        </li>
-        
-        <li>
-            <a href="/services">Services</a>
-        </li>
-        
+  <header class="article-header">
+    <div class="article-header-inner">
+      <div class="post-meta">July 2023 &middot; 7 min read</div>
+      <h1>Waltzing With Chance</h1>
+      <p class="post-subtitle">A brief introduction to Monte Carlo simulations in python.</p>
+      <div class="post-tags">
+        <span>Python</span>
+        <span>Probability</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-body">
+
+    <h2>Introduction</h2>
+
+    <p>Suppose you were flying over the Pacific and suffered a plane crash. Luckily you survived the crash and are now stranded on a deserted island. Unfortunately, you struck your head quite badly and can no longer recall the value for pi. All you have with you is a short stick, a stone and your wits to guide you. Naturally you are concerned with the most pressing problem, viz. calculating the value of pi, which you have forgotten. How can you go about doing so?<br>Luckily for you, there exists a solution to this problem &ndash; the Monte Carlo simulation.</p>
+
+    <h2>The Setup</h2>
+
+    <p>Lets start by creating a square with sides the length of the stick "r" in the sand. Next create a circle with a radius of "r". We can make the following statements;</p>
+
+    <p>The area of the circle = <code>&Pi; &times; r&sup2;</code></p>
+
+    <p>The area of the square = <code>r&sup2;</code></p>
+
+    <p>Thus;</p>
+
+    <p>area of the circle / area of the square =</p>
+
+    <p><code>&Pi; &times; r&sup2; / r&sup2; = &Pi;</code></p>
+
+    <p>All we have to do is calculate the area of the circle and the square and we can calculate pi. Unfortunately, that is quite difficult to do. Cue the Monte Carlo simulation.</p>
+
+    <h2>The Simulation</h2>
+
+    <figure>
+      <img src="setup.webp" alt="Setup showing a circle inscribed in a square" width="300" height="300" style="max-width: 300px; margin: 0 auto;">
+    </figure>
+
+    <p>Steps:</p>
+
+    <ul>
+      <li>Take the stone</li>
+      <li>Throw it up</li>
+      <li>Each time the stone lands make a note of whether it landed in the circle or square.</li>
     </ul>
-</nav>
 
+    <p>Suppose you did this a few thousand times. Your final results would look something like this;</p>
 
-    <main id="main-content">
-        
+    <p>circle = <code>1591</code><br>square = <code>491</code></p>
 
-<article itemscope="" itemtype="https://schema.org/BlogPosting">
-    <div class="post-container">
-        <div class="post-main">
-            <header class="post-header">
-                
+    <p>You can use the number of times that the stone fell inside the shape as a proxy for the area of the shape. This is the heart of a Monte Carlo simulation &ndash; using a random process to estimate some value. You can now calculate pi by simply dividing the one by the other.</p>
 
-                <h1 itemprop="headline">Waltzing With Chance</h1>
+    <p>To clarify, what we are doing here is estimating the area of a shape. This works because the probability that the stone will fall inside the shape is equal to the area of the shape.</p>
 
-                
-                <p class="post-subtitle" itemprop="alternativeHeadline">A brief introduction to Monte Carlo simulations in python.</p>
-                
+    <h2>Simulation in Python</h2>
 
-                <div class="post-meta">
-                    
-                    <span class="post-meta-date">
-                        <time datetime="2023-06-30T22:00:00.000Z" itemprop="datePublished">2023-06-30</time>
-                    </span>
-                    
-                    <span class="post-meta-reading-time">7 min read</span>
-                    
-                    <div class="post-meta-tags">
-                        
-                        <a class="tag" href="/tags/python/">#python</a>
-                        
-                        <a class="tag" href="/tags/probability/">#probability</a>
-                        
-                    </div>
-                    
-                </div>
-            </header>
+    <div class="code-label">python</div>
+    <pre><code><span class="kw">import</span> random
+<span class="kw">import</span> math
 
-            <div class="js-post-body post-body" itemprop="articleBody">
-                <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Suppose you were flying over the Pacific and suffered a plane crash. Luckily you survived the crash and are now stranded on a deserted island. Unfortunately, you struck your head quite badly and can no longer recall the value for pi. All you have with you is a short stick, a stone and your wits to guide you. Naturally you are concerned with the most pressing problem, viz. calculating the value of pi, which you have forgotten. How can you go about doing so?<br>Luckily for you, there exists a solution to this problem – the Monte Carlo simulation.</p>
-<h2 id="The-Setup"><a href="#The-Setup" class="headerlink" title="The Setup"></a>The Setup</h2><p>Lets start by creating a square with sides the length of the stick “r” in the sand. Next create a circle with a radius of “r”. We can make the following statements;</p>
-<p>The area of the circle =  <code>Π × r²</code></p>
-<p>The area of the square =  <code>r²</code></p>
-<p>Thus;</p>
-<p>area of the circle / area of the square =</p>
-<p><code>Π × r² / r²  = Π</code></p>
-<p>All we have to do is calculate the area of the circle and the square and we can calculate pi. Unfortunately, that is quite difficult to do. Cue the Monte Carlo simulation.</p>
-<h2 id="The-Simulation"><a href="#The-Simulation" class="headerlink" title="The Simulation"></a>The Simulation</h2>
-<center>
-<img src="setup.webp" alt="setup" fetchpriority="high" decoding="async" width="300" height="300" jampack-sized="true"> 
-</center> 
+<span class="cm"># Number of points that landed in the circle or square</span>
+in_circle = <span class="nu">0</span>
+in_square = <span class="nu">0</span>
 
+<span class="cm"># Number of iterations</span>
+iterations = <span class="nu">10000</span>
 
-<p>Steps:</p>
-<ul>
-<li>Take the stone</li>
-<li>Throw it up</li>
-<li>Each time the stone lands make a note of whether it landed in the circle or square.</li>
-</ul>
-<p>Suppose you did this a few thousand times. Your final results would look something like this;</p>
-<p>circle =  <code>1591</code><br>square =  <code>491</code></p>
-<p>You can use the number of times that the stone fell inside the shape as a proxy for the area of the shape. This is the heart of a Monte Carlo simulation – using a random process to estimate some value. You can now calculate pi by simply dividing the one by the other. </p>
-<p>To clarify, what we are doing here is estimating the area of a shape. This works because the probability that the stone will fall inside the shape is equal to the area of the shape.</p>
-<h2 id="Simulation-in-Python"><a href="#Simulation-in-Python" class="headerlink" title="Simulation in Python"></a>Simulation in Python</h2><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"><span class="comment"># Number of points that landed in the circle or square</span></span><br><span class="line">in_circle = <span class="number">0</span></span><br><span class="line">in_square = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Number of iterations</span></span><br><span class="line">iterations = <span class="number">10000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># the radius of the circle and side of the square</span></span><br><span class="line">r = <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(iterations):</span><br><span class="line">    <span class="comment"># randomly select 2 points between 0-20</span></span><br><span class="line">    x = random.uniform(<span class="number">0</span>, <span class="number">20</span>)</span><br><span class="line">    y = random.uniform(<span class="number">0</span>, <span class="number">20</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># check if point (x,y) is in square (x &lt; r and y &lt; r) (bottom left corner of square is at the origin)</span></span><br><span class="line">    <span class="keyword">if</span> x &lt; r <span class="keyword">and</span> y &lt; r:</span><br><span class="line">        in_square += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># calculate the distance between point(x,y) and center of circle (r,r)</span></span><br><span class="line">    distance = math.sqrt((r - x)**<span class="number">2</span> + (r - y)**<span class="number">2</span>)</span><br><span class="line">    <span class="comment"># check if point (x, y) is in circle.</span></span><br><span class="line">    <span class="keyword">if</span> distance &lt; r:</span><br><span class="line">        in_circle += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> i % <span class="number">1000</span> == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            pi = in_circle / in_square</span><br><span class="line">        <span class="keyword">except</span> ZeroDivisionError:</span><br><span class="line">            pi = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'Estimated value of pi after'</span>,i,<span class="string">'iterations is'</span>,pi)</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">Estimated value of pi after 0 iterations is 0</span><br><span class="line">Estimated value of pi after 1000 iterations is 2.7627737226277373</span><br><span class="line">Estimated value of pi after 2000 iterations is 2.911985018726592</span><br><span class="line">Estimated value of pi after 3000 iterations is 2.8870967741935485</span><br><span class="line">Estimated value of pi after 4000 iterations is 2.890334572490706</span><br><span class="line">Estimated value of pi after 5000 iterations is 2.951367781155015</span><br><span class="line">Estimated value of pi after 6000 iterations is 2.996168582375479</span><br><span class="line">Estimated value of pi after 7000 iterations is 3.0482796892341844</span><br><span class="line">Estimated value of pi after 8000 iterations is 3.040658276863504</span><br><span class="line">Estimated value of pi after 9000 iterations is 3.0583657587548636</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">Estimated value of pi after 1999000000 iterations is 3.1414178257741354</span><br></pre></td></tr></tbody></table></figure>
+<span class="cm"># the radius of the circle and side of the square</span>
+r = <span class="nu">10</span>
 
-<p>Here is a plot of the points. The points that landed in the circle are red and orange. Those that landed in the square are blue and orange, and those that landed in neither are green. (Note that it makes no difference if the circle overlaps with the square, we merely want to estimate the area of each shape.)</p>
+<span class="kw">for</span> i <span class="kw">in</span> <span class="bi">range</span>(iterations):
+    <span class="cm"># randomly select 2 points between 0-20</span>
+    x = random.uniform(<span class="nu">0</span>, <span class="nu">20</span>)
+    y = random.uniform(<span class="nu">0</span>, <span class="nu">20</span>)
 
-<center> 
-<img src="pi.webp" alt="pi" loading="lazy" decoding="async" width="300" height="300" jampack-sized="true">
-</center>
+    <span class="cm"># check if point (x,y) is in square (x &lt; r and y &lt; r) (bottom left corner of square is at the origin)</span>
+    <span class="kw">if</span> x &lt; r <span class="kw">and</span> y &lt; r:
+        in_square += <span class="nu">1</span>
 
+    <span class="cm"># calculate the distance between point(x,y) and center of circle (r,r)</span>
+    distance = math.sqrt((r - x)**<span class="nu">2</span> + (r - y)**<span class="nu">2</span>)
+    <span class="cm"># check if point (x, y) is in circle.</span>
+    <span class="kw">if</span> distance &lt; r:
+        in_circle += <span class="nu">1</span>
 
-<p>And now for a graph of the estimated value of pi by iteration. This graph nicely illustrates the law of large numbers. In the beginning our estimate is wildly off. Over time it converges toward pi.</p>
+    <span class="kw">if</span> i % <span class="nu">1000</span> == <span class="nu">0</span>:
+        <span class="kw">try</span>:
+            pi = in_circle / in_square
+        <span class="kw">except</span> ZeroDivisionError:
+            pi = <span class="nu">0</span>
 
-<center> 
-<img src="estimation.webp" alt="setup" loading="lazy" decoding="async" width="705" height="425" jampack-sized="true">
-</center>
+        <span class="bi">print</span>(<span class="st">'Estimated value of pi after'</span>,i,<span class="st">'iterations is'</span>,pi)</code></pre>
 
+    <div class="code-label">output</div>
+    <pre><code>Estimated value of pi after 0 iterations is 0
+Estimated value of pi after 1000 iterations is 2.7627737226277373
+Estimated value of pi after 2000 iterations is 2.911985018726592
+Estimated value of pi after 3000 iterations is 2.8870967741935485
+Estimated value of pi after 4000 iterations is 2.890334572490706
+Estimated value of pi after 5000 iterations is 2.951367781155015
+Estimated value of pi after 6000 iterations is 2.996168582375479
+Estimated value of pi after 7000 iterations is 3.0482796892341844
+Estimated value of pi after 8000 iterations is 3.040658276863504
+Estimated value of pi after 9000 iterations is 3.0583657587548636
+.
+.
+.
+Estimated value of pi after 1999000000 iterations is 3.1414178257741354</code></pre>
 
-<h2 id="Snakes-and-ladders"><a href="#Snakes-and-ladders" class="headerlink" title="Snakes and ladders"></a>Snakes and ladders</h2><p>Suppose you bet on a game of snakes and ladders against somebody. Your opponent keeps winning and you suspect him of cheating. You want to calculate the probability of him finishing the game in a certain number of moves or less (you cannot remember what his dice rolls were, only the number of turns it took him to win). In order to do this you need to create a distribution of the number of moves it takes to finish the game.</p>
-<p>The game works as follows;</p>
-<ul>
-<li>The players start at position 0</li>
-<li>Each player rolls a 6 sided die</li>
-<li>The player moves forward by the number rolled.</li>
-<li>If the landing square is the base of a ladder, the player is transported to the top.</li>
-<li>If the landing square is the top of a snake, the player is transported to the bottom.</li>
-</ul>
-<p>Calculating the distribution of the number of rolls it takes to complete the game could be quite complex. (This is called a Markov chain and can be solved algebraically). Instead we can simulate the game by randomly generating dice rolls and counting how many rolls it takes to complete the game. Doing this multiple times gives us the distribution.</p>
-<h2 id="Simulation-in-Python-1"><a href="#Simulation-in-Python-1" class="headerlink" title="Simulation in Python"></a>Simulation in Python</h2><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment">#Number of iterations to simulate</span></span><br><span class="line">iterations = <span class="number">100000</span></span><br><span class="line"></span><br><span class="line">game = [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">51</span>)]</span><br><span class="line"><span class="comment">#ladders</span></span><br><span class="line">game[<span class="number">2</span>] = <span class="number">15</span></span><br><span class="line">game[<span class="number">5</span>] = <span class="number">17</span></span><br><span class="line">game[<span class="number">9</span>] = <span class="number">27</span></span><br><span class="line">game[<span class="number">17</span>] = <span class="number">41</span></span><br><span class="line">game[<span class="number">25</span>] = <span class="number">35</span></span><br><span class="line">game[<span class="number">34</span>] = <span class="number">48</span></span><br><span class="line"><span class="comment">#snakes</span></span><br><span class="line">game[<span class="number">33</span>] = <span class="number">20</span></span><br><span class="line">game[<span class="number">30</span>] = <span class="number">10</span></span><br><span class="line">game[<span class="number">20</span>] = <span class="number">1</span></span><br><span class="line">game[<span class="number">49</span>] = <span class="number">36</span></span><br><span class="line">game[<span class="number">18</span>] = <span class="number">8</span></span><br><span class="line">game[<span class="number">40</span>] = <span class="number">6</span></span><br><span class="line">game[<span class="number">26</span>] = <span class="number">19</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># the number of rolls it takes to win the game</span></span><br><span class="line">rolls = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="function_ title">simulate_game</span>():</span><br><span class="line">    <span class="comment"># start at square 0</span></span><br><span class="line">    player1 = <span class="number">0</span></span><br><span class="line">    number_of_rolls = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="comment"># simulate a roll of the die</span></span><br><span class="line">        roll = random.randint(<span class="number">1</span>,<span class="number">6</span>)</span><br><span class="line">        <span class="comment"># count how many rolls the player has taken</span></span><br><span class="line">        number_of_rolls += <span class="number">1</span></span><br><span class="line">        <span class="comment"># move forward by the number rolled</span></span><br><span class="line">        player1 += roll</span><br><span class="line">        <span class="comment"># Stop once the player reaches square 50</span></span><br><span class="line">        <span class="keyword">if</span> player1 &gt;= <span class="number">50</span>:</span><br><span class="line">            <span class="keyword">return</span> number_of_rolls</span><br><span class="line">        <span class="comment"># if the player lands on a snake or ladder, move accordingly</span></span><br><span class="line">        player1 = game[player1]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(iterations):</span><br><span class="line">    rolls.append(simulate_game())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#plot distribution of rolls</span></span><br><span class="line">plt.hist(rolls, bins=<span class="number">100</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></tbody></table></figure>
+    <p>Here is a plot of the points. The points that landed in the circle are red and orange. Those that landed in the square are blue and orange, and those that landed in neither are green. (Note that it makes no difference if the circle overlaps with the square, we merely want to estimate the area of each shape.)</p>
 
-<center> 
-<img src="results.webp" alt="results" loading="lazy" decoding="async" width="1024" height="383" jampack-sized="true">
-</center>
+    <figure>
+      <img src="pi.webp" alt="Scatter plot showing points inside and outside the circle and square" width="300" height="300" style="max-width: 300px; margin: 0 auto;">
+    </figure>
 
+    <p>And now for a graph of the estimated value of pi by iteration. This graph nicely illustrates the law of large numbers. In the beginning our estimate is wildly off. Over time it converges toward pi.</p>
 
-<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>Monte Carlo simulations are a simple but powerful tool for estimating unknown values. They are especially helpful if you don’t know probability theory (like me) and just want to know the odds of some event occurring. <a target="_blank" rel="noopener" href="https://library.lanl.gov/cgi-bin/getfile?00326866.pdf">This article</a> (PDF) talks about how the first Monte Carlo simulations were used in the Manhattan project. If you would like to learn more about Markov chains, <a target="_blank" rel="noopener" href="https://math.libretexts.org/Bookshelves/Applied_Mathematics/Applied_Finite_Mathematics_%28Sekhon_and_Bloom%29/10%3A_Markov_Chains/10.01%3A_Introduction_to_Markov_Chains">this article</a> is a good place to start. Creating simple simulations in python is relatively straightforward and fun.<br>I hope you get rescued from that island soon!</p>
+    <figure>
+      <img src="estimation.webp" alt="Graph showing estimated value of pi converging over iterations" width="705" height="425">
+    </figure>
 
-            </div>
-        </div>
+    <h2>Snakes and ladders</h2>
 
-        <aside class="toc-sidebar" aria-label="Table of contents">
-            <div class="toc-title">On this page</div>
-            <ul id="toc-list"></ul>
-        </aside>
-    </div>
-</article>
+    <p>Suppose you bet on a game of snakes and ladders against somebody. Your opponent keeps winning and you suspect him of cheating. You want to calculate the probability of him finishing the game in a certain number of moves or less (you cannot remember what his dice rolls were, only the number of turns it took him to win). In order to do this you need to create a distribution of the number of moves it takes to finish the game.</p>
 
+    <p>The game works as follows;</p>
 
-    </main>
+    <ul>
+      <li>The players start at position 0</li>
+      <li>Each player rolls a 6 sided die</li>
+      <li>The player moves forward by the number rolled.</li>
+      <li>If the landing square is the base of a ladder, the player is transported to the top.</li>
+      <li>If the landing square is the top of a snake, the player is transported to the bottom.</li>
+    </ul>
 
-    <footer class="site-footer" role="contentinfo">
-    <span>© 2026 loreley · Amsterdam</span>
-    <div class="footer-links">
-        <a href="https://loreley.one/atom.xml">RSS</a>
-        <a href="https://github.com/BasedLukas" target="_blank" rel="noopener">GitHub</a>
-        
-        <a href="https://x.com/LukasBogacz" target="_blank" rel="noopener">Twitter</a>
-    </div>
-</footer>
+    <p>Calculating the distribution of the number of rolls it takes to complete the game could be quite complex. (This is called a Markov chain and can be solved algebraically). Instead we can simulate the game by randomly generating dice rolls and counting how many rolls it takes to complete the game. Doing this multiple times gives us the distribution.</p>
 
+    <h2>Simulation in Python</h2>
 
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-yaml.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-rust.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-c.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-cpp.min.js"></script>
+    <div class="code-label">python</div>
+    <pre><code><span class="kw">import</span> random
+<span class="kw">import</span> matplotlib.pyplot <span class="kw">as</span> plt
 
+<span class="cm">#Number of iterations to simulate</span>
+iterations = <span class="nu">100000</span>
 
-<script src="/js/main.js"></script>
+game = [i <span class="kw">for</span> i <span class="kw">in</span> <span class="bi">range</span>(<span class="nu">51</span>)]
+<span class="cm">#ladders</span>
+game[<span class="nu">2</span>] = <span class="nu">15</span>
+game[<span class="nu">5</span>] = <span class="nu">17</span>
+game[<span class="nu">9</span>] = <span class="nu">27</span>
+game[<span class="nu">17</span>] = <span class="nu">41</span>
+game[<span class="nu">25</span>] = <span class="nu">35</span>
+game[<span class="nu">34</span>] = <span class="nu">48</span>
+<span class="cm">#snakes</span>
+game[<span class="nu">33</span>] = <span class="nu">20</span>
+game[<span class="nu">30</span>] = <span class="nu">10</span>
+game[<span class="nu">20</span>] = <span class="nu">1</span>
+game[<span class="nu">49</span>] = <span class="nu">36</span>
+game[<span class="nu">18</span>] = <span class="nu">8</span>
+game[<span class="nu">40</span>] = <span class="nu">6</span>
+game[<span class="nu">26</span>] = <span class="nu">19</span>
 
+<span class="cm"># the number of rolls it takes to win the game</span>
+rolls = []
 
-<script defer="" src="/js/analytics.js" data-host="https://api.tinybird.co" data-token="p.eyJ1IjogImYxMGY0NmY5LWI2MTQtNGY3Mi1hNWRkLTJkZWMyZTYzOGU0ZCIsICJpZCI6ICJmM2Y3MDk5Ny03YTZiLTRlYzUtYTdkNC01ZTVkMmY1ZjZjMDcifQ.uBS7CItgVesD7IqUpKSyA_g6UNTH-YHuH3-XfpWy1o0"></script>
-
-
+<span class="kw">def</span> <span class="fn">simulate_game</span>():
+    <span class="cm"># start at square 0</span>
+    player1 = <span class="nu">0</span>
+    number_of_rolls = <span class="nu">0</span>
+    <span class="kw">while</span> <span class="kw">True</span>:
+        <span class="cm"># simulate a roll of the die</span>
+        roll = random.randint(<span class="nu">1</span>,<span class="nu">6</span>)
+        <span class="cm"># count how many rolls the player has taken</span>
+        number_of_rolls += <span class="nu">1</span>
+        <span class="cm"># move forward by the number rolled</span>
+        player1 += roll
+        <span class="cm"># Stop once the player reaches square 50</span>
+        <span class="kw">if</span> player1 >= <span class="nu">50</span>:
+            <span class="kw">return</span> number_of_rolls
+        <span class="cm"># if the player lands on a snake or ladder, move accordingly</span>
+        player1 = game[player1]
 
 
 
-</body></html>
+<span class="kw">for</span> i <span class="kw">in</span> <span class="bi">range</span>(iterations):
+    rolls.append(simulate_game())
+
+
+<span class="cm">#plot distribution of rolls</span>
+plt.hist(rolls, bins=<span class="nu">100</span>)
+plt.show()</code></pre>
+
+    <figure>
+      <img src="results.webp" alt="Histogram showing the distribution of number of rolls to complete snakes and ladders" width="1024" height="383">
+    </figure>
+
+    <h2>Conclusion</h2>
+
+    <p>Monte Carlo simulations are a simple but powerful tool for estimating unknown values. They are especially helpful if you don't know probability theory (like me) and just want to know the odds of some event occurring. <a href="https://library.lanl.gov/cgi-bin/getfile?00326866.pdf" target="_blank" rel="noopener">This article</a> (PDF) talks about how the first Monte Carlo simulations were used in the Manhattan project. If you would like to learn more about Markov chains, <a href="https://math.libretexts.org/Bookshelves/Applied_Mathematics/Applied_Finite_Mathematics_%28Sekhon_and_Bloom%29/10%3A_Markov_Chains/10.01%3A_Introduction_to_Markov_Chains" target="_blank" rel="noopener">this article</a> is a good place to start. Creating simple simulations in python is relatively straightforward and fun.<br>I hope you get rescued from that island soon!</p>
+
+    <a class="back-link" href="../blog/">&larr; Back to all posts</a>
+
+  </main>
+
+  <div class="footer-outer">
+  <footer></footer>
+  </div>
+
+</body>
+</html>

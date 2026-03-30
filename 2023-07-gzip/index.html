@@ -1,308 +1,257 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><style>:where(img[jampack-sized]){max-width:100%;height:auto}</style>
-    
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="theme-color" content="#0b0b0c">
-    <meta name="robots" content="index, follow">
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
-
-    <!-- KaTeX CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tQ1jSoAo3Igd7+kP1JgE0HmOZRsuYBNJRiRk0tqLTbHpYuitqOg" crossorigin="anonymous">
-
-    <!-- Theme CSS -->
-    
-<link rel="stylesheet" href="/css/style.css">
-
-
-    
-
-    <!-- Description -->
-    
-    <meta name="description" content="Exploring the viral claim that gzip can rival neural networks for text classification. How Normalized Compression Distance works and why it falls short.">
-    
-
-    <!-- Author -->
-    
-    <meta name="author" content="Lukas">
-    
-
-    <!-- Keywords -->
-    
-    <meta name="keywords" content="statistics, probability, machine learning, programming, python, models, NLP">
-    
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="Will Gzip Replace Neural Networks for Text Classification?">
-    <meta property="og:site_name" content="Lukas's Writings">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://loreley.one/2023-07-gzip/">
-    
-    <meta property="og:description" content="Exploring the viral claim that gzip can rival neural networks for text classification. How Normalized Compression Distance works and why it falls short.">
-    
-    
-    
-    <meta property="article:published_time" content="2023-07-18T22:00:00.000Z">
-    
-    <meta property="article:modified_time" content="2026-02-10T21:56:46.705Z">
-    
-    <meta property="article:author" content="Lukas">
-    
-    
-    <meta property="article:tag" content="python">
-    
-    <meta property="article:tag" content="models">
-    
-    <meta property="article:tag" content="NLP">
-    
-    
-    
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Will Gzip Replace Neural Networks for Text Classification?">
-    
-    <meta name="twitter:description" content="Exploring the viral claim that gzip can rival neural networks for text classification. How Normalized Compression Distance works and why it falls short.">
-    
-    
-
-    <!-- Canonical -->
-    <link rel="canonical" href="https://loreley.one/2023-07-gzip/">
-
-    <!-- Title -->
-    
-    <title>Will Gzip Replace Neural Networks for Text Classification? — Lukas's Writings</title>
-
-    <!-- Favicon -->
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-
-    <!-- JSON-LD Structured Data -->
-    
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "headline": "Will Gzip Replace Neural Networks for Text Classification?",
-        "datePublished": "2023-07-18T22:00:00.000Z",
-        "dateModified": "2026-02-10T21:56:46.705Z",
-        "author": {
-            "@type": "Person",
-            "name": "Lukas"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "Lukas&#39;s Writings",
-            "url": "https://loreley.one"
-        },
-        "description": "Exploring the viral claim that gzip can rival neural networks for text classification. How Normalized Compression Distance works and why it falls short.",
-        
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://loreley.one/2023-07-gzip/"
-        }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Will Gzip Replace Neural Networks for Text Classification? — Loreley</title>
+  <meta name="description" content="Exploring the viral claim that gzip can rival neural networks for text classification. How Normalized Compression Distance works and why it falls short.">
+  <link rel="icon" href="../assets/favicon.ico">
+  <link rel="canonical" href="https://loreley.one/2023-07-gzip/">
+  <meta property="og:title" content="Will Gzip Replace Neural Networks for Text Classification? — Loreley">
+  <meta property="og:site_name" content="Loreley">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://loreley.one/2023-07-gzip/">
+  <meta property="og:description" content="Exploring the viral claim that gzip can rival neural networks for text classification. How Normalized Compression Distance works and why it falls short.">
+  <meta property="og:image" content="https://loreley.one/assets/og-image.png">
+  <meta name="twitter:image" content="https://loreley.one/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Will Gzip Replace Neural Networks for Text Classification? — Loreley">
+  <meta name="twitter:description" content="Exploring the viral claim that gzip can rival neural networks for text classification. How Normalized Compression Distance works and why it falls short.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="../article.css">
+  <style>
+    .article-body pre {
+      background: var(--cream-dark);
+      color: var(--charcoal);
+      border-radius: 6px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid var(--rule);
     }
-    </script>
-    
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"><link rel="alternate" href="/atom.xml" title="Lukas's Writings" type="application/atom+xml">
+    .article-body code {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      background: var(--cream-dark);
+      padding: 0.15rem 0.3rem;
+      border-radius: 3px;
+    }
+
+    .article-body pre code {
+      padding: 0;
+      background: transparent;
+      color: var(--charcoal);
+    }
+  </style>
+  <script defer src="../components.js"></script>
 </head>
-
-
 <body>
 
-    <a href="#main-content" class="skip-link">Skip to content</a>
+  <nav></nav>
 
-    <nav class="nav" role="navigation" aria-label="Main navigation">
-    <a class="nav-logo" href="/">Home</a>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-    <ul class="nav-links">
-        
-        <li>
-            <a href="/about">About</a>
-        </li>
-        
-        <li>
-            <a href="/links">Links</a>
-        </li>
-        
-        <li>
-            <a href="/services">Services</a>
-        </li>
-        
-    </ul>
-</nav>
-
-
-    <main id="main-content">
-        
-
-<article itemscope="" itemtype="https://schema.org/BlogPosting">
-    <div class="post-container">
-        <div class="post-main">
-            <header class="post-header">
-                
-
-                <h1 itemprop="headline">Will Gzip Replace Neural Networks for Text Classification?</h1>
-
-                
-                <p class="post-subtitle" itemprop="alternativeHeadline">Probably no.</p>
-                
-
-                <div class="post-meta">
-                    
-                    <span class="post-meta-date">
-                        <time datetime="2023-07-18T22:00:00.000Z" itemprop="datePublished">2023-07-18</time>
-                    </span>
-                    
-                    <span class="post-meta-reading-time">13 min read</span>
-                    
-                    <div class="post-meta-tags">
-                        
-                        <a class="tag" href="/tags/python/">#python</a>
-                        
-                        <a class="tag" href="/tags/models/">#models</a>
-                        
-                        <a class="tag" href="/tags/NLP/">#NLP</a>
-                        
-                    </div>
-                    
-                </div>
-            </header>
-
-            <div class="js-post-body post-body" itemprop="articleBody">
-                <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Large language models are currently all the rage when it comes to text classification. However, a recent <a target="_blank" rel="noopener" href="https://aclanthology.org/2023.findings-acl.426/">research paper</a> offers an interesting non-parametric alternative. The proposed method is elegant in its simplicity: it combines a text compressor, gzip, with a k-nearest-neighbour classifier. This approach requires no training parameters, making it a lightweight and universally adaptable solution.</p>
-<p>The cornerstone of this method lies in two key ideas: first, compressors are good at capturing regularities in data, and second, data points from the same category share more regularity than those from different categories. </p>
-<p>In this article, we explore this approach to text classification, discussing its rationale, how it works, and its practical implementation in Python.</p>
-<h2 id="The-Mechanics-of-Compression-and-Classification"><a href="#The-Mechanics-of-Compression-and-Classification" class="headerlink" title="The Mechanics of Compression and Classification"></a>The Mechanics of Compression and Classification</h2><p>The technique proposed in the paper uses combination of a text compressor and a k-nearest-neighbor classifier. But what makes this a viable method for text classification?</p>
-<p>At the heart of this approach is the idea that data compressors, like gzip, are skilled at capturing patterns, or regularities, in data. As an example, consider the following string ‘aaaaaabbb’ which can be compressed as ‘6<em>a 3</em>b’. Similarly, a data compressor finds patterns and regularities in the data and uses them to compress it, which is exactly what gzip does with text data.</p>
-<p>The second key idea is that data points from the same category have more in common, they share more regularity than data points from different categories. For example, English text contains more instances of ‘-ing’ or similar arrangements of letters than does French. This forms the basis for classifying texts using the compressed length, or how much the data can be compressed.</p>
-<h4 id="LZ77-Patterns-and-References"><a href="#LZ77-Patterns-and-References" class="headerlink" title="LZ77: Patterns and References"></a>LZ77: Patterns and References</h4><p>At the core of the gzip algorithm are two primary compression techniques: LZ77 and Huffman encoding. Let’s begin our exploration with the former - the LZ77 algorithm.</p>
-<p>LZ77 operates on a straightforward principle: it replaces repeating data with references to its prior occurrence. Imagine the phrase “apple apple”. LZ77 would replace the second “apple” with a reference to its first appearance, considerably reducing the data footprint.</p>
-<p>The algorithm analyzes a ‘window’ of characters, retrospectively scanning for matches. When a match is found, it is replaced by a reference pointing to the initial occurrence of that string. This simple replacement procedure effectively compacts data, especially in instances of high repetition.</p>
-<p>Consider a text filled with recurring phrases or words - LZ77 transforms this repetitiveness into a compression advantage. The same piece of data doesn’t need to be stored twice; a reference to its first occurrence will suffice. Thus, texts exhibiting more patterns are subject to more effective compression than random text. </p>
-<p>Here is a simple example:</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">Never gonna give you up</span><br><span class="line">Never gonna let you down</span><br><span class="line">Never gonna run around and desert you</span><br><span class="line">Never gonna make you cry</span><br><span class="line">Never gonna say goodbye</span><br><span class="line">Never gonna tell a lie and hurt you</span><br><span class="line">We've known each other for so long</span><br><span class="line">Your heart's been aching, but you're too shy to say it (say it)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-
-<p>Post LZ77 compression, the lyrics transform into:</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">Never gonna(6, 2)i(12, 2) you up(24, 13)let(23, 5)down(49, 13)run ar(49, 2)nd(7, 2)n(4, 2)des(27, 2)t(43, 4)</span><br><span class="line">(38, 12)make(21, 4) cry(25, 13)say(35, 3)odbye(49, 13)tell (31, 2)lie(6, 2)nd hurt you</span><br><span class="line">We'(37, 2) known each other fo(4, 2)so(47, 2)ong</span><br><span class="line">Y(39, 2)r(49, 2)ea(50, 2)'s bee(41, 2)a(40, 2)i(25, 2),(13, 2)ut y(30, 2)'re to(46, 2)shy(8, 3) sa(7, 2)i(25, 2)((8, 6))</span><br></pre></td></tr></tbody></table></figure>
-
-<p>Here, each backreference is denoted as <code>(number of places to go backwards, number of characters to replace)</code>. As the compression progresses, more words are replaced by these backreferences, significantly reducing the data footprint.</p>
-<p>However, this process isn’t without its challenges. One potential issue is distinguishing between actual text (literals) and backreferences. Currently, each backreference is enclosed in braces, which becomes problematic when the original text also contains braces. This could be addressed by escaping them, but it introduces redundancy. Huffman encoding, the other key technique utilized by gzip, helps overcome this issue and further compresses the text, which we will explore in the following section.</p>
-<h4 id="Huffman-Encoding-Shorter-Codes-for-Frequent-Characters"><a href="#Huffman-Encoding-Shorter-Codes-for-Frequent-Characters" class="headerlink" title="Huffman Encoding: Shorter Codes for Frequent Characters"></a>Huffman Encoding: Shorter Codes for Frequent Characters</h4><p>After the compression achieved by LZ77, gzip employs Huffman encoding to maximize the compression. Huffman encoding uses variable-length codes to represent each character in the text, where the code’s length is inversely related to the frequency of the character’s occurrence. This method allows us to save additional space by giving shorter codes to characters that appear more frequently.</p>
-<p>Let’s demonstrate this process with an example, using the text <code>AAABBCDDDDEEEEE</code>. Our first task is to tally the frequency of each character. The order is irrelevant at this stage:</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">A:3</span><br><span class="line">B:2</span><br><span class="line">C:1</span><br><span class="line">D:4</span><br><span class="line">E:5</span><br></pre></td></tr></tbody></table></figure>
-
-<p>Next, we group the two least frequent characters (C and B) into a tree and keep it aside for future use:</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">  BC:3</span><br><span class="line">  /  \</span><br><span class="line">B:2  C:1</span><br></pre></td></tr></tbody></table></figure>
-
-<p>We then add the total frequency of B and C, and reintroduce the newly created tree into our frequency table:</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">A:3</span><br><span class="line">D:4</span><br><span class="line">E:5</span><br><span class="line">BC:3</span><br></pre></td></tr></tbody></table></figure>
-
-<p>We repeat this process, this time selecting the two lowest frequencies (A and BC):</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">ABC:6</span><br><span class="line">  /  \</span><br><span class="line">A:3  BC:3</span><br><span class="line">       /  \</span><br><span class="line">     B:2  C:1</span><br></pre></td></tr></tbody></table></figure>
-
-<p>The frequency table updates to:</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">D:4</span><br><span class="line">E:5</span><br><span class="line">ABC:6</span><br></pre></td></tr></tbody></table></figure>
-
-<p>Next, we select D and E to form:</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">  DE: 9</span><br><span class="line">  /  \</span><br><span class="line">D:4  E:5</span><br></pre></td></tr></tbody></table></figure>
-
-<p>This leads to an updated frequency table:</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">ABC:6</span><br><span class="line">DE:9</span><br></pre></td></tr></tbody></table></figure>
-
-<p>With just two elements left, we can construct our final tree using all the mini trees generated so far:</p>
-
-<center>
-<img src="huffman.webp" alt="huffman tree" loading="lazy" decoding="async" width="600" height="520" jampack-sized="true">
-<p><small>The completed Huffman Tree</small></p>
-</center>
-
-
-<p>Finally, we assign unique codes for each letter: 0 for left and 1 for right. For instance, the code for D is 10. To reach D from the root, we move first to the right, then to the left. This system is efficient since we don’t need to denote when one code ends and the next begins — we simply stop whenever we reach a leaf. As a result, the most frequently appearing characters have the shortest codes:</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">A = 00</span><br><span class="line">E = 11</span><br><span class="line">D = 10</span><br><span class="line">B = 010</span><br><span class="line">C = 011</span><br></pre></td></tr></tbody></table></figure>
-<p>With this method, we can compress text quite effectively. Recall our earlier problem of distinguishing between backreferences and literals. Given the frequent recurrence of backreferences in the text, they would receive their own short, unique codes, thereby enhancing the compression efficiency. It’s important to note that while we’ve simplified the process here, the complete gzip algorithm is more complex.</p>
-<h3 id="Classification-Through-Compression"><a href="#Classification-Through-Compression" class="headerlink" title="Classification Through Compression"></a>Classification Through Compression</h3><p>Now that we understand how compression works, we can go back to text classification. Consider three examples, <code>x1</code>, <code>x2</code>, and <code>x3</code>. <code>x1</code> and <code>x2</code> belong to the same category, while <code>x3</code> falls into a different category. Let’s define <code>C(·)</code> as the compressed length of an object. The assumption we make is that <code>C(x1x2) - C(x1) &lt; C(x1x3) - C(x1)</code>. Here, <code>C(x1x2)</code> represents the compressed length of the concatenated <code>x1</code> and <code>x2</code>. Essentially, <code>C(x1x2) - C(x1)</code> is the additional byte count required to encode <code>x2</code> given the prior information of <code>x1</code>.</p>
-<p>This idea forms the basis of a distance metric inspired by the Kolmogorov complexity — a theoretical measure defined as the length of the shortest binary program that can generate a string <code>x</code>. Due to the inherent uncomputability of the Kolmogorov complexity, a normalized, and computable alternative, the Normalized Compression Distance (NCD), is used instead. NCD uses the compressed length <code>C(x)</code> as an approximation for the Kolmogorov complexity <code>K(x)</code>. Formally:</p>
-<p><code>NCD(x, y) = [C(xy) - min{C(x), C(y)}] / max{C(x), C(y)}</code></p>
-<p>The use of compressed length rests on the assumption that the length of <code>x</code> when maximally compressed by a compressor is approximately equal to <code>K(x)</code>. For our purposes, gzip is used as the compressor. Consequently, <code>C(x)</code> denotes the length of <code>x</code> after gzip compression, while <code>C(xy)</code> represents the compressed length of <code>x</code> and <code>y</code> concatenated. With the distance matrix provided by NCD, we can apply k-nearest-neighbors for classification.</p>
-<p>Let’s delve into how this is implemented in practice using Python. We can start with two text strings representing different categories, GroupA and GroupB, and a third string, StringUnknown, which we wish to classify. We compress each of these strings using gzip and calculate their respective lengths. Then, we concatenate StringUnknown with each group, compress the result and calculate their lengths.</p>
-<p>Next, we compute the NCD for the unknown string and each group by subtracting the smallest compressed length of the group or the unknown string from the compressed length of the concatenated string, then dividing by the maximum compressed length of the group or the unknown string. This gives us a normalized measure of the “distance” of the unknown string from each group.</p>
-<p>The group with the smallest NCD to the unknown string is considered the most likely group that the unknown string belongs to. In essence, the smaller the NCD, the greater the similarity between the unknown string and the group.</p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> gzip</span><br><span class="line"></span><br><span class="line">GroupA = <span class="string">"This group is part of the business category. In these sentences we speak about profit, EBITDA and taxes."</span></span><br><span class="line">GroupB = <span class="string">"Science category. In these sentences we speak about physics, chemistry, and other science related terms."</span></span><br><span class="line">StringUnknown = <span class="string">"This is a sentence that we want to classify. It is a business sentence, we mention EBITDA, profit and taxes."</span></span><br><span class="line"></span><br><span class="line">CompA = <span class="built_in">len</span>(gzip.compress(<span class="built_in">bytes</span>(GroupA, <span class="string">'utf-8'</span>)))</span><br><span class="line">CompB = <span class="built_in">len</span>(gzip.compress(<span class="built_in">bytes</span>(GroupB, <span class="string">'utf-8'</span>)))</span><br><span class="line">CompUnknown = <span class="built_in">len</span>(gzip.compress(<span class="built_in">bytes</span>(StringUnknown, <span class="string">'utf-8'</span>)))</span><br><span class="line">CompA_Unknown = <span class="built_in">len</span>(gzip.compress(<span class="built_in">bytes</span>(GroupA + StringUnknown, <span class="string">'utf-8'</span>)))</span><br><span class="line">CompB_Unknown = <span class="built_in">len</span>(gzip.compress(<span class="built_in">bytes</span>(GroupB + StringUnknown, <span class="string">'utf-8'</span>)))</span><br><span class="line"></span><br><span class="line">ncd_a = (CompA_Unknown - <span class="built_in">min</span>(CompA, CompUnknown)) / <span class="built_in">max</span>(CompA, CompUnknown)</span><br><span class="line">ncd_b = (CompB_Unknown - <span class="built_in">min</span>(CompB, CompUnknown)) / <span class="built_in">max</span>(CompB, CompUnknown)</span><br><span class="line"></span><br><span class="line">A_Diff = CompA_Unknown - CompA</span><br><span class="line">B_Diff = CompB_Unknown - CompB</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"CompA: "</span>, CompA)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"CompB: "</span>, CompB)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"CompA_Unknown: "</span>, CompA_Unknown)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"CompB_Unknown: "</span>, CompB_Unknown)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"A_Diff: "</span>, A_Diff)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"B_Diff: "</span>, B_Diff)</span><br><span class="line"><span class="built_in">print</span>()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"NCD_A: "</span>, ncd_a)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"NCD_B: "</span>, ncd_b)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ncd_a &lt; ncd_b:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"StringUnknown is in GroupA"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"StringUnknown is in GroupB"</span>)</span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">CompA:  110</span><br><span class="line">CompB:  102</span><br><span class="line">CompA_Unknown:  153</span><br><span class="line">CompB_Unknown:  163</span><br><span class="line">A_Diff:  43</span><br><span class="line">B_Diff:  61</span><br><span class="line"></span><br><span class="line">NCD_A:  0.42727272727272725</span><br><span class="line">NCD_B:  0.5754716981132075</span><br><span class="line">StringUnknown is in GroupA</span><br></pre></td></tr></tbody></table></figure>
-
-
-<p>This approach, using the NCD offers is just one method for computing the distance. However, other distance metrics can be employed. </p>
-<p>The following method estimates the cross entropy between the probability distribution built on class <code>c</code> and the document <code>d</code>: <code>Hc(d)</code>. The process involves the following steps:</p>
-<ol>
-<li>For each class <code>c</code>, concatenate all samples <code>dc</code> in the training set belonging to <code>c</code>.</li>
-<li>Compress <code>dc</code> as one long document to get the compressed length <code>C(dc)</code>.</li>
-<li>Concatenate the given test sample <code>du</code> with <code>dc</code> and compress to get <code>C(dcdu)</code>.</li>
-<li>The predicted class is <code>arg min C(dcdu) - C(dc)</code>.</li>
-</ol>
-<p>In essence, this technique uses <code>C(dcdu) - C(dc)</code> as the distance metric, which is computationally more efficient than pairwise distance matrix computation on small datasets. However, it has some drawbacks. Most compressors, including gzip (as mentioned above), have a limited “window” they can use to search back through the repeated string or keep a record of. As a result, even with numerous training samples, the compressor may not fully exploit them. Additionally, compressing <code>dcdu</code> can be slow for large <code>dc</code>, a problem not solved by parallelization. These limitations prevent this method from being applicable to extremely large datasets. As such, the NCD-based approach presented above, which avoids these limitations, becomes particularly appealing for text classification tasks on large datasets.</p>
-<h2 id="Downsides-and-Drawbacks"><a href="#Downsides-and-Drawbacks" class="headerlink" title="Downsides and Drawbacks"></a>Downsides and Drawbacks</h2><p>Despite the ingenuity of applying compression algorithms for text classification, the approach is not without its limitations. The size of the lookback window of the LZ77 algorithm, for instance, presents a potential drawback. This algorithm searches the prior text to find matches, but its effectiveness can diminish when dealing with very long text.</p>
-<p>In addition, the method does not grasp the subtleties of language, such as synonyms or context-specific meanings. The absence of this linguistic sophistication may hinder its performance on tasks requiring a deeper understanding of language nuances. Furthermore, the computational intensity of this approach can escalate rapidly when dealing with larger datasets, given the O(n^2) complexity of K-Nearest Neighbors (KNN). </p>
-<p>Lastly, some controversy surrounds the code and results of the original paper that introduced this method. Some of the datasets used seem to have issues, though not due to the authors’ mistakes. Additionally, there has been some debate regarding how the results have been scored. For a detailed look at these issues, you can check out <a target="_blank" rel="noopener" href="https://kenschutte.com/gzip-knn-paper/">this blog post</a> and follow the discussion on <a target="_blank" rel="noopener" href="https://github.com/bazingagin/npc_gzip/issues/3">GitHub</a>.</p>
-<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>This is a really interesting approach, and while it may not be perfect, it provides much food for thought.</p>
-<p>To get hands-on with the concepts discussed in this blog, you can check out <a target="_blank" rel="noopener" href="https://github.com/BasedLukas/zip_classification">this repository that I made</a>. It provides a simple implementation of LZ77 and Huffman encoding, allowing you to experiment with these algorithms and see how they work in practice.</p>
-<p>For a more in-depth understanding of gzip, consider reading <a target="_blank" rel="noopener" href="https://www.infinitepartitions.com/art001.html">this blog post</a>. <a target="_blank" rel="noopener" href="https://www.zlib.net/feldspar.html">This article</a> offers an excellent explanation of the LZ77 algorithm. Of course, you should read the original paper, available <a target="_blank" rel="noopener" href="https://aclanthology.org/2023.findings-acl.426/">here</a>, which is very well written and understandable.</p>
-
-            </div>
-        </div>
-
-        <aside class="toc-sidebar" aria-label="Table of contents">
-            <div class="toc-title">On this page</div>
-            <ul id="toc-list"></ul>
-        </aside>
+  <header class="article-header">
+    <div class="article-header-inner">
+      <div class="post-meta">July 18, 2023 &middot; 13 min read</div>
+      <h1>Will Gzip Replace Neural Networks for Text Classification?</h1>
+      <p class="post-subtitle">Understanding LZ77 and Huffman encoding, and where compression-based classification breaks down</p>
+      <div class="post-tags">
+        <span>Python</span>
+        <span>Models</span>
+        <span>NLP</span>
+      </div>
     </div>
-</article>
+  </header>
 
+  <main class="article-body">
 
-    </main>
+    <h2>Introduction</h2>
+    <p>Large language models are currently all the rage when it comes to text classification. However, a recent <a target="_blank" rel="noopener" href="https://aclanthology.org/2023.findings-acl.426/">research paper</a> offers an interesting non-parametric alternative. The proposed method is elegant in its simplicity: it combines a text compressor, gzip, with a k-nearest-neighbour classifier. This approach requires no training parameters, making it a lightweight and universally adaptable solution.</p>
+    <p>The cornerstone of this method lies in two key ideas: first, compressors are good at capturing regularities in data, and second, data points from the same category share more regularity than those from different categories.</p>
+    <p>In this article, we explore this approach to text classification, discussing its rationale, how it works, and its practical implementation in Python.</p>
 
-    <footer class="site-footer" role="contentinfo">
-    <span>© 2026 loreley · Amsterdam</span>
-    <div class="footer-links">
-        <a href="https://loreley.one/atom.xml">RSS</a>
-        <a href="https://github.com/BasedLukas" target="_blank" rel="noopener">GitHub</a>
-        
-        <a href="https://x.com/LukasBogacz" target="_blank" rel="noopener">Twitter</a>
-    </div>
-</footer>
+    <h2>The Mechanics of Compression and Classification</h2>
+    <p>The technique proposed in the paper uses combination of a text compressor and a k-nearest-neighbor classifier. But what makes this a viable method for text classification?</p>
+    <p>At the heart of this approach is the idea that data compressors, like gzip, are skilled at capturing patterns, or regularities, in data. As an example, consider the following string ‘aaaaaabbb’ which can be compressed as ‘6a 3b’. Similarly, a data compressor finds patterns and regularities in the data and uses them to compress it, which is exactly what gzip does with text data.</p>
+    <p>The second key idea is that data points from the same category have more in common, they share more regularity than data points from different categories. For example, English text contains more instances of ‘-ing’ or similar arrangements of letters than does French. This forms the basis for classifying texts using the compressed length, or how much the data can be compressed.</p>
 
+    <h4>LZ77: Patterns and References</h4>
+    <p>At the core of the gzip algorithm are two primary compression techniques: LZ77 and Huffman encoding. Let’s begin our exploration with the former - the LZ77 algorithm.</p>
+    <p>LZ77 operates on a straightforward principle: it replaces repeating data with references to its prior occurrence. Imagine the phrase “apple apple”. LZ77 would replace the second “apple” with a reference to its first appearance, considerably reducing the data footprint.</p>
+    <p>The algorithm analyzes a ‘window’ of characters, retrospectively scanning for matches. When a match is found, it is replaced by a reference pointing to the initial occurrence of that string. This simple replacement procedure effectively compacts data, especially in instances of high repetition.</p>
+    <p>Consider a text filled with recurring phrases or words - LZ77 transforms this repetitiveness into a compression advantage. The same piece of data doesn’t need to be stored twice; a reference to its first occurrence will suffice. Thus, texts exhibiting more patterns are subject to more effective compression than random text.</p>
+    <p>Here is a simple example:</p>
 
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-yaml.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-rust.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-c.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-cpp.min.js"></script>
+<pre><code>Never gonna give you up
+Never gonna let you down
+Never gonna run around and desert you
+Never gonna make you cry
+Never gonna say goodbye
+Never gonna tell a lie and hurt you
+We've known each other for so long
+Your heart's been aching, but you're too shy to say it (say it)
+</code></pre>
 
+    <p>Post LZ77 compression, the lyrics transform into:</p>
 
-<script src="/js/main.js"></script>
+<pre><code>Never gonna(6, 2)i(12, 2) you up(24, 13)let(23, 5)down(49, 13)run ar(49, 2)nd(7, 2)n(4, 2)des(27, 2)t(43, 4)
+(38, 12)make(21, 4) cry(25, 13)say(35, 3)odbye(49, 13)tell (31, 2)lie(6, 2)nd hurt you
+We'(37, 2) known each other fo(4, 2)so(47, 2)ong
+Y(39, 2)r(49, 2)ea(50, 2)'s bee(41, 2)a(40, 2)i(25, 2),(13, 2)ut y(30, 2)'re to(46, 2)shy(8, 3) sa(7, 2)i(25, 2)((8, 6))</code></pre>
 
+    <p>Here, each backreference is denoted as <code>(number of places to go backwards, number of characters to replace)</code>. As the compression progresses, more words are replaced by these backreferences, significantly reducing the data footprint.</p>
+    <p>However, this process isn’t without its challenges. One potential issue is distinguishing between actual text (literals) and backreferences. Currently, each backreference is enclosed in braces, which becomes problematic when the original text also contains braces. This could be addressed by escaping them, but it introduces redundancy. Huffman encoding, the other key technique utilized by gzip, helps overcome this issue and further compresses the text, which we will explore in the following section.</p>
 
-<script defer="" src="/js/analytics.js" data-host="https://api.tinybird.co" data-token="p.eyJ1IjogImYxMGY0NmY5LWI2MTQtNGY3Mi1hNWRkLTJkZWMyZTYzOGU0ZCIsICJpZCI6ICJmM2Y3MDk5Ny03YTZiLTRlYzUtYTdkNC01ZTVkMmY1ZjZjMDcifQ.uBS7CItgVesD7IqUpKSyA_g6UNTH-YHuH3-XfpWy1o0"></script>
+    <h4>Huffman Encoding: Shorter Codes for Frequent Characters</h4>
+    <p>After the compression achieved by LZ77, gzip employs Huffman encoding to maximize the compression. Huffman encoding uses variable-length codes to represent each character in the text, where the code’s length is inversely related to the frequency of the character’s occurrence. This method allows us to save additional space by giving shorter codes to characters that appear more frequently.</p>
+    <p>Let’s demonstrate this process with an example, using the text <code>AAABBCDDDDEEEEE</code>. Our first task is to tally the frequency of each character. The order is irrelevant at this stage:</p>
 
+<pre><code>A:3
+B:2
+C:1
+D:4
+E:5</code></pre>
 
+    <p>Next, we group the two least frequent characters (C and B) into a tree and keep it aside for future use:</p>
 
+<pre><code>  BC:3
+  /  \
+B:2  C:1</code></pre>
 
+    <p>We then add the total frequency of B and C, and reintroduce the newly created tree into our frequency table:</p>
 
-</body></html>
+<pre><code>A:3
+D:4
+E:5
+BC:3</code></pre>
+
+    <p>We repeat this process, this time selecting the two lowest frequencies (A and BC):</p>
+
+<pre><code>ABC:6
+  /  \
+A:3  BC:3
+       /  \
+     B:2  C:1</code></pre>
+
+    <p>The frequency table updates to:</p>
+
+<pre><code>D:4
+E:5
+ABC:6</code></pre>
+
+    <p>Next, we select D and E to form:</p>
+
+<pre><code>  DE: 9
+  /  \
+D:4  E:5</code></pre>
+
+    <p>This leads to an updated frequency table:</p>
+
+<pre><code>ABC:6
+DE:9</code></pre>
+
+    <p>With just two elements left, we can construct our final tree using all the mini trees generated so far:</p>
+
+    <figure>
+      <img src="huffman.webp" alt="huffman tree" width="600" height="520">
+      <figcaption>The completed Huffman Tree</figcaption>
+    </figure>
+
+    <p>Finally, we assign unique codes for each letter: 0 for left and 1 for right. For instance, the code for D is 10. To reach D from the root, we move first to the right, then to the left. This system is efficient since we don’t need to denote when one code ends and the next begins — we simply stop whenever we reach a leaf. As a result, the most frequently appearing characters have the shortest codes:</p>
+
+<pre><code>A = 00
+E = 11
+D = 10
+B = 010
+C = 011</code></pre>
+
+    <p>With this method, we can compress text quite effectively. Recall our earlier problem of distinguishing between backreferences and literals. Given the frequent recurrence of backreferences in the text, they would receive their own short, unique codes, thereby enhancing the compression efficiency. It’s important to note that while we’ve simplified the process here, the complete gzip algorithm is more complex.</p>
+
+    <h3>Classification Through Compression</h3>
+    <p>Now that we understand how compression works, we can go back to text classification. Consider three examples, <code>x1</code>, <code>x2</code>, and <code>x3</code>. <code>x1</code> and <code>x2</code> belong to the same category, while <code>x3</code> falls into a different category. Let’s define <code>C(·)</code> as the compressed length of an object. The assumption we make is that <code>C(x1x2) - C(x1) &lt; C(x1x3) - C(x1)</code>. Here, <code>C(x1x2)</code> represents the compressed length of the concatenated <code>x1</code> and <code>x2</code>. Essentially, <code>C(x1x2) - C(x1)</code> is the additional byte count required to encode <code>x2</code> given the prior information of <code>x1</code>.</p>
+    <p>This idea forms the basis of a distance metric inspired by the Kolmogorov complexity — a theoretical measure defined as the length of the shortest binary program that can generate a string <code>x</code>. Due to the inherent uncomputability of the Kolmogorov complexity, a normalized, and computable alternative, the Normalized Compression Distance (NCD), is used instead. NCD uses the compressed length <code>C(x)</code> as an approximation for the Kolmogorov complexity <code>K(x)</code>. Formally:</p>
+    <p><code>NCD(x, y) = [C(xy) - min{C(x), C(y)}] / max{C(x), C(y)}</code></p>
+    <p>The use of compressed length rests on the assumption that the length of <code>x</code> when maximally compressed by a compressor is approximately equal to <code>K(x)</code>. For our purposes, gzip is used as the compressor. Consequently, <code>C(x)</code> denotes the length of <code>x</code> after gzip compression, while <code>C(xy)</code> represents the compressed length of <code>x</code> and <code>y</code> concatenated. With the distance matrix provided by NCD, we can apply k-nearest-neighbors for classification.</p>
+    <p>Let’s delve into how this is implemented in practice using Python. We can start with two text strings representing different categories, GroupA and GroupB, and a third string, StringUnknown, which we wish to classify. We compress each of these strings using gzip and calculate their respective lengths. Then, we concatenate StringUnknown with each group, compress the result and calculate their lengths.</p>
+    <p>Next, we compute the NCD for the unknown string and each group by subtracting the smallest compressed length of the group or the unknown string from the compressed length of the concatenated string, then dividing by the maximum compressed length of the group or the unknown string. This gives us a normalized measure of the “distance” of the unknown string from each group.</p>
+    <p>The group with the smallest NCD to the unknown string is considered the most likely group that the unknown string belongs to. In essence, the smaller the NCD, the greater the similarity between the unknown string and the group.</p>
+
+<pre><code>import gzip
+
+GroupA = "This group is part of the business category. In these sentences we speak about profit, EBITDA and taxes."
+GroupB = "Science category. In these sentences we speak about physics, chemistry, and other science related terms."
+StringUnknown = "This is a sentence that we want to classify. It is a business sentence, we mention EBITDA, profit and taxes."
+
+CompA = len(gzip.compress(bytes(GroupA, 'utf-8')))
+CompB = len(gzip.compress(bytes(GroupB, 'utf-8')))
+CompUnknown = len(gzip.compress(bytes(StringUnknown, 'utf-8')))
+CompA_Unknown = len(gzip.compress(bytes(GroupA + StringUnknown, 'utf-8')))
+CompB_Unknown = len(gzip.compress(bytes(GroupB + StringUnknown, 'utf-8')))
+
+ncd_a = (CompA_Unknown - min(CompA, CompUnknown)) / max(CompA, CompUnknown)
+ncd_b = (CompB_Unknown - min(CompB, CompUnknown)) / max(CompB, CompUnknown)
+
+A_Diff = CompA_Unknown - CompA
+B_Diff = CompB_Unknown - CompB
+
+print("CompA: ", CompA)
+print("CompB: ", CompB)
+print("CompA_Unknown: ", CompA_Unknown)
+print("CompB_Unknown: ", CompB_Unknown)
+print("A_Diff: ", A_Diff)
+print("B_Diff: ", B_Diff)
+print()
+print("NCD_A: ", ncd_a)
+print("NCD_B: ", ncd_b)
+
+if ncd_a &lt; ncd_b:
+    print("StringUnknown is in GroupA")
+else:
+    print("StringUnknown is in GroupB")</code></pre>
+
+<pre><code>CompA:  110
+CompB:  102
+CompA_Unknown:  153
+CompB_Unknown:  163
+A_Diff:  43
+B_Diff:  61
+
+NCD_A:  0.42727272727272725
+NCD_B:  0.5754716981132075
+StringUnknown is in GroupA</code></pre>
+
+    <p>This approach, using the NCD offers is just one method for computing the distance. However, other distance metrics can be employed.</p>
+    <p>The following method estimates the cross entropy between the probability distribution built on class <code>c</code> and the document <code>d</code>: <code>Hc(d)</code>. The process involves the following steps:</p>
+    <ol>
+      <li>For each class <code>c</code>, concatenate all samples <code>dc</code> in the training set belonging to <code>c</code>.</li>
+      <li>Compress <code>dc</code> as one long document to get the compressed length <code>C(dc)</code>.</li>
+      <li>Concatenate the given test sample <code>du</code> with <code>dc</code> and compress to get <code>C(dcdu)</code>.</li>
+      <li>The predicted class is <code>arg min C(dcdu) - C(dc)</code>.</li>
+    </ol>
+    <p>In essence, this technique uses <code>C(dcdu) - C(dc)</code> as the distance metric, which is computationally more efficient than pairwise distance matrix computation on small datasets. However, it has some drawbacks. Most compressors, including gzip (as mentioned above), have a limited “window” they can use to search back through the repeated string or keep a record of. As a result, even with numerous training samples, the compressor may not fully exploit them. Additionally, compressing <code>dcdu</code> can be slow for large <code>dc</code>, a problem not solved by parallelization. These limitations prevent this method from being applicable to extremely large datasets. As such, the NCD-based approach presented above, which avoids these limitations, becomes particularly appealing for text classification tasks on large datasets.</p>
+
+    <h2>Downsides and Drawbacks</h2>
+    <p>Despite the ingenuity of applying compression algorithms for text classification, the approach is not without its limitations. The size of the lookback window of the LZ77 algorithm, for instance, presents a potential drawback. This algorithm searches the prior text to find matches, but its effectiveness can diminish when dealing with very long text.</p>
+    <p>In addition, the method does not grasp the subtleties of language, such as synonyms or context-specific meanings. The absence of this linguistic sophistication may hinder its performance on tasks requiring a deeper understanding of language nuances. Furthermore, the computational intensity of this approach can escalate rapidly when dealing with larger datasets, given the O(n^2) complexity of K-Nearest Neighbors (KNN).</p>
+    <p>Lastly, some controversy surrounds the code and results of the original paper that introduced this method. Some of the datasets used seem to have issues, though not due to the authors’ mistakes. Additionally, there has been some debate regarding how the results have been scored. For a detailed look at these issues, you can check out <a target="_blank" rel="noopener" href="https://kenschutte.com/gzip-knn-paper/">this blog post</a> and follow the discussion on <a target="_blank" rel="noopener" href="https://github.com/bazingagin/npc_gzip/issues/3">GitHub</a>.</p>
+
+    <h2>Conclusion</h2>
+    <p>This is a really interesting approach, and while it may not be perfect, it provides much food for thought.</p>
+    <p>To get hands-on with the concepts discussed in this blog, you can check out <a target="_blank" rel="noopener" href="https://github.com/BasedLukas/zip_classification">this repository that I made</a>. It provides a simple implementation of LZ77 and Huffman encoding, allowing you to experiment with these algorithms and see how they work in practice.</p>
+    <p>For a more in-depth understanding of gzip, consider reading <a target="_blank" rel="noopener" href="https://www.infinitepartitions.com/art001.html">this blog post</a>. <a target="_blank" rel="noopener" href="https://www.zlib.net/feldspar.html">This article</a> offers an excellent explanation of the LZ77 algorithm. Of course, you should read the original paper, available <a target="_blank" rel="noopener" href="https://aclanthology.org/2023.findings-acl.426/">here</a>, which is very well written and understandable.</p>
+
+    <a class="back-link" href="../blog/">&larr; Back to all posts</a>
+
+  </main>
+
+  <div class="footer-outer">
+    <footer></footer>
+  </div>
+
+</body>
+</html>

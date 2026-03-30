@@ -1,312 +1,264 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><style>:where(img[jampack-sized]){max-width:100%;height:auto}</style>
-    
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="theme-color" content="#0b0b0c">
-    <meta name="robots" content="index, follow">
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
-
-    <!-- KaTeX CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tQ1jSoAo3Igd7+kP1JgE0HmOZRsuYBNJRiRk0tqLTbHpYuitqOg" crossorigin="anonymous">
-
-    <!-- Theme CSS -->
-    
-<link rel="stylesheet" href="/css/style.css">
-
-
-    
-
-    <!-- Description -->
-    
-    <meta name="description" content="Building an 8-bit CPU emulator from scratch in Python using only simulated logic gates. From NAND gates to a working ALU, registers, and control flow.">
-    
-
-    <!-- Author -->
-    
-    <meta name="author" content="Lukas">
-    
-
-    <!-- Keywords -->
-    
-    <meta name="keywords" content="statistics, probability, machine learning, programming, python">
-    
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="Designing a Simple 8 Bit CPU Emulator in Python">
-    <meta property="og:site_name" content="Lukas's Writings">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://loreley.one/2023-07-cpu/">
-    
-    <meta property="og:description" content="Building an 8-bit CPU emulator from scratch in Python using only simulated logic gates. From NAND gates to a working ALU, registers, and control flow.">
-    
-    
-    
-    <meta property="article:published_time" content="2023-07-03T22:00:00.000Z">
-    
-    <meta property="article:modified_time" content="2026-02-10T21:56:46.694Z">
-    
-    <meta property="article:author" content="Lukas">
-    
-    
-    <meta property="article:tag" content="python">
-    
-    
-    
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Designing a Simple 8 Bit CPU Emulator in Python">
-    
-    <meta name="twitter:description" content="Building an 8-bit CPU emulator from scratch in Python using only simulated logic gates. From NAND gates to a working ALU, registers, and control flow.">
-    
-    
-
-    <!-- Canonical -->
-    <link rel="canonical" href="https://loreley.one/2023-07-cpu/">
-
-    <!-- Title -->
-    
-    <title>Designing a Simple 8 Bit CPU Emulator in Python — Lukas's Writings</title>
-
-    <!-- Favicon -->
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-
-    <!-- JSON-LD Structured Data -->
-    
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "headline": "Designing a Simple 8 Bit CPU Emulator in Python",
-        "datePublished": "2023-07-03T22:00:00.000Z",
-        "dateModified": "2026-02-10T21:56:46.694Z",
-        "author": {
-            "@type": "Person",
-            "name": "Lukas"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "Lukas&#39;s Writings",
-            "url": "https://loreley.one"
-        },
-        "description": "Building an 8-bit CPU emulator from scratch in Python using only simulated logic gates. From NAND gates to a working ALU, registers, and control flow.",
-        
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://loreley.one/2023-07-cpu/"
-        }
-    }
-    </script>
-    
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"><link rel="alternate" href="/atom.xml" title="Lukas's Writings" type="application/atom+xml">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Designing a Simple 8 Bit CPU Emulator in Python — Loreley</title>
+  <meta name="description" content="Building an 8-bit CPU emulator from scratch in Python using only simulated logic gates. From NAND gates to a working ALU, registers, and control flow.">
+  <link rel="icon" href="../assets/favicon.ico">
+  <link rel="canonical" href="https://loreley.one/2023-07-cpu/">
+  <meta property="og:title" content="Designing a Simple 8 Bit CPU Emulator in Python — Loreley">
+  <meta property="og:site_name" content="Loreley">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://loreley.one/2023-07-cpu/">
+  <meta property="og:description" content="Building an 8-bit CPU emulator from scratch in Python using only simulated logic gates. From NAND gates to a working ALU, registers, and control flow.">
+  <meta property="og:image" content="https://loreley.one/assets/og-image.png">
+  <meta name="twitter:image" content="https://loreley.one/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Designing a Simple 8 Bit CPU Emulator in Python — Loreley">
+  <meta name="twitter:description" content="Building an 8-bit CPU emulator from scratch in Python using only simulated logic gates. From NAND gates to a working ALU, registers, and control flow.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="../article.css">
+  <script defer src="../components.js"></script>
 </head>
-
-
 <body>
 
-    <a href="#main-content" class="skip-link">Skip to content</a>
+  <nav></nav>
 
-    <nav class="nav" role="navigation" aria-label="Main navigation">
-    <a class="nav-logo" href="/">Home</a>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-    <ul class="nav-links">
-        
-        <li>
-            <a href="/about">About</a>
-        </li>
-        
-        <li>
-            <a href="/links">Links</a>
-        </li>
-        
-        <li>
-            <a href="/services">Services</a>
-        </li>
-        
+  <header class="article-header">
+    <div class="article-header-inner">
+      <div class="post-meta">July 2023 &middot; 8 min read</div>
+      <h1>Designing a Simple 8 Bit CPU Emulator in Python</h1>
+      <p class="post-subtitle">No if statements, no control flow — just NAND gates and boolean logic all the way up</p>
+      <div class="post-tags">
+        <span>Python</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-body">
+
+    <p><em>(2024-12-07) Note: See <a href="https://loreley.one/2024-12-wasm/">this blogpost</a> of mine to interact with the CPU and solve the maze.</em></p>
+
+    <h2>Introduction</h2>
+
+    <p>A while back, I came across an interesting game on Steam called <a target="_blank" rel="noopener" href="https://turingcomplete.game/">Turing Complete</a>. The objective of the game is to design a Turing complete CPU from scratch, and it guides players through each step of the process. Starting with the basics of logic gates, the building blocks of a CPU, players tackle progressively more complex challenges until they reach the point of designing their own CPU capable of performing simple tasks. I found the game captivating and spent an unhealthy amount of time in it.</p>
+
+    <figure>
+      <img src="turing_complete.webp" alt="Turing Complete gameplay" width="1920" height="1080">
+      <figcaption>Turing Complete gameplay</figcaption>
+    </figure>
+
+    <p>After completing the game, I decided it would be fun to create a Python emulator for a similar CPU. While it's relatively easy to make a basic emulator in Python due to its high-level nature, I chose a different approach. I wanted to build the CPU entirely from scratch, deriving the logic from the fundamental functionality of logic gates. This means that the CPU's performance is determined solely by simple true/false comparisons, without relying on if statements or other control flows. It does make the code a bit harder to read at times, but by merely changing the function of a single logic gate, you can witness how the entire CPU's behavior is affected (spoiler alert: it stops working).</p>
+
+    <h2>Logic Gates</h2>
+
+    <p>The design starts with the logic gates. Here is an excerpt of the code</p>
+
+    <div class="code-label">python</div>
+    <pre><code>
+<span class="kw">def</span> <span class="fn">and_</span>(*args:<span class="bi">bool</span>)-&gt;<span class="bi">int</span>:
+    <span class="kw">return</span> <span class="bi">int</span>(<span class="bi">all</span>(args))
+
+<span class="kw">def</span> <span class="fn">or_</span>(*args:<span class="bi">bool</span>)-&gt;<span class="bi">int</span>:
+    <span class="kw">return</span> <span class="bi">int</span>(<span class="bi">any</span>(args))
+
+<span class="kw">def</span> <span class="fn">not_</span>(*args:<span class="bi">bool</span>)-&gt;<span class="bi">int</span>:
+    <span class="kw">return</span> <span class="bi">int</span>(<span class="kw">not</span> <span class="bi">all</span>(args))</code></pre>
+
+    <p>The logic gates perform simple comparisons and return true or false values. For example the AND gate returns true only if both of its inputs are true. The OR gate returns true if either (or both) of its inputs are true.</p>
+
+    <figure>
+      <img src="logic_gates.webp" alt="logic gate symbols" width="480" height="300">
+      <figcaption>logic gate symbols</figcaption>
+    </figure>
+
+    <h2>Basic Components</h2>
+
+    <p>Once we have our logic gates, we can utilize them to create essential components. Let's focus on the full adder as an example. The purpose of a full adder is to take two binary inputs and perform addition on them. For instance, when adding 0 + 0, the output is 0. When adding 1 + 0, the output is 1.</p>
+
+    <p>However, adding 1 + 1 poses a challenge. In binary, we lack a way to represent the number 2 directly. To address this, we introduce a carry bit, similar to carrying over a digit when adding two decimal numbers that exceed 9. Additionally, we have a carry input to account for any carry bits from previous additions.</p>
+
+    <figure>
+      <img src="full_adder.webp" alt="full adder design" width="1024" height="473">
+      <figcaption>full adder design</figcaption>
+    </figure>
+
+    <p>A truth table is a structured table that presents the outputs corresponding to all possible input combinations. It allows us to systematically analyze the behavior of a component or system under consideration. In the case of a full adder, the truth table would display the sum output and carry output for each potential combination of binary inputs and carry input. By checking the truth table, we can see how the full adder operates under different input scenarios.</p>
+
+    <figure>
+      <img src="full_adder_truth.webp" alt="full adder truth table" width="358" height="234">
+      <figcaption>full adder truth table</figcaption>
+    </figure>
+
+    <p>The above design can now be implemented in code, using the logic gates we have created previously. In this case I first made a half adder (which doesn't have a carry in) and used two of them to construct a full adder. Notice how all the logic is dependent on the operation of the logic gates.</p>
+
+    <div class="code-label">python</div>
+    <pre><code><span class="kw">def</span> <span class="fn">half_adder</span>(input1:<span class="bi">bool</span>, input2:<span class="bi">bool</span>):
+    <span class="kw">return</span> sn(
+        <span class="bi">sum</span>=xor(input1, input2),
+        carry=and_(input1, input2)
+        )
+
+
+<span class="kw">def</span> <span class="fn">full_adder</span>(input1:<span class="bi">bool</span>, input2:<span class="bi">bool</span>, carry_in:<span class="bi">bool</span>):
+    half_adder1 = half_adder(input1, input2)
+    half_adder2 = half_adder(half_adder1.<span class="bi">sum</span>, carry_in)
+    out = sn(
+        <span class="bi">sum</span>=half_adder2.<span class="bi">sum</span>,
+        carry=or_(half_adder1.carry, half_adder2.carry)
+    )
+    <span class="kw">return</span> out</code></pre>
+
+    <p>After creating a number of basic components such as these, we create more complex components such as an ALU (Arithmetic Logic Unit). The task of the ALU is to perform simple mathematical operations, such as adding 2 numbers together. In this case the ALU can only perform 4 simple operations; Addition, Subtraction, and two logical operations AND and OR. I took inspiration from this 32 bit ALU design, although mine only has 8 bits.</p>
+
+    <figure>
+      <img src="ALU.webp" alt="32 bit ALU design" width="2524" height="1266">
+      <figcaption>32 bit ALU design</figcaption>
+    </figure>
+
+    <h2>The Full CPU</h2>
+
+    <p>The design of the CPU includes six registers, an input, and an output, along with an ALU. Additionally, there is a unit that can carry out comparisons between a value and zero. The CPU operates by executing one of four distinct types of operations:</p>
+
+    <ul>
+      <li>Immediate: This operation is for moving a given value into register 0.</li>
+      <li>Arithmetic: The operands for any arithmetic operation are always register 1 and register 2, and the resultant output is stored in register 3.</li>
+      <li>Copy: This operation is used for duplicating values from one register to another or to the output. For example, 'copy 0 6' copies from register 0 to the output, and 'copy 5 3' copies from register 5 to register 3.</li>
+      <li>Evaluation: This operation evaluates the value in register 3 against zero. If the condition is true, it sets the program counter to the value in register 0.</li>
     </ul>
-</nav>
+
+    <figure>
+      <img src="full_cpu.webp" alt="CPU design" width="1490" height="1184">
+      <figcaption>CPU design</figcaption>
+    </figure>
+
+    <p>Using just these operations we have already created a turing complete CPU! However writing code for it would be challenging as we would have to write everything in binary. To solve this I made a simple assembler that converts assembly code to binary. It also adds a number of useful features such as labels. Labels allow you to mark a point in your program to jump to, making it much easier to create loops in your code. Let's take a look at a simple program.</p>
+
+    <div class="code-label">assembly</div>
+    <pre><code><span class="cm"># create a marker at the beginning of the program where we can jump to</span>
+label start
+
+<span class="cm"># read from input (reg6) into reg1</span>
+copy 6 1
+
+<span class="cm"># add reg 1 and 2, store the result in reg3</span>
+add
+
+<span class="cm">#copy result from reg3 into reg2</span>
+copy 3 2
+
+<span class="cm"># loop back to start if the value is not negative</span>
+start
+eval &gt;=
+
+<span class="cm"># Once the value overflows and becomes negative send the result to the output</span>
+copy 3 6</code></pre>
+
+    <p>In the simple program above, the value 1 is continuously being fed into the CPU. At each iteration we add it to the value stored in register 2, so that we increment the value by 1. Eventually the value grows large enough that it overflows and becomes negative. This is because in binary the most significant bit (MSB) is used to represent negative numbers. Once this happens the program stops running.</p>
+
+    <h2>Solve the Maze</h2>
+
+    <p>Now that we have a working CPU, we need something to do with it. So I designed a simple maze that a robot needs to navigate through. The robot can only see one square ahead, and is controlled by the CPU. In order to solve the maze, I implemented a simple algorithm - following the wall. Using this technique the robot is able to find its way through the maze.</p>
+
+    <figure>
+      <img src="maze.gif" alt="Robot solving maze" width="991" height="651">
+      <figcaption>Robot solving maze</figcaption>
+    </figure>
+
+    <div class="code-label">assembly</div>
+    <pre><code><span class="cm"># robot recognizes these commands:</span>
+<span class="cm"># 1 = turn left </span>
+<span class="cm"># 2 = turn right </span>
+<span class="cm"># 3 = step forward</span>
+<span class="cm"># To execute a command send the corresponding value to the output (reg 6)</span>
+<span class="cm"># robot inputs (reg 6) to CPU:</span>
+<span class="cm"># 1 = wall</span>
+<span class="cm"># 0 = clear</span>
+
+start
+eval always
+
+<span class="cm">### routines ###</span>
+
+label uturn
+<span class="nu">2</span>
+copy 0 6
+copy 0 6
+start
+eval always
+
+label right
+<span class="nu">2</span>
+copy 0 6
+start
+eval always
+
+label left
+<span class="nu">1</span>
+copy 0 6
+start
+eval always
 
 
-    <main id="main-content">
-        
+<span class="cm">### start main loop ###</span>
 
-<article itemscope="" itemtype="https://schema.org/BlogPosting">
-    <div class="post-container">
-        <div class="post-main">
-            <header class="post-header">
-                
+<span class="cm"># take a step forwards</span>
+label start
+<span class="nu">3</span>
+copy 0 6
 
-                <h1 itemprop="headline">Designing a Simple 8 Bit CPU Emulator in Python</h1>
+<span class="cm"># check if wall to the left store in 3</span>
+<span class="nu">1</span>
+copy 0 6
+copy 6 3
+<span class="nu">2</span>           <span class="cm"># turn back to original direction</span>
+copy 0 6
 
-                
-                <p class="post-subtitle" itemprop="alternativeHeadline">How I made a CPU emulator based entirely on logic gate functions</p>
-                
+<span class="cm"># if no wall left, turn left until there is a wall. We follow wall on our left side</span>
+left
+eval =
 
-                <div class="post-meta">
-                    
-                    <span class="post-meta-date">
-                        <time datetime="2023-07-03T22:00:00.000Z" itemprop="datePublished">2023-07-03</time>
-                    </span>
-                    
-                    <span class="post-meta-reading-time">8 min read</span>
-                    
-                    <div class="post-meta-tags">
-                        
-                        <a class="tag" href="/tags/python/">#python</a>
-                        
-                    </div>
-                    
-                </div>
-            </header>
+<span class="cm"># there is a wall left, check ahead</span>
+copy 6 1
+<span class="cm"># check right</span>
+<span class="nu">2</span>
+copy 0 6
+copy 6 2
+<span class="nu">1</span>
+copy 0 6
+<span class="cm"># if wall ahead and right do a uturn</span>
+and
+uturn
+eval !=
 
-            <div class="js-post-body post-body" itemprop="articleBody">
-                <p><em>(2024-12-07) Note: See <a href="https://loreley.one/2024-12-wasm/">this blogpost</a> of mine to interact with the CPU and solve the maze.</em></p>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>A while back, I came across an interesting game on Steam called <a target="_blank" rel="noopener" href="https://turingcomplete.game/">Turing Complete</a>. The objective of the game is to design a Turing complete CPU from scratch, and it guides players through each step of the process. Starting with the basics of logic gates, the building blocks of a CPU, players tackle progressively more complex challenges until they reach the point of designing their own CPU capable of performing simple tasks. I found the game captivating and spent an unhealthy amount of time in it.</p>
+<span class="cm"># if wall ahead but no wall right turn right</span>
+copy 1 3
+right
+eval !=
 
-<center>
-<img src="turing_complete.webp" alt="turing_complete" fetchpriority="high" decoding="async" width="1920" height="1080" jampack-sized="true" srcset="turing_complete.webp 1920w, turing_complete@1620w.webp 1620w, turing_complete@1320w.webp 1320w, turing_complete@1020w.webp 1020w" sizes="100vw">
-<p><small>Turing Complete gameplay</small></p>
-</center>
+start
+eval always </code></pre>
 
+    <h2>Conclusion</h2>
 
-<p>After completing the game, I decided it would be fun to create a Python emulator for a similar CPU. While it’s relatively easy to make a basic emulator in Python due to its high-level nature, I chose a different approach. I wanted to build the CPU entirely from scratch, deriving the logic from the fundamental functionality of logic gates. This means that the CPU’s performance is determined solely by simple true/false comparisons, without relying on if statements or other control flows. It does make the code a bit harder to read at times, but by merely changing the function of a single logic gate, you can witness how the entire CPU’s behavior is affected (spoiler alert: it stops working).</p>
-<h2 id="Logic-Gates"><a href="#Logic-Gates" class="headerlink" title="Logic Gates"></a>Logic Gates</h2><p>The design starts with the logic gates. Here is an excerpt of the code</p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="function_ title">and_</span>(<span class="params">*args:<span class="built_in">bool</span></span>)-&gt;<span class="built_in">int</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">int</span>(<span class="built_in">all</span>(args))</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="function_ title">or_</span>(<span class="params">*args:<span class="built_in">bool</span></span>)-&gt;<span class="built_in">int</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">int</span>(<span class="built_in">any</span>(args))</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="function_ title">not_</span>(<span class="params">*args:<span class="built_in">bool</span></span>)-&gt;<span class="built_in">int</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">int</span>(<span class="keyword">not</span> <span class="built_in">all</span>(args))</span><br></pre></td></tr></tbody></table></figure>
-<p>The logic gates perform simple comparisons and return true or false values. For example the AND gate returns true only if both of its inputs are true. The OR gate returns true if either (or both) of its inputs are true.</p>
+    <figure>
+      <img src="norway.webp" alt="NOR-way" width="680" height="453">
+      <figcaption>NOR-way</figcaption>
+    </figure>
 
-<center>
-<img src="logic_gates.webp" alt="logic gates" fetchpriority="high" decoding="async" width="480" height="300" jampack-sized="true">
-<p><small>logic gate symbols</small></p>
-</center>
+    <p>I thought this was quite a fun project, I certainly learnt a lot. While it may seem a little complicated, the truth is that by playing Turing Complete, you learn in a very intuitive manner. I can highly recommend it. If you want to write your own program or take a look at the code, it is all available on my <a target="_blank" rel="noopener" href="https://github.com/BasedLukas/cpu_simulator">github</a>.</p>
 
+    <a class="back-link" href="../blog/">&larr; Back to all posts</a>
 
-<h2 id="Basic-Components"><a href="#Basic-Components" class="headerlink" title="Basic Components"></a>Basic Components</h2><p>Once we have our logic gates, we can utilize them to create essential components. Let’s focus on the full adder as an example. The purpose of a full adder is to take two binary inputs and perform addition on them. For instance, when adding 0 + 0, the output is 0. When adding 1 + 0, the output is 1.</p>
-<p>However, adding 1 + 1 poses a challenge. In binary, we lack a way to represent the number 2 directly. To address this, we introduce a carry bit, similar to carrying over a digit when adding two decimal numbers that exceed 9. Additionally, we have a carry input to account for any carry bits from previous additions. </p>
+  </main>
 
-<center>
-<img src="full_adder.webp" alt="full adder" loading="lazy" decoding="async" width="1024" height="473" jampack-sized="true">
-<p><small>full adder design</small></p>
-</center>
+  <div class="footer-outer">
+  <footer></footer>
+  </div>
 
-
-
-<p>A truth table is a structured table that presents the outputs corresponding to all possible input combinations. It allows us to systematically analyze the behavior of a component or system under consideration. In the case of a full adder, the truth table would display the sum output and carry output for each potential combination of binary inputs and carry input. By checking the truth table, we can see how the full adder operates under different input scenarios.</p>
-
-<center>
-<img src="full_adder_truth.webp" alt="full adder truth table" loading="lazy" decoding="async" width="358" height="234" jampack-sized="true">
-<p><small>full adder truth table</small></p>
-</center>
-
-
-<p>The above design can now be implemented in code, using the logic gates we have created previously. In this case I first made a half adder (which doesn’t have a carry in) and used two of them to construct a full adder. Notice how all the logic is dependent on the operation of the logic gates.</p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="function_ title">half_adder</span>(<span class="params">input1:<span class="built_in">bool</span>, input2:<span class="built_in">bool</span></span>):</span><br><span class="line">    <span class="keyword">return</span> sn(</span><br><span class="line">        <span class="built_in">sum</span>=xor(input1, input2),</span><br><span class="line">        carry=and_(input1, input2)</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"><span class="keyword">def</span> <span class="function_ title">full_adder</span>(<span class="params">input1:<span class="built_in">bool</span>, input2:<span class="built_in">bool</span>, carry_in:<span class="built_in">bool</span></span>):</span><br><span class="line">    half_adder1 = half_adder(input1, input2)</span><br><span class="line">    half_adder2 = half_adder(half_adder1.<span class="built_in">sum</span>, carry_in)</span><br><span class="line">    out = sn(</span><br><span class="line">        <span class="built_in">sum</span>=half_adder2.<span class="built_in">sum</span>,</span><br><span class="line">        carry=or_(half_adder1.carry, half_adder2.carry)</span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">return</span> out</span><br></pre></td></tr></tbody></table></figure>
-
-<p>After creating a number of basic components such as these, we create more complex components such as an ALU (Arithmetic Logic Unit). The task of the ALU is to perform simple mathematical operations, such as adding 2 numbers together. In this case the ALU can only perform 4 simple operations; Addition, Subtraction, and two logical operations AND and OR. I took inspiration from this 32 bit ALU design, although mine only has 8 bits.</p>
-
-<center>
-<img src="ALU.webp" alt="alu" loading="lazy" decoding="async" width="2524" height="1266" jampack-sized="true" srcset="ALU.webp 2524w, ALU@1324w.webp 1324w, ALU@1024w.webp 1024w" sizes="100vw">
-<p><small>32 bit ALU design</small></p>
-</center>
-
-
-<h1 id="The-Full-CPU"><a href="#The-Full-CPU" class="headerlink" title="The Full CPU"></a>The Full CPU</h1><p>The design of the CPU includes six registers, an input, and an output, along with an ALU. Additionally, there is a unit that can carry out comparisons between a value and zero. The CPU operates by executing one of four distinct types of operations:</p>
-<ul>
-<li><p>Immediate: This operation is for moving a given value into register 0. </p>
-</li>
-<li><p>Arithmetic: The operands for any arithmetic operation are always register 1 and register 2, and the resultant output is stored in register 3.</p>
-</li>
-<li><p>Copy: This operation is used for duplicating values from one register to another or to the output. For example, ‘copy 0 6’ copies from register 0 to the output, and ‘copy 5 3’ copies from register 5 to register 3.</p>
-</li>
-<li><p>Evaluation: This operation evaluates the value in register 3 against zero. If the condition is true, it sets the program counter to the value in register 0.</p>
-</li>
-</ul>
-
-<center>
-<img src="full_cpu.webp" alt="full cpu" loading="lazy" decoding="async" width="1490" height="1184" jampack-sized="true" srcset="full_cpu.webp 1490w, full_cpu@1190w.webp 1190w, full_cpu@890w.webp 890w" sizes="100vw">
-<p><small>CPU design</small></p>
-</center>
-
-
-<p>Using just these operations we have already created a turing complete CPU! However writing code for it would be challenging as we would have to write everything in binary. To solve this I made a simple assembler that converts assembly code to binary. It also adds a number of useful features such as labels. Labels allow you to mark a point in your program to jump to, making it much easier to create loops in your code. Let’s take a look at a simple program. </p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line"># create a marker at the beginning of the program where we can jump to</span><br><span class="line">label start </span><br><span class="line"></span><br><span class="line"># read from input (reg6) into reg1</span><br><span class="line">copy 6 1</span><br><span class="line"></span><br><span class="line"># add reg 1 and 2, store the result in reg3</span><br><span class="line">add</span><br><span class="line"></span><br><span class="line">#copy result from reg3 into reg2</span><br><span class="line">copy 3 2</span><br><span class="line"></span><br><span class="line"># loop back to start if the value is not negative</span><br><span class="line">start</span><br><span class="line">eval &gt;=</span><br><span class="line"></span><br><span class="line"># Once the value overflows and becomes negative send the result to the output</span><br><span class="line">copy 3 6</span><br></pre></td></tr></tbody></table></figure>
-
-<p>In the simple program above, the value 1 is continuously being fed into the CPU. At each iteration we add it to the value stored in register 2, so that we increment the value by 1. Eventually the value grows large enough that it overflows and becomes negative. This is because in binary the most significant bit (MSB) is used to represent negative numbers. Once this happens the program stops running.</p>
-<h1 id="Solve-the-Maze"><a href="#Solve-the-Maze" class="headerlink" title="Solve the Maze"></a>Solve the Maze</h1><p>Now that we have a working CPU, we need something to do with it. So I designed a simple maze that a robot needs to navigate through. The robot can only see one square ahead, and is controlled by the CPU. In order to solve the maze, I implemented a simple algorithm - following the wall. Using this technique the robot is able to find its way through the maze.</p>
-
-<center>
-<img src="maze.gif" alt="maze" loading="lazy" decoding="async">
-<p><small>Robot solving maze</small></p>
-</center>
-
-
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line"># robot recognizes these commands:</span><br><span class="line"># 1 = turn left </span><br><span class="line"># 2 = turn right </span><br><span class="line"># 3 = step forward</span><br><span class="line"># To execute a command send the corresponding value to the output (reg 6)</span><br><span class="line"># robot inputs (reg 6) to CPU:</span><br><span class="line"># 1 = wall</span><br><span class="line"># 0 = clear</span><br><span class="line"></span><br><span class="line">start</span><br><span class="line">eval always</span><br><span class="line"></span><br><span class="line">### routines ###</span><br><span class="line"></span><br><span class="line">label uturn</span><br><span class="line">2</span><br><span class="line">copy 0 6</span><br><span class="line">copy 0 6</span><br><span class="line">start</span><br><span class="line">eval always</span><br><span class="line"></span><br><span class="line">label right </span><br><span class="line">2</span><br><span class="line">copy 0 6</span><br><span class="line">start</span><br><span class="line">eval always</span><br><span class="line"></span><br><span class="line">label left</span><br><span class="line">1</span><br><span class="line">copy 0 6</span><br><span class="line">start</span><br><span class="line">eval always</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### start main loop ###</span><br><span class="line"></span><br><span class="line"># take a step forwards</span><br><span class="line">label start</span><br><span class="line">3</span><br><span class="line">copy 0 6</span><br><span class="line"></span><br><span class="line"># check if wall to the left store in 3</span><br><span class="line">1</span><br><span class="line">copy 0 6</span><br><span class="line">copy 6 3</span><br><span class="line">2           # turn back to original direction</span><br><span class="line">copy 0 6</span><br><span class="line"></span><br><span class="line"># if no wall left, turn left until there is a wall. We follow wall on our left side</span><br><span class="line">left </span><br><span class="line">eval =</span><br><span class="line"></span><br><span class="line"># there is a wall left, check ahead</span><br><span class="line">copy 6 1</span><br><span class="line"># check right</span><br><span class="line">2</span><br><span class="line">copy 0 6</span><br><span class="line">copy 6 2</span><br><span class="line">1 </span><br><span class="line">copy 0 6</span><br><span class="line"># if wall ahead and right do a uturn</span><br><span class="line">and</span><br><span class="line">uturn</span><br><span class="line">eval !=</span><br><span class="line"></span><br><span class="line"># if wall ahead but no wall right turn right</span><br><span class="line">copy 1 3</span><br><span class="line">right</span><br><span class="line">eval !=</span><br><span class="line"></span><br><span class="line">start</span><br><span class="line">eval always </span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-
-
-<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2>
-<center>
-<img src="norway.webp" alt="NORway" loading="lazy" decoding="async" width="680" height="453" jampack-sized="true">
-<p><small>NOR-way</small></p>
-</center>
-
-
-<p>I thought this was quite a fun project, I certainly learnt a lot. While it may seem a little complicated, the truth is that by playing Turing Complete, you learn in a very intuitive manner. I can highly recommend it. If you want to write your own program or take a look at the code, it is all available on my <a target="_blank" rel="noopener" href="https://github.com/BasedLukas/cpu_simulator">github</a>.</p>
-
-            </div>
-        </div>
-
-        <aside class="toc-sidebar" aria-label="Table of contents">
-            <div class="toc-title">On this page</div>
-            <ul id="toc-list"></ul>
-        </aside>
-    </div>
-</article>
-
-
-    </main>
-
-    <footer class="site-footer" role="contentinfo">
-    <span>© 2026 loreley · Amsterdam</span>
-    <div class="footer-links">
-        <a href="https://loreley.one/atom.xml">RSS</a>
-        <a href="https://github.com/BasedLukas" target="_blank" rel="noopener">GitHub</a>
-        
-        <a href="https://x.com/LukasBogacz" target="_blank" rel="noopener">Twitter</a>
-    </div>
-</footer>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-yaml.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-rust.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-c.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-cpp.min.js"></script>
-
-
-<script src="/js/main.js"></script>
-
-
-<script defer="" src="/js/analytics.js" data-host="https://api.tinybird.co" data-token="p.eyJ1IjogImYxMGY0NmY5LWI2MTQtNGY3Mi1hNWRkLTJkZWMyZTYzOGU0ZCIsICJpZCI6ICJmM2Y3MDk5Ny03YTZiLTRlYzUtYTdkNC01ZTVkMmY1ZjZjMDcifQ.uBS7CItgVesD7IqUpKSyA_g6UNTH-YHuH3-XfpWy1o0"></script>
-
-
-
-
-
-</body></html>
+</body>
+</html>

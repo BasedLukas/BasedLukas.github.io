@@ -1,398 +1,483 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><style>:where(img[jampack-sized]){max-width:100%;height:auto}</style>
-    
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="theme-color" content="#0b0b0c">
-    <meta name="robots" content="index, follow">
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
-
-    <!-- KaTeX CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tQ1jSoAo3Igd7+kP1JgE0HmOZRsuYBNJRiRk0tqLTbHpYuitqOg" crossorigin="anonymous">
-
-    <!-- Theme CSS -->
-    
-<link rel="stylesheet" href="/css/style.css">
-
-
-    
-
-    <!-- Description -->
-    
-    <meta name="description" content="Running a Python CPU emulator in the browser with WebAssembly. An interactive puzzle built with WASM that bundles a full Python interpreter.">
-    
-
-    <!-- Author -->
-    
-    <meta name="author" content="Lukas">
-    
-
-    <!-- Keywords -->
-    
-    <meta name="keywords" content="statistics, probability, machine learning, programming">
-    
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="WASM">
-    <meta property="og:site_name" content="Lukas's Writings">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://loreley.one/2024-12-wasm/">
-    
-    <meta property="og:description" content="Running a Python CPU emulator in the browser with WebAssembly. An interactive puzzle built with WASM that bundles a full Python interpreter.">
-    
-    
-    <meta property="og:image" content="https://loreley.one/2024-12-wasm/wasm.jpg">
-    
-    
-    <meta property="article:published_time" content="2024-12-06T23:00:00.000Z">
-    
-    <meta property="article:modified_time" content="2026-02-10T21:56:46.741Z">
-    
-    <meta property="article:author" content="Lukas">
-    
-    
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="WASM">
-    
-    <meta name="twitter:description" content="Running a Python CPU emulator in the browser with WebAssembly. An interactive puzzle built with WASM that bundles a full Python interpreter.">
-    
-    
-    <meta name="twitter:image" content="https://loreley.one/2024-12-wasm/wasm.jpg">
-    <meta name="twitter:image:alt" content="WASM">
-    
-
-    <!-- Canonical -->
-    <link rel="canonical" href="https://loreley.one/2024-12-wasm/">
-
-    <!-- Title -->
-    
-    <title>WASM — Lukas's Writings</title>
-
-    <!-- Favicon -->
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-
-    <!-- JSON-LD Structured Data -->
-    
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "headline": "WASM",
-        "datePublished": "2024-12-06T23:00:00.000Z",
-        "dateModified": "2026-02-10T21:56:46.741Z",
-        "author": {
-            "@type": "Person",
-            "name": "Lukas"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "Lukas&#39;s Writings",
-            "url": "https://loreley.one"
-        },
-        "description": "Running a Python CPU emulator in the browser with WebAssembly. An interactive puzzle built with WASM that bundles a full Python interpreter.",
-        "image": "https://loreley.one/2024-12-wasm/wasm.jpg",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://loreley.one/2024-12-wasm/"
-        }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebAssembly in Action: A CPU Emulator That Runs in the Browser — Loreley</title>
+  <meta name="description" content="Running a Python CPU emulator in the browser with WebAssembly. An interactive puzzle built with WASM that bundles a full Python interpreter.">
+  <link rel="icon" href="../assets/favicon.ico">
+  <link rel="canonical" href="https://loreley.one/2024-12-wasm/">
+  <meta property="og:title" content="WebAssembly in Action: A CPU Emulator That Runs in the Browser — Loreley">
+  <meta property="og:site_name" content="Loreley">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://loreley.one/2024-12-wasm/">
+  <meta property="og:description" content="Running a Python CPU emulator in the browser with WebAssembly. An interactive puzzle built with WASM that bundles a full Python interpreter.">
+  <meta property="og:image" content="https://loreley.one/assets/og-image.png">
+  <meta name="twitter:image" content="https://loreley.one/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="WebAssembly in Action: A CPU Emulator That Runs in the Browser — Loreley">
+  <meta name="twitter:description" content="Running a Python CPU emulator in the browser with WebAssembly. An interactive puzzle built with WASM that bundles a full Python interpreter.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="../article.css">
+  <style>
+    /* IFRAME / PUZZLE EMBED */
+    #robot-frame {
+      display: none;
+      width: 100%;
+      height: 850px;
+      border: none;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
     }
-    </script>
-    
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"><link rel="alternate" href="/atom.xml" title="Lukas's Writings" type="application/atom+xml">
+    #mobile-message {
+      display: none;
+      font-size: 0.95rem;
+      text-align: center;
+      color: var(--sepia);
+      font-weight: 500;
+      margin: 2rem 0;
+      padding: 2rem;
+      background: rgba(139, 115, 85, 0.06);
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+    }
+
+    @media screen and (orientation: landscape) and (max-width: 768px) {
+      #robot-frame { display: block; }
+      #mobile-message { display: none; }
+    }
+
+    @media screen and (min-width: 769px) {
+      #robot-frame { display: block; }
+      #mobile-message { display: none; }
+    }
+
+    /* TOGGLE BUTTONS */
+    .toggle-btn {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--sepia);
+      background: rgba(139, 115, 85, 0.08);
+      border: 1px solid var(--rule);
+      padding: 0.6rem 1.25rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      margin-right: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .toggle-btn:hover {
+      background: rgba(139, 115, 85, 0.15);
+      color: var(--charcoal);
+    }
+
+    /* COLLAPSIBLE SECTIONS */
+    .collapsible {
+      display: none;
+      padding: 2rem 0;
+      border-top: 1px solid var(--rule);
+      margin-bottom: 1.5rem;
+    }
+
+    .collapsible.open {
+      display: block;
+    }
+  </style>
+  <script defer src="../components.js"></script>
 </head>
-
-
 <body>
 
-    <a href="#main-content" class="skip-link">Skip to content</a>
+  <nav></nav>
 
-    <nav class="nav" role="navigation" aria-label="Main navigation">
-    <a class="nav-logo" href="/">Home</a>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-    <ul class="nav-links">
-        
-        <li>
-            <a href="/about">About</a>
-        </li>
-        
-        <li>
-            <a href="/links">Links</a>
-        </li>
-        
-        <li>
-            <a href="/services">Services</a>
-        </li>
-        
-    </ul>
-</nav>
-
-
-    <main id="main-content">
-        
-
-<article itemscope="" itemtype="https://schema.org/BlogPosting">
-    <div class="post-container">
-        <div class="post-main">
-            <header class="post-header">
-                
-
-                <h1 itemprop="headline">WASM</h1>
-
-                
-                <p class="post-subtitle" itemprop="alternativeHeadline">It's so over for JavaScript</p>
-                
-
-                <div class="post-meta">
-                    
-                    <span class="post-meta-date">
-                        <time datetime="2024-12-06T23:00:00.000Z" itemprop="datePublished">2024-12-06</time>
-                    </span>
-                    
-                    <span class="post-meta-reading-time">12 min read</span>
-                    
-                </div>
-            </header>
-
-            <div class="js-post-body post-body" itemprop="articleBody">
-                
-
- <style>#robot-frame{display:none}#mobile-message{text-align:center;color:red;margin-top:50px;font-size:1.5em;font-weight:700;display:none}@media screen and (orientation:landscape) and (width<=768px){#robot-frame{display:block}#mobile-message{display:none}}@media screen and (width>=769px){#robot-frame{display:block}#mobile-message{display:none}}</style>
- 
- <!-- The iframe -->
- <iframe id="robot-frame" src="robot.html" style="border:none;width:100%;height:850px"></iframe>
-
- <!-- Message for mobile portrait mode -->
- <div id="mobile-message">
-     The game cannot load in portrait mode. <br> 
-     Please turn your phone sideways or visit on a desktop device.
- </div>
-
-<script>function handleOrientationChange(){const e=document.getElementById("robot-frame"),n=document.getElementById("mobile-message");window.innerWidth<769?window.matchMedia("(orientation: landscape)").matches?(e.style.display="block",n.style.display="none"):(e.style.display="none",n.style.display="block"):(e.style.display="block",n.style.display="none")}handleOrientationChange(),window.addEventListener("resize",handleOrientationChange);
-</script>
-
-
-
-<p><em>Note: This puzzle is based on a <a href="https://loreley.one/2023-07-cpu/">previous blog post </a> of mine. I’ve reprinted it below (with slight modifications) to provide the context of how this CPU works and why I made it. The functionality of the CPU is derived entirely from simulated logic gates. All the operations and control flow are based on the underlying properties of the logic gates, and changing their operation leads to corresponding changes in function.</em><br><em>I’ve been playing around with WASM (Web Assembly) and decided to resuscitate my old python code from that blogpost in order to run it in the browser. The entire python interpreter is bundled with the game code using WASM in the browser. I thought this was pretty cool.</em><br><em>Thanks to Ivan for reviewing an earlier version of this post.</em></p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#tutorial" aria-expanded="false" aria-controls="collapse">
-Tutorial
-</button>
-
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#old-cpu-post" aria-expanded="false" aria-controls="collapse">
-Old Blog Post
-</button>
-
-
-<div class="collapse" id="tutorial">
-
-<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>This CPU features six general-purpose registers (<code>reg0</code> to <code>reg5</code>), along with a special register (<code>reg6</code>) used for both input and output. It supports four main types of operations:</p>
-<ul>
-<li><strong>Immediate Values</strong></li>
-<li><strong>Arithmetic Operations</strong></li>
-<li><strong>Copying</strong></li>
-<li><strong>Comparisons and Control Flow</strong></li>
-</ul>
-<p>All values in the CPU are 8-bit and overflow after 255 to 0.<br>For comparisons, values are treated as <strong>signed</strong> (range -128 to 127).</p>
-<hr>
-<h3 id="Immediate-Values"><a href="#Immediate-Values" class="headerlink" title="Immediate Values"></a>Immediate Values</h3><p>Load a constant value into <code>reg0</code>. Only values up to 63 are allowed because the two most significant bits (MSB) are reserved for instruction encoding.</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">0       # Load 0 into reg0 (min allowed immediate)</span><br><span class="line">36      # Load 36 into reg0</span><br><span class="line">63      # Load 63 into reg0 (max allowed immediate)</span><br></pre></td></tr></tbody></table></figure>
-
-<hr>
-<h3 id="Copying-Data"><a href="#Copying-Data" class="headerlink" title="Copying Data"></a>Copying Data</h3><p>The <code>copy</code> instruction copies data between registers or between a register and the input/output.<br><strong>Input and Output</strong>: <code>reg6</code> serves as both the input and output register.</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">copy &lt;source_register&gt; &lt;destination_register&gt;</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">copy 6 1   # Copy value from input (reg6) to reg1</span><br><span class="line">copy 3 6   # Copy value from reg3 to output (reg6)</span><br><span class="line">copy 5 3   # Copy value from reg5 into reg3</span><br><span class="line">copy 6 6   # Copy from input directly to output</span><br><span class="line">copy 1 1   # NOP</span><br></pre></td></tr></tbody></table></figure>
-
-<hr>
-<h3 id="Arithmetic-and-Logical-Operations"><a href="#Arithmetic-and-Logical-Operations" class="headerlink" title="Arithmetic and Logical Operations"></a>Arithmetic and Logical Operations</h3><p>Arithmetic and logical operations use <code>reg1</code> and <code>reg2</code> as operands and store the result in <code>reg3</code>.<br>Arithmetic uses 2’s complliment. Values overflow if they exceed 255. </p>
-<p><strong>Addition</strong> (<code>add</code>): Adds <code>reg1</code> and <code>reg2</code>.<br><strong>Subtraction</strong> (<code>sub</code>): Subtracts <code>reg2</code> from <code>reg1</code>.<br><strong>Bitwise AND</strong> (<code>and</code>): Performs a bitwise AND operation on <code>reg1</code> and <code>reg2</code>.<br><strong>Bitwise OR</strong> (<code>or</code>): Performs a bitwise OR operation on <code>reg1</code> and <code>reg2</code>.</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">1        # Load 1 into reg0</span><br><span class="line">copy 0 1 # Move 1 into reg1</span><br><span class="line">2        # Load 2 into reg0</span><br><span class="line">copy 0 2 # Move 2 into reg2</span><br><span class="line">add      # reg3 = reg1 + reg2 = 1 + 2 = 3</span><br><span class="line">copy 3 6 # Output result (3)</span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">32</span><br><span class="line">copy 0 1</span><br><span class="line">32</span><br><span class="line">copy 0 2</span><br><span class="line">add  # 64 in reg 3</span><br><span class="line">copy 3 2</span><br><span class="line">copy 3 1</span><br><span class="line">add # 128 in reg 3</span><br><span class="line">copy 3 1</span><br><span class="line">copy 3 2</span><br><span class="line">add </span><br><span class="line">copy 3 6</span><br><span class="line"># total 256, so output is 0 == [0,0,0,0,0,0,0,0]</span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">0</span><br><span class="line">copy 0 1</span><br><span class="line">2</span><br><span class="line">copy 0 2</span><br><span class="line">sub  # 0 - 2 = -2</span><br><span class="line">copy 3 6</span><br><span class="line"># cpu output is -2 == [1,1,1,1,1,1,1,0]</span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">32</span><br><span class="line">copy 0 1</span><br><span class="line">32</span><br><span class="line">copy 0 2</span><br><span class="line">add  # 64 in reg 3</span><br><span class="line">copy 3 2</span><br><span class="line">copy 3 1</span><br><span class="line">add # 128 in reg 3</span><br><span class="line">1</span><br><span class="line">copy 0 2</span><br><span class="line">copy 3 1</span><br><span class="line">sub     # 128 - 1</span><br><span class="line">copy 3 6</span><br><span class="line"># result is 127 == [0,1,1,1,1,1,1,1] in 2's compliment</span><br></pre></td></tr></tbody></table></figure>
-
-<hr>
-<h3 id="Comparisons-and-Control-Flow"><a href="#Comparisons-and-Control-Flow" class="headerlink" title="Comparisons and Control Flow"></a>Comparisons and Control Flow</h3><p>The <code>eval</code> instruction compares the <strong>signed</strong> value in <code>reg3</code> against <code>0</code>. If the condition is true, the program counter jumps to the address in <code>reg0</code>.</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">eval &lt;condition&gt;</span><br></pre></td></tr></tbody></table></figure>
-
-<p>Supported conditions:</p>
-<ul>
-<li><code>eval always</code>: Always jump.</li>
-<li><code>eval never</code>: Never jump.</li>
-<li><code>eval =</code>: Jump if <code>reg3 == 0</code>.</li>
-<li><code>eval !=</code>: Jump if <code>reg3 != 0</code>.</li>
-<li><code>eval &lt;</code>: Jump if <code>reg3 &lt; 0</code> (signed).</li>
-<li><code>eval &lt;=</code>: Jump if <code>reg3 &lt;= 0</code> (signed).</li>
-<li><code>eval &gt;</code>: Jump if <code>reg3 &gt; 0</code> (signed).</li>
-<li><code>eval &gt;=</code>: Jump if <code>reg3 &gt;= 0</code> (signed).</li>
-</ul>
-<hr>
-<h3 id="Labels"><a href="#Labels" class="headerlink" title="Labels"></a>Labels</h3><p>Labels act as named locations in the program. Defining a label associates it with its position in the program. Calling labels is just shorthand for using immediate values (and thus labels can’t be placed after line 63).</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">label &lt;name&gt;</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">label start # start = 0</span><br><span class="line">copy 6 1    # Read input into reg1</span><br><span class="line">add         # Add reg1 and reg2</span><br><span class="line">start       # Label used here as jump target, equvalent to using immediate 0</span><br><span class="line">eval &gt;=     # Jump to "start" if reg3 &gt;= 0</span><br></pre></td></tr></tbody></table></figure>
-
-<p>This program copies <code>1</code> into <code>reg1</code>, adds it with <code>reg2</code>, and stores the result in <code>reg2</code> in a loop until the result overflows and becomes negative.</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">1           # Load 1 into reg0</span><br><span class="line">copy 0 1    # Copy 1 into reg1</span><br><span class="line">label loop</span><br><span class="line">add         # reg3 = reg1 + reg2</span><br><span class="line">copy 3 2    # Store result in reg2</span><br><span class="line">copy 3 6    # print result to output</span><br><span class="line">loop</span><br><span class="line">eval &gt;=     # Jump to label loop if reg3 &gt;= 0</span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>For comparisons, the value is treated as signed (<code>127</code> is interpreted as <code>127</code>, but <code>128</code> is interpreted as <code>-128</code>). The last result the cpu prints is thus <code>128</code></strong></p>
-<h3 id="Robot-Instructions"><a href="#Robot-Instructions" class="headerlink" title="Robot Instructions"></a>Robot Instructions</h3><p>output (controls):<br><code>1 == turn left</code><br><code>2 == turn right</code><br><code>3 == step forward</code></p>
-<p>input:<br><code>1 == wall</code><br><code>0 == clear</code></p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line"># this will rotate you left</span><br><span class="line">1</span><br><span class="line">copy 0 6</span><br><span class="line"></span><br><span class="line"># rotate right 3 times</span><br><span class="line">2</span><br><span class="line">copy 0 6</span><br><span class="line">copy 0 6</span><br><span class="line">copy 0 6</span><br><span class="line"></span><br><span class="line"># walk in a line until blocked</span><br><span class="line">label start_loop</span><br><span class="line">3</span><br><span class="line">copy 0 6</span><br><span class="line">copy 6 3    # put the input in reg3</span><br><span class="line">start_loop</span><br><span class="line">eval =      # if reg3 is 0 there is no wall</span><br></pre></td></tr></tbody></table></figure>
-
-<p>glhf</p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#tutorial" aria-expanded="false" aria-controls="collapse">
-Hide Tutorial
-</button>
-
-</div>
-
-<div id="old-cpu-post" class="collapse">
-
-<h2 id="Introduction-1"><a href="#Introduction-1" class="headerlink" title="Introduction"></a>Introduction</h2><p>A while back, I came across an interesting game on Steam called <a target="_blank" rel="noopener" href="https://turingcomplete.game/">Turing Complete</a>. The objective of the game is to design a Turing complete CPU from scratch, and it guides players through each step of the process. Starting with the basics of logic gates, the building blocks of a CPU, players tackle progressively more complex challenges until they reach the point of designing their own CPU capable of performing simple tasks. I found the game captivating and spent an unhealthy amount of time in it.</p>
-
-<center>
-<img src="turing_complete.webp" alt="turing_complete" loading="lazy" decoding="async" width="1920" height="1080" jampack-sized="true" srcset="turing_complete.webp 1920w, turing_complete@1620w.webp 1620w, turing_complete@1320w.webp 1320w, turing_complete@1020w.webp 1020w" sizes="100vw">
-<p><small>Turing Complete gameplay</small></p>
-</center>
-
-
-<p>After completing the game, I decided it would be fun to create a Python emulator for a similar CPU. While it’s relatively easy to make a basic emulator in Python due to its high-level nature, I chose a different approach. I wanted to build the CPU entirely from scratch, deriving the logic from the fundamental functionality of logic gates. This means that the CPU’s performance is determined solely by simple true/false comparisons, without relying on if statements or other control flows. It does make the code a bit harder to read at times, but by merely changing the function of a single logic gate, you can witness how the entire CPU’s behavior is affected (spoiler alert: it stops working).</p>
-<h2 id="Logic-Gates"><a href="#Logic-Gates" class="headerlink" title="Logic Gates"></a>Logic Gates</h2><p>The design starts with the logic gates. Here is an excerpt of the code</p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="function_ title">and_</span>(<span class="params">*args:<span class="built_in">bool</span></span>)-&gt;<span class="built_in">int</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">int</span>(<span class="built_in">all</span>(args))</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="function_ title">or_</span>(<span class="params">*args:<span class="built_in">bool</span></span>)-&gt;<span class="built_in">int</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">int</span>(<span class="built_in">any</span>(args))</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="function_ title">not_</span>(<span class="params">*args:<span class="built_in">bool</span></span>)-&gt;<span class="built_in">int</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">int</span>(<span class="keyword">not</span> <span class="built_in">all</span>(args))</span><br></pre></td></tr></tbody></table></figure>
-<p>The logic gates perform simple comparisons and return true or false values. For example the AND gate returns true only if both of its inputs are true. The OR gate returns true if either (or both) of its inputs are true.</p>
-
-<center>
-<img src="logic_gates.webp" alt="logic gates" loading="lazy" decoding="async" width="480" height="300" jampack-sized="true">
-<p><small>logic gate symbols</small></p>
-</center>
-
-
-<h2 id="Basic-Components"><a href="#Basic-Components" class="headerlink" title="Basic Components"></a>Basic Components</h2><p>Once we have our logic gates, we can utilize them to create essential components. Let’s focus on the full adder as an example. The purpose of a full adder is to take two binary inputs and perform addition on them. For instance, when adding 0 + 0, the output is 0. When adding 1 + 0, the output is 1.</p>
-<p>However, adding 1 + 1 poses a challenge. In binary, we lack a way to represent the number 2 directly. To address this, we introduce a carry bit, similar to carrying over a digit when adding two decimal numbers that exceed 9. Additionally, we have a carry input to account for any carry bits from previous additions. </p>
-
-<center>
-<img src="full_adder.webp" alt="full adder" loading="lazy" decoding="async" width="1024" height="473" jampack-sized="true">
-<p><small>full adder design</small></p>
-</center>
-
-
-
-<p>A truth table is a structured table that presents the outputs corresponding to all possible input combinations. It allows us to systematically analyze the behavior of a component or system under consideration. In the case of a full adder, the truth table would display the sum output and carry output for each potential combination of binary inputs and carry input. By checking the truth table, we can see how the full adder operates under different input scenarios.</p>
-
-<center>
-<img src="full_adder_truth.webp" alt="full adder truth table" loading="lazy" decoding="async" width="358" height="234" jampack-sized="true">
-<p><small>full adder truth table</small></p>
-</center>
-
-
-<p>The above design can now be implemented in code, using the logic gates we have created previously. In this case I first made a half adder (which doesn’t have a carry in) and used two of them to construct a full adder. Notice how all the logic is dependent on the operation of the logic gates.</p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="function_ title">half_adder</span>(<span class="params">input1:<span class="built_in">bool</span>, input2:<span class="built_in">bool</span></span>):</span><br><span class="line">    <span class="keyword">return</span> sn(</span><br><span class="line">        <span class="built_in">sum</span>=xor(input1, input2),</span><br><span class="line">        carry=and_(input1, input2)</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"><span class="keyword">def</span> <span class="function_ title">full_adder</span>(<span class="params">input1:<span class="built_in">bool</span>, input2:<span class="built_in">bool</span>, carry_in:<span class="built_in">bool</span></span>):</span><br><span class="line">    half_adder1 = half_adder(input1, input2)</span><br><span class="line">    half_adder2 = half_adder(half_adder1.<span class="built_in">sum</span>, carry_in)</span><br><span class="line">    out = sn(</span><br><span class="line">        <span class="built_in">sum</span>=half_adder2.<span class="built_in">sum</span>,</span><br><span class="line">        carry=or_(half_adder1.carry, half_adder2.carry)</span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">return</span> out</span><br></pre></td></tr></tbody></table></figure>
-
-<p>After creating a number of basic components such as these, we create more complex components such as an ALU (Arithmetic Logic Unit). The task of the ALU is to perform simple mathematical operations, such as adding 2 numbers together. In this case the ALU can only perform 4 simple operations; Addition, Subtraction, and two logical operations AND and OR. I took inspiration from this 32 bit ALU design, although mine only has 8 bits.</p>
-
-<center>
-<img src="ALU.webp" alt="alu" loading="lazy" decoding="async" width="2524" height="1266" jampack-sized="true" srcset="ALU.webp 2524w, ALU@1324w.webp 1324w, ALU@1024w.webp 1024w" sizes="100vw">
-<p><small>32 bit ALU design</small></p>
-</center>
-
-
-<h1 id="The-Full-CPU"><a href="#The-Full-CPU" class="headerlink" title="The Full CPU"></a>The Full CPU</h1><p>The design of the CPU includes six registers, an input, and an output, along with an ALU. Additionally, there is a unit that can carry out comparisons between a value and zero. The CPU operates by executing one of four distinct types of operations:</p>
-<ul>
-<li><p>Immediate: This operation is for moving a given value into register 0. </p>
-</li>
-<li><p>Arithmetic: The operands for any arithmetic operation are always register 1 and register 2, and the resultant output is stored in register 3.</p>
-</li>
-<li><p>Copy: This operation is used for duplicating values from one register to another or to the output. For example, ‘copy 0 6’ copies from register 0 to the output, and ‘copy 5 3’ copies from register 5 to register 3.</p>
-</li>
-<li><p>Evaluation: This operation evaluates the value in register 3 against zero. If the condition is true, it sets the program counter to the value in register 0.</p>
-</li>
-</ul>
-
-<center>
-<img src="full_cpu.webp" alt="full cpu" loading="lazy" decoding="async" width="1490" height="1184" jampack-sized="true" srcset="full_cpu.webp 1490w, full_cpu@1190w.webp 1190w, full_cpu@890w.webp 890w" sizes="100vw">
-<p><small>CPU design</small></p>
-</center>
-
-
-<p>Using just these operations we have already created a turing complete CPU! However writing code for it would be challenging as we would have to write everything in binary. To solve this I made a simple assembler that converts assembly code to binary. It also adds a number of useful features such as labels. Labels allow you to mark a point in your program to jump to, making it much easier to create loops in your code. Let’s take a look at a simple program. </p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line"># create a marker at the beginning of the program where we can jump to</span><br><span class="line">label start </span><br><span class="line"></span><br><span class="line"># read from input (reg6) into reg1</span><br><span class="line">copy 6 1</span><br><span class="line"></span><br><span class="line"># add reg 1 and 2, store the result in reg3</span><br><span class="line">add</span><br><span class="line"></span><br><span class="line">#copy result from reg3 into reg2</span><br><span class="line">copy 3 2</span><br><span class="line"></span><br><span class="line"># loop back to start if the value is not negative</span><br><span class="line">start</span><br><span class="line">eval &gt;=</span><br><span class="line"></span><br><span class="line"># Once the value overflows and becomes negative send the result to the output</span><br><span class="line">copy 3 6</span><br></pre></td></tr></tbody></table></figure>
-
-<p>In the simple program above, the value 1 is continuously being fed into the CPU. At each iteration we add it to the value stored in register 2, so that we increment the value by 1. Eventually the value grows large enough that it overflows and becomes negative. This is because in binary the most significant bit (MSB) is used to represent negative numbers. Once this happens the program stops running.</p>
-<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2>
-<center>
-<img src="norway.webp" alt="NORway" loading="lazy" decoding="async" width="680" height="453" jampack-sized="true">
-<p><small>NOR-way</small></p>
-</center>
-
-
-<p>I thought this was quite a fun project, I certainly learnt a lot. While it may seem a little complicated, the truth is that by playing Turing Complete, you learn in a very intuitive manner. I can highly recommend it. If you want to write your own program or take a look at the code, it is all available on my <a target="_blank" rel="noopener" href="https://github.com/BasedLukas/cpu_simulator">github</a>.</p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#old-cpu-post" aria-expanded="false" aria-controls="collapse">
-Hide Blog Post
-</button>
-
-</div>
-
-
-
-
-            </div>
-        </div>
-
-        <aside class="toc-sidebar" aria-label="Table of contents">
-            <div class="toc-title">On this page</div>
-            <ul id="toc-list"></ul>
-        </aside>
+  <header class="article-header">
+    <div class="article-header-inner">
+      <div class="post-meta">December 2024 &middot; 10 min read</div>
+      <h1>WebAssembly in Action: A CPU Emulator That Runs in the Browser</h1>
+      <p class="post-subtitle">Bundling a full Python interpreter with WASM to create an interactive logic gate puzzle</p>
+      <div class="post-tags">
+        <span>WASM</span>
+        <span>Python</span>
+        <span>Computer Science</span>
+      </div>
     </div>
-</article>
+  </header>
 
+  <main class="article-body">
 
-    </main>
+    <!-- Embedded WASM puzzle -->
+    <iframe id="robot-frame" src="robot.html"></iframe>
 
-    <footer class="site-footer" role="contentinfo">
-    <span>© 2026 loreley · Amsterdam</span>
-    <div class="footer-links">
-        <a href="https://loreley.one/atom.xml">RSS</a>
-        <a href="https://github.com/BasedLukas" target="_blank" rel="noopener">GitHub</a>
-        
-        <a href="https://x.com/LukasBogacz" target="_blank" rel="noopener">Twitter</a>
+    <div id="mobile-message">
+      The game cannot load in portrait mode.<br>
+      Please turn your phone sideways or visit on a desktop device.
     </div>
-</footer>
+
+    <script>
+      function handleOrientationChange() {
+        const iframe = document.getElementById('robot-frame');
+        const message = document.getElementById('mobile-message');
+
+        if (window.innerWidth < 769) {
+          if (window.matchMedia("(orientation: landscape)").matches) {
+            iframe.style.display = "block";
+            message.style.display = "none";
+          } else {
+            iframe.style.display = "none";
+            message.style.display = "block";
+          }
+        } else {
+          iframe.style.display = "block";
+          message.style.display = "none";
+        }
+      }
+
+      handleOrientationChange();
+      window.addEventListener('resize', handleOrientationChange);
+    </script>
+
+    <p><em>Note: This puzzle is based on a <a href="../2023-07-cpu/">previous blog post</a> of mine. I've reprinted it below (with slight modifications) to provide the context of how this CPU works and why I made it. The functionality of the CPU is derived entirely from simulated logic gates. All the operations and control flow are based on the underlying properties of the logic gates, and changing their operation leads to corresponding changes in function.</em></p>
+    <p><em>I've been playing around with WASM (Web Assembly) and decided to resuscitate my old python code from that blogpost in order to run it in the browser. The entire python interpreter is bundled with the game code using WASM in the browser. I thought this was pretty cool.</em></p>
+    <p><em>Thanks to Ivan for reviewing an earlier version of this post.</em></p>
+
+    <button class="toggle-btn" onclick="toggleSection('tutorial', this)">Tutorial</button>
+    <button class="toggle-btn" onclick="toggleSection('old-cpu-post', this)">Old Blog Post</button>
+
+    <script>
+      function toggleSection(id, btn) {
+        var el = document.getElementById(id);
+        el.classList.toggle('open');
+      }
+    </script>
+
+    <div class="collapsible" id="tutorial">
+
+      <h3>Introduction</h3>
+
+      <p>This CPU features six general-purpose registers (<code>reg0</code> to <code>reg5</code>), along with a special register (<code>reg6</code>) used for both input and output. It supports four main types of operations:</p>
+
+      <ul>
+        <li><strong>Immediate Values</strong></li>
+        <li><strong>Arithmetic Operations</strong></li>
+        <li><strong>Copying</strong></li>
+        <li><strong>Comparisons and Control Flow</strong></li>
+      </ul>
+
+      <p>All values in the CPU are 8-bit and overflow after 255 to 0.
+      For comparisons, values are treated as <strong>signed</strong> (range -128 to 127).</p>
+
+      <hr>
+
+      <h3>Immediate Values</h3>
+
+      <p>Load a constant value into <code>reg0</code>. Only values up to 63 are allowed because the two most significant bits (MSB) are reserved for instruction encoding.</p>
+
+      <pre><code>0       # Load 0 into reg0 (min allowed immediate)
+36      # Load 36 into reg0
+63      # Load 63 into reg0 (max allowed immediate)</code></pre>
+
+      <hr>
+
+      <h3>Copying Data</h3>
+
+      <p>The <code>copy</code> instruction copies data between registers or between a register and the input/output.
+      <strong>Input and Output</strong>: <code>reg6</code> serves as both the input and output register.</p>
+
+      <pre><code>copy &lt;source_register&gt; &lt;destination_register&gt;</code></pre>
+
+      <div class="code-label">assembly</div>
+      <pre><code>copy 6 1   <span class="cm"># Copy value from input (reg6) to reg1</span>
+copy 3 6   <span class="cm"># Copy value from reg3 to output (reg6)</span>
+copy 5 3   <span class="cm"># Copy value from reg5 into reg3</span>
+copy 6 6   <span class="cm"># Copy from input directly to output</span>
+copy 1 1   <span class="cm"># NOP</span></code></pre>
+
+      <hr>
+
+      <h3>Arithmetic and Logical Operations</h3>
+
+      <p>Arithmetic and logical operations use <code>reg1</code> and <code>reg2</code> as operands and store the result in <code>reg3</code>.
+      Arithmetic uses 2's complement. Values overflow if they exceed 255.</p>
+
+      <p><strong>Addition</strong> (<code>add</code>): Adds <code>reg1</code> and <code>reg2</code>.<br>
+      <strong>Subtraction</strong> (<code>sub</code>): Subtracts <code>reg2</code> from <code>reg1</code>.<br>
+      <strong>Bitwise AND</strong> (<code>and</code>): Performs a bitwise AND operation on <code>reg1</code> and <code>reg2</code>.<br>
+      <strong>Bitwise OR</strong> (<code>or</code>): Performs a bitwise OR operation on <code>reg1</code> and <code>reg2</code>.</p>
+
+      <pre><code>1        <span class="cm"># Load 1 into reg0</span>
+copy 0 1 <span class="cm"># Move 1 into reg1</span>
+2        <span class="cm"># Load 2 into reg0</span>
+copy 0 2 <span class="cm"># Move 2 into reg2</span>
+add      <span class="cm"># reg3 = reg1 + reg2 = 1 + 2 = 3</span>
+copy 3 6 <span class="cm"># Output result (3)</span></code></pre>
+
+      <pre><code>32
+copy 0 1
+32
+copy 0 2
+add  <span class="cm"># 64 in reg 3</span>
+copy 3 2
+copy 3 1
+add <span class="cm"># 128 in reg 3</span>
+copy 3 1
+copy 3 2
+add
+copy 3 6
+<span class="cm"># total 256, so output is 0 == [0,0,0,0,0,0,0,0]</span></code></pre>
+
+      <pre><code>0
+copy 0 1
+2
+copy 0 2
+sub  <span class="cm"># 0 - 2 = -2</span>
+copy 3 6
+<span class="cm"># cpu output is -2 == [1,1,1,1,1,1,1,0]</span></code></pre>
+
+      <pre><code>32
+copy 0 1
+32
+copy 0 2
+add  <span class="cm"># 64 in reg 3</span>
+copy 3 2
+copy 3 1
+add <span class="cm"># 128 in reg 3</span>
+1
+copy 0 2
+copy 3 1
+sub     <span class="cm"># 128 - 1</span>
+copy 3 6
+<span class="cm"># result is 127 == [0,1,1,1,1,1,1,1] in 2's complement</span></code></pre>
+
+      <hr>
+
+      <h3>Comparisons and Control Flow</h3>
+
+      <p>The <code>eval</code> instruction compares the <strong>signed</strong> value in <code>reg3</code> against <code>0</code>. If the condition is true, the program counter jumps to the address in <code>reg0</code>.</p>
+
+      <pre><code>eval &lt;condition&gt;</code></pre>
+
+      <p>Supported conditions:</p>
+
+      <ul>
+        <li><code>eval always</code>: Always jump.</li>
+        <li><code>eval never</code>: Never jump.</li>
+        <li><code>eval =</code>: Jump if <code>reg3 == 0</code>.</li>
+        <li><code>eval !=</code>: Jump if <code>reg3 != 0</code>.</li>
+        <li><code>eval &lt;</code>: Jump if <code>reg3 &lt; 0</code> (signed).</li>
+        <li><code>eval &lt;=</code>: Jump if <code>reg3 &lt;= 0</code> (signed).</li>
+        <li><code>eval &gt;</code>: Jump if <code>reg3 &gt; 0</code> (signed).</li>
+        <li><code>eval &gt;=</code>: Jump if <code>reg3 &gt;= 0</code> (signed).</li>
+      </ul>
+
+      <hr>
+
+      <h3>Labels</h3>
+
+      <p>Labels act as named locations in the program. Defining a label associates it with its position in the program. Calling labels is just shorthand for using immediate values (and thus labels can't be placed after line 63).</p>
+
+      <pre><code>label &lt;name&gt;</code></pre>
+
+      <div class="code-label">assembly</div>
+      <pre><code>label start <span class="cm"># start = 0</span>
+copy 6 1    <span class="cm"># Read input into reg1</span>
+add         <span class="cm"># Add reg1 and reg2</span>
+start       <span class="cm"># Label used here as jump target, equivalent to using immediate 0</span>
+eval &gt;=     <span class="cm"># Jump to "start" if reg3 &gt;= 0</span></code></pre>
+
+      <p>This program copies <code>1</code> into <code>reg1</code>, adds it with <code>reg2</code>, and stores the result in <code>reg2</code> in a loop until the result overflows and becomes negative.</p>
+
+      <div class="code-label">assembly</div>
+      <pre><code>1           <span class="cm"># Load 1 into reg0</span>
+copy 0 1    <span class="cm"># Copy 1 into reg1</span>
+label loop
+add         <span class="cm"># reg3 = reg1 + reg2</span>
+copy 3 2    <span class="cm"># Store result in reg2</span>
+copy 3 6    <span class="cm"># print result to output</span>
+loop
+eval &gt;=     <span class="cm"># Jump to label loop if reg3 &gt;= 0</span></code></pre>
+
+      <p><strong>For comparisons, the value is treated as signed (<code>127</code> is interpreted as <code>127</code>, but <code>128</code> is interpreted as <code>-128</code>). The last result the cpu prints is thus <code>128</code></strong></p>
+
+      <h3>Robot Instructions</h3>
+
+      <p>output (controls):<br>
+      <code>1 == turn left</code><br>
+      <code>2 == turn right</code><br>
+      <code>3 == step forward</code></p>
+
+      <p>input:<br>
+      <code>1 == wall</code><br>
+      <code>0 == clear</code></p>
+
+      <pre><code><span class="cm"># this will rotate you left</span>
+1
+copy 0 6
+
+<span class="cm"># rotate right 3 times</span>
+2
+copy 0 6
+copy 0 6
+copy 0 6
+
+<span class="cm"># walk in a line until blocked</span>
+label start_loop
+3
+copy 0 6
+copy 6 3    <span class="cm"># put the input in reg3</span>
+start_loop
+eval =      <span class="cm"># if reg3 is 0 there is no wall</span></code></pre>
+
+      <p>glhf</p>
+
+      <button class="toggle-btn" onclick="toggleSection('tutorial', this)">Hide Tutorial</button>
+
+    </div>
+
+    <div class="collapsible" id="old-cpu-post">
+
+      <h2>Introduction</h2>
+
+      <p>A while back, I came across an interesting game on Steam called <a target="_blank" rel="noopener" href="https://turingcomplete.game/">Turing Complete</a>. The objective of the game is to design a Turing complete CPU from scratch, and it guides players through each step of the process. Starting with the basics of logic gates, the building blocks of a CPU, players tackle progressively more complex challenges until they reach the point of designing their own CPU capable of performing simple tasks. I found the game captivating and spent an unhealthy amount of time in it.</p>
+
+      <figure>
+        <img src="turing_complete.jpg" alt="Turing Complete gameplay" width="1920" height="1080">
+        <figcaption>Turing Complete gameplay</figcaption>
+      </figure>
+
+      <p>After completing the game, I decided it would be fun to create a Python emulator for a similar CPU. While it's relatively easy to make a basic emulator in Python due to its high-level nature, I chose a different approach. I wanted to build the CPU entirely from scratch, deriving the logic from the fundamental functionality of logic gates. This means that the CPU's performance is determined solely by simple true/false comparisons, without relying on if statements or other control flows. It does make the code a bit harder to read at times, but by merely changing the function of a single logic gate, you can witness how the entire CPU's behavior is affected (spoiler alert: it stops working).</p>
+
+      <h2>Logic Gates</h2>
+
+      <p>The design starts with the logic gates. Here is an excerpt of the code</p>
+
+      <div class="code-label">python</div>
+      <pre><code>
+<span class="kw">def</span> <span class="fn">and_</span>(*args:<span class="bi">bool</span>)-&gt;<span class="bi">int</span>:
+    <span class="kw">return</span> <span class="bi">int</span>(<span class="bi">all</span>(args))
+
+<span class="kw">def</span> <span class="fn">or_</span>(*args:<span class="bi">bool</span>)-&gt;<span class="bi">int</span>:
+    <span class="kw">return</span> <span class="bi">int</span>(<span class="bi">any</span>(args))
+
+<span class="kw">def</span> <span class="fn">not_</span>(*args:<span class="bi">bool</span>)-&gt;<span class="bi">int</span>:
+    <span class="kw">return</span> <span class="bi">int</span>(<span class="kw">not</span> <span class="bi">all</span>(args))</code></pre>
+
+      <p>The logic gates perform simple comparisons and return true or false values. For example the AND gate returns true only if both of its inputs are true. The OR gate returns true if either (or both) of its inputs are true.</p>
+
+      <figure>
+        <img src="logic_gates.jpg" alt="logic gates" width="480" height="300">
+        <figcaption>logic gate symbols</figcaption>
+      </figure>
+
+      <h2>Basic Components</h2>
+
+      <p>Once we have our logic gates, we can utilize them to create essential components. Let's focus on the full adder as an example. The purpose of a full adder is to take two binary inputs and perform addition on them. For instance, when adding 0 + 0, the output is 0. When adding 1 + 0, the output is 1.</p>
+
+      <p>However, adding 1 + 1 poses a challenge. In binary, we lack a way to represent the number 2 directly. To address this, we introduce a carry bit, similar to carrying over a digit when adding two decimal numbers that exceed 9. Additionally, we have a carry input to account for any carry bits from previous additions.</p>
+
+      <figure>
+        <img src="full_adder.png" alt="full adder" width="1024" height="473">
+        <figcaption>full adder design</figcaption>
+      </figure>
+
+      <p>A truth table is a structured table that presents the outputs corresponding to all possible input combinations. It allows us to systematically analyze the behavior of a component or system under consideration. In the case of a full adder, the truth table would display the sum output and carry output for each potential combination of binary inputs and carry input. By checking the truth table, we can see how the full adder operates under different input scenarios.</p>
+
+      <figure>
+        <img src="full_adder_truth.png" alt="full adder truth table" width="358" height="234">
+        <figcaption>full adder truth table</figcaption>
+      </figure>
+
+      <p>The above design can now be implemented in code, using the logic gates we have created previously. In this case I first made a half adder (which doesn't have a carry in) and used two of them to construct a full adder. Notice how all the logic is dependent on the operation of the logic gates.</p>
+
+      <div class="code-label">python</div>
+      <pre><code><span class="kw">def</span> <span class="fn">half_adder</span>(input1:<span class="bi">bool</span>, input2:<span class="bi">bool</span>):
+    <span class="kw">return</span> sn(
+        <span class="bi">sum</span>=xor(input1, input2),
+        carry=and_(input1, input2)
+        )
 
 
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-yaml.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-rust.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-c.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-cpp.min.js"></script>
+<span class="kw">def</span> <span class="fn">full_adder</span>(input1:<span class="bi">bool</span>, input2:<span class="bi">bool</span>, carry_in:<span class="bi">bool</span>):
+    half_adder1 = half_adder(input1, input2)
+    half_adder2 = half_adder(half_adder1.<span class="bi">sum</span>, carry_in)
+    out = sn(
+        <span class="bi">sum</span>=half_adder2.<span class="bi">sum</span>,
+        carry=or_(half_adder1.carry, half_adder2.carry)
+    )
+    <span class="kw">return</span> out</code></pre>
 
+      <p>After creating a number of basic components such as these, we create more complex components such as an ALU (Arithmetic Logic Unit). The task of the ALU is to perform simple mathematical operations, such as adding 2 numbers together. In this case the ALU can only perform 4 simple operations; Addition, Subtraction, and two logical operations AND and OR. I took inspiration from this 32 bit ALU design, although mine only has 8 bits.</p>
 
-<script src="/js/main.js"></script>
+      <figure>
+        <img src="ALU.png" alt="alu" width="2524" height="1266">
+        <figcaption>32 bit ALU design</figcaption>
+      </figure>
 
+      <h2>The Full CPU</h2>
 
-<script defer="" src="/js/analytics.js" data-host="https://api.tinybird.co" data-token="p.eyJ1IjogImYxMGY0NmY5LWI2MTQtNGY3Mi1hNWRkLTJkZWMyZTYzOGU0ZCIsICJpZCI6ICJmM2Y3MDk5Ny03YTZiLTRlYzUtYTdkNC01ZTVkMmY1ZjZjMDcifQ.uBS7CItgVesD7IqUpKSyA_g6UNTH-YHuH3-XfpWy1o0"></script>
+      <p>The design of the CPU includes six registers, an input, and an output, along with an ALU. Additionally, there is a unit that can carry out comparisons between a value and zero. The CPU operates by executing one of four distinct types of operations:</p>
 
+      <ul>
+        <li>Immediate: This operation is for moving a given value into register 0.</li>
+        <li>Arithmetic: The operands for any arithmetic operation are always register 1 and register 2, and the resultant output is stored in register 3.</li>
+        <li>Copy: This operation is used for duplicating values from one register to another or to the output. For example, 'copy 0 6' copies from register 0 to the output, and 'copy 5 3' copies from register 5 to register 3.</li>
+        <li>Evaluation: This operation evaluates the value in register 3 against zero. If the condition is true, it sets the program counter to the value in register 0.</li>
+      </ul>
 
+      <figure>
+        <img src="full_cpu.jpeg" alt="full cpu" width="1490" height="1184">
+        <figcaption>CPU design</figcaption>
+      </figure>
 
+      <p>Using just these operations we have already created a turing complete CPU! However writing code for it would be challenging as we would have to write everything in binary. To solve this I made a simple assembler that converts assembly code to binary. It also adds a number of useful features such as labels. Labels allow you to mark a point in your program to jump to, making it much easier to create loops in your code. Let's take a look at a simple program.</p>
 
+      <div class="code-label">assembly</div>
+      <pre><code><span class="cm"># create a marker at the beginning of the program where we can jump to</span>
+label start
 
-</body></html>
+<span class="cm"># read from input (reg6) into reg1</span>
+copy 6 1
+
+<span class="cm"># add reg 1 and 2, store the result in reg3</span>
+add
+
+<span class="cm">#copy result from reg3 into reg2</span>
+copy 3 2
+
+<span class="cm"># loop back to start if the value is not negative</span>
+start
+eval &gt;=
+
+<span class="cm"># Once the value overflows and becomes negative send the result to the output</span>
+copy 3 6</code></pre>
+
+      <p>In the simple program above, the value 1 is continuously being fed into the CPU. At each iteration we add it to the value stored in register 2, so that we increment the value by 1. Eventually the value grows large enough that it overflows and becomes negative. This is because in binary the most significant bit (MSB) is used to represent negative numbers. Once this happens the program stops running.</p>
+
+      <h2>Conclusion</h2>
+
+      <figure>
+        <img src="norway.jpeg" alt="NORway" width="680" height="453">
+        <figcaption>NOR-way</figcaption>
+      </figure>
+
+      <p>I thought this was quite a fun project, I certainly learnt a lot. While it may seem a little complicated, the truth is that by playing Turing Complete, you learn in a very intuitive manner. I can highly recommend it. If you want to write your own program or take a look at the code, it is all available on my <a target="_blank" rel="noopener" href="https://github.com/BasedLukas/cpu_simulator">github</a>.</p>
+
+      <button class="toggle-btn" onclick="toggleSection('old-cpu-post', this)">Hide Blog Post</button>
+
+    </div>
+
+    <a class="back-link" href="../blog/">&larr; Back to all posts</a>
+
+  </main>
+
+  <div class="footer-outer">
+  <footer></footer>
+  </div>
+
+</body>
+</html>

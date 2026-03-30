@@ -1,275 +1,120 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><style>:where(img[jampack-sized]){max-width:100%;height:auto}</style>
-    
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="theme-color" content="#0b0b0c">
-    <meta name="robots" content="index, follow">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Links — Loreley</title>
+  <meta name="description" content="Blogs, books, and channels worth reading. Curated by Lukas Bogacz.">
+  <link rel="icon" href="../assets/favicon.ico">
+  <link rel="canonical" href="https://loreley.one/links/">
+  <meta property="og:title" content="Links — Loreley">
+  <meta property="og:site_name" content="Loreley">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://loreley.one/links/">
+  <meta property="og:description" content="Blogs, books, and channels worth reading. Curated by Lukas Bogacz.">
+  <meta property="og:image" content="https://loreley.one/assets/og-image.png">
+  <meta name="twitter:image" content="https://loreley.one/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Links — Loreley">
+  <meta name="twitter:description" content="Blogs, books, and channels worth reading. Curated by Lukas Bogacz.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../base.css">
+  <style>
+    .links-content { max-width: 720px; margin: 0 auto; padding: 3rem 2rem 6rem; }
+    .links-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+    .links-content h2 { font-family: var(--serif); font-size: 1.25rem; font-weight: 500; color: var(--charcoal); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--rule); }
+    .links-content h2:not(:first-child) { margin-top: 2.5rem; }
+    .links-content ul { list-style: none; }
+    .links-content li { padding: 0.4rem 0; }
+    .links-content li a { font-size: 0.92rem; color: var(--charcoal-mid); text-decoration: none; transition: color 0.2s; }
+    .links-content li a:hover { color: var(--sepia); }
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
-
-    <!-- KaTeX CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tQ1jSoAo3Igd7+kP1JgE0HmOZRsuYBNJRiRk0tqLTbHpYuitqOg" crossorigin="anonymous">
-
-    <!-- Theme CSS -->
-    
-<link rel="stylesheet" href="/css/style.css">
-
-
-    
-
-    <!-- Description -->
-    
-    <meta name="description" content="Blogs
-Ryxcommar
-Peter Bloem
-Gestalt
-Offconvex
-Distill
-Christopher Olah
-Max Halford
-Explained.ai
-Gwern
-Alexey Guzey
-Austin Vernon
-Terry Tao
-The 100% CI
-MacKinlay">
-    
-
-    <!-- Author -->
-    
-    <meta name="author" content="Lukas">
-    
-
-    <!-- Keywords -->
-    
-    <meta name="keywords" content="statistics, probability, machine learning, programming">
-    
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="Links">
-    <meta property="og:site_name" content="Lukas's Writings">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://loreley.one/links/">
-    
-    <meta property="og:description" content="Blogs
-Ryxcommar
-Peter Bloem
-Gestalt
-Offconvex
-Distill
-Christopher Olah
-Max Halford
-Explained.ai
-Gwern
-Alexey Guzey
-Austin Vernon
-Terry Tao
-The 100% CI
-MacKinlay">
-    
-    
-    
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Links">
-    
-    <meta name="twitter:description" content="Blogs
-Ryxcommar
-Peter Bloem
-Gestalt
-Offconvex
-Distill
-Christopher Olah
-Max Halford
-Explained.ai
-Gwern
-Alexey Guzey
-Austin Vernon
-Terry Tao
-The 100% CI
-MacKinlay">
-    
-    
-
-    <!-- Canonical -->
-    <link rel="canonical" href="https://loreley.one/links/">
-
-    <!-- Title -->
-    
-    <title>Links — Lukas's Writings</title>
-
-    <!-- Favicon -->
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-
-    <!-- JSON-LD Structured Data -->
-    
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Lukas&#39;s Writings",
-        "url": "https://loreley.one",
-        "description": "Blogs
-Ryxcommar
-Peter Bloem
-Gestalt
-Offconvex
-Distill
-Christopher Olah
-Max Halford
-Explained.ai
-Gwern
-Alexey Guzey
-Austin Vernon
-Terry Tao
-The 100% CI
-MacKinlay"
+    @media (max-width: 768px) {
+      .links-content { padding: 2rem 1.5rem 4rem; }
+      .links-grid { grid-template-columns: 1fr; gap: 2rem; }
     }
-    </script>
-    
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"><link rel="alternate" href="/atom.xml" title="Lukas's Writings" type="application/atom+xml">
+  </style>
+  <script defer src="../components.js"></script>
 </head>
-
-
 <body>
 
-    <a href="#main-content" class="skip-link">Skip to content</a>
+  <nav></nav>
 
-    <nav class="nav" role="navigation" aria-label="Main navigation">
-    <a class="nav-logo" href="/">Home</a>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-    <ul class="nav-links">
-        
-        <li>
-            <a href="/about">About</a>
-        </li>
-        
-        <li>
-            <a href="/links">Links</a>
-        </li>
-        
-        <li>
-            <a href="/services">Services</a>
-        </li>
-        
-    </ul>
-</nav>
+  <header class="page-header">
+    <div class="page-header-inner">
+      <h1>Links</h1>
+      <p>Blogs, books, and channels I keep going back to.</p>
+    </div>
+  </header>
 
-
-    <main id="main-content">
-        
-
-
-<div class="page-content post-body">
-    <h1>Links</h1>
+  <main class="links-content">
     <div class="links-grid">
 
-<div class="links-column">
+      <div>
+        <h2>Blogs</h2>
+        <ul>
+          <li><a href="https://ryxcommar.com/" target="_blank">Ryxcommar</a></li>
+          <li><a href="https://peterbloem.nl/blog/" target="_blank">Peter Bloem</a></li>
+          <li><a href="https://gestalt.ink/" target="_blank">Gestalt</a></li>
+          <li><a href="https://offconvex.org/" target="_blank">Offconvex</a></li>
+          <li><a href="https://distill.pub/" target="_blank">Distill</a></li>
+          <li><a href="https://colah.github.io/" target="_blank">Christopher Olah</a></li>
+          <li><a href="https://maxhalford.github.io/links/" target="_blank">Max Halford</a></li>
+          <li><a href="https://explained.ai/" target="_blank">Explained.ai</a></li>
+          <li><a href="https://gwern.net/" target="_blank">Gwern</a></li>
+          <li><a href="https://guzey.com/" target="_blank">Alexey Guzey</a></li>
+          <li><a href="https://austinvernon.site/index.html" target="_blank">Austin Vernon</a></li>
+          <li><a href="https://terrytao.wordpress.com/" target="_blank">Terry Tao</a></li>
+          <li><a href="https://www.the100.ci/" target="_blank">The 100% CI</a></li>
+          <li><a href="https://danmackinlay.name/notebook/blogroll.html" target="_blank">MacKinlay</a></li>
+          <li><a href="https://leimao.github.io/blog/" target="_blank">Lei Mao</a></li>
+          <li><a href="https://vickiboykis.com/" target="_blank">Vicki Boykis</a></li>
+          <li><a href="https://near.blog/" target="_blank">Near Cyan</a></li>
+          <li><a href="https://www.countbayesie.com/" target="_blank">Count Baysie</a></li>
+          <li><a href="https://www.chenyang.co/diffusion.html" target="_blank">Chenyang</a></li>
+          <li><a href="https://www.nan.fyi/" target="_blank">Not a Number</a></li>
+          <li><a href="https://lcamtuf.substack.com/" target="_blank">lcamtuf</a></li>
+          <li><a href="https://iamakulov.com/notes/" target="_blank">Ivan Akulov</a></li>
+          <li><a href="https://www.benkuhn.net/" target="_blank">Ben Kuhn</a></li>
+          <li><a href="https://www.seangoedecke.com/" target="_blank">Sean Goedecke</a></li>
+          <li><a href="https://dynomight.net/" target="_blank">Dynomight</a></li>
+          <li><a href="https://slimemoldtimemold.com/" target="_blank">Slime Mold</a></li>
+          <li><a href="https://www.alexcrompton.com/" target="_blank">Alex Crompton</a></li>
+          <li><a href="https://magazine.sebastianraschka.com/" target="_blank">Sebastian Raschka</a></li>
+          <li><a href="https://desmolysium.com/" target="_blank">Desmolysium</a></li>
+        </ul>
+      </div>
 
-<h2 id="Blogs"><a href="#Blogs" class="headerlink" title="Blogs"></a>Blogs</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://ryxcommar.com/">Ryxcommar</a></li>
-<li><a target="_blank" rel="noopener" href="https://peterbloem.nl/blog/">Peter Bloem</a></li>
-<li><a target="_blank" rel="noopener" href="https://gestalt.ink/">Gestalt</a></li>
-<li><a target="_blank" rel="noopener" href="https://offconvex.org/">Offconvex</a></li>
-<li><a target="_blank" rel="noopener" href="https://distill.pub/">Distill</a></li>
-<li><a target="_blank" rel="noopener" href="https://colah.github.io/">Christopher Olah</a></li>
-<li><a target="_blank" rel="noopener" href="https://maxhalford.github.io/links/">Max Halford</a></li>
-<li><a target="_blank" rel="noopener" href="https://explained.ai/">Explained.ai</a></li>
-<li><a target="_blank" rel="noopener" href="https://gwern.net/">Gwern</a></li>
-<li><a target="_blank" rel="noopener" href="https://guzey.com/">Alexey Guzey</a></li>
-<li><a target="_blank" rel="noopener" href="https://austinvernon.site/index.html">Austin Vernon</a></li>
-<li><a target="_blank" rel="noopener" href="https://terrytao.wordpress.com/">Terry Tao</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.the100.ci/">The 100% CI</a></li>
-<li><a target="_blank" rel="noopener" href="https://danmackinlay.name/notebook/blogroll.html">MacKinlay</a></li>
-<li><a target="_blank" rel="noopener" href="https://leimao.github.io/blog/">Lei Mao</a></li>
-<li><a target="_blank" rel="noopener" href="https://vickiboykis.com/">Vicki Boykis</a></li>
-<li><a target="_blank" rel="noopener" href="https://near.blog/">Near Cyan</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.countbayesie.com/">Count Baysie</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.chenyang.co/diffusion.html">Chenyang</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.nan.fyi/">Not a Number</a></li>
-<li><a target="_blank" rel="noopener" href="https://lcamtuf.substack.com/">lcamtuf</a></li>
-<li><a target="_blank" rel="noopener" href="https://iamakulov.com/notes/">Ivan Akulov</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.benkuhn.net/">Ben Kuhn</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.seangoedecke.com/">Sean Goedecke</a></li>
-<li><a target="_blank" rel="noopener" href="https://dynomight.net/">Dynomight</a></li>
-<li><a target="_blank" rel="noopener" href="https://slimemoldtimemold.com/">Slime Mold</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.alexcrompton.com/">Alex Crompton</a></li>
-<li><a target="_blank" rel="noopener" href="https://magazine.sebastianraschka.com/">Sebastian Raschka</a></li>
-<li><a target="_blank" rel="noopener" href="https://desmolysium.com/">Desmolysium</a></li>
-</ul>
-</div>
+      <div>
+        <h2>Books</h2>
+        <ul>
+          <li><a href="https://otexts.com/fpp3/" target="_blank">Forecasting Principles and Practice</a></li>
+          <li><a href="https://hastie.su.domains/Papers/ESLII.pdf" target="_blank">Elements of Statistical Learning</a></li>
+          <li><a href="https://mml-book.github.io/book/mml-book.pdf" target="_blank">Mathematics for Machine Learning</a></li>
+          <li><a href="http://incompleteideas.net/book/the-book-2nd.html" target="_blank">RL: An Introduction</a></li>
+          <li><a href="https://calculusmadeeasy.org/" target="_blank">Calculus made Easy</a></li>
+          <li><a href="https://peterbloem.nl/publications/unraveling-pca" target="_blank">Unraveling PCA</a></li>
+          <li><a href="https://a.co/d/03L8rkeU" target="_blank">Proofs and Refutations</a></li>
+          <li><a href="https://www.dspguide.com/ch1/1.htm" target="_blank">DSP Guide</a></li>
+        </ul>
 
-<div class="links-column">
+        <h2>YouTube</h2>
+        <ul>
+          <li><a href="https://www.youtube.com/@AndrejKarpathy" target="_blank">Karpathy</a></li>
+          <li><a href="https://www.youtube.com/@Eigensteve" target="_blank">Steve Brunton</a></li>
+          <li><a href="https://www.youtube.com/@umarjamilai" target="_blank">Umar Jamil</a></li>
+          <li><a href="https://www.youtube.com/@GPUMODE" target="_blank">GPU Mode</a></li>
+        </ul>
+      </div>
 
-<h2 id="Books"><a href="#Books" class="headerlink" title="Books"></a>Books</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://otexts.com/fpp3/">Forecasting Principles and Practice</a></li>
-<li><a target="_blank" rel="noopener" href="https://hastie.su.domains/Papers/ESLII.pdf">Elements of Statistical Learning</a></li>
-<li><a target="_blank" rel="noopener" href="https://mml-book.github.io/book/mml-book.pdf">Mathematics for Machine Learning</a></li>
-<li><a target="_blank" rel="noopener" href="http://incompleteideas.net/book/the-book-2nd.html">RL: An Introduction</a></li>
-<li><a target="_blank" rel="noopener" href="https://calculusmadeeasy.org/">Calculus made Easy</a></li>
-<li><a target="_blank" rel="noopener" href="https://peterbloem.nl/publications/unraveling-pca">Unraveling PCA</a></li>
-<li>Proofs and Refutations</li>
-<li><a target="_blank" rel="noopener" href="https://www.dspguide.com/ch1/1.htm">DSP Guide</a></li>
-</ul>
-<h2 id="YouTube"><a href="#YouTube" class="headerlink" title="YouTube"></a>YouTube</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://www.youtube.com/@AndrejKarpathy">Karpathy</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.youtube.com/@Eigensteve">Steve Brunton</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.youtube.com/@umarjamilai">Umar Jamil</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.youtube.com/@GPUMODE">GPU Mode</a></li>
-</ul>
-</div>
-
-</div>
-
-</div>
-
-
-    </main>
-
-    <footer class="site-footer" role="contentinfo">
-    <span>© 2026 loreley · Amsterdam</span>
-    <div class="footer-links">
-        <a href="https://loreley.one/atom.xml">RSS</a>
-        <a href="https://github.com/BasedLukas" target="_blank" rel="noopener">GitHub</a>
-        
-        <a href="https://x.com/LukasBogacz" target="_blank" rel="noopener">Twitter</a>
     </div>
-</footer>
+  </main>
 
+  <div class="footer-outer">
+  <footer></footer>
+  </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-yaml.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-rust.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-c.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-cpp.min.js"></script>
-
-
-<script src="/js/main.js"></script>
-
-
-<script defer="" src="/js/analytics.js" data-host="https://api.tinybird.co" data-token="p.eyJ1IjogImYxMGY0NmY5LWI2MTQtNGY3Mi1hNWRkLTJkZWMyZTYzOGU0ZCIsICJpZCI6ICJmM2Y3MDk5Ny03YTZiLTRlYzUtYTdkNC01ZTVkMmY1ZjZjMDcifQ.uBS7CItgVesD7IqUpKSyA_g6UNTH-YHuH3-XfpWy1o0"></script>
-
-
-
-
-
-</body></html>
+</body>
+</html>

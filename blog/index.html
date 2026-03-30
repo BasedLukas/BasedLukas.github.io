@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Loreley</title>
+  <meta name="description" content="Writing by Lukas Bogacz on building products, AI, and the founder journey.">
+  <link rel="icon" href="../assets/favicon.ico">
+  <link rel="canonical" href="https://loreley.one/blog/">
+  <meta property="og:title" content="Blog — Loreley">
+  <meta property="og:site_name" content="Loreley">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://loreley.one/blog/">
+  <meta property="og:description" content="Writing by Lukas Bogacz on building products, AI, and the founder journey.">
+  <meta property="og:image" content="https://loreley.one/assets/og-image.png">
+  <meta name="twitter:image" content="https://loreley.one/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Blog — Loreley">
+  <meta name="twitter:description" content="Writing by Lukas Bogacz on building products, AI, and the founder journey.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../base.css">
+  <style>
+    .blog-list { max-width: 720px; margin: 0 auto; padding: 1rem 2rem 6rem; }
+    .blog-post { display: block; text-decoration: none; color: inherit; padding: 2.5rem 1.5rem; border-bottom: 1px solid var(--rule); border-radius: 8px; transition: background 0.25s, padding-left 0.25s; }
+    .blog-post:first-child { border-top: none; }
+    .blog-post:hover { background: var(--cream-dark); padding-left: 2rem; }
+    .blog-post .post-date { font-size: 0.78rem; font-weight: 500; color: var(--sepia); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .blog-post h2 { font-family: var(--serif); font-size: 1.5rem; font-weight: 500; line-height: 1.35; margin-bottom: 0.6rem; color: var(--charcoal); }
+    .blog-post .post-excerpt { color: var(--charcoal-light); font-size: 0.92rem; line-height: 1.75; max-width: 560px; }
+    .blog-post .post-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+    .blog-post .post-tags span { font-size: 0.72rem; font-weight: 500; color: var(--sepia); background: rgba(139, 115, 85, 0.08); padding: 0.25rem 0.7rem; border-radius: 4px; letter-spacing: 0.04em; }
+
+    @media (max-width: 768px) {
+      .blog-list { padding: 0.5rem 1.5rem 4rem; }
+      .blog-post { padding: 2rem 1rem; }
+      .blog-post:hover { padding-left: 1.5rem; }
+      .blog-post h2 { font-size: 1.25rem; }
+    }
+  </style>
+  <script defer src="../components.js"></script>
+</head>
+<body>
+
+  <nav></nav>
+
+  <header class="page-header">
+    <div class="page-header-inner">
+      <h1>Blog</h1>
+      <p>Writing on building products, AI tools, and the founder journey.</p>
+    </div>
+  </header>
+
+  <main class="blog-list">
+
+    <a class="blog-post" href="../2024-12-wasm/">
+      <div class="post-date">December 2024</div>
+      <h2>WebAssembly in Action: A CPU Emulator That Runs in the Browser</h2>
+      <p class="post-excerpt">Bundling a full Python interpreter with WASM to create an interactive logic gate puzzle</p>
+      <div class="post-tags">
+        <span>WASM</span>
+        <span>Python</span>
+        <span>Computer Science</span>
+      </div>
+    </a>
+
+    <a class="blog-post" href="../2024-09-pca/">
+      <div class="post-date">September 2024</div>
+      <h2>Book Review: Unraveling Principal Component Analysis</h2>
+      <p class="post-excerpt">A proof should be an epiphany from the Gods, not a coded message from the Pentagon</p>
+      <div class="post-tags">
+        <span>Statistics</span>
+        <span>Linear Algebra</span>
+        <span>Book Review</span>
+      </div>
+    </a>
+
+    <a class="blog-post" href="../2024-06-acdl/">
+      <div class="post-date">June 2024</div>
+      <h2>What I Learned at Italy's ACDL Summer School</h2>
+      <p class="post-excerpt">A week of diffusion models, multimodal AI, and beach conversations on the Tuscan coast</p>
+      <div class="post-tags">
+        <span>Machine Learning</span>
+        <span>Conference</span>
+      </div>
+    </a>
+
+    <a class="blog-post" href="../2024-03-double_q/">
+      <div class="post-date">March 2024</div>
+      <h2>Why Q-Learning Fails (and How Double Q-Learning Fixes It)</h2>
+      <p class="post-excerpt">Understanding maximization bias in reinforcement learning.</p>
+      <div class="post-tags">
+        <span>Python</span>
+        <span>Models</span>
+        <span>Reinforcement Learning</span>
+        <span>Probability</span>
+      </div>
+    </a>
+
+    <a class="blog-post" href="../2023-07-gzip/">
+      <div class="post-date">July 2023</div>
+      <h2>Will Gzip Replace Neural Networks for Text Classification?</h2>
+      <p class="post-excerpt">Understanding LZ77 and Huffman encoding, and where compression-based classification breaks down</p>
+      <div class="post-tags">
+        <span>Python</span>
+        <span>Models</span>
+        <span>NLP</span>
+      </div>
+    </a>
+
+    <a class="blog-post" href="../2023-07-cpu/">
+      <div class="post-date">July 2023</div>
+      <h2>Designing a Simple 8 Bit CPU Emulator in Python</h2>
+      <p class="post-excerpt">No if statements, no control flow — just NAND gates and boolean logic all the way up</p>
+      <div class="post-tags">
+        <span>Python</span>
+        <span>Computer Science</span>
+      </div>
+    </a>
+
+    <a class="blog-post" href="../2023-06-monte_carlo/">
+      <div class="post-date">July 2023</div>
+      <h2>Waltzing With Chance</h2>
+      <p class="post-excerpt">A brief introduction to Monte Carlo simulations in python.</p>
+      <div class="post-tags">
+        <span>Python</span>
+        <span>Probability</span>
+      </div>
+    </a>
+
+    <a class="blog-post" href="../2023-03-embeddings/">
+      <div class="post-date">March 2023</div>
+      <h2>Text Vectorization</h2>
+      <p class="post-excerpt">A beginner's tutorial on embeddings, cosine similarity, and how language models capture meaning in vectors</p>
+      <div class="post-tags">
+        <span>Python</span>
+        <span>Models</span>
+        <span>NLP</span>
+      </div>
+    </a>
+
+    <a class="blog-post" href="../2022-06-tpe/">
+      <div class="post-date">June 2022</div>
+      <h2>Therapeutic Plasma Exchange</h2>
+      <p class="post-excerpt">Exploring what parabiosis and plasma dilution research tell us about aging</p>
+      <div class="post-tags">
+        <span>Longevity</span>
+      </div>
+    </a>
+
+  </main>
+
+  <div class="footer-outer">
+  <footer></footer>
+  </div>
+
+</body>
+</html>
