@@ -91,7 +91,7 @@ nav a:hover {
   content: '';
   position: absolute;
   inset: 0;
-  background: url('assets/hero.png') center center / cover no-repeat;
+  background: url('assets/hero.webp') center center / cover no-repeat;
   z-index: 0;
 }
 
