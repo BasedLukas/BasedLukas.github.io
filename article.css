@@ -1,0 +1,319 @@
+/* ==============================================
+   ARTICLE.CSS — shared by all blog posts
+   Loaded alongside base.css
+   ============================================== */
+
+:root {
+  --mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+}
+
+/* ARTICLE HEADER */
+.article-header {
+  background: var(--cream-dark);
+  border-bottom: 1px solid var(--rule);
+}
+
+.article-header-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 8rem 2rem 3.5rem;
+}
+
+.article-header .post-meta {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--sepia);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.article-header h1 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+}
+
+.article-header .post-subtitle {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--charcoal-mid);
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.7;
+  max-width: 560px;
+}
+
+/* POST TAGS */
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.post-tags span {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--sepia);
+  background: rgba(139, 115, 85, 0.1);
+  padding: 0.25rem 0.7rem;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+}
+
+/* ARTICLE BODY */
+.article-body {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 2rem 6rem;
+}
+
+.article-body p {
+  color: var(--charcoal-mid);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.85;
+}
+
+.article-body a {
+  color: var(--sepia);
+  text-decoration: underline;
+  text-decoration-color: var(--sepia-light);
+  text-underline-offset: 0.15em;
+  transition: color 0.2s;
+}
+
+.article-body a:hover {
+  color: var(--charcoal);
+}
+
+.article-body h2 {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  margin-top: 3rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.article-body h3 {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  margin-top: 2.25rem;
+  margin-bottom: 1rem;
+}
+
+.article-body h4 {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--charcoal-mid);
+  letter-spacing: 0.03em;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+/* INLINE CODE */
+.article-body code {
+  font-family: var(--mono);
+  font-size: 0.85em;
+  background: rgba(139, 115, 85, 0.08);
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+  color: var(--charcoal);
+}
+
+/* CODE BLOCKS */
+.article-body pre {
+  background: var(--charcoal);
+  color: #e0ddd5;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.75rem;
+  overflow-x: auto;
+  line-height: 1.6;
+}
+
+.article-body pre code {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  background: none;
+  padding: 0;
+  color: inherit;
+  border-radius: 0;
+}
+
+.code-label {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--charcoal-light);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.03em;
+}
+
+/* Syntax colors (minimal, warm palette) */
+.kw { color: #d4a574; }
+.fn { color: #c9b89a; }
+.st { color: #a8c490; }
+.cm { color: #6b6b6b; }
+.nu { color: #d4a574; }
+.op { color: #b5a48a; }
+.bi { color: #c9b89a; }
+
+/* BLOCKQUOTE */
+.article-body blockquote {
+  border-left: 2px solid var(--sepia-light);
+  padding: 1rem 0 1rem 1.75rem;
+  margin: 2rem 0;
+  background: rgba(139, 115, 85, 0.04);
+  border-radius: 0 6px 6px 0;
+}
+
+.article-body blockquote p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--charcoal-mid);
+  margin-bottom: 0.5rem;
+  line-height: 1.75;
+}
+
+.article-body blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.article-body blockquote cite {
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: 0.8rem;
+  color: var(--sepia);
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.article-body blockquote cite a {
+  color: var(--sepia);
+  font-size: 0.8rem;
+}
+
+/* LISTS */
+.article-body ul, .article-body ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.article-body li {
+  color: var(--charcoal-mid);
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.75;
+}
+
+.article-body li code {
+  font-size: 0.83em;
+}
+
+/* IMAGES */
+.article-body figure {
+  margin: 2.5rem 0;
+}
+
+.article-body figure img {
+  width: 100%;
+  border-radius: 6px;
+  display: block;
+  border: 1px solid var(--rule);
+}
+
+.article-body figcaption {
+  font-size: 0.8rem;
+  color: var(--charcoal-light);
+  text-align: center;
+  margin-top: 0.75rem;
+  font-style: italic;
+}
+
+.article-body figcaption a {
+  font-size: 0.8rem;
+}
+
+/* MATH */
+.article-body .katex-display {
+  margin: 1.75rem 0;
+  overflow-x: auto;
+  padding: 0.5rem 0;
+}
+
+/* HORIZONTAL RULE */
+.article-body hr {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 3rem 0;
+}
+
+/* REFERENCES */
+.references {
+  margin-top: 1rem;
+}
+
+.references a {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--sepia);
+  word-break: break-all;
+  margin-bottom: 0.35rem;
+  line-height: 1.6;
+}
+
+/* BACK LINK */
+.back-link {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--sepia);
+  text-decoration: none;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--rule);
+  transition: color 0.2s;
+}
+
+.back-link:hover {
+  color: var(--charcoal);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .article-header-inner {
+    padding: 6.5rem 1.5rem 2.5rem;
+  }
+
+  .article-body {
+    padding: 2rem 1.5rem 4rem;
+  }
+
+  .article-body pre {
+    border-radius: 0;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .article-body figure {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+  }
+
+  .article-body figure img {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+}

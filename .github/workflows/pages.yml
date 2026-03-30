@@ -3,7 +3,7 @@ name: Pages
 on:
   push:
     branches:
-      - master  # default branch
+      - master
 
 jobs:
   pages:
@@ -11,30 +11,9 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          # If your repository depends on submodule, please see: https://github.com/actions/checkout
-          submodules: recursive
-      - name: Use Node.js 20.x
-        uses: actions/setup-node@v2
-        with:
-          node-version: '20'
-      - name: Cache NPM dependencies
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: ${{ runner.OS }}-npm-cache
-          restore-keys: |
-            ${{ runner.OS }}-npm-cache
-      - name: Install Dependencies
-        run: npm install
-      - name: Build
-        run: npm run build
-      - name: Optimize Site
-        run: npx @divriots/jampack ./public
+      - uses: actions/checkout@v4
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          publish_dir: ./

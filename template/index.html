@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attention is not all you need — Loreley</title>
+  <meta name="description" content="Why the original transformer attention mechanism breaks down at scale, and what we actually do about it.">
+  <link rel="icon" href="../assets/favicon.ico">
+  <link rel="canonical" href="https://loreley.one/template/">
+  <meta property="og:title" content="Attention is not all you need — Loreley">
+  <meta property="og:site_name" content="Loreley">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://loreley.one/template/">
+  <meta property="og:description" content="Why the original transformer attention mechanism breaks down at scale, and what we actually do about it.">
+  <meta property="og:image" content="https://loreley.one/assets/og-image.png">
+  <meta name="twitter:image" content="https://loreley.one/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Attention is not all you need — Loreley">
+  <meta name="twitter:description" content="Why the original transformer attention mechanism breaks down at scale, and what we actually do about it.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="../article.css">
+  <script defer src="../components.js"></script>
+</head>
+<body>
+
+  <nav></nav>
+
+  <header class="article-header">
+    <div class="article-header-inner">
+      <div class="post-meta">March 2026 &middot; 8 min read</div>
+      <h1>Attention is not all you need</h1>
+      <p class="post-subtitle">Why vanilla self-attention breaks down at scale, and what we actually do about it in production.</p>
+      <div class="post-tags">
+        <span>ML</span>
+        <span>Transformers</span>
+        <span>Systems</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-body">
+
+    <p>The original transformer paper is one of the most cited in ML history, and for good reason. But the mechanism it describes, vanilla scaled dot-product attention, has a problem that becomes obvious the moment you try to run it on anything longer than a few thousand tokens.</p>
+
+    <p>The cost is quadratic. For a sequence of length $n$, computing full self-attention requires $O(n^2)$ time and memory. Double the context window, quadruple the compute. This is fine for short sequences but falls apart fast.</p>
+
+    <h2>The standard formulation</h2>
+
+    <p>The attention mechanism takes three matrices (queries, keys, values) and computes a weighted sum. The formula from the original paper:</p>
+
+    $$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
+
+    <p>Where $d_k$ is the dimension of the key vectors. The $\sqrt{d_k}$ scaling factor keeps the dot products from getting too large, which would push the softmax into regions with tiny gradients.</p>
+
+    <p>A basic implementation looks like this:</p>
+
+    <div class="code-label">python</div>
+    <pre><code><span class="kw">import</span> torch
+<span class="kw">import</span> torch.nn.functional <span class="kw">as</span> F
+
+<span class="kw">def</span> <span class="fn">scaled_dot_product_attention</span>(Q, K, V, mask=<span class="kw">None</span>):
+    <span class="cm"># Q, K, V: (batch, heads, seq_len, d_k)</span>
+    d_k = Q.size(-<span class="nu">1</span>)
+    scores = torch.matmul(Q, K.transpose(-<span class="nu">2</span>, -<span class="nu">1</span>)) / d_k ** <span class="nu">0.5</span>
+
+    <span class="kw">if</span> mask <span class="kw">is not None</span>:
+        scores = scores.masked_fill(mask == <span class="nu">0</span>, <span class="kw">float</span>(<span class="st">'-inf'</span>))
+
+    weights = F.softmax(scores, dim=-<span class="nu">1</span>)
+    <span class="kw">return</span> torch.matmul(weights, V)</code></pre>
+
+    <p>Simple enough. The problem is that <code>scores</code> tensor: it's of shape <code>(batch, heads, seq_len, seq_len)</code>. With a 128k context window, that's a 128,000 x 128,000 matrix per head per batch element. You run out of memory before you run out of patience.</p>
+
+    <h2>Where it breaks</h2>
+
+    <p>I ran into this recently while building an inference pipeline for a retrieval system. The model needed to attend over long retrieved passages concatenated together. Here's roughly what the memory looks like:</p>
+
+    <ul>
+      <li>At 2,048 tokens: ~16 MB per attention layer (manageable)</li>
+      <li>At 8,192 tokens: ~256 MB per layer (tight on consumer GPUs)</li>
+      <li>At 32,768 tokens: ~4 GB per layer (most GPUs can't do this)</li>
+      <li>At 131,072 tokens: ~64 GB per layer (not happening)</li>
+    </ul>
+
+    <p>The scaling is brutal. And this is just one layer. A model with 32 layers multiplies these numbers accordingly.</p>
+
+    <blockquote>
+      <p>The real constraint on context length is not the model architecture. It's the attention matrix. Everything else in a transformer scales linearly.</p>
+      <cite>Tri Dao, FlashAttention paper (2022)</cite>
+    </blockquote>
+
+    <h2>FlashAttention: the practical fix</h2>
+
+    <p>FlashAttention doesn't change what gets computed. It changes how. Instead of materializing the full $n \times n$ attention matrix, it computes attention in tiles, keeping everything in fast SRAM and never writing the full matrix to GPU memory.</p>
+
+    <h3>The tiling approach</h3>
+
+    <p>The core idea: break Q, K, V into blocks and compute attention one block at a time. This requires a way to combine the softmax across blocks, which is the tricky part. The solution uses the online softmax trick from Milakov and Gimelshein (2018).</p>
+
+    <p>In pseudocode, the outer loop looks like this:</p>
+
+    <div class="code-label">python</div>
+    <pre><code><span class="kw">def</span> <span class="fn">flash_attention_forward</span>(Q, K, V, block_size=<span class="nu">256</span>):
+    seq_len = Q.shape[<span class="nu">0</span>]
+    output = torch.zeros_like(Q)
+    row_max = torch.full((seq_len,), <span class="kw">float</span>(<span class="st">'-inf'</span>))
+    row_sum = torch.zeros(seq_len)
+
+    <span class="kw">for</span> j <span class="kw">in</span> range(<span class="nu">0</span>, seq_len, block_size):
+        K_block = K[j : j + block_size]
+        V_block = V[j : j + block_size]
+
+        <span class="cm"># Score against this block</span>
+        scores = Q @ K_block.T / (Q.shape[-<span class="nu">1</span>] ** <span class="nu">0.5</span>)
+
+        <span class="cm"># Online softmax: update running max and sum</span>
+        block_max = scores.max(dim=-<span class="nu">1</span>).values
+        new_max = torch.maximum(row_max, block_max)
+
+        <span class="cm"># Rescale previous output and accumulate</span>
+        correction = torch.exp(row_max - new_max)
+        new_sum = correction * row_sum + torch.exp(
+            scores - new_max.unsqueeze(-<span class="nu">1</span>)
+        ).sum(dim=-<span class="nu">1</span>)
+
+        output = output * correction.unsqueeze(-<span class="nu">1</span>)
+        output += torch.exp(
+            scores - new_max.unsqueeze(-<span class="nu">1</span>)
+        ) @ V_block
+
+        row_max = new_max
+        row_sum = new_sum
+
+    <span class="kw">return</span> output / row_sum.unsqueeze(-<span class="nu">1</span>)</code></pre>
+
+    <p>This is a simplified version. The real implementation is a fused CUDA kernel that operates on SRAM tiles. But the algorithmic idea is the same: you never need to hold the full attention matrix in memory.</p>
+
+    <h3>What changes in practice</h3>
+
+    <p>The memory complexity drops from $O(n^2)$ to $O(n)$. The compute is identical, but the wall-clock time also improves because you avoid slow HBM reads and writes. On an A100, FlashAttention-2 gets about 50-73% of theoretical peak FLOPS, compared to around 25-40% for the standard implementation.</p>
+
+    <figure>
+      <img src="https://placehold.co/720x400/efe9df/3a3a3a?text=FlashAttention+Memory+Comparison" alt="Memory usage comparison between standard and flash attention across sequence lengths">
+      <figcaption>Figure 1. Memory usage comparison. Standard attention grows quadratically while FlashAttention stays roughly linear. Data from Dao et al. (2022).</figcaption>
+    </figure>
+
+    <h2>Beyond FlashAttention</h2>
+
+    <p>FlashAttention solves the memory problem but attention is still $O(n^2)$ in compute. For truly long contexts, there are approaches that reduce the computational complexity itself.</p>
+
+    <h3>Sparse attention patterns</h3>
+
+    <p>Not every token needs to attend to every other token. Local windowed attention lets each token attend to its $w$ nearest neighbors, giving $O(n \cdot w)$ cost. Models like Longformer and BigBird combine local windows with a few global tokens that attend everywhere.</p>
+
+    <h3>Linear attention</h3>
+
+    <p>If you can decompose the softmax kernel as $\text{softmax}(QK^T) \approx \phi(Q)\phi(K)^T$ for some feature map $\phi$, you can rearrange the computation:</p>
+
+    $$\text{Attention}(Q, K, V) \approx \phi(Q)\left(\phi(K)^T V\right)$$
+
+    <p>The inner product $\phi(K)^T V$ is of shape $(d, d)$ regardless of sequence length, so you compute it once in $O(n \cdot d^2)$ and then multiply each query into it. Total cost: $O(n \cdot d^2)$ instead of $O(n^2 \cdot d)$. When $n \gg d$, this is a big win.</p>
+
+    <h3>State space models</h3>
+
+    <p>Mamba and its successors sidestep attention entirely. Instead of computing pairwise interactions, they maintain a compressed state that gets updated token by token. The recurrence looks like:</p>
+
+    $$h_t = \bar{A} h_{t-1} + \bar{B} x_t$$
+    $$y_t = C h_t$$
+
+    <p>Where $\bar{A}$ and $\bar{B}$ are discretized versions of continuous parameters. This gives $O(n)$ sequential cost, but the trade-off is that you lose the ability to do arbitrary pairwise lookups. In practice, hybrid models (attention layers mixed with SSM layers) seem to do best.</p>
+
+    <h2>What I actually use</h2>
+
+    <p>For production systems I've landed on a few rules of thumb:</p>
+
+    <ol>
+      <li>If your context fits in 8k tokens, use FlashAttention and don't think about it further. The standard transformer with FlashAttention-2 is fast, well-supported, and battle-tested.</li>
+      <li>If you need 8k-128k context, use a model that was trained with grouped query attention (GQA) and FlashAttention. GQA reduces the KV cache size, which is the actual bottleneck during inference.</li>
+      <li>If you need 128k+ context, you're probably better off with a retrieval system that chunks your data and only feeds relevant pieces to the model. The quality of 200k-token context windows is still worse than good retrieval over the same data.</li>
+    </ol>
+
+    <blockquote>
+      <p>People keep asking for longer context windows. What they usually want is better retrieval.</p>
+    </blockquote>
+
+    <h2>Grouped query attention: a quick note</h2>
+
+    <p>GQA is worth understanding because it addresses a different bottleneck. In standard multi-head attention, each head has its own key and value projections. During autoregressive inference, you cache all these KV pairs. With 32 heads and 128 dimensions per head, that's $32 \times 128 \times 2 = 8192$ values cached per token per layer.</p>
+
+    <p>GQA shares key and value heads across groups of query heads. If you have 32 query heads but only 8 KV heads, your KV cache is 4x smaller. The quality loss is negligible.</p>
+
+    <div class="code-label">python</div>
+    <pre><code><span class="kw">class</span> <span class="fn">GroupedQueryAttention</span>(nn.Module):
+    <span class="kw">def</span> <span class="fn">__init__</span>(self, d_model, n_heads, n_kv_heads):
+        <span class="kw">super</span>().__init__()
+        self.n_heads = n_heads
+        self.n_kv_heads = n_kv_heads
+        self.head_dim = d_model // n_heads
+        self.n_rep = n_heads // n_kv_heads  <span class="cm"># heads per KV group</span>
+
+        self.q_proj = nn.Linear(d_model, n_heads * self.head_dim)
+        self.k_proj = nn.Linear(d_model, n_kv_heads * self.head_dim)
+        self.v_proj = nn.Linear(d_model, n_kv_heads * self.head_dim)
+        self.o_proj = nn.Linear(n_heads * self.head_dim, d_model)
+
+    <span class="kw">def</span> <span class="fn">forward</span>(self, x):
+        B, L, _ = x.shape
+        Q = self.q_proj(x).view(B, L, self.n_heads, self.head_dim)
+        K = self.k_proj(x).view(B, L, self.n_kv_heads, self.head_dim)
+        V = self.v_proj(x).view(B, L, self.n_kv_heads, self.head_dim)
+
+        <span class="cm"># Repeat KV heads to match query head count</span>
+        K = K.repeat_interleave(self.n_rep, dim=<span class="nu">2</span>)
+        V = V.repeat_interleave(self.n_rep, dim=<span class="nu">2</span>)
+
+        <span class="cm"># Standard attention from here</span>
+        <span class="kw">return</span> self.o_proj(attention(Q, K, V))</code></pre>
+
+    <hr>
+
+    <p>None of this is secret knowledge. The papers are all public, the implementations are in PyTorch and Triton. But it took me a while to build intuition for which approach to reach for in which situation. The answer is almost always: use FlashAttention, keep your context reasonable, and reach for retrieval before reaching for a longer context window.</p>
+
+    <a class="back-link" href="../blog/">&larr; Back to all posts</a>
+
+  </main>
+
+  <div class="footer-outer">
+  <footer></footer>
+  </div>
+
+</body>
+</html>
