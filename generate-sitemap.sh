@@ -21,16 +21,16 @@ cat >> "$OUT" <<EOF
   </url>
 EOF
 
-# Find all index.html files in subdirectories, skip template/
-find "$DIR" -mindepth 2 -name "index.html" -not -path "*/template/*" -not -path "*/.git/*" | sort | while read -r file; do
+# Find all index.html files in subdirectories, skip template/ and legacy redirects.
+find "$DIR" -mindepth 2 -name "index.html" -not -path "*/template/*" -not -path "*/blog/*" -not -path "*/.git/*" | sort | while read -r file; do
   # Get path relative to site root
   rel="${file#$DIR/}"
-  # Directory path (e.g. blog/index.html -> blog/)
+  # Directory path (e.g. projects/index.html -> projects/)
   slug="${rel%index.html}"
 
   # Determine priority: section pages higher than posts
   case "$slug" in
-    blog/|links/) priority="0.8" ;;
+    links/|projects/) priority="0.8" ;;
     *)            priority="0.6" ;;
   esac
 
